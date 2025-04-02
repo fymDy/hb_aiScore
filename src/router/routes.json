@@ -31,6 +31,14 @@
         "children": []
       },
       {
+        "path": "/main/others",
+        "name": "others",
+        "author": false,
+        "index": false,
+        "component": "main/others/index.tsx",
+        "children": []
+      },
+      {
         "path": "/main/tennis",
         "name": "tennis",
         "author": false,
