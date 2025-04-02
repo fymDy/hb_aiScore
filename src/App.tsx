@@ -1,4 +1,4 @@
-import { createContext, Suspense, useRef, useState } from 'react'
+import { createContext, Suspense, useContext, useRef, useState } from 'react'
 
 import routes from './router';
 import { RouterProvider } from 'react-router-dom';
@@ -24,3 +24,11 @@ function App() {
 }
 
 export default App
+
+export const useApp=()=>{
+  const layoutApp=useContext(LayoutContext);
+  if (!layoutApp) {
+    throw new Error('useApp must be used within an LayoutContext')
+  }
+  return layoutApp
+}

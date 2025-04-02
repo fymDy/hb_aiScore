@@ -6,10 +6,13 @@ html {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE 10+ */
   user-select: none; /* Standard syntax */
+  max-width:var(--safe-html-max-width);
+  min-width: var(--safe-html-min-width);
+  margin:0 auto;
+  
   }
 body {
-    min-width: 320px; /* 限制最小宽度 */
-    max-width: 1024px; /* 限制最大宽度 */
+  box-sizing: border-box;  
 }
 
 

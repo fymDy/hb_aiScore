@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-24 14:28:45
- * @LastEditTime: 2025-04-01 23:55:04
+ * @LastEditTime: 2025-04-02 19:13:40
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore_h5/src/utils/common.ts
+ * @FilePath: /hb_aiScore/src/utils/common.ts
  */
 
 import { EnumBreakpoints, EnumCustomerSize, EnumDeviceType } from "@/enum";
@@ -40,7 +40,7 @@ function getUADeviceType(): IFDeviceType {
  * @returns 
  */
 export function isMobile(width:number) {
-    if (width <= 767 ) {///Mobile|Android|iPhone|iPod/.test(ua) 
+    if (width <= 768 ) {///Mobile|Android|iPhone|iPod/.test(ua) 
       return true; // 手机端
     }else{
       return false
@@ -51,7 +51,7 @@ export function isMobile(width:number) {
    * @returns 
    */
   export function isTablet(width:number) {
-    if ( (width > 767 && width <= 1024)) {// /iPad|Tablet|Nexus 7|Nexus 10|KFAPWI/i.test(ua) 
+    if ( (width > 768 && width <= 1024)) {// /iPad|Tablet|Nexus 7|Nexus 10|KFAPWI/i.test(ua) 
       return true// 平板端
     }else{
      return false
@@ -71,9 +71,10 @@ export function getDeviceType(width:number){
   }
 }
 
-  export function setRootFontSize(fontSize:number,deviceRatio:number) {
-    document.documentElement.style.fontSize=fontSize+'px';
-    document.documentElement.setAttribute('data-dpr',deviceRatio.toFixed(1));
+  export function setRootFontSize(fontSize:number) {
+
+    document.documentElement.style.fontSize = `${fontSize}px`;
+
   }
 
   /**
