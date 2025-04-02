@@ -1,13 +1,5 @@
 [
   {
-    "path": "/aa",
-    "name": "aa",
-    "author": true,
-    "index": false,
-    "component": "aa/index.tsx",
-    "children": []
-  },
-  {
     "path": "/main",
     "name": "main",
     "author": false,
@@ -20,6 +12,14 @@
         "author": false,
         "index": false,
         "component": "main/basketball/index.tsx",
+        "children": []
+      },
+      {
+        "path": "/main/favorite",
+        "name": "favorite",
+        "author": false,
+        "index": false,
+        "component": "main/favorite/index.tsx",
         "children": []
       },
       {

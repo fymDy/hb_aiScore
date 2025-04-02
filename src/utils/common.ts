@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-24 14:28:45
- * @LastEditTime: 2025-04-02 19:13:40
+ * @LastEditTime: 2025-04-02 23:14:59
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/utils/common.ts
@@ -70,6 +70,19 @@ export function getDeviceType(width:number){
     return EnumDeviceType.Pc
   }
 }
+/**
+ * 判断设备类型
+ * @returns 
+ */
+export function getRatioType(width:number){
+  if(isMobile(width)){
+    return 3
+  }else if(isTablet(width)){
+    return 2
+  }else{
+    return 1
+  }
+}
 
   export function setRootFontSize(fontSize:number) {
 
@@ -92,4 +105,6 @@ export function addEventListenerResize(flag='resize',callback:any){
 export function removeEventListenerResize(flag='resize',callback:any){
     window.removeEventListener(flag, callback);
   }
-  
+  export const pxToRem = (px: number): string => {
+    return `${px / 10}rem`;
+  };

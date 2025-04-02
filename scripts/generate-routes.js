@@ -5,6 +5,7 @@ const path = require('path');
 const VIEWS_DIR = path.join(__dirname, '..', 'src','views'); // 视图文件根目录
 const OUTPUT_DIR = path.join(__dirname, '..', 'src', 'router'); // 路由配置文件输出目录
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'routes.json'); // 路由配置文件输出路径
+const OUTPUT_ENUM_FILE = path.join(OUTPUT_DIR, 'routerPathUtil.ts'); // 路由枚举文件输出路径
 
 /**
  * 异步提取 routerConfig.ts 文件中的路由配置
@@ -163,7 +164,52 @@ async function writeRoutesToFile(routes, outputFile) {
     console.error(`[ERROR] 写入路由文件时发生错误:`, error);
   }
 }
+/**
+ * 异步生成路由路径枚举
+ * @param {Array} routes 路由配置数组
+ * @param {string} outputFile 输出文件路径
+ */
+async function generateRoutePathEnum(routes, outputFile) {
+  try {
+    const enumEntries = {};
 
+    function traverseRoutes(routeArray) {
+      routeArray.forEach(route => {
+        if (route.path) {
+          // 将路径转换为合法的枚举 key，例如：/user/profile -> USER_PROFILE
+          const enumKey = route.path
+            .replace(/^\//, '') // 移除开头的斜杠
+            .replace(/[:.]/g, '') // 移除冒号和点
+            .replace(/\//g, '_') // 将斜杠替换为下划线
+            .replace(/-/g, '_') // 将横杠连字符替换为下划线
+            .toUpperCase();
+          enumEntries[enumKey] = route.path;
+        }
+        if (route.children && route.children.length > 0) {
+          traverseRoutes(route.children);
+        }
+      });
+    }
+
+    traverseRoutes(routes);
+
+    let enumContent = 'export enum RouterPathUtil {\n';
+    for (const key in enumEntries) {
+      enumContent += `  ${key} = '${enumEntries[key]}',\n`;
+    }
+    enumContent += '}\n';
+
+    // 确保输出目录存在
+    await fs.mkdir(path.dirname(outputFile), { recursive: true });
+
+    // 写入枚举文件
+    await fs.writeFile(outputFile, enumContent, 'utf8');
+    console.log(`[LOG] 路由路径枚举已写入到: ${outputFile}`);
+
+  } catch (error) {
+    console.error(`[ERROR] 生成路由路径枚举时发生错误:`, error);
+  }
+}
 // 主执行逻辑
 async function main() {
   try {
@@ -171,6 +217,8 @@ async function main() {
     const finalRoutes = await generateRoutes(VIEWS_DIR, '/');
     // 将生成的路由配置写入到指定的 JSON 文件
     await writeRoutesToFile(finalRoutes, OUTPUT_FILE);
+    // 根据生成的路由配置生成路由路径枚举
+    await generateRoutePathEnum(finalRoutes, OUTPUT_ENUM_FILE);
   } catch (error) {
     console.error(`[ERROR] 主程序执行过程中发生错误:`, error);
   }
