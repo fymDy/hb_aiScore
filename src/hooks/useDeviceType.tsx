@@ -34,7 +34,6 @@ function calculateDeviceInfo(viewportWidth:number): IFDeviceTypeInfo {
 
   
   const fontSize= viewportWidth  /  37.5
-  console.log('viewportWidth',viewportWidth)
   return {
     deviceType,
     fontSize: fontSize ,
@@ -42,8 +41,8 @@ function calculateDeviceInfo(viewportWidth:number): IFDeviceTypeInfo {
   };
 }
   function calViewWidth(){
-  const w= window.innerWidth > 1280 ? 1280 : window.innerWidth < 320 ? 320  : window.innerWidth;
-  console.log('calViewWidth w---------',w)
+  // const w= window.innerWidth > 1280 ? 1280 : window.innerWidth < 320 ? 320  : window.innerWidth;
+  const w= window.innerWidth > 1024 ? 1024 : window.innerWidth < 320 ? 320  : window.innerWidth;
   return w
   }
 // hook：返回信息并自动设置 <html> 的 font-size
@@ -52,7 +51,6 @@ export function useDeviceType(): IFDeviceTypeInfo {
  
   const [info, setInfo] = useState<IFDeviceTypeInfo>(() =>{
     const w=calViewWidth()
-    console.log('init w---------',w)
     return calculateDeviceInfo(w)
   });
   useEffect(() => {

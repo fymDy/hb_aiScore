@@ -15,27 +15,19 @@ function checkIsPC() {
       const isPC = window.innerWidth > 1024 // 假设宽度大于1024px的为PC端
       return isPC
     }
-
-
     function updateHtmlWidth() {
       if (window.isInThirdPageGame) {
         return
       }
       if (checkIsPC()) {
-        // var rate = 430 / 932
-        // var newWidth = rate * window.innerHeight + 50
-        var newWidth = 1366
         document.documentElement.style.margin = 'auto'
         document.documentElement.style.setProperty(
-          '--safe-html-max-width',
-          newWidth + 'px'
+          '--safe-html-max-width','1024px'
         )
-        // document.documentElement.style.contain = 'content'
       } else {
         //TODO 移动端则还原之前的属性设置
         document.documentElement.style.width = '' // 清除宽度设置
         document.documentElement.style.margin = '' // 清除margin设置
-        // document.documentElement.style.contain = ''
         document.documentElement.style.setProperty(
           '--safe-html-min-width',
           '320px'
