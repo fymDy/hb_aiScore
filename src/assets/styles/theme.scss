@@ -1,0 +1,14 @@
+@import './_variables.scss';
+:root {
+    --bg-color-0: #{$bg-303030};
+    --bg-color-1: #{$bg-0f80da};
+    //
+    --font-color-0: #{$color-fff};
+    --font-color-1: #{$color-333};
+    --font-color-2: #{$color-000};
+    --font-color-3: #{$color-b7b7b7};
+    --font-color-4: #{$color-ffe000};
+    --font-color-5: #{$color-9fccf0};
+    
+    // ... 其他颜色变量
+  }

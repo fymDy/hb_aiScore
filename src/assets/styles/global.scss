@@ -1,0 +1,381 @@
+
+
+  @font-face {
+    font-family: iconfont;
+    src:  url('../fonts/iconfont.efefefb.woff2') format("woff2"),url('../fonts/iconfont.ef0a764.woff2') format("woff2")
+  }
+
+  @font-face {
+    font-family: Roboto-Medium;
+    src:url('../fonts/Roboto-Medium.d2d7f0c.ttf') format("truetype");
+    font-display: swap
+  }
+  @font-face {
+    font-family: Roboto-Regular;
+    src:url('../fonts/Roboto-Regular.5d58a0a.ttf') format("truetype");
+    font-display: swap
+  }
+
+//   @font-face {
+//     font-weight: 400;
+//     font-family: vant-icon;
+//     font-style: normal;
+//     font-display: swap;
+//     src: url(https://img.yzcdn.cn/vant/vant-icon-6ae417.woff2) format("woff2"),url(https://img.yzcdn.cn/vant/vant-icon-6ae417.woff) format("woff"),url(https://img.yzcdn.cn/vant/vant-icon-6ae417.ttf) format("truetype")
+// }
+
+
+div, span:not(.iconfont) {
+    font-family: Roboto-Regular, Roboto !important;
+  }
+
+  .iconfont {
+    font-family: iconfont !important; /* 确保使用你定义的字体名称 */
+    font-size: 1rem; /* 使用 rem 单位更灵活，可以根据根字体大小调整 */
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+
+
+  .icon-xuanzhong1::before {
+    content: "\e950"
+}
+
+.icon-Mzhan-shezhi-shiqu::before {
+    content: "\e951"
+}
+
+.icon-Aiscore::before {
+    content: "\e94e"
+}
+
+.icon-Mzhan-shezhi-qiehuanyuyan::before {
+    content: "\e94d"
+}
+
+.icon-Mzhan-shezhi-yejian::before {
+    content: "\e948"
+}
+
+.icon-Mzhan-shezhi-liuhang::before {
+    content: "\e949"
+}
+
+.icon-Mzhan-shezhi-xihuan::before {
+    content: "\e94a"
+}
+
+.icon-Mzhan-shezhi-peishuaiyangshi::before {
+    content: "\e94c"
+}
+
+.icon-a-shezhi-yixuanzhong1::before {
+    content: "\e947"
+}
+
+.icon-shezhi-weixuanzhong::before {
+    content: "\e945"
+}
+
+.icon-rili1::before {
+    content: "\e946"
+}
+
+.icon-jiantou::before {
+    content: "\e944"
+}
+
+.icon-pingju::before {
+    content: "\e942"
+}
+
+.icon-xuanzhong::before {
+    content: "\e943"
+}
+
+.icon-caidan::before {
+    content: "\e941"
+}
+
+.icon-xiajiang::before {
+    content: "\e93f"
+}
+
+.icon-shangsheng::before {
+    content: "\e940"
+}
+
+.icon-dianji::before {
+    content: "\e93e"
+}
+
+.icon-data::before {
+    content: "\e93d"
+}
+
+.icon-thesports::before {
+    content: "\e93c"
+}
+
+.icon-lianghuangyihong::before {
+    content: "\e93b"
+}
+
+.icon-dianqiuweijin::before {
+    content: "\e93a"
+}
+
+.icon-hongpai::before {
+    content: "\e938"
+}
+
+.icon-dianqiujinqiu::before {
+    content: "\e939"
+}
+
+.icon-jinqiu::before {
+    content: "\e937"
+}
+
+.icon-wulongqiu::before {
+    content: "\e936"
+}
+
+.icon-suo::before {
+    content: "\e935"
+}
+
+.icon-qiuyuan1::before {
+    content: "\e934"
+}
+
+.icon-lajitong::before {
+    content: "\e930"
+}
+
+.icon-qiudui::before {
+    content: "\e931"
+}
+
+.icon-saishi::before {
+    content: "\e932"
+}
+
+.icon-qiuyuan::before {
+    content: "\e933"
+}
+
+.icon-quxiaoshoucang::before {
+    content: "\e924"
+}
+
+.icon-lanqiu-yixuanzhong1::before {
+    content: "\e92f"
+}
+
+.icon-renshu::before {
+    content: "\e92e"
+}
+
+.icon-jinhangzhong::before {
+    content: "\e92d"
+}
+
+.icon-pingpangqiu::before {
+    content: "\e928"
+}
+
+.icon-bangqiu-gunzi::before {
+    content: "\e929"
+}
+
+.icon-banqiu-banzi::before {
+    content: "\e92a"
+}
+
+.icon-wangqiu::before {
+    content: "\e92b"
+}
+
+.icon-yumaoqiu::before {
+    content: "\e92c"
+}
+
+.icon-paiqiu-yixuanzhong::before {
+    content: "\e927"
+}
+
+.icon-shuiqiu-yixuanzhong::before {
+    content: "\e925"
+}
+
+.icon-wangqiu-yixuanzhong::before {
+    content: "\e926"
+}
+
+.icon-banqiu-yixuanzhong::before {
+    content: "\e91a"
+}
+
+.icon-bingqiu-yixuanzhong::before {
+    content: "\e91b"
+}
+
+.icon-dianjing-yixuanzhong::before {
+    content: "\e91c"
+}
+
+.icon-ganlanqiu-yixuanzhong::before {
+    content: "\e91d"
+}
+
+.icon-bangqiu-yixuanzhong::before {
+    content: "\e91e"
+}
+
+.icon-pingpangqiu-yixuanzhong::before {
+    content: "\e91f"
+}
+
+.icon-sinuoke-yixuanzhong::before {
+    content: "\e920"
+}
+
+.icon-shouqiu-yixuanzhong::before {
+    content: "\e921"
+}
+
+.icon-zuqiu-yixuanzhong::before {
+    content: "\e922"
+}
+
+.icon-yumaoqiu-yixuanzhong::before {
+    content: "\e923"
+}
+
+.icon-banqiu-weixuanzhong::before {
+    content: "\e90c"
+}
+
+.icon-bingqiu-weixuanzhong::before {
+    content: "\e90d"
+}
+
+.icon-pingpangqiu-weixuanzhong::before {
+    content: "\e90e"
+}
+
+.icon-ganlanqiu-weixuanzhong::before {
+    content: "\e90f"
+}
+
+.icon-dianjing-weixuanzhong::before {
+    content: "\e910"
+}
+
+.icon-bangqiu-weixuanzhong::before {
+    content: "\e911"
+}
+
+.icon-lanqiu-weixuanzhong::before {
+    content: "\e912"
+}
+
+.icon-sinuoke-weixuanzhong::before {
+    content: "\e913"
+}
+
+.icon-shouqiu-weixuanzhong::before {
+    content: "\e914"
+}
+
+.icon-paiqiu-weixuanzhong::before {
+    content: "\e915"
+}
+
+.icon-wangqiu-weixuanzhong::before {
+    content: "\e916"
+}
+
+.icon-shuiqiu-weixuanzhong::before {
+    content: "\e917"
+}
+
+.icon-yumaoqiu-weixuanzhong::before {
+    content: "\e918"
+}
+
+.icon-zuqiu-weixuanzhong::before {
+    content: "\e919"
+}
+
+.icon-rili::before {
+    content: "\e90b"
+}
+
+.icon-guanbi::before {
+    content: "\e900"
+}
+
+.icon-shaozi::before {
+    content: "\e901"
+}
+
+.icon-shangla::before {
+    content: "\e902"
+}
+
+.icon-sousuo::before {
+    content: "\e903"
+}
+
+.icon-xiala::before {
+    content: "\e904"
+}
+
+.icon-xingzhuang::before {
+    content: "\e905"
+}
+
+.icon-yejian::before {
+    content: "\e906"
+}
+
+.icon-shezhi::before {
+    content: "\e907"
+}
+
+.icon-youjiantou::before {
+    content: "\e908"
+}
+
+.icon-zuojiantou::before {
+    content: "\e909"
+}
+
+.icon-zhenrong::before {
+    content: "\e90a"
+}
+
+.icon-shipinzhibo::before {
+    content: "\e8fa"
+}
+
+.icon-weishoucang::before {
+    content: "\e8fb"
+}
+
+.icon-donghuazhibo::before {
+    content: "\e8fc"
+}
+
+.icon-yishoucang::before {
+    content: "\e8fd"
+}
+
+.icon-remen::before {
+    content: "\e8fe"
+}

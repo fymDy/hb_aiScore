@@ -1,0 +1,55 @@
+
+.Header {
+  height: 44px;
+  padding: 0 12px;
+  background-color:var(--bg-color-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.left{
+  display: flex;
+  align-items: center;
+
+}
+.img{
+  width: 95px;
+  height: 23px;
+  margin-right: 10px;
+}
+.img_logo{
+  width: 100%;
+}
+.text{
+  font-family: Roboto-Medium, Roboto !important;
+    font-weight: 500;
+    color: var(--font-color-0);
+    label{
+      font-size: 12px;
+    }
+    p{
+      font-size: 11px;
+    }
+}
+.right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+    left: 3px;
+}
+
+.icon_sousuo{
+  width: 14px;
+  height: 14px;
+  font-size: 16px;
+  color: var(--font-color-0);
+}
+.icon_caidan{
+  font-size: 16px;
+  color: var(--font-color-0);
+  padding: 3px;
+}

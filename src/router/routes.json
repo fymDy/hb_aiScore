@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/aa",
+    "name": "aa",
+    "author": true,
+    "index": false,
+    "component": "aa/index.tsx",
+    "children": []
+  },
+  {
+    "path": "/main",
+    "name": "main",
+    "author": false,
+    "index": false,
+    "component": "main/index.tsx",
+    "children": [
+      {
+        "path": "/main/basketball",
+        "name": "basketball",
+        "author": false,
+        "index": false,
+        "component": "main/basketball/index.tsx",
+        "children": []
+      },
+      {
+        "path": "/main/football",
+        "name": "football",
+        "author": false,
+        "index": true,
+        "component": "main/football/index.tsx",
+        "children": []
+      },
+      {
+        "path": "/main/tennis",
+        "name": "tennis",
+        "author": false,
+        "index": false,
+        "component": "main/tennis/index.tsx",
+        "children": []
+      },
+      {
+        "path": "/main/volleyball",
+        "name": "volleyball",
+        "author": false,
+        "index": false,
+        "component": "main/volleyball/index.tsx",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+
+.DownLoad {
+  // main 页面样式
+  height: 48px;
+  padding: 5px 10px;
+  background-color: var(--bg-color-0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.left{
+  display: flex;
+  align-items: center;
+
+}
+.img{
+  width: 55px;
+  height: 36px;
+  margin-right: 10px;
+}
+.text{
+  font-family: Roboto-Medium, Roboto !important;
+    font-weight: 500;
+    color: var(--font-color-0);
+    label{
+      font-size: 12px;
+    }
+    p{
+      font-size: 11px;
+    }
+}
+.right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.btn{
+  width: 66px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background-color: var(--font-color-0);
+  color: var(--font-color-1);
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.icon_guanbi{
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  color: var(--font-color-3);
+  font-size: 14px;
+}
