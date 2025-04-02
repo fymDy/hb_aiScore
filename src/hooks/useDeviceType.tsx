@@ -14,9 +14,9 @@ export type IFDeviceTypeInfo = {
 
 
 // 计算 fontSize、倍率等
-function calculateDeviceInfo(): IFDeviceTypeInfo {
-  let rawWidth = window.innerWidth ;
-  const deviceType = getDeviceType(rawWidth);
+function calculateDeviceInfo(viewportWidth:number): IFDeviceTypeInfo {
+
+  const deviceType = getDeviceType(viewportWidth);
   let deviceRatio = 1;
   if (deviceType === EnumDeviceType.Tablet) {
     deviceRatio = 2;
@@ -32,30 +32,48 @@ function calculateDeviceInfo(): IFDeviceTypeInfo {
   //   EnumCustomerSize.baseFontSize *
   //   deviceRatio;
 
-  const viewportWidth = window.innerWidth > 1280 ? 1280 : window.innerWidth < 320 ? 320  : window.innerWidth;
-  const fontSize= viewportWidth / 37.5
+  
+  const fontSize= viewportWidth  /  37.5
+  console.log('viewportWidth',viewportWidth)
   return {
     deviceType,
     fontSize: fontSize ,
     deviceRatio,
   };
 }
-
+  function calViewWidth(){
+  const w= window.innerWidth > 1280 ? 1280 : window.innerWidth < 320 ? 320  : window.innerWidth;
+  console.log('calViewWidth w---------',w)
+  return w
+  }
 // hook：返回信息并自动设置 <html> 的 font-size
 export function useDeviceType(): IFDeviceTypeInfo {
   /**() => calculateDeviceInfo()保证回调函数只会在组件的首次渲染时执行一次，即使组件在后续的渲染中会被多次调用。 */
-  const [info, setInfo] = useState<IFDeviceTypeInfo>(() =>calculateDeviceInfo());
+ 
+  const [info, setInfo] = useState<IFDeviceTypeInfo>(() =>{
+    const w=calViewWidth()
+    console.log('init w---------',w)
+    return calculateDeviceInfo(w)
+  });
   useEffect(() => {
 
-    const applyInfo = () => { // 移除 debounce
-      const newInfo = calculateDeviceInfo();
-      setInfo(newInfo);
-      setRootFontSize(newInfo.fontSize);
-    };
+    const applyInfo =debounce(() => { // 移除 debounce
+      requestAnimationFrame(() => {
+        const w=calViewWidth()
+        const newInfo = calculateDeviceInfo(w);
+        setInfo(newInfo);
+        setRootFontSize(newInfo.fontSize);
+   
+      });
+    
+    },100) ;
     applyInfo(); // 初始设置一次
     addEventListenerResize('resize', applyInfo);
+    addEventListenerResize('orientationchange', applyInfo);
     return () => {
       removeEventListenerResize('resize', applyInfo);
+      removeEventListenerResize('orientationchange', applyInfo);
+      applyInfo.cancel();
     };
   }, []);
 
