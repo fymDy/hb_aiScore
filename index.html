@@ -12,7 +12,7 @@
     <script>
 
 function checkIsPC() {
-      const isPC = window.innerWidth > 1024 // 假设宽度大于768px的为PC端
+      const isPC = window.innerWidth > 1024 // 假设宽度大于1024px的为PC端
       return isPC
     }
 
@@ -25,7 +25,6 @@ function checkIsPC() {
         // var rate = 430 / 932
         // var newWidth = rate * window.innerHeight + 50
         var newWidth = 1366
-        document.documentElement.style.width = newWidth + 'px'
         document.documentElement.style.margin = 'auto'
         document.documentElement.style.setProperty(
           '--safe-html-max-width',
