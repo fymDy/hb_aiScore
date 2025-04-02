@@ -1,8 +1,20 @@
-@import './_variables.scss';
+// common
+$color-fff:#ffffff;
+// background
+$bg-303030:#303030;
+$bg-0f80da:#0f80da;
+// color
+$color-333:#333;
+$color-000:#000;
+$color-b7b7b7:#b7b7b7;
+$color-ffe000:#ffe000;
+$color-9fccf0:#9fccf0;
+
 :root {
+    //background
     --bg-color-0: #{$bg-303030};
     --bg-color-1: #{$bg-0f80da};
-    //
+    //color
     --font-color-0: #{$color-fff};
     --font-color-1: #{$color-333};
     --font-color-2: #{$color-000};
