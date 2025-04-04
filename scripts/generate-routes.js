@@ -89,7 +89,7 @@ async function generateRoutes(dirPath, basePath) {
   // 如果存在 routerConfig.ts 并且成功提取到配置
   if (currentConfig && currentConfig.length > 0) {
     // 从 routerConfig.ts 中获取自定义路径，否则根据目录结构生成路径
-    const routePath = currentConfig[0].customPath || (basePath === '/' ? `/${path.basename(dirPath)}` : path.join(basePath, path.basename(dirPath)));
+    const routePath = currentConfig[0].path || (basePath === '/' ? `/${path.basename(dirPath)}` : path.join(basePath, path.basename(dirPath)));
     // 计算组件相对于 VIEWS_DIR 的路径
     const componentPath = path.relative(VIEWS_DIR, path.join(dirPath, 'index.tsx')).replace(/\\/g, '/');
     const route = {

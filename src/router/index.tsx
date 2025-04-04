@@ -15,7 +15,7 @@ return  lazy(() =>
 };
 const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
   return config.map((route) => {
-    const { component, path = '', children, author = false, index, ...rest } = route;
+    const { component, path, children, author = false, index, ...rest } = route;
     const LazyComponent =LazyComponentComp(component) ;
     const element = component ? (
       <AuthGuard author={author}>
@@ -38,7 +38,7 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
           </AuthGuard>
         ) : undefined;
         return {
-          path: isIndex ? '' : childPath,
+          path: isIndex ? '' :childPath,
           element: childElement,
           ...childRest,
         };
@@ -62,7 +62,6 @@ const updatedRoutesConfig = [
 ];
 
 const routes = createBrowserRouter(generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[]));
-// 创建一个 React 组件来使用 RouterProvider
 const AppRouter: React.FC = () => {
   return <RouterProvider router={routes} />;
 };

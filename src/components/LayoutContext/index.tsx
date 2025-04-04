@@ -1,12 +1,11 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-04 16:58:07
- * @LastEditTime: 2025-04-04 16:59:20
+ * @LastEditTime: 2025-04-04 17:58:52
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/LayoutContext/index.tsx
  */
-// src/context/LayoutContext.tsx
 import { createContext, Suspense, useContext, useRef } from 'react';
 import { useDeviceType } from '@/hooks/useDeviceType';
 import { LayoutContextType } from '@/types/common';
@@ -22,8 +21,8 @@ export const LayoutContextProvider: React.FC<{ children: React.ReactNode }> = ({
       appElement: appElementRef,
       deviceType: deviceType,
     }}>
-          <Suspense fallback={<div>Loading...</div>}>
-      {children}
+        <Suspense fallback={<div>Loading...</div>}>
+            {children}
       </Suspense>
     </LayoutContext.Provider>
   );
