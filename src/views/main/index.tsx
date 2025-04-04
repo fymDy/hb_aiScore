@@ -1,11 +1,11 @@
 
-import React, { useContext, useMemo, useState } from 'react';
+import React, {  useMemo, useState } from 'react';
 import styles from './index.module.scss';
 import { Outlet, useNavigate } from 'react-router-dom';
 import DownLoad from '@/components/Download';
 import Header from '@/components/Header';
 import Menus from '@/components/Menus';
-import { LayoutContext, useApp } from '@/App';
+import {  useApp } from '@/components/LayoutContext';
 import { RouterPathUtil } from '@/router/routerPathUtil';
 
 export interface IFMenu{
@@ -75,7 +75,7 @@ const Main: React.FC = () => {
 
   const onClickMenu=(index:number)=>{
       setActiveIndex(index)
-      navigate(menuData[index].path); // 跳转到 /about 路径
+      navigate(menuData[index].path); 
   }
   return (
     <div className={styles.main}>

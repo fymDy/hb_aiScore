@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:25:18
- * @LastEditTime: 2025-04-01 00:14:17
+ * @LastEditTime: 2025-04-04 17:18:36
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore_h5/src/router/authGuard.tsx
+ * @FilePath: /hb_aiScore/src/router/authGuard.tsx
  */
 // src/router/AuthGuard.tsx
 import React, { ReactNode } from 'react';
