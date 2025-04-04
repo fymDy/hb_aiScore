@@ -96,10 +96,13 @@ async function generateRoutes(dirPath, basePath) {
       path: routePath,
       name: currentConfig[0].name || path.basename(dirPath),
       author: currentConfig[0].author ? currentConfig[0].author : false,
-      index: currentConfig[0].index ? currentConfig[0].index : false,
+      index: currentConfig[0]?.index ? currentConfig[0].index : false,
       component: componentPath, // 添加 component 属性
       children: [],
     };
+    if( currentConfig[0]?.customPath ){
+      route['customPath']=currentConfig[0].customPath 
+    }
     routes.push(route);
 
     // 递归遍历子目录

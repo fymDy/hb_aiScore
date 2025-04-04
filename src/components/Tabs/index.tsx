@@ -1,30 +1,30 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-01 23:34:16
+ * @LastEditTime: 2025-04-04 20:42:32
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore_h5/src/components/Menus/index.tsx
+ * @FilePath: /hb_aiScore/src/components/Tabs/index.tsx
  */
 
-import { IFMenu, IFMenus } from '@/views/main'
+import { IFTab } from '@/views/main/interface'
 import IComp from '../Common/I'
 import styles from './index.module.scss'
 import cs from 'classnames'
 
-const Menus=({menuData}:IFMenus)=>{
+const Tabs=(props:any)=>{
+        const {tabData,onClick}=props
     return(
          <ul className={styles.Menus} >
                 {
-                    menuData?.map((item:IFMenu,i:number)=>{
+                    tabData?.map((item:IFTab,i:number)=>{
                         return(
-                            <li key={i} 
+                            <li key={item.id} 
                             className={cs(styles.item, 
                                 {[styles.item4]:i==4},
                                 {[styles.item5]:i==5},
-                                {[styles.item_active]:item?.isActive}
-                            )} onClick={()=>{ item.onClick(i)  }}>
-                                {/* <Link to={item.path} className={styles.top}> */}
+                                {[styles.item_active]:item?.isActive && i !==5}
+                            )} onClick={()=>{onClick(item)  }}>
                                 <div className={styles.top}>
                                     {
                                         i <4 &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
@@ -44,4 +44,4 @@ const Menus=({menuData}:IFMenus)=>{
         </ul>
     )
 }
-export default Menus
+export default Tabs

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-30 21:51:34
- * @LastEditTime: 2025-04-04 18:09:23
+ * @LastEditTime: 2025-04-04 21:31:17
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/router/interface.ts
@@ -46,10 +46,10 @@ export interface IFRouterConfig {
      */
     component?: any
 
-    // /**
-    //  * @zh 填写了自定义路径，则自定义路径展示路由
-    //  */
-    // customPath?: string
+    /**
+     * @zh 填写了自定义路径，则自定义路径展示路由
+     */
+    customPath?: string
     // /**
     //  * @zh 当有多级子路由时 该字段有用 可指定默认展示子路由
     //  * -views

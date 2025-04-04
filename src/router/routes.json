@@ -31,11 +31,28 @@
         "children": []
       },
       {
+        "path": "/main/menu",
+        "name": "menu",
+        "author": false,
+        "index": false,
+        "component": "main/menu/index.tsx",
+        "children": [],
+        "customPath": "/main/menu/:type"
+      },
+      {
         "path": "/main/others",
         "name": "others",
         "author": false,
         "index": false,
         "component": "main/others/index.tsx",
+        "children": []
+      },
+      {
+        "path": "/main/serch",
+        "name": "serch",
+        "author": false,
+        "index": false,
+        "component": "main/serch/index.tsx",
         "children": []
       },
       {
