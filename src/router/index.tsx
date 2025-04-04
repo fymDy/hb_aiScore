@@ -15,7 +15,7 @@ return  lazy(() =>
 };
 const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
   return config.map((route) => {
-    const { component, path, children, author = false, index, ...rest } = route;
+    const { component, path, children, author = false, index,customPath, ...rest } = route;
     const LazyComponent =LazyComponentComp(component) ;
     const element = component ? (
       <AuthGuard author={author}>
@@ -24,27 +24,20 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
     ) : undefined;
 
     const reactRouterRoute: any = {
-      path: path,
+      path: index ? '' : (customPath ? customPath : path),
       element,
       ...rest,
     };
     if (children) {
-      reactRouterRoute.children = children.map((childRoute: IFRouterConfig) => {
-        const { path: childPath, index: isIndex, component: childComponent, author: childAuthor = false, ...childRest } = childRoute;
-        const LazyChildComponent = LazyComponentComp(childComponent);
-        const childElement = childComponent ? (
-          <AuthGuard author={childAuthor}>
-              <LazyChildComponent />
-          </AuthGuard>
-        ) : undefined;
+      reactRouterRoute.children = generateReactRouterRoutes(children.map((childRoute:IFRouterConfig) => {
+        const { path: childPath, index: isIndex, customPath: childCustomPath } = childRoute;
         return {
-          path: isIndex ? '' :childPath,
-          element: childElement,
-          ...childRest,
+          ...childRoute,
+          path: isIndex ? '' : (childCustomPath  ? childCustomPath : childPath),
         };
-      });
+      }));
     }
-    console.log('reactRouterRoute---',reactRouterRoute)
+
     return reactRouterRoute;
   });
 };
@@ -61,9 +54,12 @@ const updatedRoutesConfig = [
   ...routesJonFile,
 ];
 
-const routes = createBrowserRouter(generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[]));
+const routes =generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[])
+console.log('routes---',routes)
+const resRoutes=createBrowserRouter(routes);
+
 const AppRouter: React.FC = () => {
-  return <RouterProvider router={routes} />;
+  return <RouterProvider router={resRoutes} />;
 };
 
 export default AppRouter;

@@ -4,7 +4,6 @@ import styles from './index.module.scss';
 import { Outlet, useNavigate } from 'react-router-dom';
 import DownLoad from '@/components/Download';
 import Header from '@/components/Header';
-import Menus from '@/components/Tabs';
 import {  useApp } from '@/components/LayoutContext';
 import { RouterPathUtil } from '@/router/routerPathUtil';
 import { IFTab } from './interface';

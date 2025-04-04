@@ -6,6 +6,7 @@ export enum RouterPathUtil {
   MAIN_MENU = '/main/menu',
   MAIN_OTHERS = '/main/others',
   MAIN_SERCH = '/main/serch',
+  MAIN_SETTING = '/main/setting',
   MAIN_TENNIS = '/main/tennis',
   MAIN_VOLLEYBALL = '/main/volleyball',
 }

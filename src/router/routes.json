@@ -3,14 +3,12 @@
     "path": "/main",
     "name": "main",
     "author": false,
-    "index": false,
     "component": "main/index.tsx",
     "children": [
       {
         "path": "/main/basketball",
         "name": "basketball",
         "author": false,
-        "index": false,
         "component": "main/basketball/index.tsx",
         "children": []
       },
@@ -18,7 +16,6 @@
         "path": "/main/favorite",
         "name": "favorite",
         "author": false,
-        "index": false,
         "component": "main/favorite/index.tsx",
         "children": []
       },
@@ -26,15 +23,14 @@
         "path": "/main/football",
         "name": "football",
         "author": false,
-        "index": true,
         "component": "main/football/index.tsx",
-        "children": []
+        "children": [],
+        "index": true
       },
       {
         "path": "/main/menu",
         "name": "menu",
         "author": false,
-        "index": false,
         "component": "main/menu/index.tsx",
         "children": [],
         "customPath": "/main/menu/:type"
@@ -43,7 +39,6 @@
         "path": "/main/others",
         "name": "others",
         "author": false,
-        "index": false,
         "component": "main/others/index.tsx",
         "children": []
       },
@@ -51,15 +46,22 @@
         "path": "/main/serch",
         "name": "serch",
         "author": false,
-        "index": false,
         "component": "main/serch/index.tsx",
-        "children": []
+        "children": [],
+        "customPath": "/main/serch/:type"
+      },
+      {
+        "path": "/main/setting",
+        "name": "setting",
+        "author": false,
+        "component": "main/setting/index.tsx",
+        "children": [],
+        "customPath": "/main/setting"
       },
       {
         "path": "/main/tennis",
         "name": "tennis",
         "author": false,
-        "index": false,
         "component": "main/tennis/index.tsx",
         "children": []
       },
@@ -67,7 +69,6 @@
         "path": "/main/volleyball",
         "name": "volleyball",
         "author": false,
-        "index": false,
         "component": "main/volleyball/index.tsx",
         "children": []
       }
