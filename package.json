@@ -11,7 +11,8 @@
     "watch-routes": "node ./scripts/watch-routes-config.js",
     "createRouter": "node scripts/create-router.js ",
     "delRouter": "node scripts/delete-router.js  ",
-    "generateRoutes": "node scripts/generate-routes.js"
+    "generateRoutes": "node scripts/generate-routes.js",
+    "sprite": "node scripts/generate-sprite.js  "
   },
   "dependencies": {
     "@remix-run/router": "^1.23.0",

@@ -4,9 +4,10 @@ const Spritesmith = require('spritesmith');
 
 // 假设您的所有 icon 图片都放在 pngs 目录下
 const iconsDir = path.resolve(__dirname, '../pngs');
-// 雪碧图和 JSON 文件的输出目录
+// 雪碧图和 JSON 文件的输出目录:查看
 const outputDir = path.resolve(__dirname, '../pngsIconsSprites');
-
+// 雪碧图和 JSON 文件的输出到src/assets/images目录
+const outputSrcDir = path.resolve(__dirname, '../src/assets/images');
 // 确保输出目录存在
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
@@ -35,7 +36,9 @@ fs.readdir(iconsDir, (err, files) => {
 
     // 输出雪碧图
     const spritePath = path.join(outputDir, 'sprite.png');
+    const spriteSrcPath = path.join(outputSrcDir, 'sprite.png');
     fs.writeFileSync(spritePath, result.image);
+    fs.writeFileSync(spriteSrcPath, result.image);
     console.log('雪碧图已生成:', spritePath);
 
     // 输出 JSON 数据
@@ -45,7 +48,10 @@ fs.readdir(iconsDir, (err, files) => {
       jsonData[baseName] = result.coordinates[imageName];
     }
     const jsonPath = path.join(outputDir, 'sprite.json');
+    const joinSrcDir = path.join(outputSrcDir, 'sprite.json');
+ 
     fs.writeFileSync(jsonPath, JSON.stringify(jsonData, null, 2));
+    fs.writeFileSync(joinSrcDir, JSON.stringify(jsonData, null, 2));
     console.log('雪碧图数据已生成:', jsonPath);
   });
 });
