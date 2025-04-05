@@ -2,7 +2,7 @@
 import React, { Children } from 'react';
 import styles from './index.module.scss';
 import { IFMatch, IFMenu } from '../../interface';
-import IComp from '@/components/Common/I';
+import IComp from '@/components/IComp';
 import cs from 'classnames'
 import Head from '../components/head';
 import Match from '../components/match';

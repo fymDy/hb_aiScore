@@ -70,14 +70,14 @@ const Menu: React.FC = () => {
         const slectedItem= menusData?.filter(item=>item.id===i)?.[0]
         setCurrentName(slectedItem?.name ?? '设定') 
         navigate(`${RouterPathUtil.MAIN_MENU}/${i}`,
-          {state:{  type:i  },replace:true})
+          {state:{  type:i  },replace:false})
       }
   }
 
       return (
         <div className={styles.menu}>
-         <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}  onClickBack={()=>clickMenu('0')}
-         onClickClose={()=>navigate(-1)}
+            <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}  onClickBack={()=>clickMenu('0')}
+                onClickClose={()=>navigate(-1)}
          />
                      {currentId=='0' && <Setting menusData={menusData} matchHotData={matchHotData} matchData={matchData} onClickMenu={(id:string)=>clickMenu(id)}/>}
                      {currentId=='1' && <Language/>}

@@ -7,7 +7,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-
+ * { outline: 0; padding: 0; margin: 0; border: 0; } 
  html {
   /* line-height: 1.15;  */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -37,10 +37,6 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
 
 /* Grouping content
    ========================================================================== */

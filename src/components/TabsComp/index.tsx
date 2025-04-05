@@ -1,21 +1,21 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-05 15:26:05
+ * @LastEditTime: 2025-04-05 19:27:54
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/components/Tabs/index.tsx
+ * @FilePath: /hb_aiScore/src/components/TabsComp/index.tsx
  */
 
 import { IFTab } from '@/views/main/interface'
-import IComp from '../Common/I'
+import IComp from '../IComp'
 import styles from './index.module.scss'
 import cs from 'classnames'
 
 const Tabs=(props:any)=>{
-        const {tabData,onClick}=props
+        const {tabData,onClick,className}=props
     return(
-         <ul className={styles.Menus} >
+         <ul className={cs(className,styles.Tabs)} >
                 {
                     tabData?.map((item:IFTab,i:number)=>{
                         return(

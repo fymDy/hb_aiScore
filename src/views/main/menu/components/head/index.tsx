@@ -6,7 +6,7 @@
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/main/menu/components/head/index.tsx
  */
-import IComp from '@/components/Common/I'
+import IComp from '@/components/IComp'
 import styles from './index.module.scss'
 import cs from 'classnames'
 import { ReactNode } from 'react'

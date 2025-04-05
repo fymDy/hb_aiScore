@@ -4,3 +4,13 @@
   width:100%;
   position: relative;
 }
+.header{
+  position: sticky;
+  top:0;
+  z-index: 10;
+}
+
+.is_show_menu,
+.is_show_down{
+  display: none !important;
+}
