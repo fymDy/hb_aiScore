@@ -1,38 +1,88 @@
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './index.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
-import Setting from '../setting';
+
 import { RouterPathUtil } from '@/router/routerPathUtil';
 import Language from './language';
 import Time from './time';
+import Setting from './setting';
+import { IFMatch, IFMenu } from '../interface';
+import Head from './components/head';
+import OddsFormat from './oddsFormat';
 
 const Menu: React.FC = () => {
   const  state:any = useParams()
   const navigate= useNavigate()
-  const [activeIndex,setActiveIndex]=useState(state.type)
-  const click=(i:string)=>{
-    setActiveIndex(i)
-    navigate(`${RouterPathUtil.MAIN_MENU}/${i}`,{state:{
-      type:i
-    }})
+  const [currentId,setCurrentId]=useState(state.type)
+  const [currentName,setCurrentName]=useState('设定')
+
+
+  const menusData:IFMenu[]=useMemo(()=>{
+    return [
+      {
+        id:'1',
+        iconClass:'icon-Mzhan-shezhi-qiehuanyuyan',
+        name:'语言'
+      }, {
+        id:'2',
+        iconClass:'icon-Mzhan-shezhi-shiqu',
+        name:'时区'
+      }, {
+        id:'3',
+        iconClass:'icon-Mzhan-shezhi-peishuaiyangshi',
+        name:'赔率格式'
+      }, {
+        id:'4',
+        iconClass:'icon-Mzhan-shezhi-xihuan',
+        name:'收藏'
+      },
+    ]
+  },[])
+  const matchHotData:IFMatch[]=useMemo(()=>{
+    return  [
+      {id:'0',iconImg:'https://img1.aiscore.com/country/1552909490161265.png!w60',name:'欧洲赛冠军'},
+      {id:'1',iconImg:'https://img1.aiscore.com/country/1552909490161265.png!w60',name:'歐足協歐洲協會聯賽'},
+      {id:'2',iconImg:'https://img1.aiscore.com/country/64f607906be7598a02d75dbc1e979662.png!w60',name:'英格蘭超級聯賽'},
+      {id:'3',iconImg:'https://img1.aiscore.com/country/907eba32d950bfab68227fd7ea22999b.png!w60',name:'西班牙甲级聯賽'},
+      {id:'4',iconImg:'https://img1.aiscore.com/country/1007e1b7f894dfbf72a0eaa80f3bc57e.png!w60',name:'意大利甲级聯賽'},
+    ]
+  },[])
+  const matchData:IFMatch[]=useMemo(()=>{
+    return  [
+      {id:'0',iconImg:'https://img1.aiscore.com/country/a00c273f0f497484093fa94865cf5ca5.png!w60',name:'阿美尼亞'},
+      {id:'1',iconImg:'https://img1.aiscore.com/country/1552909490161265.png!w60',name:'国际'},
+      {id:'2',iconImg:'https://img1.aiscore.com/country/1552909490161265.png!w60',name:'欧洲'},
+      {id:'3',iconImg:'https://img1.aiscore.com/country/1552909490161265.png!w60',name:'亚洲'},
+      {id:'4',iconImg:'https://img1.aiscore.com/country/e65a0ed0e39dd14a9e5af441efb09b37.png!w60',name:'不丹'},
+      {id:'5',iconImg:'https://img1.aiscore.com/country/b78edab0f52e0d6c195fd0d8c5709d26.png!w60',name:'冰岛'},
+      {id:'6',iconImg:'https://img1.aiscore.com/country/9986531359550785caffb2032622437f.png!w60',name:'塞内加尔'},
+    ]
+  },[])
+
+  
+
+  const clickMenu=(i:string)=>{
+      if(i=='4'){
+          navigate(RouterPathUtil.MAIN_FAVORITE)
+      }else{
+        setCurrentId(i)
+        const slectedItem= menusData?.filter(item=>item.id===i)?.[0]
+        setCurrentName(slectedItem?.name ?? '设定') 
+        navigate(`${RouterPathUtil.MAIN_MENU}/${i}`,
+          {state:{  type:i  },replace:true})
+      }
   }
+
       return (
         <div className={styles.menu}>
-          <button onClick={()=>click('0')}>
-            <h5 style={{margin:'20px'}}>返回</h5>
-          </button>
-                     {activeIndex=='1' && <Setting/>}
-                     {activeIndex=='2' && <Language/>}
-                     {activeIndex=='3' && <Time/>}
-                    
-                  {activeIndex=='0' && 
-                          <div>
-                             <h1 onClick={()=>click('1')}>设定</h1>
-                            <h1 onClick={()=>click('2')}>语言</h1>
-                            <h1 onClick={()=>click('3')}>时区</h1>
-                          </div>
-                  }    
+         <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}  onClickBack={()=>clickMenu('0')}
+         onClickClose={()=>navigate(-1)}
+         />
+                     {currentId=='0' && <Setting menusData={menusData} matchHotData={matchHotData} matchData={matchData} onClickMenu={(id:string)=>clickMenu(id)}/>}
+                     {currentId=='1' && <Language/>}
+                     {currentId=='2' && <Time/> }
+                     {currentId=='3' && <OddsFormat/>}    
         </div>
       );
     };

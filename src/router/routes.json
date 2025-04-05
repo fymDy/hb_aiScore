@@ -51,14 +51,6 @@
         "customPath": "/main/serch/:type"
       },
       {
-        "path": "/main/setting",
-        "name": "setting",
-        "author": false,
-        "component": "main/setting/index.tsx",
-        "children": [],
-        "customPath": "/main/setting"
-      },
-      {
         "path": "/main/tennis",
         "name": "tennis",
         "author": false,

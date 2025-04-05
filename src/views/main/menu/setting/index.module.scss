@@ -1,5 +1,31 @@
 
 .Setting {
-  // Time 页面样式
   width:100%;
+}
+.option_box{
+  width:100%;
+}
+.item{
+  position: relative;
+  height: 40px;
+  border-bottom: var(--border-color-0);
+  display: flex;
+  align-items: center;
+}
+.icon_class{
+  font-size: 15px;
+ 
+}
+.name{
+  margin-left:12.75px;
+  font-size: 12.75px;
+}
+.icon_right{
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+}
+
+.com_box{
+  margin-top: 22px;
 }

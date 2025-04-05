@@ -1,0 +1,21 @@
+
+.match_hot{
+  color: var(--font-color-1);
+  dt{
+    margin: 15px 0;
+    font-size: 12.75px;
+  }
+  dd{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 12.75px;
+    gap: 12px;
+    border-bottom: var(--border-color-0);
+  }
+  .icon_img{
+    width: 18px;
+    height: 18px;
+
+  }
+}

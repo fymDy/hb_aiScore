@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-04 20:42:32
+ * @LastEditTime: 2025-04-05 15:26:05
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/Tabs/index.tsx
@@ -29,7 +29,7 @@ const Tabs=(props:any)=>{
                                     {
                                         i <4 &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
                                     }
-                                    <IComp className={cs('iconfont',item.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})}/>
+                                    <IComp className={cs(item.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})}/>
                                 </div>
                                 <span className={styles.name}>{item?.name}</span>
                                

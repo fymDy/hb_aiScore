@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-01 20:33:19
+ * @LastEditTime: 2025-04-05 15:25:04
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore_h5/src/components/download/index.tsx
+ * @FilePath: /hb_aiScore/src/components/Download/index.tsx
  */
 import IComp from '../Common/I'
 import IconSprite from '../IconSprite'
@@ -25,7 +25,7 @@ const DownLoad=()=>{
                 </li>
                 <li className={styles.right}>
                         <div className={cs(styles.btn)}>下载</div>
-                        <IComp className={cs(styles.icon_guanbi,'iconfont','icon-guanbi')}></IComp>
+                        <IComp className={cs(styles.icon_guanbi,'icon-guanbi')}></IComp>
                 </li>
         </ul>
     )
