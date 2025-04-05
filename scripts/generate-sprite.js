@@ -28,7 +28,10 @@ fs.readdir(iconsDir, (err, files) => {
     return;
   }
 
-  Spritesmith.run({ src: input }, (err, result) => {
+  Spritesmith.run({
+     src: input ,
+     padding: 5 // 增加 padding 选项，设置图片间隔为 5px
+    }, (err, result) => {
     if (err) {
       console.error('生成雪碧图失败:', err);
       return;
