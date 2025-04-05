@@ -1,0 +1,40 @@
+.option_box{
+    width:100%;
+  }
+  .item{
+    position: relative;
+    height: 40px;
+    border-bottom: var(--border-color-0);
+    display: flex;
+    align-items: center;
+    gap:11px;
+  }
+  .icon_class{
+
+   
+  }
+  .name{
+    font-size: 12.75px;
+  }
+  .match_num{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: var( --font-color-6);
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .icon_right{
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+  }
+  
+  .com_box{
+    margin-top: 22px;
+  }
+  
