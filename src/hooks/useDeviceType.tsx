@@ -65,9 +65,31 @@ export function useDeviceType(): IFDeviceTypeInfo {
       });
     
     },100) ;
+
+
     applyInfo(); // 初始设置一次
     addEventListenerResize('resize', applyInfo);
     addEventListenerResize('orientationchange', applyInfo);
+    //
+    let startX:number;
+    const threshold = 20; // 设置滑动距离阈值
+    addEventListenerResize('touchstart',(event:any) => {
+      startX = event?.touches?.[0]?.clientX;
+    } );
+    addEventListenerResize('touchend',  (event:any) => {
+      const endX = event.changedTouches[0].clientX;
+      const deltaX = endX - startX;
+    
+      if (Math.abs(deltaX) > threshold) {
+        if (deltaX > 0) {
+          console.log('右滑');
+          // 处理右滑逻辑
+        } else {
+          console.log('左滑');
+          // 处理左滑逻辑
+        }
+      }
+    });
     return () => {
       removeEventListenerResize('resize', applyInfo);
       removeEventListenerResize('orientationchange', applyInfo);

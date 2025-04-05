@@ -108,3 +108,7 @@ export function removeEventListenerResize(flag='resize',callback:any){
   export const pxToRem = (px: number): string => {
     return `${px / 10}rem`;
   };
+
+
+
+
