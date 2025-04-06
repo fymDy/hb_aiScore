@@ -141,7 +141,7 @@ const Main: React.FC = () => {
         id:'others',
         path:'/others',
         name:'其他',
-        iconClass:'icon-xiala',
+        iconClass:clickBtnOthers?'icon-shangla': 'icon-xiala',
         matchNum:0,
         isActive:true,
       }, {
@@ -153,7 +153,7 @@ const Main: React.FC = () => {
         isActive:true,
       },  
     ]
-  },[ changeBallDatas])
+  },[clickBtnOthers, changeBallDatas])
 
   const allBallData:IFTab[]=useMemo(()=>{
     return clickBtnAllBall ? [
@@ -168,10 +168,10 @@ const Main: React.FC = () => {
    },[])
 
   const onClickTab=(item:IFTab)=>{
-    setActiveTab(item?.id)
       if(item?.id =='others'){
         setClickBtnOthers(!clickBtnOthers)
       }else{
+        setActiveTab(item?.id)
         setClickBtnOthers(false)
         setClickBtnSearch(false)
         setClickBtnAllBall(false)
