@@ -9,7 +9,7 @@ import { RouterPathUtil } from '@/router/routerPathUtil';
 import { IFTab } from './interface';
 import TabsComp from '@/components/TabsComp';
 import cs from 'classnames'
-import SearchBox from '@/components/SearchComp';
+import SearchComp from '@/components/SearchComp';
 import OptionBallComp from '@/components/OptionBallComp';
 import Menu from './acomponents/menu';
 import BtnGroup from './acomponents/searchResult/btnGroup';
@@ -19,6 +19,7 @@ const Main: React.FC = () => {
   const location = useLocation();
   const {pathname} = location;
     // const {deviceType}=useApp()
+    const [iptValue,setIptValue]=useState('')
     //下载
     const [isShowDownLoad,setIsShowDownLoad]=useState<boolean>(true)
     //
@@ -230,7 +231,18 @@ const onSelectBall=(id:string)=>{
         <HeaderComp       onclickLogo={onclickLogo} />
         <TabsComp  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTab={activeTab}  tabData={tabData} onClick={onClickTab}/>
         {
-          clickBtnSearch &&  <SearchBox isActive={clickBtnAllBall} iconClass={activeIconClass} onclick={(id:string)=>{
+          clickBtnSearch &&  <SearchComp isActive={clickBtnAllBall} iptValue={iptValue} iconClass={activeIconClass}
+          onClear={()=>{
+            setIptValue('')
+            setClickBtnAllBall(false)
+          }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>)=>{
+            const v=event.target.value
+            setIptValue(v)
+            setClickBtnAllBall(false)
+            //todo 进行接口请求，获取查询结果。。。
+            }}
+           onclick={(id:string)=>{
             if(id==='btnBall'){
               setClickBtnAllBall(!clickBtnAllBall)
             }else if(id==='btnClose'){
