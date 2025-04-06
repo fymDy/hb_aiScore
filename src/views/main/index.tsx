@@ -12,6 +12,8 @@ import cs from 'classnames'
 import SearchBox from '@/components/SearchComp';
 import OptionBallComp from '@/components/OptionBallComp';
 import Menu from './acomponents/menu';
+import BtnGroup from './acomponents/searchResult/btnGroup';
+import SearchResult from './acomponents/searchResult';
 const Main: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -169,6 +171,9 @@ const Main: React.FC = () => {
       if(item?.id =='others'){
         setClickBtnOthers(!clickBtnOthers)
       }else{
+        setClickBtnOthers(false)
+        setClickBtnSearch(false)
+        setClickBtnAllBall(false)
         navigate(item.path); 
       }
      
@@ -242,10 +247,10 @@ const onSelectBall=(id:string)=>{
        </div>
       
       <div className={cs(styles.search_result,{[styles.is_show_search_result]:clickBtnSearch})}>
-            查询结果页面
+            <SearchResult/>
       </div>
       <div className={cs(styles.menu_option,{[styles.is_show_menu_option]:clickBtnMenu})}>
-          <Menu/>
+          <Menu onclick={()=>{ setClickBtnMenu(false)  } }/>
       </div>
       <Outlet />
     </div>

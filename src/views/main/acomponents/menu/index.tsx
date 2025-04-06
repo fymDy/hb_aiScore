@@ -2,7 +2,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-06 22:08:24
- * @LastEditTime: 2025-04-06 22:42:28
+ * @LastEditTime: 2025-04-06 23:58:46
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/main/acomponents/menu/index.tsx
@@ -17,13 +17,13 @@ import OddsFormat from "./oddsFormat";
 import Head from "./components/head";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import { useNavigate } from "react-router-dom";
-
-const Menu: React.FC = () => {
+interface IFMenuProps{
+  onclick:()=>void
+}
+const Menu: React.FC<IFMenuProps> = ({onclick}) => {
     const navigate= useNavigate()
     const [currentId,setCurrentId]=useState('0')
     const [currentName,setCurrentName]=useState('设定')
-  
-  
     const menusData:IFMenu[]=useMemo(()=>{
       return [
         {
@@ -80,8 +80,9 @@ const Menu: React.FC = () => {
   
         return (
           <div className={styles.menu}>
-              <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}  onClickBack={()=>onclickItem('0')}
-                  onClickClose={()=>{}}
+              <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}
+                onClickBack={()=>onclickItem('0') }
+                  onClickClose={onclick}
            />
                        {currentId=='0' && <Setting menusData={menusData} matchHotData={matchHotData} matchData={matchData} onclick={(id:string)=>onclickItem(id)}/>}
                        {currentId=='1' && <Language/>}
