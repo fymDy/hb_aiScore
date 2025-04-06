@@ -9,8 +9,19 @@
   top:0;
   z-index: 10;
 }
-
+.is_show_others,
 .is_show_menu,
 .is_show_down{
   display: none !important;
+}
+  // others 页面样式
+.others {
+  width:100%;
+  padding: 0 15px;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--bg-color-2);
+}
+.font_size{
+  font-size: 20px;
 }
