@@ -2,7 +2,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-06 22:08:24
- * @LastEditTime: 2025-04-06 23:58:46
+ * @LastEditTime: 2025-04-07 00:07:50
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/main/acomponents/menu/index.tsx
@@ -18,7 +18,7 @@ import Head from "./components/head";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import { useNavigate } from "react-router-dom";
 interface IFMenuProps{
-  onclick:()=>void
+  onclick:(id:string)=>void
 }
 const Menu: React.FC<IFMenuProps> = ({onclick}) => {
     const navigate= useNavigate()
@@ -70,6 +70,7 @@ const Menu: React.FC<IFMenuProps> = ({onclick}) => {
   
     const onclickItem=(i:string)=>{
         if(i=='4'){
+            onclick('fav')
             navigate(RouterPathUtil.MAIN_FAVORITE)
         }else{
           setCurrentId(i)
@@ -82,7 +83,7 @@ const Menu: React.FC<IFMenuProps> = ({onclick}) => {
           <div className={styles.menu}>
               <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}
                 onClickBack={()=>onclickItem('0') }
-                  onClickClose={onclick}
+                  onClickClose={()=>onclick('close')}
            />
                        {currentId=='0' && <Setting menusData={menusData} matchHotData={matchHotData} matchData={matchData} onclick={(id:string)=>onclickItem(id)}/>}
                        {currentId=='1' && <Language/>}

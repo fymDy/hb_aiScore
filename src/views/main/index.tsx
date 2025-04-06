@@ -250,7 +250,12 @@ const onSelectBall=(id:string)=>{
             <SearchResult/>
       </div>
       <div className={cs(styles.menu_option,{[styles.is_show_menu_option]:clickBtnMenu})}>
-          <Menu onclick={()=>{ setClickBtnMenu(false)  } }/>
+          <Menu onclick={(id:string)=>{ 
+            if(id=='fav'){
+              setActiveTab('fav')
+            }
+            setClickBtnMenu(false) 
+           } }/>
       </div>
       <Outlet />
     </div>
