@@ -1,5 +1,6 @@
-.option_box{
+.option_ball{
     width:100%;
+   
   }
   .item{
     position: relative;
@@ -8,10 +9,15 @@
     display: flex;
     align-items: center;
     gap:11px;
+    padding: 0 15px;
+   
   }
   .icon_class{
 
    
+  }
+  .active_ball{
+    background-color: #f1f1f1;
   }
   .name{
     font-size: 12.75px;
@@ -23,7 +29,7 @@
     text-align: center;
     background-color: var( --font-color-6);
     position: absolute;
-    right: 0;
+    right: 12px;
     font-size: 12px;
     font-weight: 700;
   }
@@ -32,9 +38,5 @@
     position: absolute;
     right: 0;
     font-size: 12px;
-  }
-  
-  .com_box{
-    margin-top: 22px;
   }
   

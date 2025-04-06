@@ -1,23 +1,21 @@
 
-import React, { Children } from 'react';
 import styles from './index.module.scss';
-import { IFMatch, IFMenu } from '../../interface';
-import IComp from '@/components/IComp';
 import cs from 'classnames'
 import Head from '../components/head';
 import Match from '../components/match';
-import OptionBox from '@/components/OptionBallComp';
+import { IFMatch, IFMenu } from '@/views/main/interface';
+import OptionItem from '../components/optionItem';
 interface IFSettingProps{
   menusData:IFMenu[],
   matchHotData:IFMatch[]
   matchData:IFMatch[]
-  onClickMenu:(id:string)=>void
+  onclick:(id:string)=>void
   children?:any
 }
-const Setting = ({menusData,onClickMenu,matchHotData,matchData}:IFSettingProps) => {
+const Setting = ({menusData,onclick,matchHotData,matchData}:IFSettingProps) => {
       return (
         <div className={styles.Setting}>
-                        <OptionBox  className={styles.font_size} menusData={menusData} onClickMenu={onClickMenu} />
+                        <OptionItem  className={styles.font_size} dataList={menusData} onclick={onclick} />
                         <div className={styles.com_box}>
                               <Head text='赛事'/>
                               <Match  text='热门' matchData={matchHotData}/>

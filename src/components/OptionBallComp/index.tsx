@@ -1,29 +1,31 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-01 20:19:38
- * @LastEditTime: 2025-04-05 18:43:08
+ * @LastEditTime: 2025-04-06 22:01:23
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/components/IComp/index.tsx
+ * @FilePath: /hb_aiScore/src/components/OptionBall/index.tsx
  */
 import { IFMenu, IFMatch, IFTab } from '@/views/main/interface'
 import IComp from '../IComp'
 import styles from './index.module.scss'
 import cs from 'classnames'
-interface IFOptionBoxProps{
-  menusData:IFMenu[] | IFTab[],
-  onClickMenu:(id:string)=>void
+interface IFOptionBallProps{
+  dataList:IFMenu[] | IFTab[],
+  onclick:(id:string)=>void
   className?:any,
   arrowRight?:boolean,
+  iconClass?:string
+  isActive?:boolean
  
 }
-const OptionBox=({className,arrowRight=true,menusData,onClickMenu}:IFOptionBoxProps)=>{
+const OptionBall=({className,arrowRight=true,isActive=false,dataList,iconClass='',onclick}:IFOptionBallProps)=>{
     return(
-        <ul className={styles.option_box}>
+        <ul className={styles.option_ball}>
                             {
-                                menusData?.map((item: any)=>{
+                                dataList?.map((item: any)=>{
                                   return(
-                                    <li key={item.id} className={cs(styles.item)}  onClick={()=>onClickMenu(item.id)} >
+                                    <li key={item.id} className={cs(styles.item,{[styles.active_ball]:isActive && item.iconClass==iconClass})}  onClick={()=>onclick(item.id)} >
                                        <IComp className={cs(styles.icon_class,item.iconClass,className)}  />
                                       <span className={styles.name}>{item.name}</span>
                                       {arrowRight && <IComp className={cs(styles.icon_right,'icon-youjiantou')} />}
@@ -36,4 +38,4 @@ const OptionBox=({className,arrowRight=true,menusData,onClickMenu}:IFOptionBoxPr
      
     )
 }
-export default OptionBox
+export default OptionBall

@@ -1,7 +1,7 @@
 
 import React, {  useEffect, useMemo, useState } from 'react';
 import styles from './index.module.scss';
-import { Outlet, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import DownLoadComp from '@/components/DownloadComp';
 import HeaderComp from '@/components/HeaderComp';
 import {  useApp } from '@/components/LayoutContext';
@@ -9,8 +9,9 @@ import { RouterPathUtil } from '@/router/routerPathUtil';
 import { IFTab } from './interface';
 import TabsComp from '@/components/TabsComp';
 import cs from 'classnames'
-import OptionBox from '@/components/OptionBox';
-import { set } from 'lodash';
+import SearchBox from '@/components/SearchComp';
+import OptionBallComp from '@/components/OptionBallComp';
+import Menu from './acomponents/menu';
 const Main: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,9 +19,16 @@ const Main: React.FC = () => {
     // const {deviceType}=useApp()
     //下载
     const [isShowDownLoad,setIsShowDownLoad]=useState<boolean>(true)
-    //header组件是否点击菜单栏:显示menu页面
-    const defaultTab=pathname?.startsWith('/main/menu/')? true:false
-    const [clickBtnMenu,setClickBtnMenu]=useState<boolean>(defaultTab)
+    //
+    const [clickBtnMenu,setClickBtnMenu]=useState<boolean>(false)
+      //
+      const [clickBtnOthers,setClickBtnOthers]=useState<boolean>(false)
+    //
+    const [clickBtnSearch,setClickBtnSearch]=useState<boolean>(false)
+    //
+    const [clickBtnAllBall,setClickBtnAllBall]=useState<boolean>(false)
+  //
+  const [activeIconClass,setActiveIconClass]=useState<string>('icon-zuqiu-weixuanzhong')
     //tab切换：选中tab
   const [activeTab,setActiveTab]=useState<string>('')
 
@@ -123,20 +131,6 @@ const Main: React.FC = () => {
     }
     ]);
 
-
-
-
-
-
-
-
-    const allBallDatas:IFTab[]=useMemo(()=>{
-      return [
-        ...changeBallDatas,
-        ...othersBallDatas
-      ]
-    },[])
-
   const tabData:IFTab[]=useMemo(()=>{
     return [
       ...changeBallDatas,
@@ -158,6 +152,13 @@ const Main: React.FC = () => {
     ]
   },[ changeBallDatas])
 
+  const allBallData:IFTab[]=useMemo(()=>{
+    return clickBtnAllBall ? [
+      ...changeBallDatas,
+      ...othersBallDatas
+    ]:[...othersBallDatas]
+  },[clickBtnAllBall,othersBallDatas])
+
   useEffect(()=>{
     const tabItem:IFTab= changeBallDatas?.filter(item=>item?.path===pathname)?.[0] 
     setActiveTab(tabItem?.id ?? 'football')
@@ -165,7 +166,9 @@ const Main: React.FC = () => {
 
   const onClickTab=(item:IFTab)=>{
     setActiveTab(item?.id)
-      if(item?.id !=='others'){
+      if(item?.id =='others'){
+        setClickBtnOthers(!clickBtnOthers)
+      }else{
         navigate(item.path); 
       }
      
@@ -174,46 +177,76 @@ const Main: React.FC = () => {
     if(path===RouterPathUtil.MAIN_FOOTBALL){
       onClickTab(changeBallDatas[0])
     }else if(path===RouterPathUtil.MAIN_MENU){
-      if(!clickBtnMenu){//默认为false 不展示menu,点击后为true，展示，所以true的时候点击则关闭为false
-        navigate(`${path}/0`,{state:{type:'0'},replace:false}); //replace如果为 true，则单击链接将替换历史堆栈中的当前入口，而不是添加新入口,所以这里必须是默认false
-      }else{
-        navigate(-1)
-      }
       setClickBtnMenu(!clickBtnMenu)
+      setClickBtnOthers(false)
+      setClickBtnSearch(false)
+      setClickBtnAllBall(false)
     }else  if(path===RouterPathUtil.MAIN_SERCH){
-      navigate(`${path}/test`); 
+      setClickBtnSearch(!clickBtnSearch)
+      setClickBtnOthers(false)
+      setClickBtnAllBall(false)
+      setClickBtnMenu(false)
     }
 }
+
+
 const onSelectBall=(id:string)=>{
 
-  const selectedThird:IFTab=changeBallDatas[3]
-  const updOthersBallData= othersBallDatas?.filter((item=>item.id !==id))
-  updOthersBallData.push(selectedThird)
-  setOthersBallDatas(updOthersBallData)
-  //从others获取选中的球
-   const objSelectedBall: any= othersBallDatas?.filter((item=>item.id ==id))?.[0]
-    //剔除change数组索引为3的
-   const newChangeBallDatas = [
-    ...changeBallDatas.slice(0, 3), // 复制索引 3 之前的元素
-    objSelectedBall,                         // 插入新的对象
-    ...changeBallDatas.slice(4),    // 复制索引 4 之后的元素
-  ];
-  setChangeBallDatas(newChangeBallDatas)
-    //跳转
-    setActiveTab(id)
-    navigate(objSelectedBall.path); 
+  if(clickBtnOthers){
+    const selectedThird:IFTab=changeBallDatas[3]
+    const updOthersBallData= othersBallDatas?.filter((item=>item.id !==id))
+    updOthersBallData.push(selectedThird)
+    setOthersBallDatas(updOthersBallData)
+    //从others获取选中的球
+     const objSelectedBall: any= othersBallDatas?.filter((item=>item.id ==id))?.[0]
+      //剔除change数组索引为3的
+     const newChangeBallDatas = [
+      ...changeBallDatas.slice(0, 3), // 复制索引 3 之前的元素
+      objSelectedBall,                         // 插入新的对象
+      ...changeBallDatas.slice(4),    // 复制索引 4 之后的元素
+    ];
+    setChangeBallDatas(newChangeBallDatas)
+    setClickBtnOthers(false)
+      //跳转
+      setActiveTab(id)
+      navigate(objSelectedBall.path); 
+  }else if(clickBtnAllBall){
+    const objSelectedBall: IFTab=  allBallData?.filter((item=>item.id ==id))?.[0]
+    setActiveIconClass(objSelectedBall.iconClass)
+    setClickBtnAllBall(false)
+  }
+
+
 }
   return (
     <div className={styles.main} >
       <header className={styles.header} >
-        <DownLoadComp className={cs({[styles.is_show_down]:!isShowDownLoad }) } onClose={()=>setIsShowDownLoad(!isShowDownLoad) }/>
+        <DownLoadComp className={cs({[styles.is_notShow_download]:!isShowDownLoad }) } onClose={()=>setIsShowDownLoad(!isShowDownLoad) }/>
         <HeaderComp       onclickLogo={onclickLogo} />
-        <TabsComp  className={cs({[styles.is_show_menu]:clickBtnMenu }) } activeTab={activeTab}  tabData={tabData} onClick={onClickTab}/>
+        <TabsComp  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTab={activeTab}  tabData={tabData} onClick={onClickTab}/>
+        {
+          clickBtnSearch &&  <SearchBox isActive={clickBtnAllBall} iconClass={activeIconClass} onclick={(id:string)=>{
+            if(id==='btnBall'){
+              setClickBtnAllBall(!clickBtnAllBall)
+            }else if(id==='btnClose'){
+              setClickBtnOthers(false)
+              setClickBtnAllBall(false)
+                setClickBtnSearch(false)
+            }
+          }} />
+        }
       </header>
      
-      <div className={cs(styles.others,{[styles.is_show_others]:activeTab !=='others'})}>
-        <OptionBox className={styles.font_size} arrowRight={false} menusData={othersBallDatas} onClickMenu={onSelectBall} />
+      <div className={cs(styles.others,{[styles.is_show_others]:(clickBtnOthers || clickBtnAllBall ) })}>
+        <OptionBallComp className={styles.font_size} arrowRight={false} isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
        </div>
+      
+      <div className={cs(styles.search_result,{[styles.is_show_search_result]:clickBtnSearch})}>
+            查询结果页面
+      </div>
+      <div className={cs(styles.menu_option,{[styles.is_show_menu_option]:clickBtnMenu})}>
+          <Menu/>
+      </div>
       <Outlet />
     </div>
   );
