@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+*.code-workspace
 pngs
 pngsIconsSprites
 # Editor directories and files
