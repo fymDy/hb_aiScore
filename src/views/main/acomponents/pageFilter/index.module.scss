@@ -5,7 +5,7 @@
   height: 48px;
   display: flex;
   align-items: center;
-  background-color: var(--font-color-0);
+  background-color: var(--color-fff);
 
 }
 .btn_filter{
@@ -19,8 +19,4 @@
 }
 .icon{
   font-size: 17.4px;
-}
-.active{
-  color: var(--font-color-0) !important;
-  background-color: var(--bg-color-3) !important;
 }

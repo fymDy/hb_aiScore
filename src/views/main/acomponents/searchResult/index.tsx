@@ -35,7 +35,7 @@ const SearchResult: React.FC = () => {
 
       return (
         <div className={styles.search_result}>
-              <BtnGroup classNameActive={styles.active} dataList={btnGroupData} onclick={(id:string)=>setActiveId(id)} />
+              <BtnGroup  dataList={btnGroupData} onclick={(id:string)=>setActiveId(id)} />
               <div>{activeId}</div>
         </div>
       );

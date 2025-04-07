@@ -1,6 +1,6 @@
 
 .match_hot{
-  color: var(--font-color-1);
+  color: var(--color-333);
   dt{
     margin: 15px 0;
     font-size: 12.75px;
@@ -11,7 +11,7 @@
     align-items: center;
     font-size: 12.75px;
     gap: 12px;
-    border-bottom: var(--border-color-0);
+    border-bottom: var(--color-border);
   }
   .icon_img{
     width: 18px;

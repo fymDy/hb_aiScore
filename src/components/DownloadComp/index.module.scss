@@ -3,7 +3,7 @@
   // main 页面样式
   height: 48px;
   padding: 5px 10px;
-  background-color: var(--bg-color-0);
+  background-color: var(--color-303030);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,7 @@
 .text{
   font-family: Roboto-Medium, Roboto !important;
     font-weight: 500;
-    color: var(--font-color-0);
+    color: var(--color-fff);
     label{
       font-size: 12px;
     }
@@ -42,8 +42,8 @@
   height: 24px;
   line-height: 24px;
   text-align: center;
-  background-color: var(--font-color-0);
-  color: var(--font-color-1);
+  background-color: var(--color-fff);
+  color: var(--color-333);
   font-size: 12px;
   border-radius: 5px;
   font-weight: 500;

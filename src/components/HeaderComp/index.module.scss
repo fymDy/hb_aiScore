@@ -2,7 +2,7 @@
 .Header {
   height: 44px;
   padding: 0 12px;
-  background-color:var(--bg-color-1);
+  background-color:var(--color-0f80da);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +25,7 @@
 .text{
   font-family: Roboto-Medium, Roboto !important;
     font-weight: 500;
-    color: var(--font-color-0);
+    color: var(--color-fff);
     label{
       font-size: 12px;
     }
@@ -46,10 +46,10 @@
   width: 14px;
   height: 14px;
   font-size: 16px;
-  color: var(--font-color-0);
+  color: var(--color-fff);
 }
 .icon_caidan{
   font-size: 16px;
-  color: var(--font-color-0);
+  color: var(--color-fff);
   padding: 3px;
 }

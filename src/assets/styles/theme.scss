@@ -1,33 +1,39 @@
 // common
-$color-fff:#ffffff;
+$color-fff:#fff;
 // background
-$bg-303030:#303030;
-$bg-0f80da:#0f80da;
-$bg-c72a1d:#c72a1d;
+$color-30:#303030;
+$color-0f8:#0f80da;
+$color-c72:#c72a1d;
 // color
-
 $color-333:#333;
 $color-000:#000;
-$color-b7b7b7:#b7b7b7;
-$color-ffe000:#ffe000;
-$color-9fccf0:#9fccf0;
-$color-f1f1f1:#f1f1f1;
+$color-b7:#b7b7b7;
+$color-ffe:#ffe000;
+$color-9fc:#9fccf0;
+$color-f1:#f1f1f1;
+$color-999:#999;
+$color-e3:#e3e3e3;
+$color-c8cd:#c8cdcd;
+$color-ffa: #ffa830 ;
 //border color
 $border-color: 1px solid hsla(0, 0%, 89%, .4);
 :root {
     //background
-    --bg-color-0: #{$bg-303030};
-    --bg-color-1: #{$bg-0f80da};
-    --bg-color-2: #{$color-fff};
-    --bg-color-3: #{$bg-c72a1d};
+    --color-fff: #{$color-fff};
+    --color-303030: #{$color-30};
+    --color-0f80da: #{$color-0f8};
+    --color-c72a1d: #{$color-c72};
     //color
-    --font-color-0: #{$color-fff};
-    --font-color-1: #{$color-333};
-    --font-color-2: #{$color-000};
-    --font-color-3: #{$color-b7b7b7};
-    --font-color-4: #{$color-ffe000};
-    --font-color-5: #{$color-9fccf0};
-    --font-color-6: #{$color-f1f1f1};
+    --color-333: #{$color-333};
+    --color-000: #{$color-000};
+    --color-b7b7b7: #{$color-b7};
+    --color-ffe000: #{$color-ffe};
+    --color-9fccf0: #{$color-9fc};
+    --color-f1f1f1: #{$color-f1};
+    --color-999: #{$color-999};
+    --color-e3: #{$color-e3};
+    --color-c8cdcd:#{$color-c8cd};
+    --color-ffa830:#{$color-ffa};
     // ... 其他颜色变量
-    --border-color-0: #{$border-color};
+    --color-border: #{$border-color};
   }

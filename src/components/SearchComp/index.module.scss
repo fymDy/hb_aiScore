@@ -2,7 +2,7 @@
 .searchBox {
   height: 52px;
   padding: 0 12px;
-  background-color:var(--bg-color-1);
+  background-color:var(--color-0f80da);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   flex: 1;
-  background-color: var(--bg-color-2);
+  background-color: var(--color-fff);
   margin: 0 12px;
   border-radius: 4px;
 }

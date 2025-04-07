@@ -5,38 +5,20 @@ import { IFSearchResult } from '../../interface';
 import BtnGroup from '../searchResult/btnGroup';
 import IComp from '@/components/IComp';
 import cs from 'classnames'
-const PageFilter: React.FC = () => {
-    const [activeId,setActiveId]=useState('1')
-  const btnGroupData:IFSearchResult[]=useMemo(()=>{
-    return [
-      {
-        id:'0',
-        name:'全部',
-        isActive:activeId==='0',
-      }, {
-        id:'1',
-        name:'进行中',
-        iconClass:'icon-jinhangzhong',
-        isActive:activeId==='1',
-      }, {
-        id:'2',
-        name:'已结束',
-        isActive:activeId==='2',
-      },   {
-        id:'3',
-        name:'赛程',
-        isActive:activeId==='3',
-      }  
-    ]
-  },[activeId])
+interface IFFilterProps{
+  filterData:any,
+  onclick:(id:string)=>void
+  onclickFilter:()=>void
+}
+const PageFilter: React.FC<IFFilterProps> = ({filterData,onclick,onclickFilter}) => {
 
       return (
-        <div className={styles.page_filter}>
-              <BtnGroup classNameActive={styles.active} dataList={btnGroupData} onclick={(id:string)=>setActiveId(id)} />
+        <section className={styles.page_filter}>
+              <BtnGroup  dataList={filterData} onclick={onclick} />
               <div className={styles.btn_filter}>
-                  <IComp className={cs('icon-shezhi-weixuanzhong',styles.icon)} onClick={()=>{}} />
+                  <IComp className={cs('icon-shezhi-weixuanzhong',styles.icon)} onClick={onclickFilter} />
               </div>
-        </div>
+        </section>
       );
     };
 export default PageFilter;
