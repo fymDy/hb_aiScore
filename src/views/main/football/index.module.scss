@@ -2,6 +2,9 @@
 .football {
   // football 页面样式
   width:100%;
-  height: 1000px;
-  background-color: aquamarine;
+  
+}
+.active{
+  color: var(--font-color-0) !important;
+  background-color: var(--bg-color-3) !important;
 }

@@ -1,0 +1,26 @@
+
+.page_filter {
+  width:100%;
+  padding-left:8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: var(--font-color-0);
+
+}
+.btn_filter{
+  width: 42px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -5px 0 6px -5px rgba(0, 0, 0, .2);
+
+}
+.icon{
+  font-size: 17.4px;
+}
+.active{
+  color: var(--font-color-0) !important;
+  background-color: var(--bg-color-3) !important;
+}

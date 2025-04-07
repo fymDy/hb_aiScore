@@ -3,12 +3,8 @@ import React, { useMemo, useState } from 'react';
 import styles from './index.module.scss';
 import cs from 'classnames'
 import BtnGroup from './btnGroup';
-export interface IFSearchResult{
-  id:string,
-  name:string,
-  iconClass:string,
-  isActive?:boolean,
-}
+import { IFSearchResult } from '../../interface';
+
 const SearchResult: React.FC = () => {
     const [activeId,setActiveId]=useState('all')
   const btnGroupData:IFSearchResult[]=useMemo(()=>{
@@ -39,7 +35,7 @@ const SearchResult: React.FC = () => {
 
       return (
         <div className={styles.search_result}>
-              <BtnGroup dataList={btnGroupData} onclick={(id:string)=>setActiveId(id)} />
+              <BtnGroup classNameActive={styles.active} dataList={btnGroupData} onclick={(id:string)=>setActiveId(id)} />
               <div>{activeId}</div>
         </div>
       );
