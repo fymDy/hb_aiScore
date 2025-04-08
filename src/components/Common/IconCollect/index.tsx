@@ -4,10 +4,11 @@ import IComp from "@/components/IComp";
 import cs from "classnames";
 import { EnumIconFontType } from "@/enum";
 interface IFTitleProps {
+  id:string,
   isCollect: boolean;
-  onclcik: () => void;
+  onclcik: (id:string) => void;
 }
-const IconCollect: React.FC<IFTitleProps> = ({ isCollect=false, onclcik }) => {
+const IconCollect: React.FC<IFTitleProps> = ({ id,isCollect=false, onclcik }) => {
   return (
       <IComp
         className={cs(
@@ -17,7 +18,7 @@ const IconCollect: React.FC<IFTitleProps> = ({ isCollect=false, onclcik }) => {
             ? EnumIconFontType.iconYishoucang
             : EnumIconFontType.iconWeishoucang
         )}
-        onClick={onclcik}
+        onClick={()=>onclcik(id)}
       />
   );
 };
