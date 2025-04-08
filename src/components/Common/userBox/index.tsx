@@ -5,12 +5,12 @@ import cs from "classnames";
 import { EnumIconFontType } from "@/enum";
 import { pxToRem } from "@/utils/common";
 import IconSprite from "@/components/IconSprite";
-export interface IFUserBoxProps {
+
+
+const UserBox: React.FC<{
   iconFontType: number;
   userNum:number
-}
-
-const UserBox: React.FC<IFUserBoxProps> = ({iconFontType,userNum}) => {
+}> = ({iconFontType,userNum}) => {
   return (
     <div className={styles.user_box}>
     {iconFontType == 1 &&  <IComp  className={cs(styles.icon_user, EnumIconFontType.iconRenshu)}/> }

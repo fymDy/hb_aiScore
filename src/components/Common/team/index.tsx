@@ -1,13 +1,12 @@
 import React from "react";
 import styles from "./index.module.scss";
 import cs from 'classnames'
-interface IFTitleProps {
+const Team: React.FC<{
   teamImg: string;
   teamName:  string;
   teamNameDesc?:string,
   classNameIcon?:  string;
-}
-const Team: React.FC<IFTitleProps> = ({ classNameIcon='',teamNameDesc='',teamImg, teamName }) => {
+}> = ({ classNameIcon='',teamNameDesc='',teamImg, teamName }) => {
   return (
       <div className={cs(styles.team_box)}>
         <div className={cs(classNameIcon,styles.team_img)}>

@@ -3,19 +3,24 @@ import React, { useMemo, useState } from 'react';
 import styles from './index.module.scss';
 import DetailsComp from './detailsComp';
 import TitleComp from './titleComp';
-export interface IFMathProps{
+ interface IFMathProps{
   dataList:any,
   onclcikCollect:(id:string)=>void
-  onclcikCollectTeam:(id:string)=>void
+  onclcikCollectItem:(id:string,matchId:string)=>void
+  onClickJumpPage:(item:any)=>void
 }
-const Match: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectTeam}) => {
+const Match: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
       return (
         <>
                 {
                   dataList?.map((item:any,i:number)=>(
                     <section key={i} className={styles.match_item}>
-                        <TitleComp itemData={item} onclcik={onclcikCollect} />
-                        <DetailsComp itemData={item} onclcik={onclcikCollectTeam} />
+                        <TitleComp itemData={item} onclcik={()=>onclcikCollect(item?.id)} />
+                          {
+                            item?.data?.map((itemMatch:any,i:number)=>(
+                              <DetailsComp key={i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage(itemMatch)} />
+                            ))
+                          }
                     </section>
                   ))
                 }
