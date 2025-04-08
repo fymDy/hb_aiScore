@@ -18,4 +18,5 @@ export enum RouterPathUtil {
   MAIN_TENNIS = '/main/tennis',
   MAIN_VOLLEYBALL = '/main/volleyball',
   MAIN_WATERPOLO = '/main/waterpolo',
+  MATCHDETAILS = '/matchDetails',
 }

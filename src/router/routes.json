@@ -135,5 +135,12 @@
         "children": []
       }
     ]
+  },
+  {
+    "path": "/matchDetails",
+    "name": "matchDetails",
+    "author": false,
+    "component": "matchDetails/index.tsx",
+    "children": []
   }
 ]

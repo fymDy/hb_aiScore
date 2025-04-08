@@ -2,12 +2,14 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import { IFSearchResult } from "../interface";
 import PageFilter from "../acomponents/pageFilter";
-import Match from "../acomponents/match";
+import MatchList from "../acomponents/matchList";
+import { useNavigate } from "react-router-dom";
+import { RouterPathUtil } from "@/router/routerPathUtil";
 
 const Football: React.FC = () => {
   const [activeBtnFilter, setActiveBtnFilter] = useState(false);
   const [activeTabId, setActiveTabId] = useState("ing");
-  const [collectId, setCollectId] = useState("");
+  const navigate= useNavigate()
   const filterData: IFSearchResult[] = useMemo(() => {
     const data = [
       {
@@ -279,7 +281,9 @@ const Football: React.FC = () => {
     setAllData(data);
   };
   const onClickJumpPage=(item:any)=>{
-      console.log(item)
+     navigate(RouterPathUtil.MATCHDETAILS,{state:{
+      matchId:item?.id
+     }})
   }
   return (
     <article className={styles.football}>
@@ -288,7 +292,7 @@ const Football: React.FC = () => {
         onclick={(id: string) => setActiveTabId(id)}
         onclickFilter={() => setActiveBtnFilter(!activeBtnFilter)}
       />
-      <Match
+      <MatchList
         dataList={matchList}
         onclcikCollect={onclcikCollect}
         onclcikCollectItem={onclcikCollectItem}

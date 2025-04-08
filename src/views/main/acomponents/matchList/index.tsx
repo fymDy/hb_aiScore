@@ -9,7 +9,7 @@ import TitleComp from './titleComp';
   onclcikCollectItem:(id:string,matchId:string)=>void
   onClickJumpPage:(item:any)=>void
 }
-const Match: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
+const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
       return (
         <>
                 {
@@ -27,4 +27,4 @@ const Match: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectIte
         </>
       );
     };
-export default Match;
+export default MatchList;
