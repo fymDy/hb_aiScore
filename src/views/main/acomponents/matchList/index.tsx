@@ -10,12 +10,13 @@ import TitleComp from './titleComp';
   onClickJumpPage:(item:any)=>void
 }
 const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
+  console.log(1)
       return (
         <>
                 {
                   dataList?.map((item:any,i:number)=>(
                     <section key={i} className={styles.match_item}>
-                        <TitleComp itemData={item} onclcik={()=>onclcikCollect(item?.id)} />
+                        <TitleComp itemData={item} onclcik={()=>{}} />
                           {
                             item?.data?.map((itemMatch:any,i:number)=>(
                               <DetailsComp key={i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage(itemMatch)} />

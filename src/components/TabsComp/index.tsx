@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-06 15:18:37
+ * @LastEditTime: 2025-04-09 12:38:19
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/TabsComp/index.tsx
@@ -14,7 +14,6 @@ import cs from 'classnames'
 
 const Tabs=(props:any)=>{
         const {tabData,activeTab,onClick,className}=props
-        console.log(tabData)
     return(
          <ul className={cs(className,styles.Tabs)} >
                 {

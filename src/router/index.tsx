@@ -55,7 +55,6 @@ const updatedRoutesConfig = [
 ];
 
 const routes =generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[])
-console.log('routes---',routes)
 const resRoutes=createBrowserRouter(routes);
 
 const AppRouter: React.FC = () => {

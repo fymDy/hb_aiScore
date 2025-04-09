@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import IComp from "@/components/IComp";
 import cs from "classnames";
-import { EnumIconFontType } from "@/enum";
+import { EnumIconFontType } from "@/enum/enumIconFontType";
 
 const IconCollect: React.FC<{
   isCollect: boolean;
@@ -14,8 +14,8 @@ const IconCollect: React.FC<{
           styles.icon_collect,
           { [styles.isCollected]: isCollect},
           isCollect
-            ? EnumIconFontType.iconYishoucang
-            : EnumIconFontType.iconWeishoucang
+            ? EnumIconFontType.icon_yishoucang
+            : EnumIconFontType.icon_weishoucang
         )}
         onClick={onclcik}
       />

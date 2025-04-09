@@ -19,4 +19,25 @@
         opacity: 0
     }
 }
+//暂定
+
+@keyframes cycle {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@-webkit-keyframes cycle {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
+}
 
