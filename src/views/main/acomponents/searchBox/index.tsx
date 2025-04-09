@@ -1,13 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-07 00:18:12
+ * @LastEditTime: 2025-04-09 17:19:25
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/components/SearchComp/index.tsx
+ * @FilePath: /hb_aiScore/src/views/main/acomponents/SearchComp/index.tsx
  */
+import IComp from '@/components/IComp'
 import styles from './index.module.scss'
-import IComp from '../IComp'
 import cs from 'classnames'
 const SearchBox=(props:any)=>{
     const {iconClass,isActive,onclick,onClear,onChange,iptValue}=props

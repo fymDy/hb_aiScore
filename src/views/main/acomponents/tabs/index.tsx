@@ -1,20 +1,21 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-09 17:40:35
+ * @LastEditTime: 2025-04-09 17:15:09
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/components/TabsComp/index.tsx
+ * @FilePath: /hb_aiScore/src/views/main/acomponents/tabs/index.tsx
  */
 
 import { IFTab } from '@/views/main/interface'
 import styles from './index.module.scss'
 import cs from 'classnames'
+import IComp from '../../../../components/IComp'
 
-const TabsComp=(props:any)=>{
+const Tabs=(props:any)=>{
         const {tabData,activeTab,onClick,className}=props
     return(
-         <ul className={cs(className,styles.TabsComp)} >
+         <ul className={cs(className,styles.Tabs)} >
                 {
                     tabData?.map((item:IFTab,i:number)=>{
                         return(
@@ -24,8 +25,18 @@ const TabsComp=(props:any)=>{
                                 {[styles.item5]:i==5},
                                 {[styles.item_active]:item?.id==activeTab && i !==5}
                             )} onClick={()=>{onClick(item)  }}>
+                                <div className={styles.top}>
+                                    {
+                                        i <4 &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
+                                    }
+                                    <IComp className={cs(item.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})}/>
+                                </div>
                                 <span className={styles.name}>{item?.name}</span>
-                                <span className={cs({[styles.line]:item?.id==activeTab})} />
+                               
+                                {/* </Link> */}
+                                {item?.id===activeTab && i<4 &&
+                                    <span className={styles.line} />
+                                }
                             </li>
                         )
                     })
@@ -33,4 +44,4 @@ const TabsComp=(props:any)=>{
         </ul>
     )
 }
-export default TabsComp
+export default Tabs

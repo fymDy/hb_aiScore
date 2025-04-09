@@ -1,0 +1,25 @@
+.StepComp{
+    box-sizing: border-box;
+    margin: 6px 12px;
+    background-color: var(--color-fff);
+    word-break: break-all;
+    color: var(--color-666);
+    font-size: 12px;
+}
+.jt::after{
+    transform: scale(.7);
+    -webkit-transform: scale(.7);
+    -moz-transform: scale(.7);
+    -o-transform: scale(.7);
+    font-family: iconfont;
+    display: inline-block;
+    font-size: 12px;
+    content: "\e66d";
+    margin: 0 2px;
+    width: 12px;
+    color: var(--color-666);
+}
+.name{
+    font-weight: 400;
+    color: var(--color-0f80da) !important;
+}

@@ -1,21 +1,13 @@
 
-.Tabs {
-  height: 48px;
-  background-color:var(--color-0f80da);
+.TabsComp {
+  height: 36px;
+  background-color:var(--color-fff);
   display: flex;
+  box-shadow: 0 5px 10px -5px var(--color-d6d6d6);
+}
 
-  // overflow-x: hidden;
-}
-.item4{
-  width:46px ;
-  color:var(--color-fff) !important;
-}
-.item5{
-  width:42px ;
-  color:var(--color-ffe000) !important;
-}
 .item_active{
-  color: var(--color-fff) !important;
+  color: var(--color-0f80da) !important;
 }
 .item{
   position: relative;
@@ -24,33 +16,16 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  color: var(--color-9fccf0);
+  color: var(--color-59616b);
 }
 .top{
   font-size: 12px;
 }
-.matchNum{
-  display: inline-block;
-  font-size: 12px;
-  position: absolute;
-  top: 0;
-  right: 6px;
-}
-.iconSize4::before{
-  font-size: 14px ;
-  vertical-align:middle;
-}
 
-.iconSize{
-  font-size: 20px;
-  vertical-align: top;
-
-}
 .name{
   font-size: 12.75px;
   margin-top: 2px;
     display: block;
-    // width: calc(25vw - 22px);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -59,9 +34,10 @@
 }
 .line{
   display: inline-block;
-    width: 100%;
+    width: 50%;
+    transform: translate(50%);
     height: 2px;
-    background-color: var(--color-fff);
+    background-color: var(--color-0f80da);
     position: absolute;
     left: 0;
     bottom: 0;

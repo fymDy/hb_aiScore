@@ -3,8 +3,8 @@ import styles from "./index.module.scss";
 import IComp from "@/components/IComp";
 import cs from "classnames";
 import { pxToRem } from "@/utils/common";
-import IconSprite from "@/components/IconSprite";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
+import IconSprite from "../IconSprite";
 
 
 const UserBox: React.FC<{

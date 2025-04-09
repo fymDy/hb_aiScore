@@ -1,13 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-05 18:45:40
+ * @LastEditTime: 2025-04-09 17:24:00
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/DownloadComp/index.tsx
  */
 import IComp from '../IComp'
-import IconSprite from '../IconSprite'
+import IconSprite from '../Common/IconSprite'
 import styles from './index.module.scss'
 import cs from 'classnames'
 interface IFDownLoadProps{

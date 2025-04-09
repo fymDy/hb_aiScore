@@ -3,17 +3,19 @@ import React, {  useEffect, useMemo, useState } from 'react';
 import styles from './index.module.scss';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import DownLoadComp from '@/components/DownloadComp';
-import HeaderComp from '@/components/HeaderComp';
 import {  useApp } from '@/components/LayoutContext';
 import { RouterPathUtil } from '@/router/routerPathUtil';
 import { IFTab } from './interface';
-import TabsComp from '@/components/TabsComp';
 import cs from 'classnames'
-import SearchComp from '@/components/SearchComp';
-import OptionBallComp from '@/components/OptionBallComp';
+import SearchComp from '@/views/main/acomponents/searchBox';
+import OptionBallComp from '@/views/main/acomponents/ballList';
 import Menu from './acomponents/menu';
 import BtnGroup from './acomponents/searchResult/btnGroup';
 import SearchResult from './acomponents/searchResult';
+import Header from './acomponents/header';
+import Tabs from '@/views/main/acomponents/tabs';
+import SearchBox from '@/views/main/acomponents/searchBox';
+import BallList from '@/views/main/acomponents/ballList';
 const Main: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -175,7 +177,7 @@ const Main: React.FC = () => {
         setClickBtnOthers(false)
         setClickBtnSearch(false)
         setClickBtnAllBall(false)
-        navigate(item.path); 
+        navigate(item?.path ?? ''); 
       }
      
   }
@@ -228,10 +230,10 @@ const onSelectBall=(id:string)=>{
     <div className={styles.main} >
       <header className={styles.header} >
         <DownLoadComp className={cs({[styles.is_notShow_download]:!isShowDownLoad }) } onClose={()=>setIsShowDownLoad(!isShowDownLoad) }/>
-        <HeaderComp       onclickLogo={onclickLogo} />
-        <TabsComp  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTab={activeTab}  tabData={tabData} onClick={onClickTab}/>
+        <Header      onclickLogo={onclickLogo} />
+        <Tabs  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTab={activeTab}  tabData={tabData} onClick={onClickTab}/>
         {
-          clickBtnSearch &&  <SearchComp isActive={clickBtnAllBall} iptValue={iptValue} iconClass={activeIconClass}
+          clickBtnSearch &&  <SearchBox isActive={clickBtnAllBall} iptValue={iptValue} iconClass={activeIconClass}
           onClear={()=>{
             setIptValue('')
             setClickBtnAllBall(false)
@@ -255,7 +257,7 @@ const onSelectBall=(id:string)=>{
       </header>
      
       <div className={cs(styles.others,{[styles.is_show_others]:(clickBtnOthers || clickBtnAllBall ) })}>
-        <OptionBallComp className={styles.font_size} arrowRight={false} isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
+        <BallList className={styles.font_size} arrowRight={false} isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
        </div>
       
       <div className={cs(styles.search_result,{[styles.is_show_search_result]:clickBtnSearch})}>

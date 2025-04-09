@@ -17,6 +17,15 @@ $color-c8cd:#c8cdcd;
 $color-ffa: #ffa830 ;
 $color-fcf: #fcf0d0;
 $color-e2: #e2e2e2;
+$color-596: #59616b;
+$color-d6: #d6d6d6;
+$color-666: #666;
+$color-ecf: #ecf7fd;
+$color-d2e: #d2e9fe;
+$color-ffb: #ffba5a;
+$color-219: #2196F3;
+$color-fff2df: #fff2df;
+$color-fffaf3: #fffaf3;
 //border color
 $border-color: 1px solid hsla(0, 0%, 89%, .4);
 :root {
@@ -31,13 +40,22 @@ $border-color: 1px solid hsla(0, 0%, 89%, .4);
     --color-b7b7b7: #{$color-b7};
     --color-ffe000: #{$color-ffe};
     --color-9fccf0: #{$color-9fc};
-    --color-f1f1f1: #{$color-f1};
+    --color-f1: #{$color-f1};
     --color-999: #{$color-999};
     --color-e3: #{$color-e3};
     --color-c8cdcd:#{$color-c8cd};
     --color-ffa830:#{$color-ffa};
     --color-fcf0d0:#{$color-fcf};
     --color-e2e2e2:#{$color-e2};
+    --color-59616b:#{$color-596};
+    --color-d6d6d6:#{$color-d6};
+    --color-666:#{$color-666};
+    --color-ecf7fd:#{$color-ecf};
+    --color-d2e9fe:#{$color-d2e};
+    --color-ffba5a:#{$color-ffb};
+    --color-2196f3:#{$color-219};
+    --color-fff2df:#{$color-fff2df};
+    --color-fffaf3:#{$color-fffaf3};
     // ... 其他颜色变量
     --color-border: #{$border-color};
   }

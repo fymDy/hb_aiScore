@@ -6,7 +6,7 @@ import IComp from '@/components/IComp';
 import cs from 'classnames'
 import Head from '../components/head';
 import Match from '../components/match';
-import OptionBox from '@/components/OptionBallComp';
+import OptionBox from '@/views/main/acomponents/ballList';
 interface IFSettingProps{
   menusData:IFMenu[],
   matchHotData:IFMatch[]
