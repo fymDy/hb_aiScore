@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
-import { pxToRem } from "@/utils/common";
+import { pxToCalc, pxToRem } from "@/utils/common";
 
 interface CircleProcessChartProps {
   title?: string;
@@ -21,7 +21,7 @@ const CircleProcessChart: React.FC<CircleProcessChartProps> = ({
   strokeWidth = 2,
   diameter = 34,
 }) => {
-  const radius = (diameter - strokeWidth) / 2;
+  const radius:number =(diameter - strokeWidth) / 2;
   const center = diameter / 2;
   const circumference = 2 * Math.PI * radius;
 
@@ -43,9 +43,10 @@ const CircleProcessChart: React.FC<CircleProcessChartProps> = ({
         <div className={styles.leftText} style={{ color: leftColor }}>
           {leftValue}
         </div>
+        <div   style={{ width: pxToRem(diameter), height: pxToRem(diameter) }}>
         <svg
-          width={diameter}
-          height={diameter}
+         width="100%"
+         height="100%"
           viewBox={`0 0 ${diameter} ${diameter}`}
         >
           {/* 蓝色：逆时针（镜像） */}
@@ -69,7 +70,7 @@ const CircleProcessChart: React.FC<CircleProcessChartProps> = ({
             strokeLinecap="round"
           />
         </svg>
-
+        </div>
         <div className={styles.rightText} style={{ color: rightColor }}>
           {rightValue}
         </div>

@@ -147,7 +147,7 @@ const MatchDetails: React.FC = () => {
           events={events}
         />
         <div className={styles.chart_group}>
-          <div className={styles.circleWrapper}>
+          <div className={styles.circle_group}>
             <CircleProcessChart title="控球率" leftValue={50} rightValue={70} />
             <CircleProcessChart
               title="危险进攻"
@@ -161,8 +161,8 @@ const MatchDetails: React.FC = () => {
             />
           </div>
             {
-              [1,2]?.map(()=>(
-                <div className={styles.line_chart}>
+              [1,2]?.map((item)=>(
+                <div key={item} className={styles.line_chart}>
             <ImageComp className={styles.img_flag} imgSrc={imgFlag}></ImageComp>
             <IComp
               className={cs(styles.card_red, EnumIconFontType.iconredcard1)}

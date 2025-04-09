@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-24 14:28:45
- * @LastEditTime: 2025-04-02 23:14:59
+ * @LastEditTime: 2025-04-10 00:29:10
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/utils/common.ts
@@ -107,6 +107,9 @@ export function removeEventListenerResize(flag='resize',callback:any){
   }
   export const pxToRem = (px: number): string => {
     return `${px / 10}rem`;
+  };
+  export const pxToCalc = (px: number): string => {
+    return `${px / 10}`;
   };
 
 

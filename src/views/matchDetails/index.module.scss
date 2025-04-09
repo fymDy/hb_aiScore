@@ -19,8 +19,9 @@
   padding: 8px;
   background-color: var(--color-fff);
 }
-.circleWrapper {
-  display: flex;
+.circle_group {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   padding: 0 8px ;
   
 }
