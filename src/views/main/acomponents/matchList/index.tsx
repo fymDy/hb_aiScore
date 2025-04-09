@@ -16,7 +16,7 @@ const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollec
                 {
                   dataList?.map((item:any,i:number)=>(
                     <section key={i} className={styles.match_item}>
-                        <TitleComp itemData={item} onclcik={()=>{}} />
+                        <TitleComp itemData={item} onclcik={()=>{onclcikCollect(item?.id)}} />
                           {
                             item?.data?.map((itemMatch:any,i:number)=>(
                               <DetailsComp key={i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage(itemMatch)} />
