@@ -1,0 +1,45 @@
+.wrapper {
+  position: relative;
+  width: 200px;
+  text-align: center;
+  font-size: 12px;
+  margin: 8px 0;
+  
+}
+
+.title {
+  margin-bottom: 4px;
+  color: #333;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top:-16px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftValue,
+.rightValue {
+  width: 20px;
+  text-align: center;
+}
+
+.bar {
+  flex: 1;
+  border-radius: 3px;
+  background-color: #eee;
+  overflow: hidden;
+  display: flex;
+}
+
+.leftBar {
+  height: 100%;
+}
+
+.rightBar {
+  height: 100%;
+}

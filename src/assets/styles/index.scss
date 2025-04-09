@@ -8,7 +8,10 @@ html {
   max-width:var(--safe-html-max-width);
   min-width: var(--safe-html-min-width);
   margin:0 auto;
-  
+  outline: 0;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: #f1f1f1 !important;
   }
 body {
   box-sizing: border-box;  

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-09 17:40:35
+ * @LastEditTime: 2025-04-09 22:57:07
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/TabsComp/index.tsx
@@ -14,7 +14,8 @@ import cs from 'classnames'
 const TabsComp=(props:any)=>{
         const {tabData,activeTab,onClick,className}=props
     return(
-         <ul className={cs(className,styles.TabsComp)} >
+         <div className={cs(className,styles.TabsComp)}>
+            <ul className={styles.tabs_list} >
                 {
                     tabData?.map((item:IFTab,i:number)=>{
                         return(
@@ -31,6 +32,7 @@ const TabsComp=(props:any)=>{
                     })
                 }
         </ul>
+         </div>
     )
 }
 export default TabsComp

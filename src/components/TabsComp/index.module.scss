@@ -1,15 +1,18 @@
 
-.TabsComp {
-  height: 36px;
+
+.tabs_list {
+
   background-color:var(--color-fff);
   display: flex;
-  box-shadow: 0 5px 10px -5px var(--color-d6d6d6);
+ padding-bottom: 15px;
+  user-select: none;
 }
 
 .item_active{
   color: var(--color-0f80da) !important;
 }
 .item{
+  height: 36px;
   position: relative;
   display: flex;
   flex-direction: column;

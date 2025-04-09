@@ -5,11 +5,48 @@
 
 }
 
-.matchChart {
-  position: relative;
-  width: 100%;
-  height:111px;
+.tabs{
+  height: 36px;
+  box-shadow: 0 5px 10px -5px #d6d6d6;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 8px; 
+  
+}
+.chart_group{
+  padding: 8px;
+  background-color: var(--color-fff);
+}
+.circleWrapper {
+  display: flex;
+  padding: 0 8px ;
+  
 }
 .is_notShow_download{
   display: none !important;
+}
+.line_chart{
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.img_flag{
+  width: 14px;
+  height: 14px;
+}
+.card_red{
+  color: red;
+  font-size: 16px;
+}
+.card_yellow{
+  font-size: 16px;
+  color: #FEBD33;
+}
+.player{
+  height: 100px;
+  background-color: var(--color-fff);
 }
