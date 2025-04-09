@@ -16,7 +16,7 @@ $color-e3:#e3e3e3;
 $color-c8cd:#c8cdcd;
 $color-ffa: #ffa830 ;
 $color-fcf: #fcf0d0;
-
+$color-e2: #e2e2e2;
 //border color
 $border-color: 1px solid hsla(0, 0%, 89%, .4);
 :root {
@@ -37,6 +37,7 @@ $border-color: 1px solid hsla(0, 0%, 89%, .4);
     --color-c8cdcd:#{$color-c8cd};
     --color-ffa830:#{$color-ffa};
     --color-fcf0d0:#{$color-fcf};
+    --color-e2e2e2:#{$color-e2};
     // ... 其他颜色变量
     --color-border: #{$border-color};
   }

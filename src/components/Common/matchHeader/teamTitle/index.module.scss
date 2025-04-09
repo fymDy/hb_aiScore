@@ -1,0 +1,29 @@
+
+.title{
+  position: relative;
+  width:94%;
+  height: 44px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.icon_back{
+  font-size: 16px;
+  color: var(--color-fff);
+}
+.title_name{
+  font-size: 10px;
+  opacity: 0.6;
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+ flex: 1;
+}
+.icon{
+  height: 44px;
+  position: absolute;
+  top:12px;
+  right: 20px;
+  font-size: 18px;
+  color: var(--color-e2e2e2);
+}
