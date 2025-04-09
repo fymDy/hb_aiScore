@@ -16,8 +16,10 @@ import IComp from "@/components/IComp";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import ImageComp from "@/components/imageComp";
 import imgFlag from "@/assets/images/flag.png";
+import { useNavigate } from "react-router-dom";
 
 const MatchDetails: React.FC = () => {
+ const navigate= useNavigate()
   //tab切换：选中tab
   const [activeTab, setActiveTab] = useState<string>("");
 
@@ -127,7 +129,7 @@ const MatchDetails: React.FC = () => {
         className={cs({ [styles.is_notShow_download]: !isShowDownLoad })}
         onClose={() => setIsShowDownLoad(!isShowDownLoad)}
       />
-      <MatchHeader data={headerData} />
+      <MatchHeader data={headerData} onClick={()=>navigate(-1)}/>
       <TabsComp
         className={styles.tabs}
         activeTab={activeTab}

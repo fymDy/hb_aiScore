@@ -11,10 +11,11 @@ import IconBrand from "../IconBrand";
 
 const MatchHeader: React.FC<{
   data:any
-}> = ({data}) => {
+  onClick:()=>void
+}> = ({data,onClick}) => {
   return (
     <div className={styles.match_top}>
-          <TeamTitle matchName={data?.matchName} startTime={data?.startTime}/>
+          <TeamTitle matchName={data?.matchName} startTime={data?.startTime} onClick={onClick}/>
     
               <div className={styles.match_top_box_info}>
                       <TeamLogo imgSrc={data?.teamHomeImg} name={data?.teamHome} />

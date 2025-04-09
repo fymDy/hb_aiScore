@@ -7,11 +7,12 @@ import cs from "classnames";
 const TeamTitle: React.FC<{
   matchName:string,
   startTime:string,
-}> = ({matchName,startTime}) => {
+  onClick:()=>void
+}> = ({matchName,startTime,onClick}) => {
   
   return (
     <div className={styles.title}>
-      <IComp  className={cs(styles.icon_back,EnumIconFontType.iconback)}></IComp>
+      <IComp  className={cs(styles.icon_back,EnumIconFontType.iconback)} onClick={onClick}></IComp>
       <div className={styles.title_name}>
         <span>{matchName}</span>
         <span>{startTime}</span>
