@@ -9,6 +9,8 @@ import StepComp from "@/components/StepComp";
 
 import { useNavigate } from "react-router-dom";
 import OverView from "./overview";
+import { EnumIconFontType } from "@/enum/enumIconFontType";
+import IComp from "@/components/IComp";
 
 const MatchDetails: React.FC = () => {
  const navigate= useNavigate()
@@ -29,7 +31,6 @@ const MatchDetails: React.FC = () => {
       value: Math.floor(Math.random() * 30),
     })),
   ];
-
   const events: any = {
     home: [
       { minute: 10, type: "corner" },
@@ -133,7 +134,9 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
+      <IComp className={EnumIconFontType.iconsubstitution}></IComp>
       <OverView/>
+  
     </div>
   );
 };

@@ -43,10 +43,12 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "inquirer": "^12.5.0",
+    "jsdom": "^26.0.0",
     "postcss-pxtorem": "^6.1.0",
     "sass": "^1.86.0",
     "sharp": "^0.33.5",
     "spritesmith": "^3.5.1",
+    "svg-sprite": "^2.0.4",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"

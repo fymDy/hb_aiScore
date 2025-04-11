@@ -20,7 +20,7 @@ fs.readdir(iconsDir, (err, files) => {
     return;
   }
 
-  const pngFiles = files.filter(file => file.endsWith('.png'));
+  const pngFiles = files.filter(file => file.endsWith('.png') );
   const input = pngFiles.map(file => path.join(iconsDir, file));
 
   if (input.length === 0) {

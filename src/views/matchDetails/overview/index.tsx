@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ChartLineComp from "@/components/ChartLineComp";
 import ChartCircleProcess from "@/components/Common/chartCircleProcess";
 import ChartLineTextComp from "@/components/ChartLineTextComp";
-
+import SvgIcon from '@/components/Common/IconSvg';
 const OverView: React.FC = () => {
  const navigate= useNavigate()
 
@@ -89,7 +89,11 @@ const OverView: React.FC = () => {
           <ChartLineComp title={"On Target"} imgFlag={imgFlag}/>
           <ChartLineTextComp title={"On Target"} />
         </div>
-        <div className={styles.player}></div>
+        <div className={styles.player}>
+
+        <SvgIcon name="iconPenalty" size={14} color="#f00" />
+        <SvgIcon name="iconsubstitution" size={14} />
+        </div>
         <div className={styles.player}></div>
       </div>
   );

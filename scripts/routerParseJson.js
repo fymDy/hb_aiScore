@@ -1,22 +1,42 @@
-
-
 const path = require('path');
 const { exec } = require('child_process');
 const VIEWS_DIR = path.join(__dirname, '../src/views');
-const GENERATE_ROUTES_SCRIPT = 'node ./scripts/generate-routes.js'; // 如果您使用 TypeScript，可能是 'ts-node ./scripts/generate-routes.ts'
-console.log(`[WATCH] 正在监听目录变化: ${VIEWS_DIR}`);
-async function execRoutersToJson(){
-    // 这里我们监听所有的事件类型，包括 'add', 'change', 'unlink' 等
-  await exec(GENERATE_ROUTES_SCRIPT, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`[ERROR] 执行生成脚本失败: ${error}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`[ERROR] 生成脚本错误输出: ${stderr}`);
-      return;
-    }
-    console.error(`[LOGO] 执行生成路由JSON脚本成功: ${stdout}`);
+const GENERATE_ROUTES_SCRIPT = 'node ./scripts/generate-routes.js';
+
+console.log(`[WATCH] 正在监听目录变化1: ${VIEWS_DIR}`);
+
+let isBuilding = false;
+
+// ✅ 将 exec 封装成 Promise
+function execAsync(command) {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        reject(`[ERROR] 执行失败: ${error}`);
+        return;
+      }
+      if (stderr) {
+        reject(`[ERROR] 脚本异常: ${stderr}`);
+        return;
+      }
+      resolve(stdout);
+  
+    });
   });
 }
-execRoutersToJson()
+
+async function execRoutersToJson() {
+  if (isBuilding) return;
+
+  isBuilding = true;
+  try {
+    const result = await execAsync(GENERATE_ROUTES_SCRIPT);
+    console.log(`[LOGO] ✅ 生成路由 JSON 成功: ${result.trim()}`);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    isBuilding = false;
+  }
+}
+
+execRoutersToJson();

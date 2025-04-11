@@ -72,3 +72,28 @@ export default tseslint.config({
 events 分队结构	       ✅ { home: [...], away: [...] }
 背景三条分层	          ✅ 顶部：白蓝蓝；底部：橙橙白
 事件图标 14×14 居中显示	✅ 显式控制尺寸，定位在最上/最下白色层
+
+「基于 SVG symbol 雪碧图的最佳实践流程」，包括 UI 交接、清洗、打包、预览、开发使用几个关键阶段
+UI 通常会导出一批 .svg 图标
+
+常见问题：
+1、每个 SVG 带有 width 和 height 属性（固定尺寸 ❌）
+2、有时包含 <clipPath>、<defs>、<title>、<desc>、注释等冗余标签
+
+第二步：SVG 文件清洗
+项	原因
+❌ 删除 width / height 属性	避免固定尺寸，确保可缩放
+✅ 保留 viewBox	用于 symbol 模式控制大小
+✅ 清除注释、title、metadata 等	避免冗余和冲突
+✅ 修复 clipPath 中缺少的 width/height	防止渲染失败
+✅ 统一命名规范	生成的 <symbol id="iconName"> 可预期
+
+第三步：打包为雪碧图（symbol 模式）
+文件	作用
+sprite.svg	雪碧图（包含所有 <symbol>）
+sprite-symbols.json	ID 列表，便于开发引用
+sprite-preview.html	图标可视化预览页面
+
+第四步：开发中使用
+✅ 引入一次 sprite.svg 内容（在入口）
+✅ 使用组件渲染图标：<SvgIcon name="iconPenalty" size={24} color="#f00" />

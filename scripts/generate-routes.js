@@ -6,7 +6,6 @@ const VIEWS_DIR = path.join(__dirname, '..', 'src','views'); // 视图文件根�
 const OUTPUT_DIR = path.join(__dirname, '..', 'src', 'router'); // 路由配置文件输出目录
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'routes.json'); // 路由配置文件输出路径
 const OUTPUT_ENUM_FILE = path.join(OUTPUT_DIR, 'routerPathUtil.ts'); // 路由枚举文件输出路径
-
 /**
  * 异步提取 routerConfig.ts 文件中的路由配置
  * @param {string} filePath 文件路径
@@ -157,14 +156,14 @@ async function writeRoutesToFile(routes, outputFile) {
     try {
       await fs.access(outputFile);
       await fs.unlink(outputFile);
-      console.log(`[LOG] 发现已存在的路由文件，正在删除: ${outputFile}`);
+     
     } catch (error) {
       // 文件不存在，忽略错误
     }
 
     // 将路由配置写入 JSON 文件，格式化输出
     await fs.writeFile(outputFile, JSON.stringify(routes, null, 2), 'utf8');
-    console.log(`[LOG] 路由配置已写入到: ${outputFile}`);
+  
   } catch (error) {
     console.error(`[ERROR] 写入路由文件时发生错误:`, error);
   }
@@ -209,7 +208,7 @@ async function generateRoutePathEnum(routes, outputFile) {
 
     // 写入枚举文件
     await fs.writeFile(outputFile, enumContent, 'utf8');
-    console.log(`[LOG] 路由路径枚举已写入到: ${outputFile}`);
+ 
 
   } catch (error) {
     console.error(`[ERROR] 生成路由路径枚举时发生错误:`, error);
@@ -224,9 +223,15 @@ async function main() {
     await writeRoutesToFile(finalRoutes, OUTPUT_FILE);
     // 根据生成的路由配置生成路由路径枚举
     await generateRoutePathEnum(finalRoutes, OUTPUT_ENUM_FILE);
+        // ✅ 移动成功日志到 try 成功结尾
+        console.log(`[LOG] 路由配置已写入到: ${OUTPUT_FILE}`);
+        console.log(`[LOG] 路由路径枚举已写入到: ${OUTPUT_ENUM_FILE}`);
   } catch (error) {
+ 
     console.error(`[ERROR] 主程序执行过程中发生错误:`, error);
+    process.exit(1); // ⛔️ 终止，返回失败给外层脚本
   }
+ 
 }
 
 main();
