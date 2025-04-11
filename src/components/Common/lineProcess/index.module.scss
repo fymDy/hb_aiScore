@@ -1,4 +1,4 @@
-.wrapper {
+.LineProcess {
   position: relative;
   width: 200px;
   text-align: center;
@@ -9,7 +9,7 @@
 
 .title {
   margin-bottom: 4px;
-  color: #333;
+  color: var(--color-333);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -31,7 +31,7 @@
 .bar {
   flex: 1;
   border-radius: 3px;
-  background-color: #eee;
+  background-color: var(--color-eee);
   overflow: hidden;
   display: flex;
 }

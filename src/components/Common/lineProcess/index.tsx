@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.module.scss';
 import { pxToRem } from '@/utils/common';
 
-interface HorizontalBarChartProps {
+interface LineProcessProps {
   title: string;
   leftValue: number;
   rightValue: number;
@@ -11,7 +11,7 @@ interface HorizontalBarChartProps {
   rightColor?: string;
 }
 
-const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
+const LineProcess: React.FC<LineProcessProps> = ({
   title,
   height=4,
   leftValue,
@@ -24,7 +24,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
   const rightRatio = 100 - leftRatio;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.LineProcess}>
       <div className={styles.title}>{title}</div>
       <div className={styles.content}>
         <span className={styles.leftValue}>{leftValue}</span>
@@ -44,4 +44,4 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
   );
 };
 
-export default HorizontalBarChart;
+export default LineProcess;

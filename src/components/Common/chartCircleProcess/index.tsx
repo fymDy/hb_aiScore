@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import { pxToCalc, pxToRem } from "@/utils/common";
 
-interface CircleProcessChartProps {
+interface ChartCircleProcessProps {
   title?: string;
   leftValue: number;
   rightValue: number;
@@ -12,7 +12,7 @@ interface CircleProcessChartProps {
   diameter?: number;
 }
 
-const CircleProcessChart: React.FC<CircleProcessChartProps> = ({
+const ChartCircleProcess: React.FC<ChartCircleProcessProps> = ({
   title = "控球率",
   leftValue,
   rightValue,
@@ -37,7 +37,7 @@ const CircleProcessChart: React.FC<CircleProcessChartProps> = ({
   `;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.ChartCircleProcess}>
       <div className={styles.title}>{title}</div>
       <div className={styles.circleWrapper}>
         <div className={styles.leftText} style={{ color: leftColor }}>
@@ -79,4 +79,4 @@ const CircleProcessChart: React.FC<CircleProcessChartProps> = ({
   );
 };
 
-export default CircleProcessChart;
+export default ChartCircleProcess;

@@ -1,22 +1,14 @@
 import React, { useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import DownLoadComp from "@/components/DownloadComp";
-import MatchTimelineChart, {
-  BarData,
-  EventItem,
-} from "@/components/Common/MatchTimelineChart";
-import IconBrand from "@/components/Common/IconBrand";
+
 import MatchHeader from "@/components/Common/matchHeader";
 import cs from "classnames";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
-import CircleProcessChart from "@/components/Common/circleProcessChart";
-import HorizontalBarChart from "@/components/Common/lineProcessChart";
-import IComp from "@/components/IComp";
-import { EnumIconFontType } from "@/enum/enumIconFontType";
-import ImageComp from "@/components/imageComp";
-import imgFlag from "@/assets/images/flag.png";
+
 import { useNavigate } from "react-router-dom";
+import OverView from "./overview";
 
 const MatchDetails: React.FC = () => {
  const navigate= useNavigate()
@@ -141,58 +133,7 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      <div className={styles.content}>
-        <MatchTimelineChart
-          teamHome={headerData.teamHome}
-          teamAway={headerData.teamAway}
-          barData={barData}
-          events={events}
-        />
-        <div className={styles.chart_group}>
-          <div className={styles.circle_group}>
-            <CircleProcessChart title="控球率" leftValue={50} rightValue={70} />
-            <CircleProcessChart
-              title="危险进攻"
-              leftValue={17}
-              rightValue={67}
-            />
-            <CircleProcessChart
-              title="危险进攻"
-              leftValue={80}
-              rightValue={120}
-            />
-          </div>
-            {
-              [1,2]?.map((item)=>(
-                <div key={item} className={styles.line_chart}>
-            <ImageComp className={styles.img_flag} imgSrc={imgFlag}></ImageComp>
-            <IComp
-              className={cs(styles.card_red, EnumIconFontType.iconredcard1)}
-            />
-            <IComp
-              className={cs(
-                styles.card_yellow,
-                EnumIconFontType.iconyellowcard1
-              )}
-            />
-            <HorizontalBarChart
-              title="On Target"
-              leftValue={0}
-              rightValue={5}
-            />
-            <IComp className={cs(
-                styles.card_yellow,
-                EnumIconFontType.iconyellowcard1
-              )}/>
-            <IComp className={cs(styles.card_red, EnumIconFontType.iconredcard1)} />
-            <ImageComp className={styles.img_flag} imgSrc={imgFlag}></ImageComp>
-          </div>
-              ))
-            }
-        </div>
-        <div className={styles.player}></div>
-        <div className={styles.player}></div>
-      </div>
+      <OverView/>
     </div>
   );
 };

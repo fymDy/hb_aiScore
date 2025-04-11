@@ -1,0 +1,23 @@
+.ChartLineComp{
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.img_flag{
+  width: 14px;
+  height: 14px;
+}
+.card_red{
+  color: red;
+  font-size: 16px;
+}
+.card_yellow{
+  font-size: 16px;
+  color: #FEBD33;
+}
+.player{
+  height: 100px;
+  background-color: var(--color-fff);
+}
