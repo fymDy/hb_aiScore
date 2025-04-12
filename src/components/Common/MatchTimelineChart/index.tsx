@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
+import { EnumIconFontType } from '@/enum/enumIconFontType';
+import SvgIcon from '../IconSvg';
 
 export interface BarData {
   team: 'home' | 'away';
@@ -9,7 +11,7 @@ export interface BarData {
 
 export interface EventItem {
   minute: number;
-  type: 'corner' | 'yellowCard';
+  type: EnumIconFontType;
 }
 
 export interface MatchTimelineChartProps {
@@ -24,10 +26,7 @@ export interface MatchTimelineChartProps {
   className?: string;
 }
 
-const iconMap: Record<EventItem['type'], React.ReactNode> = {
-  corner: '🏁',
-  yellowCard: '🟨',
-};
+
 
 const MatchTimelineChart: React.FC<MatchTimelineChartProps> = ({
   teamHome,
@@ -124,7 +123,7 @@ const MatchTimelineChart: React.FC<MatchTimelineChartProps> = ({
                   className={`${styles.eventIcon} ${styles.home}`}
                   style={{ left: `${e.minute}%` }}
                 >
-                  {iconMap[e.type]}
+                 <SvgIcon name={e.type} size={14} />
                 </div>
               ))}
               {events.away.map((e, i) => (
@@ -134,7 +133,7 @@ const MatchTimelineChart: React.FC<MatchTimelineChartProps> = ({
                   className={`${styles.eventIcon} ${styles.away}`}
                   style={{ left: `${e.minute}%` }}
                 >
-                  {iconMap[e.type]}
+                   <SvgIcon name={e.type} size={14} />
                 </div>
               ))}
             </div>

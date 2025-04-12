@@ -11,6 +11,10 @@ import ChartLineComp from "@/components/ChartLineComp";
 import ChartCircleProcess from "@/components/Common/chartCircleProcess";
 import ChartLineTextComp from "@/components/ChartLineTextComp";
 import SvgIcon from '@/components/Common/IconSvg';
+import { EnumIconFontType } from "@/enum/enumIconFontType";
+import IComp from "@/components/IComp";
+import MatchPbp from "./matchPbp";
+import EventsAll from "./eventsAll";
 const OverView: React.FC = () => {
  const navigate= useNavigate()
 
@@ -29,16 +33,16 @@ const OverView: React.FC = () => {
 
   const events: any = {
     home: [
-      { minute: 10, type: "corner" },
-      { minute: 35, type: "yellowCard" },
-      { minute: 60, type: "corner" },
-      { minute: 90, type: "yellowCard" },
+      { minute: 10, type: EnumIconFontType.icongoal},
+      { minute: 35, type: EnumIconFontType.icontwoyellow_red },
+      { minute: 60, type: EnumIconFontType.iconCorner },
+      { minute: 90, type: EnumIconFontType.icontwoyellow_red  },
     ],
     away: [
-      { minute: 5, type: "corner" },
-      { minute: 30, type: "corner" },
-      { minute: 31, type: "corner" },
-      { minute: 80, type: "yellowCard" },
+      { minute: 5, type: EnumIconFontType.iconCorner },
+      { minute: 30, type: EnumIconFontType.iconCorner  },
+      { minute: 31, type: EnumIconFontType.iconCorner },
+      { minute: 80, type: EnumIconFontType.iconown_goal},
     ],
   };
 
@@ -63,6 +67,16 @@ const OverView: React.FC = () => {
     };
   }, []);
 
+  const EventsAllData=[
+      {icon:EnumIconFontType.icongoal,name:'進球'},
+      {icon:EnumIconFontType.iconPenalty,name:'點球'},
+      {icon:EnumIconFontType.iconPenaltySaved,name:'射失點球'},
+      {icon:EnumIconFontType.iconown_goal,name:'烏龍球'},
+      {icon:EnumIconFontType.iconCorner,name:'角球'},
+      {icon:EnumIconFontType.icontwoyellow_red,name:'兩黃變一紅'},
+      {icon:EnumIconFontType.iconsubstitution,name:'換人'},
+      {icon:EnumIconFontType.iconInjuryreplace,name:'因傷換人'}
+  ]
 
   return (
       <div className={styles.OverView}>
@@ -89,10 +103,8 @@ const OverView: React.FC = () => {
           <ChartLineComp title={"On Target"} imgFlag={imgFlag}/>
           <ChartLineTextComp title={"On Target"} />
         </div>
-        <div className={styles.player}>
-        <SvgIcon name="iconPenalty" size={14} color="#f00" />
-        <SvgIcon name="iconsubstitution" size={14} />
-        </div>
+        <MatchPbp/>
+        <EventsAll data={EventsAllData}/>
         <div className={styles.player}></div>
       </div>
   );

@@ -37,7 +37,6 @@ let isBuildingRoutes = false; // 添加一个标志，表示路由是否正在�
  
   watcher.on("all", (event, filePath) => {
     if (["change", "add", "unlink"].includes(event)) {
-
       // 如果是图标相关改动:注释，这里手动执行即可以
       if (filePath.includes("iconSvgs")) {
         
@@ -57,15 +56,15 @@ let isBuildingRoutes = false; // 添加一个标志，表示路由是否正在�
       console.log(`[启动监听]files ${filePath} `);
       if (filePath.endsWith("routerConfig.ts")  ) {
     
-        if(!isBuildingRoutes){
-          isBuildingRoutes = true;
-          exec(`node "${ROUTES_PARSE_JSON}"`, (err, stdout, stderr) => {
-            isBuildingRoutes = false; // 构建完成后重置标志
-            if (err) console.error("[ERROR] 路由构建失败:", err);
-            if (stderr) console.error(stderr);
-            if (stdout) console.log(stdout);
-          });
-      }
+          if(!isBuildingRoutes){
+            isBuildingRoutes = true;
+            exec(`node "${ROUTES_PARSE_JSON}"`, (err, stdout, stderr) => {
+              isBuildingRoutes = false; // 构建完成后重置标志
+              if (err) console.error("[ERROR] 路由构建失败:", err);
+              if (stderr) console.error(stderr);
+              if (stdout) console.log(stdout);
+            });
+        }
       }
     }
   });
