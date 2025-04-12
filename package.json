@@ -21,6 +21,7 @@
     "@types/lodash": "^4.17.16",
     "@types/react-router-dom": "^5.3.3",
     "classnames": "^2.5.1",
+    "fast-glob": "^3.3.3",
     "lodash": "^4.17.21",
     "postcss": "^8.5.3",
     "react": "^19.0.0",

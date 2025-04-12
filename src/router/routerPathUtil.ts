@@ -1,5 +1,4 @@
 export enum RouterPathUtil {
-  ACCOUNT = '/account',
   MAIN = '/main',
   MAIN_AMERICALBALL = '/main/americalBall',
   MAIN_BADMINTON = '/main/badminton',

@@ -1,12 +1,5 @@
 [
   {
-    "path": "/account",
-    "name": "account",
-    "author": false,
-    "component": "account/index.tsx",
-    "children": []
-  },
-  {
     "path": "/main",
     "name": "main",
     "author": false,

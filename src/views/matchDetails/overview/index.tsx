@@ -90,7 +90,6 @@ const OverView: React.FC = () => {
           <ChartLineTextComp title={"On Target"} />
         </div>
         <div className={styles.player}>
-
         <SvgIcon name="iconPenalty" size={14} color="#f00" />
         <SvgIcon name="iconsubstitution" size={14} />
         </div>

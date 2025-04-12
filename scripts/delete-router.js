@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer').default;
 const { exec } = require('child_process');
-
+ const ROUTES_PARSE_JSON = path.resolve(__dirname, "./routerParseJson.js");
 // 提示用户输入要删除的目录名
 inquirer.prompt([
   {
@@ -35,7 +35,12 @@ inquirer.prompt([
       if (err) {
         console.error(`[ERROR] 删除目录时出错: ${err.message}`);
       } else {
-        exec('node ./scripts/routerParseJson.js')
+          exec(`node "${ROUTES_PARSE_JSON}"`, (err, stdout, stderr) => {
+                    isBuildingRoutes = false; // 构建完成后重置标志
+                    if (err) console.error("[ERROR] 路由构建失败:", err);
+                    if (stderr) console.error(stderr);
+                    if (stdout) console.log(stdout);
+                  });
         console.log(`[LOG]目录及目录内所有文件已成功删除: ${dirPath}`);
       }
     });
