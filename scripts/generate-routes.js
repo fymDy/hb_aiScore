@@ -224,8 +224,7 @@ async function main() {
     // 根据生成的路由配置生成路由路径枚举
     await generateRoutePathEnum(finalRoutes, OUTPUT_ENUM_FILE);
         // ✅ 移动成功日志到 try 成功结尾
-        console.log(`[LOG] 路由配置已写入到: ${OUTPUT_FILE}`);
-        console.log(`[LOG] 路由路径枚举已写入到: ${OUTPUT_ENUM_FILE}`);
+        console.log(`[LOGO] 路由配置已写入到: ${OUTPUT_FILE} , 路由路径枚举已写入到: ${OUTPUT_ENUM_FILE}`);
   } catch (error) {
  
     console.error(`[ERROR] 主程序执行过程中发生错误:`, error);

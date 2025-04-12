@@ -3,11 +3,8 @@ const { exec } = require('child_process');
 const VIEWS_DIR = path.join(__dirname, '../src/views');
 const GENERATE_ROUTES_SCRIPT = 'node ./scripts/generate-routes.js';
 
-console.log(`[WATCH] 正在监听目录变化1: ${VIEWS_DIR}`);
-
 let isBuilding = false;
 
-// ✅ 将 exec 封装成 Promise
 function execAsync(command) {
   return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
