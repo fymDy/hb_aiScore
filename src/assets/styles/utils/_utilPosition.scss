@@ -1,0 +1,78 @@
+/* === 基础定位方式 === */
+.pos-static {
+    position: static;
+  }
+  .pos-relative {
+    position: relative;
+  }
+  .pos-absolute {
+    position: absolute;
+  }
+  .pos-fixed {
+    position: fixed;
+  }
+  .pos-sticky {
+    position: sticky;
+  }
+  
+  /* === 常见方向定位 === */
+  .top-0 {
+    top: 0;
+  }
+  .right-0 {
+    right: 0;
+  }
+  .bottom-0 {
+    bottom: 0;
+  }
+  .left-0 {
+    left: 0;
+  }
+  
+  /* === 常见组合定位 === */
+  .top-left {
+    top: 0;
+    left: 0;
+  }
+  .top-right {
+    top: 0;
+    right: 0;
+  }
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* === 水平垂直居中 === */
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* === 全屏铺满 === */
+  .absolute-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .fixed-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }

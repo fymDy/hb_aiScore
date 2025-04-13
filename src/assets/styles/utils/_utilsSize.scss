@@ -1,0 +1,24 @@
+// utilSize.scss
+
+@use "sass:math";
+@mixin generate-size-classes($prefix, $property, $step: 1, $max: 100) {
+    @for $i from 0 through math.div($max,$step) {
+      $val:$i * $step; ;
+      .#{$prefix}#{$val} {
+        #{$property}: #{$val}px;
+      }
+    }
+}
+  
+  // 使用
+  @include generate-size-classes('w-', width);
+  @include generate-size-classes('h-', height);
+  @include generate-size-classes('min-w-', min-width, 10, 100);
+  @include generate-size-classes('max-h-', max-height, 20, 300);
+  
+  // 固定值类
+  .w-full  { width: 100%; }
+  .h-full  { height: 100%; }
+  .w-screen { width: 100vw; }
+  .h-screen { height: 100vh; }
+  

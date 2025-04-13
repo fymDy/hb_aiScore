@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-09 17:15:09
+ * @LastEditTime: 2025-04-13 19:23:33
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/main/acomponents/tabs/index.tsx
@@ -15,7 +15,7 @@ import IComp from '../../../../components/IComp'
 const Tabs=(props:any)=>{
         const {tabData,activeTab,onClick,className}=props
     return(
-         <ul className={cs(className,styles.Tabs)} >
+         <ul className={cs(className,styles.Tabs_list)} >
                 {
                     tabData?.map((item:IFTab,i:number)=>{
                         return(
@@ -29,11 +29,11 @@ const Tabs=(props:any)=>{
                                     {
                                         i <4 &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
                                     }
-                                    <IComp className={cs(item.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})}/>
+                                    <IComp classParentName={styles.IComp} className={cs(item.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})} name={item?.name} />
                                 </div>
-                                <span className={styles.name}>{item?.name}</span>
+                                {/* <span className={styles.name}>{item?.name}</span> */}
                                
-                                {/* </Link> */}
+                        
                                 {item?.id===activeTab && i<4 &&
                                     <span className={styles.line} />
                                 }

@@ -1,0 +1,50 @@
+/* === 基础显示方式 === */
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.grid {
+  display: grid;
+}
+.inline-grid {
+  display: inline-grid;
+}
+
+/* === 表格相关显示方式（较少用，但可以补充） === */
+.table {
+  display: table;
+}
+.table-row {
+  display: table-row;
+}
+.table-cell {
+  display: table-cell;
+}
+
+/* === 隐藏元素 === */
+.hidden {
+  display: none;
+}
+
+/* === 常见组合类（便捷用法） === */
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline-block-center {
+  display: inline-block;
+  vertical-align: middle;
+}

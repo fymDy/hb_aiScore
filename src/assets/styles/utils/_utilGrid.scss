@@ -1,0 +1,61 @@
+/* === 启用 grid === */
+.grid {
+  display: grid;
+}
+
+/* === 主轴方向的列数设置（最多支持 12 列）=== */
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.grid-cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* === 自动列宽 === */
+.grid-cols-auto {
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+/* === 行数设置（不常用）=== */
+.grid-rows-1 {
+  grid-template-rows: repeat(1, 1fr);
+}
+.grid-rows-2 {
+  grid-template-rows: repeat(2, 1fr);
+}
+
+
+/* === 水平/垂直对齐方式 === */
+.place-items-center {
+  place-items: center; /* align-items + justify-items */
+}
+.grid-items-start {
+  align-items: start;
+}
+.grid-items-center {
+  align-items: center;
+}
+.grid-items-end {
+  align-items: end;
+}
+.grid-justify-start {
+  justify-items: start;
+}
+.grid-justify-center {
+  justify-items: center;
+}
+.grid-justify-end {
+  justify-items: end;
+}

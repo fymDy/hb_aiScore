@@ -1,14 +1,26 @@
-.flex-center {
-    display: flex;
-    align-items: center;
-  }
-  .flex-center-justify {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+
+@forward './utils/utilDisplay';
+@forward './utils/utilPosition';
+@forward './utils/utilFlex';
+@forward './utils/utilGrid';
+@forward './utils/utilText';
+@forward './utils/utilsSize';
+@forward './utils/utilSpacing';
+
+/* === 间距控制 === */
+.gap-4 {
+  gap: 4px;
 }
+.gap-8 {
+  gap: 8px;
+}
+.gap-12 {
+  gap: 12px;
+}
+.gap-16 {
+  gap: 16px;
+}
+.gap-24 {
+  gap: 24px;
+}
+
