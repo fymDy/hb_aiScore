@@ -1,4 +1,7 @@
 .IComp{
     box-sizing: border-box;
-    padding: 3px;
+    // padding: 3px;
+    display: flex;
+      align-items: center;
+      gap: 2px;
 }

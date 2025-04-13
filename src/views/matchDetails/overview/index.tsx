@@ -15,6 +15,7 @@ import { EnumIconFontType } from "@/enum/enumIconFontType";
 import IComp from "@/components/IComp";
 import MatchPbp from "./matchPbp";
 import EventsAll from "./eventsAll";
+import PlayerRating from "./playerRating";
 const OverView: React.FC = () => {
  const navigate= useNavigate()
 
@@ -103,6 +104,7 @@ const OverView: React.FC = () => {
           <ChartLineComp title={"On Target"} imgFlag={imgFlag}/>
           <ChartLineTextComp title={"On Target"} />
         </div>
+        <PlayerRating/>
         <MatchPbp/>
         <EventsAll data={EventsAllData}/>
         <div className={styles.player}></div>

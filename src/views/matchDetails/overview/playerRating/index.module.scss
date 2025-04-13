@@ -1,0 +1,86 @@
+
+@use '@/assets/styles/common.scss' ;
+
+.PlayerRating{
+  height: 56px;
+  padding:0 15px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3,1fr);
+  background-color: var(--color-fff);
+ }
+ .left{
+    position: relative;
+    display: flex;
+    align-items: end;
+    gap:8px;
+
+ }
+ .logo{
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  background: #f4f4f4;
+ }
+ .name{
+    font-size: 10px;
+    color: var(--color-333);
+    @extend .ellipsis;
+ }
+ .star_left{
+  font-size: 12px;
+  color: var(--color-fff);
+  position: absolute;
+  left:30px;
+  top:-5px;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 1px 3px;
+  background-color: #ffae0f;
+ }
+ .star_left_icon{
+
+  
+ }
+ .center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:4px;
+ }
+ .rating{
+  color: var(--color-999);
+ }
+ .cicle{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #6d6a6d;
+  background-color: var(--color-f1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .right{
+  position: relative;
+  display: flex;
+  align-items: end;
+  gap:8px;
+  justify-content: end;
+ }
+ .star_right{
+  font-size: 12px;
+  color: var(--color-fff);
+  position: absolute;
+  right:30px;
+  top:-5px;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 1px 3px;
+  background-color: #c1cc01;
+ }
+ .star_right_icon{
+
+ }

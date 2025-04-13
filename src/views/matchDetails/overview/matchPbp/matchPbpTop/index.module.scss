@@ -1,0 +1,19 @@
+
+.MatchPbpTop{
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.match_pbp_top_icon{
+  font-size: 14px;
+  color: #febd33;
+}
+.name{
+  font-size: 12px;
+  color: var(--color-333);
+}
+.time{
+  font-size: 12px;
+  color: var(--color-999);
+}

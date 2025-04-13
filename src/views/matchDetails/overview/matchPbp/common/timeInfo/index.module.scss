@@ -1,0 +1,13 @@
+.TeamInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+.up{
+  font-size: 12px;
+  color: var(--color-333);
+}
+.down{
+  font-size: 12px;
+  color: var(--color-999);
+}

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-01 20:19:38
- * @LastEditTime: 2025-04-09 23:52:40
+ * @LastEditTime: 2025-04-13 16:56:23
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/IComp/index.tsx
@@ -18,8 +18,10 @@ const IComp:React.FC<
 
     return(
         <span key={key} className={styles.IComp} onClick={onClick}>
-               <i className={cs(className,'iconfont')}></i>
-               {/* {name && name} */}
+               <i className={cs(className,'iconfont')}> </i>
+               {
+                name &&   <span>{ name}</span>
+               }
           </span>
      
     )
