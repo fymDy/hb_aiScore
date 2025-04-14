@@ -1,25 +1,25 @@
 
+@use '@/assets/styles/utils' as * ;
+
 .MatchPbpScore{
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  @include flex-end-center;
   gap: 26px;
 }
 .content{
-  display: flex;
-  align-items: center;
+
+  @include flex-start-center;
   gap: 8px;
 }
 .match_num{
-  display: flex;
-  align-items: center;
+
+  @include flex-start-center;
   gap:6px;
 
 }
 .score{
   padding: 1px 6px;
-  background-color: #0f80da;
+  background-color: var(--color-0f80da);
   color: var(--color-fff);
   font-size: 12px;
   border-radius: 4px;

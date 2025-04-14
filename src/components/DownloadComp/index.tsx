@@ -1,15 +1,15 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-09 17:24:00
+ * @LastEditTime: 2025-04-14 18:46:00
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/DownloadComp/index.tsx
  */
-import IComp from '../IComp'
 import IconSprite from '../Common/IconSprite'
 import styles from './index.module.scss'
 import cs from 'classnames'
+import IconFont from '../Common/Iconfont'
 interface IFDownLoadProps{
     className:string,
     onClose:()=>void
@@ -29,7 +29,7 @@ const DownLoad=({className,onClose}:IFDownLoadProps)=>{
                 </li>
                 <li className={styles.right}>
                         <div className={cs(styles.btn)}>下载</div>
-                        <IComp className={cs(styles.icon_guanbi,'icon-guanbi')} onClick={onClose}  ></IComp>
+                        <IconFont className={cs(styles.icon_guanbi,'icon-guanbi')} onClick={onClose}  />
                 </li>
         </ul>
     )

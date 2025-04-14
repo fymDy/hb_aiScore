@@ -1,6 +1,7 @@
+@use '@/assets/styles/utils' as * ;
+
 .TeamInfo{
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
 }
 
 .up{

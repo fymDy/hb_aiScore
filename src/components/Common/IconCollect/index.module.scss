@@ -1,9 +1,9 @@
+@use '../../../assets/styles/utils' as *;
 .icon_collect{
-  margin-left:4px;
-  font-size: 18px;
-  color: var(--color-c8cdcd) ;
-
+  @include ml(4);
+  @include font-size(18);
+  @include color(css-var(color-c8cd));
 }
 .isCollected{
-  color: var(--color-ffa830) !important;
+  @include color(css-var(color-ffa,true));
 }

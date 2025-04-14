@@ -1,9 +1,14 @@
-@use "sass:math";
-@mixin generate-size-classes($prefix, $property, $step: 1, $max: 100) {
-    @for $i from 0 through math.div($max,$step) {
-      $val:$i * $step; ;
-      .#{$prefix}#{$val} {
-        #{$property}: #{$val}px;
-      }
-    }
+@mixin text($type, $value, $unit: null) {
+  @if $unit != null {
+    #{$type}: #{$value}#{$unit};
+  } @else {
+    #{$type}: $value;
+  }
 }
+
+// @mixin text($type, $value, $unit) {
+//   #{$type}: #{$value}#{$unit};
+// }
+// @mixin display($type, $value) {
+//   #{$type}: $value;
+// }

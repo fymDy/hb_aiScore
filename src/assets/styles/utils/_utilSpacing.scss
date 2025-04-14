@@ -1,31 +1,134 @@
-$space-sizes: (0,2,4,6,8,10,12,14,16,18,20,22,24, 32, 40);
+/// padding / margin + spacing 工具库
+@use 'sass:map';
+@use "sass:meta";
+@use 'sass:math';
+@use 'sass:list';
+@use './mixins';
+@use './common.scss' as vars;
 
-@each $size in $space-sizes {
-  .m-#{$size}  { margin: #{$size}px; }
-  .mt-#{$size} { margin-top: #{$size}px; }
-  .mb-#{$size} { margin-bottom: #{$size}px; }
-  .ml-#{$size} { margin-left: #{$size}px; }
-  .mr-#{$size} { margin-right: #{$size}px; }
-  .mx-#{$size} {
-    margin-left: #{$size}px;
-    margin-right: #{$size}px;
+/// 设置 padding，支持多个值，自动加单位（如 px）
+/// @param {...Number|String} $v - 一个或多个 padding 值，例如 4, 4 8
+/// @example scss
+///   @include p(4, 8); // padding: 4px 8px
+@mixin p($v...) {
+  $joined: ();
+  @each $val in $v {
+    $final-val: if(
+      meta.type-of($val) == 'number',
+      $val + vars.$unit,
+      $val
+    );
+    $joined: list.append($joined, $final-val, $separator: space);
   }
-  .my-#{$size} {
-    margin-top: #{$size}px;
-    margin-bottom: #{$size}px;
-  }
+  padding: $joined;
+}
 
-  .p-#{$size}  { padding: #{$size}px; }
-  .pt-#{$size} { padding-top: #{$size}px; }
-  .pb-#{$size} { padding-bottom: #{$size}px; }
-  .pl-#{$size} { padding-left: #{$size}px; }
-  .pr-#{$size} { padding-right: #{$size}px; }
-  .px-#{$size} {
-    padding-left: #{$size}px;
-    padding-right: #{$size}px;
+/// 设置 margin，支持多个值，自动加单位（如 px）
+/// @param {...Number|String} $v - 一个或多个 margin 值
+/// @example scss
+///   @include m(8, 16); // margin: 8px 16px
+@mixin m($v...) {
+  $joined: ();
+  @each $val in $v {
+    $final-val: if(
+      meta.type-of($val) == 'number',
+      $val + vars.$unit,
+      $val
+    );
+    $joined: list.append($joined, $final-val, $separator: space);
   }
-  .py-#{$size} {
-    padding-top: #{$size}px;
-    padding-bottom: #{$size}px;
+  margin: $joined;
+}
+
+/// 设置 padding 左右方向
+/// @param {Number|String} $v - 间距值
+/// @example scss
+///   @include px(12); // padding-left/right: 12px
+@mixin px($v: 0) {
+  @include spacing(padding, x, $v);
+}
+
+/// 设置 padding 上下方向
+@mixin py($v: 0) {
+  @include spacing(padding, y, $v);
+}
+
+/// 设置 padding-top
+@mixin pt($v: 0) {
+  @include spacing(padding, top, $v);
+}
+
+/// 设置 padding-right
+@mixin pr($v: 0) {
+  @include spacing(padding, right, $v);
+}
+
+/// 设置 padding-bottom
+@mixin pb($v: 0) {
+  @include spacing(padding, bottom, $v);
+}
+
+/// 设置 padding-left
+@mixin pl($v: 0) {
+  @include spacing(padding, left, $v);
+}
+
+/// 设置 margin 左右方向
+@mixin mx($v: 0) {
+  @include spacing(margin, x, $v);
+}
+
+/// 设置 margin 上下方向
+@mixin my($v: 0) {
+  @include spacing(margin, y, $v);
+}
+
+/// 设置 margin-top
+@mixin mt($v: 0) {
+  @include spacing(margin, top, $v);
+}
+
+/// 设置 margin-right
+@mixin mr($v: 0) {
+  @include spacing(margin, right, $v);
+}
+
+/// 设置 margin-bottom
+@mixin mb($v: 0) {
+  @include spacing(margin, bottom, $v);
+}
+
+/// 设置 margin-left
+@mixin ml($v: 0) {
+  @include spacing(margin, left, $v);
+}
+
+/// 通用 spacing 工具，用于 margin / padding 各个方向组合
+/// @param {String} $type - spacing 类型，如 margin / padding
+/// @param {String} $direction - spacing 方向，如 top / x / all
+/// @param {Number|String} $value - spacing 数值（可为纯数字或带单位）
+/// @example scss
+///   @include spacing(padding, x, 10); // padding-left/right: 10px
+@mixin spacing($type, $direction, $value) {
+  $map: (
+    top: -top,
+    right: -right,
+    bottom: -bottom,
+    left: -left,
+    x: ('-left', '-right'),
+    y: ('-top', '-bottom'),
+    all: ''
+  );
+
+  $dir: map.get($map, $direction);
+
+  @if $direction == all {
+    @include mixins.text($type, $value, vars.$unit);
+  } @else if meta.type-of($dir) == 'list' {
+    @each $d in $dir {
+      @include mixins.text(#{$type}#{$d}, $value, vars.$unit);
+    }
+  } @else {
+    @include mixins.text(#{$type}#{$dir}, $value, vars.$unit);
   }
 }

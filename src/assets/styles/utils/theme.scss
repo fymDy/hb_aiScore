@@ -1,0 +1,19 @@
+
+
+@use '../variables' as *;
+:root {
+  @each $key, $value in $theme-colors {
+    --#{$key}: #{$value};
+  }
+}
+// [data-theme='dark'] {
+//   @each $name, $value in $dark-theme-colors {
+//     --#{$name}: #{$value};
+//   }
+// }
+
+// :root {
+//     //background
+//     --color-fff: #{$color-fff};
+//     --color-303030: #{$color-30};
+//   }

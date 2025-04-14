@@ -1,8 +1,8 @@
-
+@use '@/assets/styles/utils' as *;
 .Header {
   height: 44px;
   padding: 0 12px;
-  background-color:var(--color-0f80da);
+  @include bg-color(css-var('color-0f80da'));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,9 +23,11 @@
   width: 100%;
 }
 .text{
-  font-family: Roboto-Medium, Roboto !important;
+
     font-weight: 500;
-    color: var(--color-fff);
+
+  @include color(css-var('color-fff'));
+  display: flex;
     label{
       font-size: 12px;
     }
@@ -46,10 +48,10 @@
   width: 14px;
   height: 14px;
   font-size: 16px;
-  color: var(--color-fff);
+  @include color(css-var('color-fff'));
 }
 .icon_caidan{
   font-size: 16px;
-  color: var(--color-fff);
+  @include color(css-var('color-fff'));
   padding: 3px;
 }

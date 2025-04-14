@@ -1,15 +1,16 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-05 12:27:03
- * @LastEditTime: 2025-04-05 16:31:26
+ * @LastEditTime: 2025-04-14 20:47:30
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/main/menu/components/head/index.tsx
+ * @FilePath: /hb_aiScore/src/views/main/acomponents/menu/components/head/index.tsx
  */
-import IComp from '@/components/IComp'
+
 import styles from './index.module.scss'
 import cs from 'classnames'
 import { ReactNode } from 'react'
+import IconFont from '@/components/Common/Iconfont'
 interface IFHeadUIProps {
     text: string
     rightNode?: ReactNode
@@ -22,10 +23,10 @@ interface IFHeadUIProps {
 const Head=({text,className,showBack=false,showClose=false,onClickBack,onClickClose}:IFHeadUIProps)=>{
     return <div className={cs(styles.Head,className)}>
             <p className={styles.left} onClick={onClickBack}  >
-                {showBack && <IComp className={cs(styles.icon_back,'icon-zuojiantou')} />}
+                {showBack && <IconFont className={cs(styles.icon_back,'icon-zuojiantou')}/>}
                 <span className={styles.text}>{text}</span>
             </p>
-            {showClose && <IComp className={cs(styles.icon_close,'icon-guanbi')} onClick={onClickClose} />}
+            {showClose && <IconFont className={cs(styles.icon_close,'icon-guanbi')} onClick={onClickClose} />}
          </div>
 }
 export default Head

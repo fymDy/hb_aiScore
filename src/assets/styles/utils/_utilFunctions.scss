@@ -1,0 +1,69 @@
+@use "sass:string";
+@use "sass:math";
+@use "sass:meta";
+/// px -> rem 转换函数（默认基准 10），初始化已计算，此函数用不到
+@function rem($px, $base: 10) {
+  @return ($px / $base) * 1rem;
+}
+/// 百分比转换函数（如：50 -> 50%）
+@function percentage($value) {
+  @return $value * 1%;
+}
+
+///生成width/height/间距,字体都可以
+@function spacing($v) {
+  @return $v * 1px;
+}
+
+/// 移除单位（例如：24px -> 24）
+@function strip-unit($value) {
+  @if meta.type-of($value) == 'number' and not math.is-unitless($value) {
+    @return $value / ($value * 0 + 1);
+  }
+  @return $value;
+}
+
+/// 颜色 + 透明度组合（返回 rgba 格式）
+@function css-var-alpha($name, $alpha) {
+  @return rgba(var(--#{$name}), $alpha); // 注意你的 var(--r,g,b) 格式要对
+}
+
+/// 响应式 spacing scale（步长 * 基准单位）
+@function spacing-scale($step, $base: 4px) {
+  @return $step * $base;
+}
+
+/// px -> vw 转换（基于设计稿宽度 375）
+@function vw($px, $design-width: 375) {
+  @return ($px / $design-width) * 100vw;
+}
+
+/// px -> vh 转换（基于设计稿高度 812）
+@function vh($px, $design-height: 812) {
+  @return ($px / $design-height) * 100vh;
+}
+
+/// clamp 封装（避免与 CSS 原生命令冲突）
+@function clamp-value($min, $preferred, $max) {
+  @return clamp(#{$min}, #{$preferred}, #{$max});
+}
+
+/// 生成 CSS 变量调用（带容错与可选 !important）
+@function css-var($name, $important: false) {
+  $clean-name: if(string.index($name, "--") == 1, string.slice($name, 3), $name);
+  @return if(
+    $important,
+    string.unquote("var(--#{$clean-name}) !important"),
+    string.unquote("var(--#{$clean-name})")
+  );
+}
+
+
+///其他模块使用案例
+//   @use './functions' as fn;
+
+// .title {
+//     font-size: fn.rem(24);         // 1.5rem
+//     width: fn.percent(50);         // 50%
+//     background: fn.alpha(#1989fa, 0.2); // rgba(25,137,250,0.2)
+//   }

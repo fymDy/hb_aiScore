@@ -1,59 +1,50 @@
-
+@use '@/assets/styles/utils' as *;
 .searchBox {
-  height: 52px;
-  padding: 0 12px;
-  background-color:var(--color-0f80da);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
- 
+  height: spacing(52);
+ @include p(0,12);
+ @include flex-between;
+ @include bg-color(css-var(color-0f80da));
 }
 
 .left{
-  display: flex;
-  align-items: center;
-
+  @include flex-center;
 }
 .center{
-  display: flex;
-  align-items: center;
-  flex: 1;
-  background-color: var(--color-fff);
-  margin: 0 12px;
+  @include flex-center;
+  @include flex(1);
+  @include m(0,12);
   border-radius: 4px;
+  background-color: var(--color-fff);
 }
 .icon_ball{
-  font-size: 20px;
-  color: #fff;
+  font-size:spacing(20);;
+  color: var(--color-fff);
 }
 .icon_arrow{
-  font-size: 12px;
-  color: #fff;
+  font-size: spacing(12);
+  color: var(--color-fff);
 }
 .icon_search,
 .icon_close{
-  font-size: 16px;
+  font-size: spacing(16);
 }
 .icon_search{
-  margin: 0 10px;
+  @include m(0,10);
 }
 .icon_close{
-margin-right: 10px;
+  @include mr(10);
 }
 .icon_close2{
-  color: #fff;
-  font-size: 17px;
- 
+  color: var(--color-fff);
+  font-size: spacing(17);
 }
 .ipt{
-  width: 77%;
+  width: percentage(77);
   height: 80%;
   height: 32px;
   font-size: 14px;
-  caret-color: #0f80da;
+  caret-color: var(--color-0f80da);
 }
 .right{
-  display: flex;
-  align-items: center;
-
+  @include flex-center;
 }

@@ -1,102 +1,156 @@
 
-/* === 基础 Flex 启用 === */
-.flex {
-    display: flex;
-  }
-  .flex-inline {
-    display: inline-flex;
-  }
+// /* === 基础 Flex 启用 === */
+// .flex {
+//     display: flex;
+//   }
+//   .flex-inline {
+//     display: inline-flex;
+//   }
   
-  /* === 主轴方向 === */
-  .flex-row {
-    flex-direction: row;
-  }
-  .flex-col {
-    flex-direction: column;
-  }
+//   /* === 主轴方向 === */
+//   .flex-row {
+//     flex-direction: row;
+//   }
+//   .flex-col {
+//     flex-direction: column;
+//   }
   
-  /* === 主轴对齐 === */
-  .justify-start {
-    justify-content: flex-start;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .justify-between {
-    justify-content: space-between;
-  }
-  .justify-around {
-    justify-content: space-around;
-  }
-  .justify-evenly {
-    justify-content: space-evenly;
-  }
+//   /* === 主轴对齐 === */
+//   .justify-start {
+//     justify-content: flex-start;
+//   }
+//   .justify-center {
+//     justify-content: center;
+//   }
+//   .justify-end {
+//     justify-content: flex-end;
+//   }
+//   .justify-between {
+//     justify-content: space-between;
+//   }
+//   .justify-around {
+//     justify-content: space-around;
+//   }
+//   .justify-evenly {
+//     justify-content: space-evenly;
+//   }
   
-  /* === 交叉轴对齐 === */
-  .items-start {
-    align-items: flex-start;
-  }
-  .items-center {
-    align-items: center;
-  }
-  .items-end {
-    align-items: flex-end;
-  }
-  .items-stretch {
-    align-items: stretch;
-  }
+//   /* === 交叉轴对齐 === */
+//   .items-start {
+//     align-items: flex-start;
+//   }
+//   .items-center {
+//     align-items: center;
+//   }
+//   .items-end {
+//     align-items: flex-end;
+//   }
+//   .items-stretch {
+//     align-items: stretch;
+//   }
   
-  /* === 多行对齐（仅适用于多行） === */
-  .content-start {
-    align-content: flex-start;
-  }
-  .content-center {
-    align-content: center;
-  }
-  .content-end {
-    align-content: flex-end;
-  }
-  .content-between {
-    align-content: space-between;
-  }
-  .content-around {
-    align-content: space-around;
-  }
-  /* === 间距控制 === */
+//   /* === 多行对齐（仅适用于多行） === */
+//   .content-start {
+//     align-content: flex-start;
+//   }
+//   .content-center {
+//     align-content: center;
+//   }
+//   .content-end {
+//     align-content: flex-end;
+//   }
+//   .content-between {
+//     align-content: space-between;
+//   }
+//   .content-around {
+//     align-content: space-around;
+//   }
+//   /* === 间距控制 === */
   
-  /* === 占据负容器空间 === */
-  .flex-1 {
-    flex: 1;
-  }
-  .flex-2 {
-    flex: 2;
-  }
-  .flex-3 {
-    flex: 3;
-  }
-  .flex-nowrap {
-    flex-wrap: nowrap;
-  }
+//   /* === 占据负容器空间 === */
+//   .flex-1 {
+//     flex: 1;
+//   }
+//   .flex-2 {
+//     flex: 2;
+//   }
+//   .flex-3 {
+//     flex: 3;
+//   }
+//   .flex-nowrap {
+//     flex-wrap: nowrap;
+//   }
   
   
-  /* === 常用组合类 === */
-  .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .flex-between-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .flex-column-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+//   /* === 常用组合类 === */
+//   .flex-center {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+//   .flex-between-center {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//   }
+//   .flex-column-center {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+@use './mixins' ; // 
+
+// === Flex 布局常用封装 ===
+@mixin display($v) {
+  @include mixins.text(display, $v); // ✅ display 是 $type，$v 是 $value
+}
+@mixin flex($v) {
+  @include mixins.text(flex, $v);     // ✅ flex 是 $v
+}
+
+@mixin inline-flex {
+  @include display(inline-flex);
+}
+
+@mixin flex-center {
+  @include display(flex);
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  @include display(flex);
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-around {
+  @include display(flex);
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin flex-direction {
+  flex-direction: column;
+}
+@mixin flex-column {
+  @include display(flex);
+  @include flex-direction
+}
+
+@mixin flex-wrap {
+  flex-wrap: wrap;
+}
+
+@mixin flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+// @mixin justify($v) {//grid工具类已定义
+//   @include text(justify-content, $v);
+// }
+
+// @mixin items($v) {//grid工具类已定义
+//   @include text(align-items, $v);
+// }

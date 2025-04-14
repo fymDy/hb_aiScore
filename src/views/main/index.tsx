@@ -257,7 +257,7 @@ const onSelectBall=(id:string)=>{
       </header>
      
       <div className={cs(styles.others,{[styles.is_show_others]:(clickBtnOthers || clickBtnAllBall ) })}>
-        <BallList className={styles.font_size} arrowRight={false} isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
+        <BallList className={styles.font_size}  isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
        </div>
       
       <div className={cs(styles.search_result,{[styles.is_show_search_result]:clickBtnSearch})}>

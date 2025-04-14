@@ -1,57 +1,56 @@
+@use '@/assets/styles/utils' as *;
 
 .DownLoad {
   // main 页面样式
-  height: 48px;
-  padding: 5px 10px;
-  background-color: var(--color-303030);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  @include h(48);
+  @include p(5,10);
+  @include bg-color(css-var('color-30'));
+  @include flex-between;
 }
 
 .left{
-  display: flex;
-  align-items: center;
-
+  @include flex-center;
 }
 .img{
-  width: 55px;
-  height: 36px;
-  margin-right: 10px;
+  @include w(55);
+  @include h(36);
+  @include mr(10);
 }
 .text{
-  font-family: Roboto-Medium, Roboto !important;
-    font-weight: 500;
-    color: var(--color-fff);
+    @include font-weight(500);
+    @include color(css-var('color-fff'));
+
     label{
-      font-size: 12px;
+      // @include font-size(12);
+      font-size:font-size(12) 
     }
     p{
-      font-size: 11px;
+      @include font-size(11);
     }
 }
 .right{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  @include flex-center;
 }
 .btn{
-  width: 66px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  background-color: var(--color-fff);
-  color: var(--color-333);
-  font-size: 12px;
-  border-radius: 5px;
-  font-weight: 500;
+
+ 
+  width: spacing(66);
+  height:spacing(24);
+  line-height:spacing(24);
+   // @include w(66);
+  // @include h(24);
+  // @include line-height(24);
+  @include text-align(center) ;
+  @include bg-color(css-var('color-fff'));
+  @include color(css-var('color-333'));
+  font-size:to-px(12);
+  @include border-radius(5);
+  @include font-weight(500);
 }
 .icon_guanbi{
-  width: 14px;
-  height: 14px;
-  margin-left: 10px;
-  color: var(--color-b7b7b7);
-  font-size: 14px;
+  @include ml(10);
+  @include color(css-var('color-b7'));
+  // @include font-size(14);
+  font-size:to-px(14) // 这种也可以封装了公共函数font-size
+
 }

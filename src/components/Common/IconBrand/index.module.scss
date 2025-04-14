@@ -1,6 +1,6 @@
-
+@use '../../../assets/styles/utils' as *;
 .icon_brand{
-  font-size: 14px;
-  margin-right: 9px;
-  color: var(--color-ffa830) ;
+  @include mr(9);
+  @include font-size(14);
+  @include color(css-var(color-ffa));
 }

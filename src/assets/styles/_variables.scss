@@ -1,6 +1,6 @@
+
 // common
 $color-fff:#fff;
-// background
 $color-30:#303030;
 $color-0f8:#0f80da;
 $color-c72:#c72a1d;
@@ -26,5 +26,58 @@ $color-ffb: #ffba5a;
 $color-219: #2196F3;
 $color-fff2df: #fff2df;
 $color-fffaf3: #fffaf3;
+$color-6d6a6d:#6d6a6d;
+$color-d9:#d9d9d9;
+$color-f4:#f4f4f4;
+$color-c1cc01:#c1cc01;
+$color-febd33:#febd33;
+$color-ffae0f:#ffae0f;
 //border color
+$color-rgab-0:0, 0, 0;
+$color-rgab-1:227, 227, 255;
+
 $border-color: 1px solid hsla(0, 0%, 89%, .4);
+
+$theme-colors: (
+
+  color-fff: $color-fff,
+  color-30: $color-30,
+  color-0f80da: $color-0f8,
+  color-c72a1d: $color-c72,
+  color-333: $color-333,
+  color-000: $color-000,
+  color-b7: $color-b7,
+  color-ffe000: $color-ffe,
+  color-9fccf0: $color-9fc,
+  color-f1: $color-f1,
+  color-999: $color-999,
+  color-e3: $color-e3,
+  color-c8cd: $color-c8cd,
+  color-ffa: $color-ffa,
+  color-fcf: $color-fcf,
+  color-e2: $color-e2,
+  color-596: $color-596,
+  color-d6: $color-d6,
+  color-666: $color-666,
+  color-ecf: $color-ecf,
+  color-d2e: $color-d2e,
+  color-ffb: $color-ffb,
+  color-219: $color-219,
+  color-fff2df: $color-fff2df,
+  color-fffaf3: $color-fffaf3,
+  color-6d6a6d:$color-6d6a6d,
+  color-d9:$color-d9,
+  color-f4:$color-f4,
+  color-c1cc01:$color-c1cc01,
+  color-febd33:$color-febd33,
+  color-ffae0f:$color-ffae0f,
+
+  color-rgab-0:$color-rgab-0,
+  color-rgab-1:$color-rgab-1,
+);
+// $dark-theme-colors: (
+//   color-fff: #000,
+//   color-30: #1a1a1a,
+//   color-0f8: #147dd2,
+//   ...
+// );

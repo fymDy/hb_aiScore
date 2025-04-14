@@ -1,7 +1,7 @@
-
+@use '@/assets/styles/utils' as *;
 .menu {
   // menu 页面样式
   width:100%;
-  padding: 0 15px;
-  background-color: var(--color-fff);
+  @include p(0,15);
+  @include bg-color(css-var('color-fff'))
 }

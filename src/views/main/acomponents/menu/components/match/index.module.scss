@@ -1,4 +1,4 @@
-
+@use '@/assets/styles/utils' as *;
 .match_hot{
   color: var(--color-333);
   dt{
@@ -7,8 +7,7 @@
   }
   dd{
     height: 40px;
-    display: flex;
-    align-items: center;
+    @include flex-center;
     font-size: 12.75px;
     gap: 12px;
     border-bottom: var(--color-border);

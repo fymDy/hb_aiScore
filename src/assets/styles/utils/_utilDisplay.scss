@@ -1,50 +1,154 @@
-/* === 基础显示方式 === */
-.block {
-  display: block;
-}
-.inline-block {
-  display: inline-block;
-}
-.inline {
-  display: inline;
-}
-.flex {
-  display: flex;
-}
-.inline-flex {
-  display: inline-flex;
-}
-.grid {
-  display: grid;
-}
-.inline-grid {
-  display: inline-grid;
+@use './mixins';
+@use './common.scss' as vars;
+
+/// 设置 display 属性
+/// @param {String} $v - display 的值（如 flex, block）
+@mixin display($v) {
+  @include mixins.text(display, $v);
 }
 
-/* === 表格相关显示方式（较少用，但可以补充） === */
-.table {
-  display: table;
-}
-.table-row {
-  display: table-row;
-}
-.table-cell {
-  display: table-cell;
+/// 设置 flex 属性值
+/// @param {String|Number} $v - flex 的值（如 1, auto）
+@mixin flex($v) {
+  @include mixins.text(flex, $v);
 }
 
-/* === 隐藏元素 === */
-.hidden {
-  display: none;
+/// 设置 display: inline-flex
+@mixin inline-flex {
+  @include display(inline-flex);
+}
+/// 设置 flex 方向为列方向（column）
+@mixin flex-direction {
+  flex-direction: column;
+}
+/// 设置交叉轴对齐方式（align-items）
+/// @param {String} $v - 对齐方式，如 center, stretch
+@mixin items($v) {
+  @include mixins.text(align-items, $v);
+}
+/// 设置主轴对齐方式（justify-content）
+/// @param {String} $v - 对齐方式，如 center, space-between
+@mixin justify($v) {
+  @include mixins.text(justify-content, $v);
 }
 
-/* === 常见组合类（便捷用法） === */
-.block-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+/// 设置 flex 居中布局
+@mixin flex-start-center {
+  @include display(flex);
+  @include justify(flex-start);
+  @include items(center);
+  // justify-content:flex-start;
+  // align-items: center;
+}
+@mixin flex-start-end {
+  @include display(flex);
+  @include justify(flex-start);
+  @include items(end);
+}
+@mixin flex-end-end {
+  @include display(flex);
+  @include justify(end);
+  @include items(end);
+}
+@mixin flex-end-center {
+  @include display(flex);
+  @include justify(end);
+  @include items(center);
+}
+/// 设置 flex 居中布局
+@mixin flex-center {
+  @include display(flex);
+  // justify-content: center;
+  // align-items: center;
+  @include justify(center);
+  @include items(center);
 }
 
-.inline-block-center {
-  display: inline-block;
-  vertical-align: middle;
+/// 设置 flex 两端对齐
+@mixin flex-between {
+  @include display(flex);
+  // justify-content: space-between;
+  // align-items: center;
+  @include justify(space-between);
+  @include items(center);
+}
+
+/// 设置 flex 平均分布对齐
+@mixin flex-around {
+  @include display(flex);
+  // justify-content: space-around;
+  // align-items: center;
+  @include justify(space-around);
+  @include items(center);
+}
+
+/// 设置纵向 flex 列布局
+@mixin flex-column {
+  @include display(flex);
+  @include flex-direction;
+}
+/// 设置纵向 flex 列布局
+@mixin flex-column-center {
+  @include display(flex);
+  @include flex-direction;
+  @include justify(center);
+  @include items(center);
+}
+
+/// 设置 flex-wrap: wrap
+@mixin flex-wrap {
+  flex-wrap: wrap;
+}
+
+/// 设置 flex-wrap: nowrap
+@mixin flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+// ----------------------- 通用 Grid 布局封装 -----------------------
+
+/// 设置列数（grid-template-columns: repeat）
+/// @param {Number} $count - 列数量
+@mixin grid-cols($count) {
+  @include display(grid);
+  grid-template-columns: repeat($count, 1fr);
+}
+
+/// 设置行数（grid-template-rows: repeat）
+/// @param {Number} $count - 行数量
+@mixin grid-rows($count) {
+  @include display(grid);
+  grid-template-rows: repeat($count, 1fr);
+}
+
+/// 设置 row-gap 间距
+/// @param {Number|String} $v - 行间距数值
+@mixin row-gap($v) {
+  @include mixins.text(row-gap, $v, vars.$unit);
+}
+
+/// 设置 column-gap 间距
+/// @param {Number|String} $v - 列间距数值
+@mixin col-gap($v) {
+  @include mixins.text(column-gap, $v, vars.$unit);
+}
+
+/// 设置整体 gap 间距
+/// @param {Number|String} $v - 间距数值
+@mixin gap($v) {
+  @include mixins.text(gap, $v, vars.$unit);
+}
+
+
+
+/// 设置 place-items
+/// @param {String} $v - 对齐方式（center, start, end）
+@mixin place($v) {
+  @include mixins.text(place-items, $v);
+}
+/// 设置 grid 居中布局
+@mixin grid-center {
+  @include display(grid);
+  @include items(center)
 }

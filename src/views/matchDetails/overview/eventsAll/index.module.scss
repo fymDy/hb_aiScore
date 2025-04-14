@@ -1,13 +1,13 @@
 
+@use '@/assets/styles/utils' as * ;
+
 .events_all{
-  margin: 8px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+  margin: 8px 14px;
   gap:8px ;
+  @include grid-cols(3);
  }
  .events_content{
-  display: flex;
-  align-items: center;
+  @include flex-start-center;
   gap: 8px;
  }
  .events_name{

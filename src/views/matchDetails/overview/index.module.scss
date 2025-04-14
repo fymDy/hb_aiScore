@@ -1,4 +1,5 @@
 
+@use '@/assets/styles/utils' as * ;
 
 .OverView{
   display: flex;
@@ -11,9 +12,8 @@
   background-color: var(--color-fff);
 }
 .circle_group {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  padding: 0 8px ;
+  @include grid-cols(3);
+  @include p(0,8);
   
 }
 .is_notShow_download{

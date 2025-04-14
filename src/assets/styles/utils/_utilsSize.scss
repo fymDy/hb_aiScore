@@ -1,24 +1,35 @@
-// utilSize.scss
+// @use './mixins';
 
-@use "sass:math";
-@mixin generate-size-classes($prefix, $property, $step: 1, $max: 100) {
-    @for $i from 0 through math.div($max,$step) {
-      $val:$i * $step; ;
-      .#{$prefix}#{$val} {
-        #{$property}: #{$val}px;
-      }
-    }
-}
   
-  // 使用
-  @include generate-size-classes('w-', width);
-  @include generate-size-classes('h-', height);
-  @include generate-size-classes('min-w-', min-width, 10, 100);
-  @include generate-size-classes('max-h-', max-height, 20, 300);
+//   // 动态生成，使用已生成原子类
+//   @include generate-size-classes('w-', width);
+//   @include generate-size-classes('h-', height);
+//   @include generate-size-classes('min-w-', min-width, 10, 100);
+//   @include generate-size-classes('max-h-', max-height, 20, 300);
+//   @include generate-size-classes('text-', font-size, 1, 40);
+//   // 固定值类
+//   .w-full  { width: 100%; }
+//   .h-full  { height: 100%; }
+//   .w-screen { width: 100vw; }
+//   .h-screen { height: 100vh; }
   
-  // 固定值类
-  .w-full  { width: 100%; }
-  .h-full  { height: 100%; }
-  .w-screen { width: 100vw; }
-  .h-screen { height: 100vh; }
-  
+///宽高控制（w/h/min/max/full）业务组件灵活控制样式时使用参数传值
+// 通用尺寸 setter
+
+@use './mixins' ;  // 
+@use './common.scss' as vars;
+  // 快捷尺寸 mixins（建议保留语义化调用）
+  @mixin w($v: 0)       { @include mixins.text(width, $v,vars.$unit)}
+  @mixin h($v: 0)       { @include mixins.text(height, $v,vars.$unit); }
+  @mixin min-w($v: 0)   { @include mixins.text(min-width, $v,vars.$unit); }
+  @mixin min-h($v: 0)   { @include mixins.text(min-height, $v,vars.$unit); }
+  @mixin max-w($v: 0)   { @include mixins.text(max-width, $v,vars.$unit); }
+  @mixin max-h($v: 0)   { @include mixins.text(max-height, $v,vars.$unit); }
+  @mixin w-full {
+    width: 100%;
+    height: 100%;
+  }
+  @mixin w-screen {
+    width: 100vw;
+    height: 100vh;
+  }

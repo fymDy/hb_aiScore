@@ -1,13 +1,14 @@
 
+@use '@/assets/styles/utils' as * ;
+
 .MatchPbpTop{
   height: 32px;
-  display: flex;
-  align-items: center;
+  @include flex-start-center;
   gap: 20px;
 }
 .match_pbp_top_icon{
   font-size: 14px;
-  color: #febd33;
+  color: var(--color-febd33);
 }
 .name{
   font-size: 12px;

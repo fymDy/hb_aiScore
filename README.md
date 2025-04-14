@@ -97,3 +97,27 @@ sprite-preview.html	图标可视化预览页面
 第四步：开发中使用
 ✅ 引入一次 sprite.svg 内容（在入口）
 ✅ 使用组件渲染图标：<SvgIcon name="iconPenalty" size={24} color="#f00" />
+
+src/styles/utils/
+├── _variables.scss         // 统一变量（颜色、字体、间距等）
+├── _mixins.scss            // 通用 @mixin 方法（text、size、spacing 等）
+├── _utilsSpacing.scss      // padding / margin 工具类
+├── _utilsSize.scss         // 宽高 / min-max 尺寸控制
+├── _utilsText.scss         // 字体、颜色、省略、多行裁剪
+├── _utilsColor.scss        // color / background / border-color
+├── _utilsPosition.scss     // position 定位封装
+├── _utilsFlex.scss         // Flex 布局快捷类
+├── _utilsGrid.scss         // Grid 布局快捷类
+├── _index.scss             // 统一 @forward 出口
+└── main.scss               // 主入口引入 + 示例
+
+✅ 快速使用
+@use '@/styles/utils/index' as *;
+然后在任意 SCSS / 组件中可使用：
+.card {
+  @include w(300px);
+  @include px(16px);
+  @include font-size(18px);
+  @include flex-center;
+  @include color(#333);
+}

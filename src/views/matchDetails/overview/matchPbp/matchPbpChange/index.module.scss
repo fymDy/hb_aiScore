@@ -1,6 +1,7 @@
+@use '@/assets/styles/utils' as * ;
+
 .MatchPbpChange{
-  display: flex;
-  align-items: center;
+  @include flex-start-center;
   gap: 26px;
 }
 

@@ -1,78 +1,146 @@
-/* === 基础定位方式 === */
-.pos-static {
-    position: static;
-  }
-  .pos-relative {
-    position: relative;
-  }
-  .pos-absolute {
-    position: absolute;
-  }
-  .pos-fixed {
-    position: fixed;
-  }
-  .pos-sticky {
-    position: sticky;
-  }
+// /* === 基础定位方式 === */
+// .pos-static {
+//     position: static;
+//   }
+//   .pos-relative {
+//     position: relative;
+//   }
+//   .pos-absolute {
+//     position: absolute;
+//   }
+//   .pos-fixed {
+//     position: fixed;
+//   }
+//   .pos-sticky {
+//     position: sticky;
+//   }
   
-  /* === 常见方向定位 === */
-  .top-0 {
-    top: 0;
-  }
-  .right-0 {
-    right: 0;
-  }
-  .bottom-0 {
-    bottom: 0;
-  }
-  .left-0 {
-    left: 0;
-  }
+//   /* === 常见方向定位 === */
+//   .top-0 {
+//     top: 0;
+//   }
+//   .right-0 {
+//     right: 0;
+//   }
+//   .bottom-0 {
+//     bottom: 0;
+//   }
+//   .left-0 {
+//     left: 0;
+//   }
   
-  /* === 常见组合定位 === */
-  .top-left {
-    top: 0;
-    left: 0;
-  }
-  .top-right {
-    top: 0;
-    right: 0;
-  }
-  .bottom-left {
-    bottom: 0;
-    left: 0;
-  }
-  .bottom-right {
-    bottom: 0;
-    right: 0;
-  }
+//   /* === 常见组合定位 === */
+//   .top-left {
+//     top: 0;
+//     left: 0;
+//   }
+//   .top-right {
+//     top: 0;
+//     right: 0;
+//   }
+  // .bottom-left {
+  //   bottom: 0;
+  //   left: 0;
+  // }
+//   .bottom-right {
+//     bottom: 0;
+//     right: 0;
+//   }
   
-  /* === 水平垂直居中 === */
-  .absolute-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .fixed-center {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+//   /* === 水平垂直居中 === */
+//   .absolute-center {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+//   .fixed-center {
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
   
-  /* === 全屏铺满 === */
-  .absolute-full {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  .fixed-full {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+//   /* === 全屏铺满 === */
+//   .absolute-full {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//   }
+//   .fixed-full {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//   }
+@use './mixins'; // 
+@use './common.scss' as vars;
+// 动态定位类封装定位（absolute/fixed/center）
+@mixin position($v) {
+  @include mixins.text(position, $v);
+}
+
+@mixin top($v) {
+  @include mixins.text(top, $v,vars.$unit);
+}
+@mixin right($v) {
+  @include mixins.text(right, $v,vars.$unit);
+}
+@mixin bottom($v) {
+  @include mixins.text(bottom, $v,vars.$unit);
+}
+@mixin left($v) {
+  @include mixins.text(left, $v,vars.$unit);
+}
+
+// 常见组合封装
+
+/// 固定四边铺满
+@mixin absolute-fill {
+  @include position(absolute);
+  @include top(0);
+  @include right(0);
+  @include bottom(0);
+  @include left(0);
+}
+
+/// 居中定位（需配合 transform: translate）
+@mixin absolute-center {
+  @include position(absolute);
+  @include top(50%);
+  @include left(50%);
+  transform: translate(-50%, -50%);
+}
+/// absolute左上固定角
+@mixin absolute-top-left( $t: 0, $l: 0) {
+  @include position(absolute);
+  @include top($t);
+  @include left($l);
+}
+/// absolute右上固定角
+@mixin absolute-top-right( $t: 0, $r: 0) {
+  @include position(absolute);
+  @include top($t);
+  @include right($r);
+}
+@mixin absolute-right($r: 0) {
+  @include position(absolute);
+  @include right($r);
+}
+
+/// fixed左上固定角
+@mixin fixed-top-left( $t: 0, $l: 0) {
+  @include position(fixed);
+  @include top($t);
+  @include left($l);
+}
+
+/// 右下固定角
+@mixin fixed-bottom-right($b: 0, $r: 0) {
+  @include position(fixed);
+  @include bottom($b);
+  @include right($r);
+}

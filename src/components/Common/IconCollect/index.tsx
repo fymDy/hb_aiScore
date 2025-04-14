@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "./index.module.scss";
-import IComp from "@/components/IComp";
 import cs from "classnames";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
+import IconFont from "../Iconfont";
 
 const IconCollect: React.FC<{
   isCollect: boolean;
   onclcik: () => void;
 }> = ({ isCollect=false, onclcik }) => {
   return (
-      <IComp
+      <IconFont
         className={cs(
           styles.icon_collect,
           { [styles.isCollected]: isCollect},

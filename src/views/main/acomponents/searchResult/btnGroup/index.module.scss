@@ -1,14 +1,12 @@
-
+@use '@/assets/styles/utils' as *;
 .btn_group {
   width:100%;
   height: 48px;
-  display: flex;
-  align-items: center;
+  @include flex-start-center;
   gap:6.5px;
 }
 .item{
-  display: flex;
-  align-items: center;
+  @include flex-center;
   padding: 0 9px;
   height: 30px;
   color:var(--color-333);
@@ -23,10 +21,11 @@
   font-size: 14px;
 }
 .defaultActive{
-  color: var(--color-fff) !important  ;
-  background-color: var(--color-0f80da) !important;
+  @include color(css-var(color-fff,true));
+  @include bg-color(css-var(color-0f80da,true));
+
 }
 .isActiveRed{
-  color: var(--color-fff) !important  ;
-  background-color: var(--color-c72a1d) !important;
+  @include color(css-var(color-fff,true));
+  @include bg-color(css-var(color-c72a1d,true));
 }

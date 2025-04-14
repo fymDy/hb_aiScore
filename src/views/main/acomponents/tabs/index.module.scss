@@ -1,41 +1,52 @@
-@use '@/assets/styles/common.scss'  ;
+@use '@/assets/styles/utils' as *;
 
 .Tabs_list{
-  background-color:var(--color-0f80da);
-  @extend .flex,.h-48 ;
+  @include bg-color(css-var('color-0f80da'));
+  @include display(flex);
+  @include h(48);
 }
 .item4{
-  @extend .w-46 ;
-  color:var(--color-fff) !important;
+  @include w(46);
+  @include color(css-var('color-fff',true));
 }
 .item5{
-  color:var(--color-ffe000) !important;
-  @extend .w-42 ;
+  @include color(css-var('color-ffe000',true));
+  @include w(42);
 }
 .item_active{
-  color: var(--color-fff) !important;
+  @include color(css-var('color-fff',true));
 }
 .item{
-  color: var(--color-9fccf0);
-  @extend .pos-relative , .flex-column-center , .flex-1 ;
+  @include color(css-var('color-9fccf0'));
+  @include position(relative);
+  @include flex-column;
+  @include flex-center;
+  @include flex(1)
 }
 .top{
-  @extend .text-12 ;
+  @include font-size(12)
 }
 .IComp{
-  @extend .flex-col,.gap-4;
+  @include flex-column;
 }
 .matchNum{
-  right: 6px;
-  @extend .text-12,.pos-absolute,.top-0 ;
+  // right: 6px;
+  @include position(absolute);
+  @include font-size(12);
+  @include top(0);
+  @include right(6);
 }
 .iconSize4::before{
-  @extend .text-14 ;
+  @include font-size(14);
 }
 .iconSize{
-  @extend .text-20 ;
+  @include font-size(20);
 }
 .line{  
-    background-color: var(--color-fff);
-    @extend .w-full,.h-2, .pos-absolute,.bottom-left;
+    @include bg-color(css-var('color-fff'));
+    @include w-full;
+    @include h(2);
+    @include position(absolute);
+    @include bottom(0);
+    @include left(0);
 }
