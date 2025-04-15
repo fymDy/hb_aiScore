@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-15 19:12:49
+ * @LastEditTime: 2025-04-15 21:36:02
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/venueReferee/index.tsx
@@ -13,6 +13,7 @@ import ImageComp from "@/components/imageComp";
 import defaultPlayer from '@/assets/images/default-player.png'
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
+import CrossSwords from "../crossSwords";
 const VenueReferee:React.FC<{
   title:string,
   imgSrc:string,
@@ -20,36 +21,50 @@ const VenueReferee:React.FC<{
   isReferee?:boolean,
   scoreHome?:string,
   scoreWay?:string
+  crossSwordsData?:any
 }>= ({
   title='',
   imgSrc='',
   name='',
   isReferee=false,
   scoreHome='',
-  scoreWay=''
+  scoreWay='',
+  crossSwordsData=null
 }) => {
   return (
     <dl className={styles.VenueReferee}>
       <dt className={styles.title}>{title}</dt>
       <dd className={styles.content}>
-
             <div className={styles.player}>
               {
-                isReferee ? <ImageComp  className={styles.img_player} imgSrc={imgSrc?imgSrc:defaultPlayer}/>
+                isReferee  
+                ?<ImageComp  className={styles.img_player} imgSrc={imgSrc?imgSrc:defaultPlayer}/>
                 :<IconFont className={cs(styles.icon_venue,EnumIconFontType.iconchangguan)} />
               }
                <span className={styles.name_player}>{name}</span>
             </div>
             {
-              isReferee && 
+              isReferee &&
               <div className={styles.des_value}>
-              <span>{scoreHome}</span>
-              <SvgIcon name={EnumIconFontType.iconredandyellow1}  />
-              <span>{scoreWay}</span>
-          </div>
+                <span>{scoreHome}</span>
+                <SvgIcon name={EnumIconFontType.iconredandyellow1}  />
+                <span>{scoreWay}</span>
+              </div>
             }
         
       </dd>
+       {    !isReferee &&
+              <CrossSwords data={crossSwordsData}
+                desDom={<>
+                 过去&nbsp; <span>{crossSwordsData.last}</span>,
+                     {crossSwordsData.teamName}&nbsp;  胜&nbsp;  <span> {crossSwordsData.win}</span> ,
+                     平&nbsp; <span>{crossSwordsData.tie}</span> ,
+                     负&nbsp;  <span>{crossSwordsData.lose}</span> ,
+                     场均&nbsp;  比分&nbsp; <span>{crossSwordsData.averageScore}</span>
+                     &nbsp; 和&nbsp;  失球&nbsp; <span>{crossSwordsData.concedScore}</span>  
+                </>}
+                />
+       }     
   </dl>
   );
 };

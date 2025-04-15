@@ -1,0 +1,108 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.CrossSwords{
+  width: 100%;
+  position: relative;
+ }
+ .title{
+    height: 28px;
+    font-size: 13px;
+    color: var(--color-333);
+    padding: 0 14px;
+    @include flex-between;
+ }
+ .more{
+  font-size: 10px;
+  @include color(css-var(color-666,true))
+ }
+ .more_icon{
+  margin-left: 5px;
+  font-size: 8px;
+ }
+ .content{
+  padding: 0 14px;
+  background-color: var(--color-fff);
+ }
+ .desc{
+  height: 28px;
+  @include flex-start-center;
+  font-size:12px;
+  color: var(--color-999);
+  span:nth-child(2){
+    color: var(--color-5db400);
+  }
+  span:nth-child(3){
+    color: var(--color-ffb);
+  }
+  span:nth-child(4){
+    color: var(--color-c74c5b);
+  }
+  span:nth-child(5),
+  span:nth-child(6){
+    color: var(--color-0f80da);
+
+  }
+}
+
+ .list{
+  @include flex-column
+ }
+ .item{
+  height: 44px;
+  font-size: 12px;
+  @include display(grid);
+  justify-items: left;
+  grid-template-columns: 75px 1fr 44px 44px ;
+  column-gap: 11px;
+  border-bottom: solid 1px var(--color-f1);
+ }
+ .match_info{
+  color: var(--color-999);
+  @include flex-column-center;
+
+ }
+ 
+ .match_name{
+  width: 75px;
+  @include text-ellipsis;
+ }
+ .team{
+  color: var(--color-333);
+  @include flex-column-center
+ }
+ .team_name{
+  @include flex-center;
+  gap: 4px;
+ }
+ .team_img{
+  width:14px ;
+  height: 14px;
+ }
+ .score{
+  width: 44px ;
+  color: var(--color-333);
+  @include flex-column-center;
+  justify-items:center;
+ }
+ .flag{
+  width: 44px ;
+  @include flex-column-center;
+  justify-items:center;
+ }
+ .cicle{
+  @include flex-center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  color: var(--color-fff);
+ }
+ .cicle_L{
+  background-color: var(--color-c74c5b);
+ }
+ .cicle_W{
+  background-color: var(--color-5db400);
+ }
+ .cicle_D{
+  background-color: var(--color-ffb);
+ }

@@ -15,6 +15,7 @@ import MatchPbp from "./matchPbp";
 import EventsAll from "./eventsAll";
 import PlayerRating from "./playerRating";
 import VenueReferee from "./venueReferee";
+import CrossSwords from "./crossSwords";
 const OverView: React.FC = () => {
  const navigate= useNavigate()
 
@@ -67,6 +68,54 @@ const OverView: React.FC = () => {
     };
   }, []);
 
+  const crossSwordsData = useMemo(() => {
+    return {
+      title: "交锋",
+      teamName: "拉素",
+      last: 6,
+      win: 3,
+      tie: 1,
+      lose: 2,
+      averageScore:0.5,
+      concedScore:0.5,
+      data:[
+          {
+                date:'2025/01/05',
+                matchName:'意大利甲级聯賽',
+                teamHome: "拉素",
+                teamHomeImg:'https://img0.aiscore.com/football/team/4a5873c2f4d2aea786dc787a37b4b34c.png!w60',
+                teamHomeScore: 2,
+                teamAway: "羅馬",
+                teamAwayImg:'https://img0.aiscore.com/football/team/5a2ff46efa33abc6b2908eb6279dfbf8.png!w60',
+                teamAwayScore: 0,
+                type: '0', //0 L 、1 W 、2 D
+          }, {
+            date:'2025/04/06',
+            matchName:'意大利甲级聯賽',
+            teamHome: "拉素",
+            teamHomeImg:'https://img0.aiscore.com/football/team/4a5873c2f4d2aea786dc787a37b4b34c.png!w60',
+            teamHomeScore: 2,
+            teamAway: "羅馬",
+            teamAwayImg:'https://img0.aiscore.com/football/team/5a2ff46efa33abc6b2908eb6279dfbf8.png!w60',
+            teamAwayScore: 0,
+            type: '1', //0 L 、1 W 、2 D
+      }, {
+        date:'2025/04/06',
+        matchName:'意大利甲级聯賽',
+        teamHome: "拉素",
+        teamHomeImg:'https://img0.aiscore.com/football/team/4a5873c2f4d2aea786dc787a37b4b34c.png!w60',
+        teamHomeScore: 2,
+        teamAway: "羅馬",
+        teamAwayImg:'https://img0.aiscore.com/football/team/5a2ff46efa33abc6b2908eb6279dfbf8.png!w60',
+        teamAwayScore: 0,
+        type: '2', //0 L 、1 W 、2 D
+  }
+      ]
+     
+    };
+  }, []);
+   
+
   const EventsAllData=[
       {icon:EnumIconFontType.icongoal,name:'進球'},
       {icon:EnumIconFontType.iconPenalty,name:'點球'},
@@ -107,7 +156,8 @@ const OverView: React.FC = () => {
         <PlayerRating/>
         <MatchPbp/>
         <VenueReferee isReferee={true} title={'裁判'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
-        <VenueReferee title={'场馆'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
+        <VenueReferee title={'场馆'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'} crossSwordsData={crossSwordsData}/>
+                
         <EventsAll data={EventsAllData}/>
         <div className={styles.player}></div>
       </div>
