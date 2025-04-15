@@ -32,6 +32,7 @@ $color-f4:#f4f4f4;
 $color-c1cc01:#c1cc01;
 $color-febd33:#febd33;
 $color-ffae0f:#ffae0f;
+$color-b6b8bf:#b6b8bf;
 //border color
 $color-rgab-0:0, 0, 0;
 $color-rgab-1:227, 227, 255;
@@ -71,6 +72,9 @@ $theme-colors: (
   color-c1cc01:$color-c1cc01,
   color-febd33:$color-febd33,
   color-ffae0f:$color-ffae0f,
+  color-b6b8bf:$color-b6b8bf,
+
+  color-border-1:$border-color,
 
   color-rgab-0:$color-rgab-0,
   color-rgab-1:$color-rgab-1,

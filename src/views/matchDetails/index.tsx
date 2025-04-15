@@ -31,20 +31,7 @@ const MatchDetails: React.FC = () => {
       value: Math.floor(Math.random() * 30),
     })),
   ];
-  const events: any = {
-    home: [
-      { minute: 10, type: "corner" },
-      { minute: 35, type: "yellowCard" },
-      { minute: 60, type: "corner" },
-      { minute: 90, type: "yellowCard" },
-    ],
-    away: [
-      { minute: 5, type: "corner" },
-      { minute: 30, type: "corner" },
-      { minute: 31, type: "corner" },
-      { minute: 80, type: "yellowCard" },
-    ],
-  };
+
 
   const headerData = useMemo(() => {
     return {
@@ -134,9 +121,7 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      <IComp className={EnumIconFontType.iconsubstitution}></IComp>
       <OverView/>
-  
     </div>
   );
 };

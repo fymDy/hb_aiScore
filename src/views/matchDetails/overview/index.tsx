@@ -10,12 +10,11 @@ import { useNavigate } from "react-router-dom";
 import ChartLineComp from "@/components/ChartLineComp";
 import ChartCircleProcess from "@/components/Common/chartCircleProcess";
 import ChartLineTextComp from "@/components/ChartLineTextComp";
-import SvgIcon from '@/components/Common/IconSvg';
 import { EnumIconFontType } from "@/enum/enumIconFontType";
-import IComp from "@/components/IComp";
 import MatchPbp from "./matchPbp";
 import EventsAll from "./eventsAll";
 import PlayerRating from "./playerRating";
+import VenueReferee from "./venueReferee";
 const OverView: React.FC = () => {
  const navigate= useNavigate()
 
@@ -77,6 +76,7 @@ const OverView: React.FC = () => {
       {icon:EnumIconFontType.icontwoyellow_red,name:'兩黃變一紅'},
       {icon:EnumIconFontType.iconsubstitution,name:'換人'},
       {icon:EnumIconFontType.iconInjuryreplace,name:'因傷換人'}
+
   ]
 
   return (
@@ -106,6 +106,8 @@ const OverView: React.FC = () => {
         </div>
         <PlayerRating/>
         <MatchPbp/>
+        <VenueReferee isReferee={true} title={'裁判'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
+        <VenueReferee title={'场馆'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
         <EventsAll data={EventsAllData}/>
         <div className={styles.player}></div>
       </div>

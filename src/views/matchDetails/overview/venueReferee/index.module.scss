@@ -1,0 +1,48 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.VenueReferee{
+
+  background-color: var(--color-fff);
+ }
+ .title{
+   padding: 0 12px;
+  height: 32px;
+  line-height: 32px;
+    font-size: 13px;
+    color: var(--color-333);
+    font-weight: 500;
+    border-bottom:  solid 1px var(--color-f1);
+ }
+ .content{
+   padding: 0 12px;
+  height: 43px;
+    @include flex-between;
+    gap:16px;
+ }
+ .player{
+  @include flex-start-center;
+  gap:16px;
+ }
+ .img_player{
+  width: 28px;
+ }
+ .icon_venue{
+  font-size: 18px;
+  color: var(--color-b6b8bf);
+ }
+ .name_player{
+  font-size: 13px;
+  color: var(--color-333);
+ }
+ .text{
+  font-size: 13px;
+  color: var(--color-333);
+ }
+ .des_value{
+
+    @include flex-end-center;
+    gap:8px;
+    color: var(--color-0f80da);
+    font-size: 13px;
+ }
