@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-15 21:36:02
+ * @LastEditTime: 2025-04-16 21:08:47
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/venueReferee/index.tsx
@@ -14,6 +14,7 @@ import defaultPlayer from '@/assets/images/default-player.png'
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import CrossSwords from "../crossSwords";
+import Title from "../../common/title";
 const VenueReferee:React.FC<{
   title:string,
   imgSrc:string,
@@ -32,9 +33,9 @@ const VenueReferee:React.FC<{
   crossSwordsData=null
 }) => {
   return (
-    <dl className={styles.VenueReferee}>
-      <dt className={styles.title}>{title}</dt>
-      <dd className={styles.content}>
+    <section className={styles.VenueReferee}>
+      <Title className={styles.title} title={title}></Title>
+      <div className={styles.content}>
             <div className={styles.player}>
               {
                 isReferee  
@@ -52,7 +53,7 @@ const VenueReferee:React.FC<{
               </div>
             }
         
-      </dd>
+      </div>
        {    !isReferee &&
               <CrossSwords data={crossSwordsData}
                 desDom={<>
@@ -65,7 +66,7 @@ const VenueReferee:React.FC<{
                 </>}
                 />
        }     
-  </dl>
+  </section>
   );
 };
 export default VenueReferee;

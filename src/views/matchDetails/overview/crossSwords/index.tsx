@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-16 17:44:34
+ * @LastEditTime: 2025-04-16 21:10:48
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/crossSwords/index.tsx
@@ -23,10 +23,10 @@ data=null,
 desDom=null
 }) => {
   return (
-    <dd className={styles.CrossSwords}>
-      <Title item={data}/>
+    <div className={styles.CrossSwords}>
+      <Title  title={data?.title} isMore={false}/>
       <div className={styles.content}>
-            <div className={styles.desc}>{desDom}</div>
+            <div  className={styles.desc}>{desDom}</div>
             <div className={styles.list}>
             {
               data?.data?.map((item:any,i:number)=>{
@@ -61,7 +61,7 @@ desDom=null
             }
          </div>
       </div>
-  </dd>
+  </div>
   );
 };
 export default CrossSwords;
