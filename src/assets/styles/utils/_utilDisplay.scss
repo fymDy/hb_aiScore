@@ -26,6 +26,10 @@
 @mixin items($v) {
   @include mixins.text(align-items, $v);
 }
+@mixin justify-items($v) {
+  @include mixins.text(justify-items, $v);
+}
+
 /// 设置主轴对齐方式（justify-content）
 /// @param {String} $v - 对齐方式，如 center, space-between
 @mixin justify($v) {
@@ -88,12 +92,18 @@
   @include display(flex);
   @include flex-direction;
 }
-/// 设置纵向 flex 列布局
+/// 设置纵向 flex 列布局局中
 @mixin flex-column-center {
   @include display(flex);
   @include flex-direction;
   @include justify(center);
   @include items(center);
+}
+/// 设置纵向 flex 列布局左对齐
+@mixin flex-column-left {
+  @include display(flex);
+  @include flex-direction;
+  @include justify(center);
 }
 
 /// 设置 flex-wrap: wrap
@@ -150,5 +160,6 @@
 /// 设置 grid 居中布局
 @mixin grid-center {
   @include display(grid);
-  @include items(center)
+  @include items(center);
+  @include justify-items(center);
 }

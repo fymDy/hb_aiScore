@@ -1,0 +1,77 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.OddsBox{
+  padding-bottom: 20px;
+  background-color:var(--color-fff);
+ }
+ .dt{
+  height: 23px;
+  font-size: 12px;
+  color: var(--color-999);
+  background-color:var(--color-f7f9fb);
+  border-bottom: solid 1px var(--color-e3);
+  @include grid-center;
+  grid-template-columns:120px repeat(3,1fr);
+ }
+ .dd{
+  @include grid-center;
+  grid-template-columns:120px repeat(3,1fr);
+  border-bottom: solid 1px var(--color-e3);
+ }
+ .img_box{
+  width: 120px;
+  height: 28px;
+    border-right: solid 2px #ffba5a;
+    @include flex-center;
+ }
+ .nameX{
+    border-left: solid 1px var(--color-e3);
+    border-right: solid 1px var(--color-e3);
+ }
+ .img{
+  width: 78px;
+  height: 24px;
+ }
+ .name{
+  width: 100%;
+
+   font-size: 11px;
+   color: var(--color-333);
+  @include flex-center
+ }
+ .dd >.name{
+  height: 28px;
+ }
+
+ .hint{
+    @include flex-center;
+    font-size:12px ;
+    color: var(--color-999);
+    margin: 12px 0;
+
+ }
+ .odds{
+@include flex-column-left;
+gap: 10px;
+padding: 0 12px;
+ }
+ .item{
+  font-size:12px ;
+  color: var(--color-999);
+  @include display(flex);
+  gap:10px;
+ }
+ .item:first-child{
+   border-left: solid 2px var(--color-2196f3);
+ }
+ .item:nth-child(2){
+  border-left: solid 2px var(--color-ffba5a);
+}
+.item:last-child{
+  border-left: solid 2px var(--color-5db400);
+}
+.item >span{
+  text-indent: 5px;
+  line-height: 1;
+}

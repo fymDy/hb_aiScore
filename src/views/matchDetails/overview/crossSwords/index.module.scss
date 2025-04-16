@@ -5,21 +5,7 @@
   width: 100%;
   position: relative;
  }
- .title{
-    height: 28px;
-    font-size: 13px;
-    color: var(--color-333);
-    padding: 0 14px;
-    @include flex-between;
- }
- .more{
-  font-size: 10px;
-  @include color(css-var(color-666,true))
- }
- .more_icon{
-  margin-left: 5px;
-  font-size: 8px;
- }
+
  .content{
   padding: 0 14px;
   background-color: var(--color-fff);
@@ -33,7 +19,7 @@
     color: var(--color-5db400);
   }
   span:nth-child(3){
-    color: var(--color-ffb);
+    color: var(--color-ffba5a);
   }
   span:nth-child(4){
     color: var(--color-c74c5b);
@@ -104,5 +90,5 @@
   background-color: var(--color-5db400);
  }
  .cicle_D{
-  background-color: var(--color-ffb);
+  background-color: var(--color-ffba5a);
  }

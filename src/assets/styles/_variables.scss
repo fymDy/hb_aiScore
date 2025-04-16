@@ -22,8 +22,8 @@ $color-d6: #d6d6d6;
 $color-666: #666;
 $color-ecf: #ecf7fd;
 $color-d2e: #d2e9fe;
-$color-ffb: #ffba5a;
-$color-219: #2196F3;
+$color-ffba5a: #ffba5a;
+$color-2196f3: #2196F3;
 $color-fff2df: #fff2df;
 $color-fffaf3: #fffaf3;
 $color-6d6a6d:#6d6a6d;
@@ -35,6 +35,8 @@ $color-ffae0f:#ffae0f;
 $color-b6b8bf:#b6b8bf;
 $color-c74c5b:#e74c5b;
 $color-5db400:#5db400;
+
+$color-f7f9fb:#f7f9fb;
 //border color
 $color-rgab-0:0, 0, 0;
 $color-rgab-1:227, 227, 255;
@@ -64,8 +66,8 @@ $theme-colors: (
   color-666: $color-666,
   color-ecf: $color-ecf,
   color-d2e: $color-d2e,
-  color-ffb: $color-ffb,
-  color-219: $color-219,
+  color-ffba5a: $color-ffba5a,
+  color-2196f3: $color-2196f3,
   color-fff2df: $color-fff2df,
   color-fffaf3: $color-fffaf3,
   color-6d6a6d:$color-6d6a6d,
@@ -77,7 +79,7 @@ $theme-colors: (
   color-b6b8bf:$color-b6b8bf,
   color-c74c5b:$color-c74c5b,
   color-5db400:$color-5db400,
-
+  color-f7f9fb:$color-f7f9fb,
 
   color-border-1:$border-color,
 

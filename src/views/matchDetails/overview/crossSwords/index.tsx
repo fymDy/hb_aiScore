@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-15 21:27:29
+ * @LastEditTime: 2025-04-16 17:44:34
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/crossSwords/index.tsx
@@ -14,6 +14,7 @@ import defaultPlayer from '@/assets/images/default-player.png'
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import { ReactNode } from "react";
+import Title from "../../common/title";
 const CrossSwords:React.FC<{
   data:any,
   desDom:ReactNode
@@ -23,10 +24,7 @@ desDom=null
 }) => {
   return (
     <dd className={styles.CrossSwords}>
-      <div className={styles.title}>
-        <span>{data?.title}</span>
-        <span className={styles.more}>More<IconFont className={cs(styles.more_icon,EnumIconFontType.iconjiantou)}  /></span>
-      </div>
+      <Title item={data}/>
       <div className={styles.content}>
             <div className={styles.desc}>{desDom}</div>
             <div className={styles.list}>
