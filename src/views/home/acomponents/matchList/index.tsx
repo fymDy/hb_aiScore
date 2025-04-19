@@ -5,13 +5,12 @@ import DetailsComp from './detailsComp';
 import TitleComp from './titleComp';
 import { RouterPathUtil } from '@/router/routerPathUtil';
  interface IFMathProps{
-  activeTabPath:RouterPathUtil,
   dataList:any,
   onclcikCollect:(id:string)=>void
   onclcikCollectItem:(id:string,matchId:string)=>void
   onClickJumpPage:(item:any)=>void
 }
-const MatchList: React.FC<IFMathProps> = ({activeTabPath,dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
+const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
   console.log(1)
       return (
         <>
@@ -21,7 +20,7 @@ const MatchList: React.FC<IFMathProps> = ({activeTabPath,dataList,onclcikCollect
                         <TitleComp itemData={item} onclcik={()=>{onclcikCollect(item?.id)}} />
                           {
                             item?.data?.map((itemMatch:any,_i:number)=>(
-                              <DetailsComp key={_i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage({activeTabPath,itemMatch})} />
+                              <DetailsComp key={_i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage(itemMatch)} />
                             ))
                           }
                     </section>

@@ -7,36 +7,10 @@ import { RouterPathUtil } from "@/router/routerPathUtil";
 import { useHomeContext } from "@/provides/layoutHomeProvider";
 
 const Football: React.FC = () => {
-  const [activeBtnFilter, setActiveBtnFilter] = useState(false);
-  const [activeBtnId, setActiveBtnId] = useState("ing");
-  const { activeTabPath,onClickJumpPage } = useHomeContext();
-  const filterData: IFSearchResult[] = useMemo(() => {
-    const data = [
-      {
-        id: "0",
-        name: "全部",
-        isActive: activeBtnId === "0",
-      },
-      {
-        id: "ing",
-        name: "进行中",
-        iconClass: "icon-jinhangzhong",
-        isActive: activeBtnId === "ing",
-      },
-      {
-        id: "2",
-        name: "已结束",
-        isActive: activeBtnId === "2",
-      },
-      {
-        id: "3",
-        name: "赛程",
-        isActive: activeBtnId === "3",
-      },
-    ];
 
-    return data;
-  }, [activeBtnId]);
+  const { activeFilterId,onClickJumpPage } = useHomeContext();
+
+
 
   const [allData, setAllData] = useState([
     {
@@ -252,12 +226,12 @@ const Football: React.FC = () => {
   ]);
 
   const matchList = useMemo(() => {
-    if (activeBtnId == "0") {
+    if (activeFilterId == "0") {
       return allData;
     } else {
-      return allData?.filter((item: any) => item?.id == activeBtnId);
+      return allData?.filter((item: any) => item?.id == activeFilterId);
     }
-  }, [activeBtnId, allData]);
+  }, [activeFilterId, allData]);
 
   const onclcikCollect = (id: string) => {
     const data: any = allData?.map((item: any) => {
@@ -287,13 +261,13 @@ const Football: React.FC = () => {
   // }
   return (
     <article className={styles.football}>
-      <PageFilter
+      {/* <PageFilter
         filterData={filterData}
         onclick={(id: string) => setActiveBtnId(id)}
         onclickFilter={() => setActiveBtnFilter(!activeBtnFilter)}
-      />
+      /> */}
       <MatchList
-        activeTabPath={activeTabPath}
+     
         dataList={matchList}
         onclcikCollect={onclcikCollect}
         onclcikCollectItem={onclcikCollectItem}

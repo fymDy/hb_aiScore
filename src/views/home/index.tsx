@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {  useApp } from '@/components/LayoutContext';
 import { RouterPathUtil } from '@/router/routerPathUtil';
-import { IFTab } from './interface';
+import { IFSearchResult, IFTab } from './interface';
 import cs from 'classnames'
 import Menu from './acomponents/menu';
 import SearchResult from './acomponents/searchResult';
@@ -13,6 +13,7 @@ import Tabs from '@/views/home/acomponents/tabs';
 import SearchBox from '@/views/home/acomponents/searchBox';
 import BallList from '@/views/home/acomponents/ballList';
 import { LayoytHomeContextProvider } from '@/provides/layoutHomeProvider';
+import PageFilter from './acomponents/pageFilter';
 const Main: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +32,7 @@ const Main: React.FC = () => {
   //
   const [activeIconClass,setActiveIconClass]=useState<string>('icon-zuqiu-weixuanzhong')
     //tab切换：选中tab
-  const [activeTabId,setActiveTabId]=useState<string>('')
+  const [activeTabId,setActiveTabId]=useState<string>('football')
     //tab切换：选中tab
     const [activeTabPath,setActiveTabPath]=useState<RouterPathUtil >(RouterPathUtil.HOME_FOOTBALL)
     //默认ballList
@@ -161,16 +162,47 @@ const Main: React.FC = () => {
     ]:[...othersBallDatas]
   },[clickBtnAllBall,othersBallDatas])
 
+
+    const [activeBtnFilter, setActiveBtnFilter] = useState(false);
+    const [activeFilterId, setActiveFilterId] = useState("ing");
+    const filterData: IFSearchResult[] = useMemo(() => {
+      const data = [
+        {
+          id: "0",
+          name: "全部",
+          isActive: activeFilterId === "0",
+        },
+        {
+          id: "ing",
+          name: "进行中",
+          iconClass: "icon-jinhangzhong",
+          isActive: activeFilterId === "ing",
+        },
+        {
+          id: "2",
+          name: "已结束",
+          isActive: activeFilterId === "2",
+        },
+        {
+          id: "3",
+          name: "赛程",
+          isActive: activeFilterId === "3",
+        },
+      ];
+  
+      return data;
+    }, [activeFilterId]);
+    
   useEffect(()=>{
     const tabItem:IFTab= changeBallDatas?.filter(item=>item?.path===pathname)?.[0] 
     setActiveTabId(tabItem?.id ?? 'football')
    },[])
 
   const onClickTab=(item:IFTab)=>{
+      setActiveTabId(item?.id)
       if(item?.id =='others'){
         setClickBtnOthers(!clickBtnOthers)
       }else{
-        setActiveTabId(item?.id)
         setActiveTabPath(item?.path)
         navigate(item?.path ?? ''); 
         setClickBtnOthers(false)
@@ -224,12 +256,12 @@ const onSelectBall=(id:string)=>{
 }
 const handleClickItem = (item: any) => {
     navigate(RouterPathUtil.MATCHDETAILS,{state:{
-      matchId:item?.itemMatch?.id
+      matchId:item?.id
      }})
   console.log('从子组件收到点击事件', item);
 };
   return (
-    <LayoytHomeContextProvider activeTabId={activeTabId} activeTabPath={activeTabPath}  onClickJumpPage={handleClickItem}>
+    <LayoytHomeContextProvider  activeTabId={activeTabId} activeFilterId={activeFilterId}  onClickJumpPage={handleClickItem}>
     <div className={styles.main} >
       <header className={styles.header} >
         <Header      onclickLogo={onclickLogo} />
@@ -255,6 +287,15 @@ const handleClickItem = (item: any) => {
                 setClickBtnSearch(false)
             }
           }} />
+          
+        }
+        {
+          activeTabId !== 'others' &&
+          <PageFilter
+          filterData={filterData}
+          onclick={(id: string) => setActiveFilterId(id)}
+          onclickFilter={() => setActiveBtnFilter(!activeBtnFilter)}
+        />
         }
       </header>
      
@@ -265,6 +306,7 @@ const handleClickItem = (item: any) => {
       <div className={cs(styles.search_result,{[styles.is_show_search_result]:clickBtnSearch})}>
             <SearchResult/>
       </div>
+  
       <div className={cs(styles.menu_option,{[styles.is_show_menu_option]:clickBtnMenu})}>
           <Menu onclick={(id:string)=>{ 
             if(id=='fav'){
@@ -273,6 +315,7 @@ const handleClickItem = (item: any) => {
             setClickBtnMenu(false) 
            } }/>
       </div>
+       
       <Outlet />
     </div>
     </LayoytHomeContextProvider>
