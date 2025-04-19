@@ -1,10 +1,10 @@
-import { useApp } from "@/provides/layoutAppProvider";
+import { useApp } from "@/hooks/useApp";
 import Download from "./Download";
 
 /*
  * @Author: Mark
  * @Date: 2025-04-18 19:41:08
- * @LastEditTime: 2025-04-18 19:43:09
+ * @LastEditTime: 2025-04-19 20:04:01
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/DownloadComp/index.tsx

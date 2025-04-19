@@ -7,13 +7,9 @@ import {
   setRootFontSize
 } from "@/utils/common";
 import { debounce } from "lodash";
+import { IFDeviceTypeInfo } from "@/provides/inteface";
 
 
-export type IFDeviceTypeInfo = {
-  deviceType: EnumDeviceType;
-  fontSize: number;
-  deviceRatio: number;
-};
 
 // 计算 fontSize、倍率等
 function calculateDeviceInfo(viewportWidth: number): IFDeviceTypeInfo {

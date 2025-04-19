@@ -1,8 +1,7 @@
 
-import React, {  useEffect, useMemo, useState } from 'react';
+import React, {  forwardRef, useEffect, useMemo, useState } from 'react';
 import styles from './index.module.scss';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import {  useApp } from '@/components/LayoutContext';
 import { RouterPathUtil } from '@/router/routerPathUtil';
 import { IFSearchResult, IFTab } from './interface';
 import cs from 'classnames'
@@ -14,11 +13,12 @@ import SearchBox from '@/views/home/acomponents/searchBox';
 import BallList from '@/views/home/acomponents/ballList';
 import { LayoytHomeContextProvider } from '@/provides/layoutHomeProvider';
 import PageFilter from './acomponents/pageFilter';
-const Main: React.FC = () => {
+import { useApp } from '@/hooks/useApp';
+const Home= () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {pathname} = location;
-    // const {deviceType}=useApp()
+    const {handleHeaderReady}=useApp()
     const [iptValue,setIptValue]=useState('')
 
     //
@@ -263,7 +263,7 @@ const handleClickItem = (item: any) => {
   return (
     <LayoytHomeContextProvider  activeTabId={activeTabId} activeFilterId={activeFilterId}  onClickJumpPage={handleClickItem}>
     <div className={styles.main} >
-      <header className={styles.header} >
+      <header ref={handleHeaderReady} className={styles.header} >
         <Header      onclickLogo={onclickLogo} />
         <Tabs  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTabId={activeTabId}  tabData={tabData} onClick={onClickTab}/>
         {
@@ -290,7 +290,7 @@ const handleClickItem = (item: any) => {
           
         }
         {
-          activeTabId !== 'others' &&
+         ( !clickBtnOthers && !clickBtnSearch && !clickBtnMenu ) &&
           <PageFilter
           filterData={filterData}
           onclick={(id: string) => setActiveFilterId(id)}
@@ -322,4 +322,4 @@ const handleClickItem = (item: any) => {
   );
 };
 
-export default Main;
+export default forwardRef(Home) ;

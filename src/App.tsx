@@ -1,6 +1,6 @@
 // src/App.tsx
 import AppRouter from './router';
-import { LayoutAppContextProvider, useApp } from '@/provides/layoutAppProvider'; // 导入 Context Provider
+import { LayoutAppContextProvider } from '@/provides/layoutAppProvider'; // 导入 Context Provider
 import AppLayout from '@/layout/AppLayout';
 import SvgSpriteLoader from '@/components/SvgSpriteLoader';
 import DownloadComp from './components/DownloadComp';

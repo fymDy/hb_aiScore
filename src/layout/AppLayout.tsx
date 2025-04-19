@@ -1,13 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-18 18:56:38
- * @LastEditTime: 2025-04-18 20:03:11
+ * @LastEditTime: 2025-04-19 20:03:34
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/layout/AppLayout.tsx
  */
+import { useApp } from "@/hooks/useApp";
 import React from "react";
-import { useApp } from "@/provides/layoutAppProvider";
 
 interface AppLayoutProps {
   DownloadComponent: React.ReactNode;

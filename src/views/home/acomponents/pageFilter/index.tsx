@@ -5,6 +5,8 @@ import { IFSearchResult } from '../../interface';
 import BtnGroup from '../searchResult/btnGroup';
 import IComp from '@/components/IComp';
 import cs from 'classnames'
+import { EnumIconFontType } from '@/enum/enumIconFontType';
+import IconFont from '@/components/Common/Iconfont';
 interface IFFilterProps{
   filterData:any,
   onclick:(id:string)=>void
@@ -16,7 +18,7 @@ const PageFilter: React.FC<IFFilterProps> = ({filterData,onclick,onclickFilter})
         <section className={styles.page_filter}>
               <BtnGroup  dataList={filterData} onclick={onclick} />
               <div className={styles.btn_filter}>
-                  <IComp className={cs('icon-shezhi-weixuanzhong',styles.icon)} onClick={onclickFilter} />
+                  <IconFont className={cs(EnumIconFontType.icon_shezhi_weixuanzhong,styles.icon)} onClick={onclickFilter} />
               </div>
         </section>
       );

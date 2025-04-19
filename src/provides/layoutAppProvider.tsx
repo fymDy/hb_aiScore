@@ -1,101 +1,73 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-18 18:42:35
- * @LastEditTime: 2025-04-19 15:54:28
+ * @LastEditTime: 2025-04-19 20:51:11
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
  */
 import {
-    createContext,
-    useContext,
-    useRef,
-    useState,
-    useLayoutEffect,
-    useMemo,
-    useEffect,
-    Suspense,
-  } from 'react';
-  import { useDeviceType, IFDeviceTypeInfo } from '@/hooks/useDeviceType';
+
+  useRef,
+  useState,
+  useMemo,
+  Suspense,
+} from "react";
+import { useDeviceType } from "@/hooks/useDeviceType";
+import { LayoutAppContext } from "./inteface";
+import { useElementReady } from "@/hooks/useElementReady";
+
+export const LayoutAppContextProvider: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  const appElementRef = useRef<HTMLDivElement>(null);
+  const downloadRef = useRef<HTMLDivElement>(null);
+  // const headerRef = useRef<HTMLDivElement>(null);
+
+  const [headerEl, setHeaderEl] = useState<HTMLDivElement | null>(null);
+  const { deviceType, fontSize, deviceRatio } = useDeviceType();
+  const [downloadHeight, setDownloadHeight] = useState(0);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [isDownloadVisible, setDownloadVisible] = useState(true);
+
   
-  export interface LayoutAppContextType extends IFDeviceTypeInfo {
-    appElementRef: React.RefObject<HTMLDivElement | null>;
-    headerRef: React.RefObject<HTMLDivElement | null>;
-    downloadRef: React.RefObject<HTMLDivElement | null>;
-    headerHeight: number;
-    downloadHeight: number;
-    contentHeight: number;
-    isDownloadVisible: boolean;
-    setDownloadVisible: (visible: boolean) => void;
-  }
+  // ✅ 初次挂载时测量 header
+  const handleHeaderReady = useElementReady<HTMLDivElement>((el) => {
+    console.log('el',el)
+    setHeaderEl(el);
+    setHeaderHeight(el.getBoundingClientRect().height);
+  });
   
-  const LayoutAppContext = createContext<LayoutAppContextType | undefined>(undefined);
-  
-  export const LayoutAppContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const appElementRef = useRef<HTMLDivElement>(null);
-    const headerRef = useRef<HTMLDivElement>(null);
-    const downloadRef = useRef<HTMLDivElement>(null);
-  
-    const { deviceType, fontSize, deviceRatio } = useDeviceType();
-  
-    const [headerHeight, setHeaderHeight] = useState(0);
-    const [downloadHeight, setDownloadHeight] = useState(0);
-    const [isDownloadVisible, setDownloadVisible] = useState(true);
-  
-    // 动态计算高度
-    const calculateHeights = () => {
-      if (headerRef.current) {
-        setHeaderHeight(headerRef.current.getBoundingClientRect().height);
-      }
-      if (downloadRef.current && isDownloadVisible) {
-        setDownloadHeight(downloadRef.current.getBoundingClientRect().height);
-      } else {
-        setDownloadHeight(0);
-      }
-    };
-  
-    useLayoutEffect(() => {
-      calculateHeights();
-    }, [isDownloadVisible]);
-  
-    useEffect(() => {
-      const resizeObserver = new ResizeObserver(calculateHeights);
-      headerRef.current && resizeObserver.observe(headerRef.current);
-      downloadRef.current && resizeObserver.observe(downloadRef.current);
-      return () => resizeObserver.disconnect();
-    }, [isDownloadVisible]);
-  
-    const contentHeight = useMemo(() => {
-      const viewHeight = window.innerHeight;
-      return viewHeight - headerHeight - downloadHeight;
-    }, [headerHeight, downloadHeight]);
-  
-    return (
-      <LayoutAppContext.Provider
-        value={{
-          appElementRef: appElementRef,
-          headerRef,
-          downloadRef,
-          deviceType,
-          fontSize,
-          deviceRatio,
-          headerHeight,
-          downloadHeight,
-          contentHeight,
-          isDownloadVisible,
-          setDownloadVisible,
-        }}
-      >
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-      </LayoutAppContext.Provider>
-    );
-  };
-  
-  export const useApp = () => {
-    const ctx = useContext(LayoutAppContext);
-    if (!ctx) {
-      throw new Error('useApp must be used within LayoutContextProvider');
+  const handleDownloadReady = useElementReady<HTMLDivElement>((el) => {
+    if (isDownloadVisible) {
+      setDownloadHeight(el.getBoundingClientRect().height);
     }
-    return ctx;
-  };
-  
+  });
+ 
+
+    // ✅ 自动计算 content 区域高度
+    const contentHeight = useMemo(() => {
+      return window.innerHeight - headerHeight - downloadHeight;
+    }, [headerHeight, downloadHeight]);
+
+  return (
+    <LayoutAppContext.Provider
+      value={{
+        appElementRef,
+        handleHeaderReady,
+        downloadRef,
+        deviceType,
+        fontSize,
+        deviceRatio,
+        headerHeight,
+        downloadHeight,
+        contentHeight,
+        isDownloadVisible,
+        setDownloadVisible,
+      }}
+    >
+      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+    </LayoutAppContext.Provider>
+  );
+};
+

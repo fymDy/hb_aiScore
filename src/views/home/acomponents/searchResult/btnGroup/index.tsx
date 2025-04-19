@@ -24,8 +24,7 @@ const BtnGroup: React.FC<IFBtnGroup> = ({
           )}
           onClick={() => onclick(item.id)}
         >
-          <IComp className={cs(styles.icon, item.iconClass)} />
-          <span className={styles.name}>{item.name}</span>
+          <IComp classParentName={styles.name} className={cs(styles.icon, item.iconClass)} name={item.name}/>
         </div>
       ))}
     </div>
