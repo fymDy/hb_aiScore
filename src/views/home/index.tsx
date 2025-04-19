@@ -18,7 +18,7 @@ const Home= () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {pathname} = location;
-    const {handleHeaderReady}=useApp()
+    const {contentHeight,handleHeaderReady}=useApp()
     const [iptValue,setIptValue]=useState('')
 
     //
@@ -303,7 +303,10 @@ const handleClickItem = (item: any) => {
         <BallList className={styles.font_size}  isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
        </div>
       
-      <div className={cs(styles.search_result,{[styles.is_show_search_result]:clickBtnSearch})}>
+      <div className={cs(styles.search_result,
+        {[styles.is_show_search_result]:clickBtnSearch})}
+        style={{height:contentHeight}}
+        >
             <SearchResult/>
       </div>
   

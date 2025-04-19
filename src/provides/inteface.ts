@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:01:04
- * @LastEditTime: 2025-04-19 20:34:26
+ * @LastEditTime: 2025-04-19 22:03:21
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/inteface.ts
@@ -15,20 +15,32 @@ export type IFDeviceTypeInfo = {
   fontSize: number;
   deviceRatio: number;
 };
+export interface LayoutSysContextType  {
+    children?: React.ReactNode;
+}
 
-
-export interface LayoutAppContextType extends IFDeviceTypeInfo {
-    appElementRef: React.RefObject<HTMLDivElement | null>;
-    // headerRef: React.RefObject<HTMLDivElement | null> ;
+export interface LayoutAppContextType  {
+    // appElementRef: React.RefObject<HTMLDivElement | null>;
+    // DownloadComponent: React.ReactNode;
+    // HeaderComponent?: React.ReactNode;
     handleHeaderReady: React.RefCallback<HTMLDivElement>;
-    downloadRef: React.RefObject<HTMLDivElement | null>;
-    headerHeight: number;
     downloadHeight: number;
+    headerHeight: number;
     contentHeight: number;
     isDownloadVisible: boolean;
     setDownloadVisible: (visible: boolean) => void;
   }
+  export interface LayoutHomeContextType extends LayoutSysContextType{
+    activeTabId:string,
+    activeFilterId:string,
+    onClickJumpPage:(item:any)=>void,
   
-  export const LayoutAppContext = createContext<LayoutAppContextType | undefined>(
-    undefined
-  );
+}
+
+
+  
+  export const LayoutSysContext = createContext<IFDeviceTypeInfo | undefined>(undefined);
+
+  export const LayoutAppContext = createContext<LayoutAppContextType | undefined>(undefined);
+
+  export const LayoutHomeContext=createContext<LayoutHomeContextType | null >(null)

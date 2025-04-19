@@ -7,7 +7,6 @@ import StepComp from "@/components/StepComp";
 
 import { useNavigate } from "react-router-dom";
 import OverView from "./overview";
-import { useApp } from "@/provides/layoutAppProvider";
 
 const MatchDetails: React.FC = () => {
  const navigate= useNavigate()

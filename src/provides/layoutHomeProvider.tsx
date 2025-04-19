@@ -2,27 +2,17 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 12:07:42
- * @LastEditTime: 2025-04-19 17:10:33
+ * @LastEditTime: 2025-04-19 22:02:34
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutHomeProvider.tsx
  */
 import { createContext, useContext } from "react"
+import { LayoutHomeContext, LayoutHomeContextType } from "./inteface"
 
-export interface LayoutHomeContextType{
-    activeTabId:string,
-    activeFilterId:string,
-    onClickJumpPage:(item:any)=>void,
-}
 
-export const LayoutHomeContext=createContext<LayoutHomeContextType | null >(null)
 
-export const LayoytHomeContextProvider:React.FC<{
-    activeTabId:string,
-    activeFilterId:string,
-    onClickJumpPage:(item:any)=>void,
-    children:React.ReactNode
-}>=({
+export const LayoytHomeContextProvider:React.FC<LayoutHomeContextType>=({
     activeTabId,
     activeFilterId,
     onClickJumpPage,

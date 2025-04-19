@@ -1,19 +1,19 @@
 // src/App.tsx
 import AppRouter from './router';
-import { LayoutAppContextProvider } from '@/provides/layoutAppProvider'; // 导入 Context Provider
-import AppLayout from '@/layout/AppLayout';
-import SvgSpriteLoader from '@/components/SvgSpriteLoader';
-import DownloadComp from './components/DownloadComp';
+import { LayoutSysContextProvider } from '@/provides/layoutSysProvider'; // 导入 Context Provider
+import LayoutAppContextProvider from '@/provides/layoutAppProvider';
+import SvgSpriteLoader from './components/SvgSpriteLoader';
+
 function App() {
  
 
   return (
-    <LayoutAppContextProvider> {/* 使用 Context Provider 包裹你的应用 */}
-        <AppLayout   DownloadComponent={<DownloadComp />}>
-          <SvgSpriteLoader />
+    <LayoutSysContextProvider> {/* 使用 Context Provider 包裹你的应用 */}
+        <LayoutAppContextProvider>
           <AppRouter />
-        </AppLayout>
-    </LayoutAppContextProvider>
+           <SvgSpriteLoader />
+        </LayoutAppContextProvider>
+    </LayoutSysContextProvider>
   );
 }
 
