@@ -37,7 +37,7 @@ function calViewWidth() {
 }
 
 // hook：返回信息并自动设置 <html> 的 font-size
-export function useDeviceType(): IFDeviceTypeInfo {
+ function useDeviceType(): IFDeviceTypeInfo {
   const [info, setInfo] = useState<IFDeviceTypeInfo>(() => {
     const w = calViewWidth();
     return calculateDeviceInfo(w);
@@ -81,3 +81,4 @@ export function useDeviceType(): IFDeviceTypeInfo {
 
   return info;
 }
+export {useDeviceType}
