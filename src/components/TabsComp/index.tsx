@@ -7,7 +7,7 @@
  * @FilePath: /hb_aiScore/src/components/TabsComp/index.tsx
  */
 
-import { IFTab } from '@/views/main/interface'
+import { IFTab } from '@/views/home/interface'
 import styles from './index.module.scss'
 import cs from 'classnames'
 

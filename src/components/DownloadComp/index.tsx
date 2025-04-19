@@ -1,37 +1,16 @@
+import { useApp } from "@/provides/layoutAppProvider";
+import Download from "./Download";
+
 /*
  * @Author: Mark
- * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-14 18:46:00
+ * @Date: 2025-04-18 19:41:08
+ * @LastEditTime: 2025-04-18 19:43:09
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/DownloadComp/index.tsx
  */
-import IconSprite from '../Common/IconSprite'
-import styles from './index.module.scss'
-import cs from 'classnames'
-import IconFont from '../Common/Iconfont'
-interface IFDownLoadProps{
-    className:string,
-    onClose:()=>void
-}
-const DownLoad=({className,onClose}:IFDownLoadProps)=>{
-   
-    return(
-         <ul className={cs(className,styles.DownLoad)} >
-                <li className={styles.left}>
-                    <div className={styles.img}>
-                        <IconSprite name="10001" />
-                    </div>
-                    <div className={styles.text}>
-                        <label>AiScore App</label>
-                        <p>免费看视频直播</p>
-                    </div>
-                </li>
-                <li className={styles.right}>
-                        <div className={cs(styles.btn)}>下载</div>
-                        <IconFont className={cs(styles.icon_guanbi,'icon-guanbi')} onClick={onClose}  />
-                </li>
-        </ul>
-    )
-}
-export default DownLoad
+const DownloadComp = () => {
+    const {isDownloadVisible, setDownloadVisible } = useApp(); // ✅ Provider 内部调用 useApp，没问题
+    return <Download onClose={() => setDownloadVisible(!isDownloadVisible)} />;
+  };
+  export default DownloadComp

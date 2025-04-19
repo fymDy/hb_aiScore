@@ -4,6 +4,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import routesJonFile from './routes.json';
 import { IFRouterConfig } from './interface';
 import AuthGuard from './authGuard'; // 导入 AuthGuard 组件
+import { RouterPathUtil } from './routerPathUtil';
 
 
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
@@ -45,7 +46,7 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
 const updatedRoutesConfig = [
   {
     path: '/',
-    element: <Navigate to="/main" replace />,
+    element: <Navigate to={RouterPathUtil.HOME} replace />,
   },
   {
     path: '*',

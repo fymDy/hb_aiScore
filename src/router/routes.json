@@ -1,130 +1,130 @@
 [
   {
-    "path": "/main",
-    "name": "main",
+    "path": "/home",
+    "name": "home",
     "author": false,
-    "component": "main/index.tsx",
+    "component": "home/index.tsx",
     "children": [
       {
-        "path": "/main/americalBall",
+        "path": "/home/americalBall",
         "name": "americalBall",
         "author": false,
-        "component": "main/americalBall/index.tsx",
+        "component": "home/americalBall/index.tsx",
         "children": []
       },
       {
-        "path": "/main/badminton",
+        "path": "/home/badminton",
         "name": "badminton",
         "author": false,
-        "component": "main/badminton/index.tsx",
+        "component": "home/badminton/index.tsx",
         "children": []
       },
       {
-        "path": "/main/baseball",
+        "path": "/home/baseball",
         "name": "baseball",
         "author": false,
-        "component": "main/baseball/index.tsx",
+        "component": "home/baseball/index.tsx",
         "children": []
       },
       {
-        "path": "/main/basketball",
+        "path": "/home/basketball",
         "name": "basketball",
         "author": false,
-        "component": "main/basketball/index.tsx",
+        "component": "home/basketball/index.tsx",
         "children": []
       },
       {
-        "path": "/main/cricket",
+        "path": "/home/cricket",
         "name": "cricket",
         "author": false,
-        "component": "main/cricket/index.tsx",
+        "component": "home/cricket/index.tsx",
         "children": []
       },
       {
-        "path": "/main/esports",
+        "path": "/home/esports",
         "name": "esports",
         "author": false,
-        "component": "main/esports/index.tsx",
+        "component": "home/esports/index.tsx",
         "children": []
       },
       {
-        "path": "/main/favorite",
+        "path": "/home/favorite",
         "name": "favorite",
         "author": false,
-        "component": "main/favorite/index.tsx",
+        "component": "home/favorite/index.tsx",
         "children": []
       },
       {
-        "path": "/main/football",
+        "path": "/home/football",
         "name": "football",
         "author": false,
-        "component": "main/football/index.tsx",
+        "component": "home/football/index.tsx",
         "children": [],
         "index": true
       },
       {
-        "path": "/main/handball",
+        "path": "/home/handball",
         "name": "handball",
         "author": false,
-        "component": "main/handball/index.tsx",
+        "component": "home/handball/index.tsx",
         "children": []
       },
       {
-        "path": "/main/iceHockey",
+        "path": "/home/iceHockey",
         "name": "iceHockey",
         "author": false,
-        "component": "main/iceHockey/index.tsx",
+        "component": "home/iceHockey/index.tsx",
         "children": []
       },
       {
-        "path": "/main/menu",
+        "path": "/home/menu",
         "name": "menu",
         "author": false,
-        "component": "main/menu/index.tsx",
+        "component": "home/menu/index.tsx",
         "children": [],
-        "customPath": "/main/menu/:type"
+        "customPath": "/home/menu/:type"
       },
       {
-        "path": "/main/serch",
+        "path": "/home/serch",
         "name": "serch",
         "author": false,
-        "component": "main/serch/index.tsx",
+        "component": "home/serch/index.tsx",
         "children": [],
-        "customPath": "/main/serch/:type"
+        "customPath": "/home/serch/:type"
       },
       {
-        "path": "/main/snooker",
+        "path": "/home/snooker",
         "name": "snooker",
         "author": false,
-        "component": "main/snooker/index.tsx",
+        "component": "home/snooker/index.tsx",
         "children": []
       },
       {
-        "path": "/main/tableTennis",
+        "path": "/home/tableTennis",
         "name": "tableTennis",
         "author": false,
-        "component": "main/tableTennis/index.tsx",
+        "component": "home/tableTennis/index.tsx",
         "children": []
       },
       {
-        "path": "/main/tennis",
+        "path": "/home/tennis",
         "name": "tennis",
         "author": false,
-        "component": "main/tennis/index.tsx",
+        "component": "home/tennis/index.tsx",
         "children": []
       },
       {
-        "path": "/main/volleyball",
+        "path": "/home/volleyball",
         "name": "volleyball",
         "author": false,
-        "component": "main/volleyball/index.tsx",
+        "component": "home/volleyball/index.tsx",
         "children": []
       },
       {
-        "path": "/main/waterpolo",
+        "path": "/home/waterpolo",
         "name": "waterpolo",
         "author": false,
-        "component": "main/waterpolo/index.tsx",
+        "component": "home/waterpolo/index.tsx",
         "children": []
       }
     ]

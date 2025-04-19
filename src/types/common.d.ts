@@ -1,15 +1,17 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 11:22:23
- * @LastEditTime: 2025-04-01 14:48:18
+ * @LastEditTime: 2025-04-18 18:50:25
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore_h5/src/types/common.d.ts
+ * @FilePath: /hb_aiScore/src/types/common.d.ts
  */
 export interface LayoutContextType {
     /**折叠左侧112*/
-    appElement: React.RefObject<HTMLDivElement | null> 
-    deviceType: string;
+    appElementRef: React.RefObject<HTMLDivElement | null> 
+    deviceType: EnumDeviceType;
+    fontSize: number;
+    deviceRatio: number;
   }
 
   export interface ReactLazyComponent {

@@ -1,36 +1,19 @@
 import React, { useMemo, useState } from "react";
 import styles from "./index.module.scss";
-import DownLoadComp from "@/components/DownloadComp";
 
 import MatchHeader from "@/components/Common/matchHeader";
-import cs from "classnames";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
 
 import { useNavigate } from "react-router-dom";
 import OverView from "./overview";
-import { EnumIconFontType } from "@/enum/enumIconFontType";
-import IComp from "@/components/IComp";
+import { useApp } from "@/provides/layoutAppProvider";
 
 const MatchDetails: React.FC = () => {
  const navigate= useNavigate()
+
   //tab切换：选中tab
   const [activeTab, setActiveTab] = useState<string>("");
-
-  //下载
-  const [isShowDownLoad, setIsShowDownLoad] = useState<boolean>(true);
-  const barData: any[] = [
-    ...Array.from({ length: 100 }, (_, i) => ({
-      team: "home",
-      minute: i,
-      value: Math.floor(Math.random() * 20),
-    })),
-    ...Array.from({ length: 100 }, (_, i) => ({
-      team: "away",
-      minute: i,
-      value: Math.floor(Math.random() * 30),
-    })),
-  ];
 
 
   const headerData = useMemo(() => {
@@ -105,10 +88,7 @@ const MatchDetails: React.FC = () => {
 
   return (
     <div className={styles.matchDetails}>
-      <DownLoadComp
-        className={cs({ [styles.is_notShow_download]: !isShowDownLoad })}
-        onClose={() => setIsShowDownLoad(!isShowDownLoad)}
-      />
+    
       <MatchHeader data={headerData} onClick={()=>navigate(-1)}/>
       <TabsComp
         className={styles.tabs}

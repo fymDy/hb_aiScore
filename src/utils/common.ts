@@ -1,14 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-24 14:28:45
- * @LastEditTime: 2025-04-10 00:29:10
+ * @LastEditTime: 2025-04-18 18:51:44
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/utils/common.ts
  */
 
 import { EnumBreakpoints, EnumCustomerSize, EnumDeviceType } from "@/enum";
-import { IFDeviceType } from "@/hooks/useDeviceType";
 const  ua =navigator.userAgent
 
 
