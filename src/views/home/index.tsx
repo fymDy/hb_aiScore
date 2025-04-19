@@ -12,6 +12,7 @@ import Header from './acomponents/header';
 import Tabs from '@/views/home/acomponents/tabs';
 import SearchBox from '@/views/home/acomponents/searchBox';
 import BallList from '@/views/home/acomponents/ballList';
+import { LayoytHomeContextProvider } from '@/provides/layoutHomeProvider';
 const Main: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,8 +31,9 @@ const Main: React.FC = () => {
   //
   const [activeIconClass,setActiveIconClass]=useState<string>('icon-zuqiu-weixuanzhong')
     //tab切换：选中tab
-  const [activeTab,setActiveTab]=useState<string>('')
-
+  const [activeTabId,setActiveTabId]=useState<string>('')
+    //tab切换：选中tab
+    const [activeTabPath,setActiveTabPath]=useState<RouterPathUtil >(RouterPathUtil.HOME_FOOTBALL)
     //默认ballList
     const [changeBallDatas, setChangeBallDatas] = useState<IFTab[]>([
       {
@@ -40,28 +42,28 @@ const Main: React.FC = () => {
         name:'足球',
         iconClass:'icon-zuqiu-weixuanzhong ',
         matchNum:23,
-        isActive:activeTab=='football' ? true:false,
+        isActive:activeTabId=='football' ? true:false,
       }, {
         id:'basketball',
         path: RouterPathUtil.HOME_BASKETBALL,
         name:'篮球',
         iconClass:'icon-lanqiu-weixuanzhong ',
         matchNum:15,
-        isActive:activeTab=='basketball' ? true:false,
+        isActive:activeTabId=='basketball' ? true:false,
       }, {
         id:'tennis',
         path: RouterPathUtil.HOME_TENNIS,
         name:'网球',
         iconClass:'icon-wangqiu-weixuanzhong',
         matchNum:15,
-        isActive:activeTab=='tennis' ? true:false,
+        isActive:activeTabId=='tennis' ? true:false,
       }, {
         id:'volleyball',
         path: RouterPathUtil.HOME_VOLLEYBALL,
         name:'排球',
         iconClass:'icon-paiqiu-weixuanzhong',
         matchNum:15,
-        isActive:activeTab=='volleyball' ? true:false,
+        isActive:activeTabId=='volleyball' ? true:false,
       }
     ]);
     //默认ballList
@@ -71,67 +73,67 @@ const Main: React.FC = () => {
         name:'电竞',
         iconClass:'icon-dianjing-weixuanzhong',
         matchNum:13,
-        isActive:activeTab=='esports' ? true:false,
+        isActive:activeTabId=='esports' ? true:false,
       },
       {id:'iceHockey',
        path: RouterPathUtil.HOME_ICEHOCKEY,
        name:'冰球',
        iconClass:'icon-bingqiu-weixuanzhong',
        matchNum:11,
-       isActive:activeTab=='iceHockey'? true:false,
+       isActive:activeTabId=='iceHockey'? true:false,
      },{id:'baseball',
       path: RouterPathUtil.HOME_BASEBALL,
       name:'棒球',
       iconClass:'icon-bangqiu-weixuanzhong',
       matchNum:8,
-      isActive:activeTab=='baseball' ? true:false,
+      isActive:activeTabId=='baseball' ? true:false,
     },{id:'cricket',
       path: RouterPathUtil.HOME_CRICKET,
       name:'板球',
       iconClass:'icon-banqiu-weixuanzhong',
       matchNum:9,
-      isActive:activeTab=='cricket' ? true:false,
+      isActive:activeTabId=='cricket' ? true:false,
     },{id:'americalBall',
       path: RouterPathUtil.HOME_AMERICALBALL,
       name:'美式橄欖球',
       iconClass:'icon-ganlanqiu-weixuanzhong',
       matchNum:6,
-      isActive:activeTab=='americalBall' ? true:false,
+      isActive:activeTabId=='americalBall' ? true:false,
     },{id:'tableTennis',
       path: RouterPathUtil.HOME_TABLETENNIS,
       name:'乒乓球',
       iconClass:'icon-pingpangqiu-weixuanzhong',
       matchNum:13,
-      isActive:activeTab=='tableTennis' ? true:false,
+      isActive:activeTabId=='tableTennis' ? true:false,
     },{id:'badminton',
       path: RouterPathUtil.HOME_BADMINTON,
       name:'羽毛球',
       iconClass:'icon-yumaoqiu-weixuanzhong',
       matchNum:32,
-      isActive:activeTab=='badminton' ? true:false,
+      isActive:activeTabId=='badminton' ? true:false,
     },
     {id:'handball',
       path: RouterPathUtil.HOME_HANDBALL,
       name:'手球',
       iconClass:'icon-shouqiu-weixuanzhong',
       matchNum:53,
-      isActive:activeTab=='handball' ? true:false,
+      isActive:activeTabId=='handball' ? true:false,
     },{id:'waterpolo',
       path: RouterPathUtil.HOME_WATERPOLO,
       name:'水球',
       iconClass:'icon-shuiqiu-weixuanzhong',
       matchNum:73,
-      isActive:activeTab=='waterpolo' ? true:false,
+      isActive:activeTabId=='waterpolo' ? true:false,
     },{id:'snooker',
       path: RouterPathUtil.HOME_SNOOKER,
       name:'斯诺克',
       iconClass:'icon-sinuoke-weixuanzhong',
       matchNum:10,
-      isActive:activeTab=='snooker' ? true:false,
+      isActive:activeTabId=='snooker' ? true:false,
     }
     ]);
 
-  const tabData:IFTab[]=useMemo(()=>{
+  const tabData=useMemo<IFTab[] | any>(()=>{
     return [
       ...changeBallDatas,
       {
@@ -161,14 +163,15 @@ const Main: React.FC = () => {
 
   useEffect(()=>{
     const tabItem:IFTab= changeBallDatas?.filter(item=>item?.path===pathname)?.[0] 
-    setActiveTab(tabItem?.id ?? 'football')
+    setActiveTabId(tabItem?.id ?? 'football')
    },[])
 
   const onClickTab=(item:IFTab)=>{
       if(item?.id =='others'){
         setClickBtnOthers(!clickBtnOthers)
       }else{
-        setActiveTab(item?.id)
+        setActiveTabId(item?.id)
+        setActiveTabPath(item?.path)
         navigate(item?.path ?? ''); 
         setClickBtnOthers(false)
         setClickBtnSearch(false)
@@ -209,7 +212,7 @@ const onSelectBall=(id:string)=>{
     setChangeBallDatas(newChangeBallDatas)
     setClickBtnOthers(false)
       //跳转
-      setActiveTab(id)
+      setActiveTabId(id)
       navigate(objSelectedBall.path); 
   }else if(clickBtnAllBall){
     const objSelectedBall: IFTab=  allBallData?.filter((item=>item.id ==id))?.[0]
@@ -219,11 +222,18 @@ const onSelectBall=(id:string)=>{
 
 
 }
+const handleClickItem = (item: any) => {
+    navigate(RouterPathUtil.MATCHDETAILS,{state:{
+      matchId:item?.itemMatch?.id
+     }})
+  console.log('从子组件收到点击事件', item);
+};
   return (
+    <LayoytHomeContextProvider activeTabId={activeTabId} activeTabPath={activeTabPath}  onClickJumpPage={handleClickItem}>
     <div className={styles.main} >
       <header className={styles.header} >
         <Header      onclickLogo={onclickLogo} />
-        <Tabs  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTab={activeTab}  tabData={tabData} onClick={onClickTab}/>
+        <Tabs  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTabId={activeTabId}  tabData={tabData} onClick={onClickTab}/>
         {
           clickBtnSearch &&  <SearchBox isActive={clickBtnAllBall} iptValue={iptValue} iconClass={activeIconClass}
           onClear={()=>{
@@ -258,13 +268,14 @@ const onSelectBall=(id:string)=>{
       <div className={cs(styles.menu_option,{[styles.is_show_menu_option]:clickBtnMenu})}>
           <Menu onclick={(id:string)=>{ 
             if(id=='fav'){
-              setActiveTab('fav')
+              setActiveTabId('fav')
             }
             setClickBtnMenu(false) 
            } }/>
       </div>
       <Outlet />
     </div>
+    </LayoytHomeContextProvider>
   );
 };
 

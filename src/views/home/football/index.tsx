@@ -3,40 +3,40 @@ import styles from "./index.module.scss";
 import { IFSearchResult } from "../interface";
 import PageFilter from "../acomponents/pageFilter";
 import MatchList from "../acomponents/matchList";
-import { useNavigate } from "react-router-dom";
 import { RouterPathUtil } from "@/router/routerPathUtil";
+import { useHomeContext } from "@/provides/layoutHomeProvider";
 
 const Football: React.FC = () => {
   const [activeBtnFilter, setActiveBtnFilter] = useState(false);
-  const [activeTabId, setActiveTabId] = useState("ing");
-  const navigate= useNavigate()
+  const [activeBtnId, setActiveBtnId] = useState("ing");
+  const { activeTabPath,onClickJumpPage } = useHomeContext();
   const filterData: IFSearchResult[] = useMemo(() => {
     const data = [
       {
         id: "0",
         name: "全部",
-        isActive: activeTabId === "0",
+        isActive: activeBtnId === "0",
       },
       {
         id: "ing",
         name: "进行中",
         iconClass: "icon-jinhangzhong",
-        isActive: activeTabId === "ing",
+        isActive: activeBtnId === "ing",
       },
       {
         id: "2",
         name: "已结束",
-        isActive: activeTabId === "2",
+        isActive: activeBtnId === "2",
       },
       {
         id: "3",
         name: "赛程",
-        isActive: activeTabId === "3",
+        isActive: activeBtnId === "3",
       },
     ];
 
     return data;
-  }, [activeTabId]);
+  }, [activeBtnId]);
 
   const [allData, setAllData] = useState([
     {
@@ -252,12 +252,12 @@ const Football: React.FC = () => {
   ]);
 
   const matchList = useMemo(() => {
-    if (activeTabId == "0") {
+    if (activeBtnId == "0") {
       return allData;
     } else {
-      return allData?.filter((item: any) => item?.id == activeTabId);
+      return allData?.filter((item: any) => item?.id == activeBtnId);
     }
-  }, [activeTabId, allData]);
+  }, [activeBtnId, allData]);
 
   const onclcikCollect = (id: string) => {
     const data: any = allData?.map((item: any) => {
@@ -280,19 +280,20 @@ const Football: React.FC = () => {
     });
     setAllData(data);
   };
-  const onClickJumpPage=(item:any)=>{
-     navigate(RouterPathUtil.MATCHDETAILS,{state:{
-      matchId:item?.id
-     }})
-  }
+  // const onClickJumpPage=(item:any)=>{
+  //    navigate(RouterPathUtil.MATCHDETAILS,{state:{
+  //     matchId:item?.id
+  //    }})
+  // }
   return (
     <article className={styles.football}>
       <PageFilter
         filterData={filterData}
-        onclick={(id: string) => setActiveTabId(id)}
+        onclick={(id: string) => setActiveBtnId(id)}
         onclickFilter={() => setActiveBtnFilter(!activeBtnFilter)}
       />
       <MatchList
+        activeTabPath={activeTabPath}
         dataList={matchList}
         onclcikCollect={onclcikCollect}
         onclcikCollectItem={onclcikCollectItem}

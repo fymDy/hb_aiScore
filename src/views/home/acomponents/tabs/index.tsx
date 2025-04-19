@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-13 19:23:33
+ * @LastEditTime: 2025-04-19 16:32:20
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/main/acomponents/tabs/index.tsx
+ * @FilePath: /hb_aiScore/src/views/home/acomponents/tabs/index.tsx
  */
 
 import { IFTab } from '@/views/home/interface'
@@ -13,7 +13,7 @@ import cs from 'classnames'
 import IComp from '../../../../components/IComp'
 
 const Tabs=(props:any)=>{
-        const {tabData,activeTab,onClick,className}=props
+        const {tabData,activeTabId,onClick,className}=props
     return(
          <ul className={cs(className,styles.Tabs_list)} >
                 {
@@ -23,7 +23,7 @@ const Tabs=(props:any)=>{
                             className={cs(styles.item, 
                                 {[styles.item4]:i==4},
                                 {[styles.item5]:i==5},
-                                {[styles.item_active]:item?.id==activeTab && i !==5}
+                                {[styles.item_active]:item?.id==activeTabId && i !==5}
                             )} onClick={()=>{onClick(item)  }}>
                                 <div className={styles.top}>
                                     {
@@ -34,7 +34,7 @@ const Tabs=(props:any)=>{
                                 {/* <span className={styles.name}>{item?.name}</span> */}
                                
                         
-                                {item?.id===activeTab && i<4 &&
+                                {item?.id===activeTabId && i<4 &&
                                     <span className={styles.line} />
                                 }
                             </li>

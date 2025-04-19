@@ -6,13 +6,13 @@ import IconBrand from "@/components/Common/IconBrand";
 
 
 const Details: React.FC<{
-  index?:number
+ 
   itemData: any;
   onclcik: () => void;
   onClickJumpPage: () => void;
-}> = ({index, itemData, onclcik ,onClickJumpPage}) => {
+}> = ({ itemData, onclcik ,onClickJumpPage}) => {
   return (
-    <div key={index} className={styles.details}>
+    <div  className={styles.details}>
        <IconCollect isCollect={itemData?.isCollect} onclcik={onclcik} />
         <div className={styles.content} onClick={onClickJumpPage}>
         <div className={styles.left}>
