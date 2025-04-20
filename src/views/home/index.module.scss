@@ -13,15 +13,18 @@
 }
 .is_notShow_content,
 .is_notShow_download,
-.is_notShow_Tabs{
+.is_notShow_Tabs,
+.is_notShow_Filters{
   display: none !important;
 }
+.is_show_search_box,
 .is_show_menu_option,
 .is_show_others,
 .is_show_search_result{
   display:block  !important;
 }
   // others 页面样式
+  .search_box_wrap,
   .menu_option_wrap,
   .search_result_wrap,
 .others_wrap {
@@ -31,6 +34,7 @@
   z-index: 2;
   background-color: var(--color-fff);
 }
+
 .search_result_wrap{
   height: 100%;
 }
@@ -42,6 +46,9 @@
   overflow-y: scroll;
 }
 
+.filter_wrap{
+  width: 100%;
+}
 
 .font_size{
   font-size: 20px;

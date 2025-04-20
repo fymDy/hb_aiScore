@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:06:49
- * @LastEditTime: 2025-04-20 14:43:43
+ * @LastEditTime: 2025-04-20 16:51:44
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/hooks/useElementReady.ts
@@ -18,7 +18,7 @@ export function useElementReady<T extends HTMLElement>(
     if (el) {
       elementRef.current = el;
       onReadyOrResize(el);  // 初始立即触发
-      if (observerRef.current) observerRef.current.disconnect();
+      // if (observerRef.current) observerRef.current.disconnect();
       // 监听后续尺寸变化
       observerRef.current = new ResizeObserver(() => {
         if (elementRef.current) {
