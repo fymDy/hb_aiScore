@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-20 16:28:17
+ * @LastEditTime: 2025-04-20 19:01:33
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/DownloadComp/Download/index.tsx
@@ -21,10 +21,10 @@ const DownLoad=({className,onClose}:IFDownLoadProps)=>{
          <section ref={handleDownLoadReady}  className={cs(className,styles.DownLoad)} >
                 <div className={styles.left}>
                     <IconSprite name="10001" />
-                    <p className={styles.text}>
+                    <div className={styles.text}>
                         <label>AiScore App</label>
                         <p>免费看视频直播</p>
-                    </p>
+                    </div>
                 </div>
                 <div className={styles.right}>
                         <div className={cs(styles.btn)}>下载</div>

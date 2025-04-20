@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:01:04
- * @LastEditTime: 2025-04-20 15:30:15
+ * @LastEditTime: 2025-04-20 18:54:12
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/inteface.ts
@@ -29,6 +29,7 @@ export interface LayoutAppContextType  {
     contentHeight: string;
     isDownloadVisible: boolean;
     setDownloadVisible: (visible: boolean) => void;
+    recalcHeaderHeight: () => void;
   }
   export interface LayoutHomeContextType extends LayoutSysContextType{
     activeTabId:string,

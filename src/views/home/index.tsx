@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { RouterPathUtil } from "@/router/routerPathUtil";
@@ -18,7 +18,7 @@ const Home = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
-  const { headerHeight, contentHeight, handleHeaderReady } = useApp();
+  const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
   console.log("home headerHeight", headerHeight);
   const [iptValue, setIptValue] = useState("");
 
@@ -224,9 +224,12 @@ const Home = () => {
     setActiveTabId(tabItem?.id ?? "football");
   }, []);
 
+
+
   const onClickTab = (item: IFTab) => {
     setActiveTabId(item?.id);
     if (item?.id == "others") {
+      recalcHeaderHeight(); // ✅ 手动触发测量
       setClickBtnOthers(!clickBtnOthers);
     } else {
       setActiveTabPath(item?.path);
@@ -244,11 +247,14 @@ const Home = () => {
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
+      recalcHeaderHeight(); // ✅ 手动触发测量
     } else if (path === RouterPathUtil.HOME_SERCH) {
+   
       setClickBtnSearch(!clickBtnSearch);
       setClickBtnOthers(false);
       setClickBtnAllBall(false);
       setClickBtnMenu(false);
+      recalcHeaderHeight(); // ✅ 手动触发测量
     }
   };
 
@@ -297,8 +303,10 @@ const Home = () => {
       activeFilterId={activeFilterId}
       onClickJumpPage={handleClickItem}
     >
-      <div className={styles.main}>
-        <header ref={handleHeaderReady} className={styles.header_wrap}>
+      <div className={styles.Home}>
+        <header ref={handleHeaderReady}  
+        style={headerHeight > 0 ? { height: pxToRem(headerHeight) } : undefined}
+          className={styles.header_wrap}>
           <Header onclickLogo={onclickLogo} />
           <Tabs
             className={cs({
@@ -310,7 +318,7 @@ const Home = () => {
           />
           <div
             className={cs(styles.search_box_wrap, {
-              [styles.is_show_search_box]: clickBtnSearch,
+              [styles.is_notShow_search_box]: !clickBtnSearch,
             })}
           >
             <SearchBox

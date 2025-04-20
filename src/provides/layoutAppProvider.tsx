@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-04-20 16:44:49
+ * @LastEditTime: 2025-04-20 19:46:25
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
@@ -17,22 +17,28 @@ const LayoutAppContextProvider: React.FC<LayoutSysContextType> = ({
   children,
 }) => {
    const {viewportHeight}= useAppSys();
-
     const FIXED_DOWNLOAD_HEIGHT = 48; // px
    const appElementRef = useRef<HTMLDivElement | null>(null);
    const [downLoadHeight, setDownLoadHeight] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isDownloadVisible, setDownloadVisible] = useState(true);
 
-  const handleDownLoadReady = useElementReady<HTMLDivElement>((el) => {
-    setDownLoadHeight(el.getBoundingClientRect().height);
+
+  const { ref: handleDownLoadReady, recalc: recalcDownLoadHeight } = useElementReady<HTMLDivElement>((el) => {
+    const h = el.getBoundingClientRect().height;
+    setDownLoadHeight((prev) => (prev !== h ? h : prev));
   });
 
-  const handleHeaderReady = useElementReady<HTMLDivElement>((el) => {
-    setHeaderHeight(el.getBoundingClientRect().height);
+
+const { ref: handleHeaderReady, recalc: recalcHeaderHeight } = useElementReady<HTMLDivElement>((el) => {
+    const h = el.getBoundingClientRect().height;
+    console.log('h',h)
+    setHeaderHeight((prev) => (prev !== h ? h : prev));
   });
+
   const appHeight = useMemo(() => {
     return viewportHeight - (isDownloadVisible ? FIXED_DOWNLOAD_HEIGHT : 0);
+
   }, [ viewportHeight,isDownloadVisible]);
   
   const contentHeight = useMemo(() => {
@@ -40,16 +46,19 @@ const LayoutAppContextProvider: React.FC<LayoutSysContextType> = ({
       return pxToRem(h)
   }, [viewportHeight,headerHeight, isDownloadVisible]);
 
+  
 
   return (
     <LayoutAppContext.Provider
       value={{
+
         handleHeaderReady,
         handleDownLoadReady,
         headerHeight,
         contentHeight,
         isDownloadVisible,
         setDownloadVisible,
+        recalcHeaderHeight
       }}
     >
       <div ref={appElementRef} style={{ height:pxToRem(viewportHeight)}} className="app-layout">
