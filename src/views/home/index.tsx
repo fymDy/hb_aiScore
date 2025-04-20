@@ -18,7 +18,7 @@ const Home= () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {pathname} = location;
-    const {contentHeight,handleHeaderReady}=useApp()
+    const {contentHeight, handleHeaderReady}=useApp()
     const [iptValue,setIptValue]=useState('')
 
     //
@@ -299,18 +299,17 @@ const handleClickItem = (item: any) => {
         }
       </header>
      
-      <div className={cs(styles.others,{[styles.is_show_others]:(clickBtnOthers || clickBtnAllBall ) })}>
-        <BallList className={styles.font_size}  isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
+      <div style={{height:contentHeight}} className={cs(styles.others_wrap,{[styles.is_show_others]:(clickBtnOthers || clickBtnAllBall ) })}>
+        <BallList  className={styles.font_size}  isActive={clickBtnAllBall}  iconClass={activeIconClass} dataList={allBallData} onclick={onSelectBall} />
        </div>
       
-      <div className={cs(styles.search_result,
+      <div  style={{height:contentHeight}} className={cs(styles.search_result_wrap,
         {[styles.is_show_search_result]:clickBtnSearch})}
-        style={{height:contentHeight}}
         >
             <SearchResult/>
       </div>
   
-      <div className={cs(styles.menu_option,{[styles.is_show_menu_option]:clickBtnMenu})}>
+      <div  style={{height:contentHeight}}  className={cs(styles.menu_option_wrap,{[styles.is_show_menu_option]:clickBtnMenu})}>
           <Menu onclick={(id:string)=>{ 
             if(id=='fav'){
               setActiveTabId('fav')
@@ -318,8 +317,9 @@ const handleClickItem = (item: any) => {
             setClickBtnMenu(false) 
            } }/>
       </div>
-       
-      <Outlet />
+      <div  style={{height:contentHeight}}>
+       <Outlet />
+       </div>
     </div>
     </LayoytHomeContextProvider>
   );

@@ -1,16 +1,19 @@
 @use '@/assets/styles/utils' as *;
 .match_hot{
   color: var(--color-333);
+ 
   dt{
+    @include p(0,15);
     margin: 15px 0;
     font-size: 12.75px;
   }
   dd{
+    @include p(0,15);
     height: 40px;
-    @include flex-center;
+    @include flex-start-center;
     font-size: 12.75px;
     gap: 12px;
-    border-bottom: var(--color-border);
+    border-bottom: var(--color-border-1);
   }
   .icon_img{
     width: 18px;

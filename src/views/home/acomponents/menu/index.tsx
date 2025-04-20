@@ -2,10 +2,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-06 22:08:24
- * @LastEditTime: 2025-04-07 00:07:50
+ * @LastEditTime: 2025-04-20 12:48:56
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/main/acomponents/menu/index.tsx
+ * @FilePath: /hb_aiScore/src/views/home/acomponents/menu/index.tsx
  */
 import { useMemo, useState } from "react";
 import { IFMatch, IFMenu } from "../../interface";
@@ -71,7 +71,7 @@ const Menu: React.FC<IFMenuProps> = ({onclick}) => {
     const onclickItem=(i:string)=>{
         if(i=='4'){
             onclick('fav')
-            navigate(RouterPathUtil.MAIN_FAVORITE)
+            navigate(RouterPathUtil.HOME_FAVORITE)
         }else{
           setCurrentId(i)
           const slectedItem= menusData?.filter(item=>item.id===i)?.[0]

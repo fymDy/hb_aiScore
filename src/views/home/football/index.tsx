@@ -7,7 +7,6 @@ import { RouterPathUtil } from "@/router/routerPathUtil";
 import { useHomeContext } from "@/provides/layoutHomeProvider";
 
 const Football: React.FC = () => {
-
   const { activeFilterId,onClickJumpPage } = useHomeContext();
 
 
@@ -260,7 +259,7 @@ const Football: React.FC = () => {
   //    }})
   // }
   return (
-    <article className={styles.football}>
+    <article className={styles.football} >
       {/* <PageFilter
         filterData={filterData}
         onclick={(id: string) => setActiveBtnId(id)}

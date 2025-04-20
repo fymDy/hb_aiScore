@@ -3,6 +3,7 @@
   // menu 页面样式
   width:percentage(100);
   height: spacing(48);
+@include p(0,15);
   @include flex-between;
   border-bottom: 1px solid #{css-var-alpha(color-rgab-1,.4)};
 }
