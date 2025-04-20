@@ -14,11 +14,13 @@ import BallList from '@/views/home/acomponents/ballList';
 import { LayoytHomeContextProvider } from '@/provides/layoutHomeProvider';
 import PageFilter from './acomponents/pageFilter';
 import { useApp } from '@/hooks/useApp';
+import { pxToRem } from '@/utils/common';
 const Home= () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {pathname} = location;
-    const {contentHeight, handleHeaderReady}=useApp()
+    const {headerHeight,contentHeight, handleHeaderReady}=useApp()
+    console.log('home headerHeight',headerHeight)
     const [iptValue,setIptValue]=useState('')
 
     //
@@ -263,7 +265,9 @@ const handleClickItem = (item: any) => {
   return (
     <LayoytHomeContextProvider  activeTabId={activeTabId} activeFilterId={activeFilterId}  onClickJumpPage={handleClickItem}>
     <div className={styles.main} >
-      <header ref={handleHeaderReady} className={styles.header} >
+      <header ref={handleHeaderReady} className={styles.header_wrap}
+      
+      >
         <Header      onclickLogo={onclickLogo} />
         <Tabs  className={cs({[styles.is_notShow_Tabs]: clickBtnMenu || clickBtnSearch  }) } activeTabId={activeTabId}  tabData={tabData} onClick={onClickTab}/>
         {
@@ -317,9 +321,11 @@ const handleClickItem = (item: any) => {
             setClickBtnMenu(false) 
            } }/>
       </div>
-      <div  style={{height:contentHeight}}>
-       <Outlet />
-       </div>
+    
+         <div  style={{height:contentHeight}} 
+            className={cs({[styles.is_notShow_content]:clickBtnOthers || clickBtnMenu || clickBtnSearch  }) }  >
+         <Outlet />
+         </div>
     </div>
     </LayoytHomeContextProvider>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { EnumCustomerSize, EnumDeviceType } from "@/enum";
+import {  EnumDeviceType } from "@/enum";
 import {
   addEventListenerResize,
   getDeviceType,
@@ -23,7 +23,10 @@ function calculateDeviceInfo(viewportWidth: number): IFDeviceTypeInfo {
   }
 
   const fontSize = viewportWidth / 37.5;
+  const viewportHeight = document.documentElement.clientHeight;
   return {
+    viewportWidth,
+    viewportHeight,
     deviceType,
     fontSize,
     deviceRatio
@@ -47,10 +50,9 @@ function calViewWidth() {
     const applyInfo = debounce(() => {
       requestAnimationFrame(() => {
         const w = calViewWidth();
-        console.log(w)
         const newInfo = calculateDeviceInfo(w);
         setInfo(newInfo);
-        setRootFontSize(newInfo.fontSize);
+        setRootFontSize(newInfo.fontSize,newInfo.deviceRatio);
       });
     }, 100);
 

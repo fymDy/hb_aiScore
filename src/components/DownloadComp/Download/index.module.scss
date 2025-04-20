@@ -2,7 +2,6 @@
 
 .DownLoad {
   // main 页面样式
-  @include h(48);
   @include p(5,10);
   @include bg-color(css-var('color-30'));
   @include flex-between;
@@ -11,12 +10,9 @@
 .left{
   @include flex-center;
 }
-.img{
-  @include w(55);
-  @include h(36);
-  @include mr(10);
-}
+
 .text{
+  @include ml(10);
     @include font-weight(500);
     @include color(css-var('color-fff'));
 

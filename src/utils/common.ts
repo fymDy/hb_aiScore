@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-24 14:28:45
- * @LastEditTime: 2025-04-18 18:51:44
+ * @LastEditTime: 2025-04-20 16:42:53
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/utils/common.ts
@@ -39,7 +39,7 @@ function getUADeviceType(): IFDeviceType {
  * @returns 
  */
 export function isMobile(width:number) {
-    if (width <= 768 ) {///Mobile|Android|iPhone|iPod/.test(ua) 
+    if (width < 768 ) {///Mobile|Android|iPhone|iPod/.test(ua) 
       return true; // 手机端
     }else{
       return false
@@ -50,7 +50,7 @@ export function isMobile(width:number) {
    * @returns 
    */
   export function isTablet(width:number) {
-    if ( (width > 768 && width <= 1024)) {// /iPad|Tablet|Nexus 7|Nexus 10|KFAPWI/i.test(ua) 
+    if ( (width > 768 && width < 1025)) {// /iPad|Tablet|Nexus 7|Nexus 10|KFAPWI/i.test(ua) 
       return true// 平板端
     }else{
      return false
@@ -83,10 +83,9 @@ export function getRatioType(width:number){
   }
 }
 
-  export function setRootFontSize(fontSize:number) {
-
+  export function setRootFontSize(fontSize:number,deviceRatio:number) {
+    document.documentElement.setAttribute('deviceRatio',String(deviceRatio))
     document.documentElement.style.fontSize = `${fontSize}px`;
-
   }
 
   /**
@@ -101,14 +100,20 @@ export function addEventListenerResize(flag='resize',callback:any){
  * 移除监听
  * @param callback 
  */
-export function removeEventListenerResize(flag='resize',callback:any){
+
+export function getRootSize(){
+  const rSize= document.documentElement.style.fontSize
+  const calRSize=Number(rSize?.split('px')?.[0]) ?? 10
+  return calRSize
+} 
+export function removeEventListenerResize(flag ='resize',callback:any){
     window.removeEventListener(flag, callback);
   }
-  export const pxToRem = (px: number): string => {
-    return `${px / 10}rem`;
+  export const pxToRem = (v: number): string => {
+    return `${v / getRootSize()}rem`;
   };
   export const pxToCalc = (px: number): string => {
-    return `${px / 10}`;
+    return `${px / getRootSize()}`;
   };
 
 

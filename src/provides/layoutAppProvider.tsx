@@ -1,67 +1,64 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-04-20 14:19:48
+ * @LastEditTime: 2025-04-20 16:44:49
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
  */
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {  useMemo, useRef, useState } from "react";
 import { useElementReady } from "@/hooks/useElementReady";
 import { LayoutAppContext,  LayoutSysContextType } from "./inteface";
 import DownloadComp from "@/components/DownloadComp";
-import { pxToRem } from "@/utils/common";
+import {  pxToRem } from "@/utils/common";
+import { useAppSys } from "@/hooks/useAppSys";
 
 const LayoutAppContextProvider: React.FC<LayoutSysContextType> = ({
   children,
 }) => {
+   const {viewportHeight}= useAppSys();
+
     const FIXED_DOWNLOAD_HEIGHT = 48; // px
    const appElementRef = useRef<HTMLDivElement | null>(null);
-  const [downloadHeight, setDownloadHeight] = useState(0);
+   const [downLoadHeight, setDownLoadHeight] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isDownloadVisible, setDownloadVisible] = useState(true);
+
+  const handleDownLoadReady = useElementReady<HTMLDivElement>((el) => {
+    setDownLoadHeight(el.getBoundingClientRect().height);
+  });
 
   const handleHeaderReady = useElementReady<HTMLDivElement>((el) => {
     setHeaderHeight(el.getBoundingClientRect().height);
   });
-
-//   const handleDownloadReady = useElementReady<HTMLDivElement>((el) => {
-//     if (isDownloadVisible) {
-//         const rect=el.getBoundingClientRect().height
-//         setDownloadHeight(rect);
-//     }
-//   });
-
-
-  const contentHeight = useMemo(() => {
-      const h= window.innerHeight - headerHeight - (isDownloadVisible ? FIXED_DOWNLOAD_HEIGHT : 0);
-      console.log('headerHeight',headerHeight)
-      return pxToRem(h)
-  }, [headerHeight, isDownloadVisible]);
-
   const appHeight = useMemo(() => {
-    const h= window.innerHeight - (isDownloadVisible ? FIXED_DOWNLOAD_HEIGHT : 0);
-    return pxToRem(h)
-  }, [ isDownloadVisible]);
+    return viewportHeight - (isDownloadVisible ? FIXED_DOWNLOAD_HEIGHT : 0);
+  }, [ viewportHeight,isDownloadVisible]);
+  
+  const contentHeight = useMemo(() => {
+      const h= viewportHeight - headerHeight - (isDownloadVisible ? FIXED_DOWNLOAD_HEIGHT : 0);
+      return pxToRem(h)
+  }, [viewportHeight,headerHeight, isDownloadVisible]);
+
 
   return (
     <LayoutAppContext.Provider
       value={{
         handleHeaderReady,
-        downloadHeight,
+        handleDownLoadReady,
         headerHeight,
         contentHeight,
         isDownloadVisible,
         setDownloadVisible,
       }}
     >
-      <div ref={appElementRef} style={{ height: '100%' }} className="app-layout">
+      <div ref={appElementRef} style={{ height:pxToRem(viewportHeight)}} className="app-layout">
         {isDownloadVisible && (
-          <div  style={{ height: FIXED_DOWNLOAD_HEIGHT }}  className="app-download">
+          <div style={{ height: pxToRem(downLoadHeight) }}  className="app-download">
                 <DownloadComp />
           </div>
         )}
-        <div className="app-content" style={{ height:appHeight }}   >
+        <div className="app-content" style={{ height:pxToRem(appHeight) }}>
           {children}
         </div>
       </div>

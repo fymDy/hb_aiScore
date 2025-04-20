@@ -2,6 +2,7 @@ import React from 'react';
 import spriteData from '@/assets/images/sprite.json'; // 引用 sprite.json
 import spriteImage from '@/assets/images/sprite.png';
 import { getRatioType, pxToRem } from '@/utils/common';
+import { useAppSys } from '@/hooks/useAppSys';
 
 // 定义雪碧图数据中每个图标项的类型
 interface SpriteDataItem {
@@ -24,8 +25,15 @@ interface SpriteDataItem {
   }
 
   const SpriteIcon: React.FC<SpriteIconProps> = ({ name, scale = 2, style }) => {
+    const {deviceRatio}=useAppSys()
+    if(deviceRatio==3){
+      scale = 2 // scale =3 图片是2倍图，所以只能用2
+    }else if(deviceRatio==2){
+      scale = 1
+    }else {
+      scale = 1
+    }
     const iconData = (spriteData as SpriteData)[name];
-
     if (!iconData) {
       console.warn(`雪碧图中找不到名为 "${name}" 的图标。`);
       return null;

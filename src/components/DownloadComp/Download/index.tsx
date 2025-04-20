@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-18 19:41:53
+ * @LastEditTime: 2025-04-20 16:28:17
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/DownloadComp/Download/index.tsx
@@ -10,28 +10,27 @@ import IconSprite from '../../Common/IconSprite'
 import styles from './index.module.scss'
 import cs from 'classnames'
 import IconFont from '../../Common/Iconfont'
+import { useApp } from '@/hooks/useApp'
 interface IFDownLoadProps{
     className?:string,
     onClose:()=>void
 }
 const DownLoad=({className,onClose}:IFDownLoadProps)=>{
-   
+ const {handleDownLoadReady}=   useApp()
     return(
-         <ul className={cs(className,styles.DownLoad)} >
-                <li className={styles.left}>
-                    <div className={styles.img}>
-                        <IconSprite name="10001" />
-                    </div>
-                    <div className={styles.text}>
+         <section ref={handleDownLoadReady}  className={cs(className,styles.DownLoad)} >
+                <div className={styles.left}>
+                    <IconSprite name="10001" />
+                    <p className={styles.text}>
                         <label>AiScore App</label>
                         <p>免费看视频直播</p>
-                    </div>
-                </li>
-                <li className={styles.right}>
+                    </p>
+                </div>
+                <div className={styles.right}>
                         <div className={cs(styles.btn)}>下载</div>
                         <IconFont className={cs(styles.icon_guanbi,'icon-guanbi')} onClick={onClose}  />
-                </li>
-        </ul>
+                </div>
+        </section>
     )
 }
 export default DownLoad
