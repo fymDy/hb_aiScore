@@ -14,14 +14,13 @@ import { LayoytHomeContextProvider } from "@/provides/layoutHomeProvider";
 import PageFilter from "./acomponents/pageFilter";
 import { useApp } from "@/hooks/useApp";
 import { pxToRem } from "@/utils/common";
+import { EnumIconFontType } from "@/enum/enumIconFontType";
 const Home = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
-  console.log("home headerHeight", headerHeight);
   const [iptValue, setIptValue] = useState("");
-
   //
   const [clickBtnMenu, setClickBtnMenu] = useState<boolean>(false);
   //
@@ -31,22 +30,17 @@ const Home = () => {
   //
   const [clickBtnAllBall, setClickBtnAllBall] = useState<boolean>(false);
   //
-  const [activeIconClass, setActiveIconClass] = useState<string>(
-    "icon-zuqiu-weixuanzhong"
-  );
+  const [activeIconClass, setActiveIconClass] = useState<string>(EnumIconFontType.icon_zuqiu_weixuanzhong);
   //tab切换：选中tab
-  const [activeTabId, setActiveTabId] = useState<string>("football");
-  //tab切换：选中tab
-  const [activeTabPath, setActiveTabPath] = useState<RouterPathUtil>(
-    RouterPathUtil.HOME_FOOTBALL
-  );
+  const [activeTabId, setActiveTabId] = useState<string>("");
+ 
   //默认ballList
   const [changeBallDatas, setChangeBallDatas] = useState<IFTab[]>([
     {
       id: "football",
       path: RouterPathUtil.HOME_FOOTBALL,
       name: "足球",
-      iconClass: "icon-zuqiu-weixuanzhong ",
+      iconClass: EnumIconFontType.icon_zuqiu_weixuanzhong,
       matchNum: 23,
       isActive: activeTabId == "football" ? true : false,
     },
@@ -222,22 +216,26 @@ const Home = () => {
       (item) => item?.path === pathname
     )?.[0];
     setActiveTabId(tabItem?.id ?? "football");
+    onSelectBall(tabItem?.id)
   }, []);
 
 
 
   const onClickTab = (item: IFTab) => {
-    setActiveTabId(item?.id);
+    
     if (item?.id == "others") {
-      recalcHeaderHeight(); // ✅ 手动触发测量
       setClickBtnOthers(!clickBtnOthers);
+      recalcHeaderHeight(); // ✅ 手动触发测量
     } else {
-      setActiveTabPath(item?.path);
+      setActiveTabId(item?.id);
       navigate(item?.path ?? "");
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
+      recalcHeaderHeight(); // ✅ 手动触发测量
     }
+   
+  
   };
   const onclickLogo = (path: RouterPathUtil) => {
     if (path === RouterPathUtil.HOME_FOOTBALL) {
@@ -394,6 +392,8 @@ const Home = () => {
             onclick={(id: string) => {
               if (id == "fav") {
                 setActiveTabId("fav");
+              }else if (id == "close"){
+                //todo
               }
               setClickBtnMenu(false);
             }}

@@ -2,7 +2,7 @@
 
 .DownLoad {
   // main 页面样式
-  @include p(5,10);
+  @include p(6,10);
   @include bg-color(css-var('color-30'));
   @include flex-between;
 }
