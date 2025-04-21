@@ -71,6 +71,7 @@ const Home = () => {
   ]);
   //默认ballList
   const [othersBallDatas, setOthersBallDatas] = useState<IFTab[]>([
+    
     {
       id: "esports",
       path: RouterPathUtil.HOME_ESPORTS,
@@ -176,10 +177,12 @@ const Home = () => {
   }, [clickBtnOthers, changeBallDatas]);
 
   const allBallData: IFTab[] = useMemo(() => {
-    return clickBtnAllBall
-      ? [...changeBallDatas, ...othersBallDatas]
-      : [...othersBallDatas];
-  }, [clickBtnAllBall, othersBallDatas]);
+    if(clickBtnOthers){
+      return [...othersBallDatas]
+    }else {//if(clickBtnAllBall)
+      return [...changeBallDatas, ...othersBallDatas]
+    }
+  }, [clickBtnAllBall,clickBtnOthers, othersBallDatas]);
 
   const [activeBtnFilter, setActiveBtnFilter] = useState(false);
   const [activeFilterId, setActiveFilterId] = useState("ing");
@@ -212,14 +215,15 @@ const Home = () => {
   }, [activeFilterId]);
 
   useEffect(() => {
-    const tabItem: IFTab = changeBallDatas?.filter(
-      (item) => item?.path === pathname
+    const tabItem: IFTab = allBallData?.filter(
+      (item) => item?.path === (pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname) 
     )?.[0];
-    setActiveTabId(tabItem?.id ?? "football");
-    onSelectBall(tabItem?.id)
+    setActiveTabId(tabItem?.id);
+   const filterChangeDataId= changeBallDatas.map((item:any)=>item.id)
+    if(!filterChangeDataId.includes(tabItem?.id)) {
+      onSelectBall(tabItem?.id )
+    };
   }, []);
-
-
 
   const onClickTab = (item: IFTab) => {
     
@@ -257,7 +261,13 @@ const Home = () => {
   };
 
   const onSelectBall = (id: string) => {
-    if (clickBtnOthers) {
+    if(clickBtnAllBall) {
+      const objSelectedBall: IFTab = allBallData?.filter(
+        (item) => item.id == id
+      )?.[0];
+      setActiveIconClass(objSelectedBall.iconClass);
+      setClickBtnAllBall(false);
+    }else{
       const selectedThird: IFTab = changeBallDatas[3];
       const updOthersBallData = othersBallDatas?.filter(
         (item) => item.id !== id
@@ -276,17 +286,12 @@ const Home = () => {
       ];
       setChangeBallDatas(newChangeBallDatas);
       setClickBtnOthers(false);
-      //跳转
-      setActiveTabId(id);
-      navigate(objSelectedBall.path);
-    } else if (clickBtnAllBall) {
-      const objSelectedBall: IFTab = allBallData?.filter(
-        (item) => item.id == id
-      )?.[0];
-      setActiveIconClass(objSelectedBall.iconClass);
-      setClickBtnAllBall(false);
+      if(clickBtnOthers){ //点击其他的列表
+        //跳转
+        setActiveTabId(id);
+        navigate(objSelectedBall.path);
     }
-  };
+  }};
   const handleClickItem = (item: any) => {
     navigate(RouterPathUtil.MATCHDETAILS, {
       state: {
@@ -416,4 +421,4 @@ const Home = () => {
   );
 };
 
-export default forwardRef(Home);
+export default forwardRef(Home)
