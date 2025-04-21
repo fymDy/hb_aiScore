@@ -340,6 +340,7 @@ const Home = () => {
                   setClickBtnOthers(false);
                   setClickBtnAllBall(false);
                   setClickBtnSearch(false);
+                  recalcHeaderHeight(); // ✅ 手动触发测量
                 }
               }}
             />
@@ -394,6 +395,7 @@ const Home = () => {
                 setActiveTabId("fav");
               }else if (id == "close"){
                 //todo
+                recalcHeaderHeight(); // ✅ 手动触发测量
               }
               setClickBtnMenu(false);
             }}

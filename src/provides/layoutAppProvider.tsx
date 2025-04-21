@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-04-20 20:02:37
+ * @LastEditTime: 2025-04-21 11:47:42
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
@@ -28,8 +28,8 @@ const LayoutAppContextProvider: React.FC<LayoutSysContextType> = ({
 
 
 const { ref: handleHeaderReady, recalc: recalcHeaderHeight } = useElementReady<HTMLDivElement>((el) => {
-    const h = el.getBoundingClientRect().height;
-    setHeaderHeight((prev) => (prev !== h ? h : prev));
+    const h =Math.round(el.getBoundingClientRect().height);
+    setHeaderHeight((prev) => (Math.abs(prev - h) > 1 ? h : prev));
   });
 
   const appHeight = useMemo(() => {
