@@ -256,13 +256,7 @@ const Football: React.FC = () => {
 
   return (
     <article className={styles.football} >
-      {/* <PageFilter
-        filterData={filterData}
-        onclick={(id: string) => setActiveBtnId(id)}
-        onclickFilter={() => setActiveBtnFilter(!activeBtnFilter)}
-      /> */}
       <MatchList
-     
         dataList={matchList}
         onclcikCollect={onclcikCollect}
         onclcikCollectItem={onclcikCollectItem}
