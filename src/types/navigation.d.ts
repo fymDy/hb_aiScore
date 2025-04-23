@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-22 17:41:35
- * @LastEditTime: 2025-04-23 11:47:57
+ * @LastEditTime: 2025-04-23 11:56:51
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/types/navigation.d.ts
@@ -33,12 +33,21 @@ export interface IFNavigateOptionsPlus extends Omit<NavigateOptions, 'relative'>
 
   export type GoToFn = (to: To, options?: IFNavigateOptionsPlus) => void;
 
-declare global {
-    interface Window {
-      navigatePlus: NavigatePlusFn;
-      goTo: GoToFn;
-    }
+// declare global {
+//     interface Window {
+//       navigatePlus: NavigatePlusFn;
+//       goTo: GoToFn;
+//     }
   
+//   }
+declare global {
+  var navigatePlus: NavigatePlusFn;
+  var goTo: GoToFn;
+
+  interface Window {
+    navigatePlus: NavigatePlusFn;
+    goTo: GoToFn;
   }
+}
 
   export {}; // 让这个文件成为一个 module，避免全局污染

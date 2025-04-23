@@ -232,7 +232,7 @@ const Home = () => {
       recalcHeaderHeight(); // ✅ 手动触发测量
     } else {
       setActiveTabId(item?.id);
-      window.navigatePlus(item?.path ?? "");
+      navigatePlus(item?.path ?? "");
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
@@ -289,11 +289,11 @@ const Home = () => {
       if(clickBtnOthers){ //点击其他的列表
         //跳转
         setActiveTabId(id);
-        window.navigatePlus(objSelectedBall.path);
+       navigatePlus(objSelectedBall.path);
     }
   }};
   const handleClickItem = (id:string,item: any) => {
-   window.navigatePlus(`${RouterPathUtil.MATCHDETAILS}#overview`, {
+  navigatePlus(`${RouterPathUtil.MATCHDETAILS}#overview`, {
       state: {
         sportId:activeTabId,
         leagueId:id, //联赛id
