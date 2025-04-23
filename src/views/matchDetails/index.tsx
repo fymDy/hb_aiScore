@@ -11,10 +11,10 @@ import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
 
 const MatchDetails: React.FC = () => {
   const {navigatePlus} = useNavigatePlus();
- const v= useLocationPlus();
- console.log("从父组件收到点击事件state", v);
+ const {hashValue,state}= useLocationPlus();
+ console.log("从父组件收到点击事件state", hashValue);
   //tab切换：选中tab
-  const [activeTab, setActiveTab] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<string>(hashValue);
 
 
   const headerData = useMemo(() => {
@@ -40,29 +40,28 @@ const MatchDetails: React.FC = () => {
   const tabData: any[] = useMemo(() => {
     return [
       {
-        id: "1",
+        id: "overview",
         name: "概况",
         isActive: activeTab == "football" ? true : false,
       },
       {
-        id: "2",
+        id: "chat",
         name: "聊天",
         isActive: activeTab == "basketball" ? true : false,
       },
       {
-        id: "3",
+        id: "odds",
         name: "赔率",
         isActive: activeTab == "tennis" ? true : false,
       },
       {
-        id: "4",
+        id: "data",
         name: "数据",
         isActive: activeTab == "volleyball" ? true : false,
       },
       {
         id: "5",
         name: "阵容",
-
         isActive: activeTab == "basketball" ? true : false,
       },
       {
@@ -85,6 +84,7 @@ const MatchDetails: React.FC = () => {
   };
   const onClickTab = (item: any) => {
     setActiveTab(item.id);
+    
   };
 
   return (

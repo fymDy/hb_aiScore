@@ -257,11 +257,11 @@ const Home = () => {
       recalcHeaderHeight(); // ✅ 手动触发测量
     } else {
       setActiveTabId(item?.id);
-      navigatePlus(item?.path);
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
       recalcHeaderHeight(); // ✅ 手动触发测量
+      navigatePlus(item?.path);
     }
    
   
@@ -295,6 +295,7 @@ const Home = () => {
       const objSelectedBall: IFTab = allBallData?.filter(
         (item) => item.id == id
       )?.[0];
+      recalcHeaderHeight(); // ✅ 手动触发测量
       setActiveIconClass(objSelectedBall.iconClass);
       setClickBtnAllBall(false);
     }else{
@@ -319,6 +320,7 @@ const Home = () => {
       if(clickBtnOthers){ //点击其他的列表
         //跳转
         setActiveTabId(id);
+        recalcHeaderHeight(); // ✅ 手动触发测量
        navigatePlus(objSelectedBall.path);
     }
   }};
@@ -329,6 +331,7 @@ const Home = () => {
         leagueId:id, //联赛id
         matchId: item?.id,
       },
+      
     });
   };
   return (
