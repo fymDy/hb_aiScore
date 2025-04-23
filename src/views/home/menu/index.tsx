@@ -1,7 +1,6 @@
 
 import React, { useMemo, useState } from 'react';
 import styles from './index.module.scss';
-import { useNavigate, useParams } from 'react-router-dom';
 
 import { RouterPathUtil } from '@/router/routerPathUtil';
 import Language from './language';
@@ -10,10 +9,13 @@ import Setting from './setting';
 import { IFMatch, IFMenu } from '../interface';
 import Head from './components/head';
 import OddsFormat from './oddsFormat';
+import { useNavigatePlus } from '@/hooks/router/useNavigatePlus';
+import { useLocationPlus } from '@/hooks/router/useLocationPlus';
 
 const Menu: React.FC = () => {
-  const  state:any = useParams()
-  const navigate= useNavigate()
+  const  state:any = useLocationPlus()
+  console.log('menu',state)
+  const {navigatePlus} = useNavigatePlus();
   const [currentId,setCurrentId]=useState(state.type)
   const [currentName,setCurrentName]=useState('设定')
 
@@ -64,12 +66,12 @@ const Menu: React.FC = () => {
 
   const clickMenu=(i:string)=>{
       if(i=='4'){
-          navigate(RouterPathUtil.MAIN_FAVORITE)
+        navigatePlus(RouterPathUtil.HOME_FAVORITE)
       }else{
         setCurrentId(i)
         const slectedItem= menusData?.filter(item=>item.id===i)?.[0]
         setCurrentName(slectedItem?.name ?? '设定') 
-        navigate(`${RouterPathUtil.MAIN_MENU}/${i}`,
+        navigatePlus(`${RouterPathUtil.HOME_MENU}/${i}`,
           {state:{  type:i  },replace:false})
       }
   }
@@ -77,7 +79,7 @@ const Menu: React.FC = () => {
       return (
         <div className={styles.menu}>
             <Head text={currentName}  showBack={currentId=='0'?false:true} showClose={true}  onClickBack={()=>clickMenu('0')}
-                onClickClose={()=>navigate(-1)}
+                onClickClose={()=>navigatePlus(-1)}
          />
                      {currentId=='0' && <Setting menusData={menusData} matchHotData={matchHotData} matchData={matchData} onClickMenu={(id:string)=>clickMenu(id)}/>}
                      {currentId=='1' && <Language/>}

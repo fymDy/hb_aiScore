@@ -1,6 +1,6 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import { IFSearchResult, IFTab } from "./interface";
 import cs from "classnames";
@@ -15,10 +15,10 @@ import PageFilter from "./acomponents/pageFilter";
 import { useApp } from "@/hooks/useApp";
 import { pxToRem } from "@/utils/common";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
+import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 const Home = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { pathname } = location;
+
+  const { pathname } = useLocationPlus();
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
   const [iptValue, setIptValue] = useState("");
   //
@@ -232,7 +232,7 @@ const Home = () => {
       recalcHeaderHeight(); // ✅ 手动触发测量
     } else {
       setActiveTabId(item?.id);
-      navigate(item?.path ?? "");
+      window.navigatePlus(item?.path ?? "");
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
@@ -289,16 +289,17 @@ const Home = () => {
       if(clickBtnOthers){ //点击其他的列表
         //跳转
         setActiveTabId(id);
-        navigate(objSelectedBall.path);
+        window.navigatePlus(objSelectedBall.path);
     }
   }};
-  const handleClickItem = (item: any) => {
-    navigate(RouterPathUtil.MATCHDETAILS, {
+  const handleClickItem = (id:string,item: any) => {
+   window.navigatePlus(`${RouterPathUtil.MATCHDETAILS}#overview`, {
       state: {
+        sportId:activeTabId,
+        leagueId:id, //联赛id
         matchId: item?.id,
       },
     });
-    console.log("从子组件收到点击事件", item);
   };
   return (
     <LayoytHomeContextProvider

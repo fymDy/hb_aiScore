@@ -5,7 +5,8 @@ import routesJonFile from './routes.json';
 import { IFRouterConfig } from './interface';
 import AuthGuard from './authGuard'; // 导入 AuthGuard 组件
 import { RouterPathUtil } from './routerPathUtil';
-
+import { divide } from 'lodash';
+import LayoutApp from '@/layout/appRouter';
 
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
 return  lazy(() =>
@@ -46,7 +47,8 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
 const updatedRoutesConfig = [
   {
     path: '/',
-    element: <Navigate to={RouterPathUtil.HOME} replace />,
+    // element: <Navigate to={RouterPathUtil.HOME} replace />,
+    element:<LayoutApp/>
   },
   {
     path: '*',
@@ -56,10 +58,10 @@ const updatedRoutesConfig = [
 ];
 
 const routes =generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[])
-const resRoutes=createBrowserRouter(routes);
+export const resRoutes=createBrowserRouter(routes);
 
-const AppRouter: React.FC = () => {
-  return <RouterProvider router={resRoutes} />;
+const AppRouter = () => {
+   return <RouterProvider router={resRoutes}   />
 };
 
 export default AppRouter;

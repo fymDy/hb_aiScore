@@ -8,7 +8,7 @@ import { RouterPathUtil } from '@/router/routerPathUtil';
   dataList:any,
   onclcikCollect:(id:string)=>void
   onclcikCollectItem:(id:string,matchId:string)=>void
-  onClickJumpPage:(item:any)=>void
+  onClickJumpPage:(id:string,item:any)=>void
 }
 const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
   console.log(1)
@@ -20,7 +20,7 @@ const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollec
                         <TitleComp itemData={item} onclcik={()=>{onclcikCollect(item?.id)}} />
                           {
                             item?.data?.map((itemMatch:any,_i:number)=>(
-                              <DetailsComp key={_i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage(itemMatch)} />
+                              <DetailsComp key={_i} itemData={itemMatch} onclcik={()=>onclcikCollectItem(item?.id,itemMatch?.id)} onClickJumpPage={()=>onClickJumpPage(item?.id,itemMatch)} />
                             ))
                           }
                     </section>

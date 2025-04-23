@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:01:04
- * @LastEditTime: 2025-04-20 18:54:12
+ * @LastEditTime: 2025-04-22 14:48:38
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/inteface.ts
@@ -34,7 +34,7 @@ export interface LayoutAppContextType  {
   export interface LayoutHomeContextType extends LayoutSysContextType{
     activeTabId:string,
     activeFilterId:string,
-    onClickJumpPage:(item:any)=>void,
+    onClickJumpPage:(id:string,item:any)=>void,
   
 }
 

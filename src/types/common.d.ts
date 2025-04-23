@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 11:22:23
- * @LastEditTime: 2025-04-19 20:00:36
+ * @LastEditTime: 2025-04-22 18:02:31
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/types/common.d.ts
@@ -36,4 +36,5 @@ declare module '@/assets/images/sprite.json' {
   declare module '*.json' {
     const value: any;
     export default value;
-  }
+}
+

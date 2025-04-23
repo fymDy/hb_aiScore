@@ -253,11 +253,7 @@ const Football: React.FC = () => {
     });
     setAllData(data);
   };
-  // const onClickJumpPage=(item:any)=>{
-  //    navigate(RouterPathUtil.MATCHDETAILS,{state:{
-  //     matchId:item?.id
-  //    }})
-  // }
+
   return (
     <article className={styles.football} >
       {/* <PageFilter

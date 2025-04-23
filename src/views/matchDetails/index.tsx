@@ -5,12 +5,14 @@ import MatchHeader from "@/components/Common/matchHeader";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
 
-import { useNavigate } from "react-router-dom";
 import OverView from "./overview";
+import { useLocationPlus } from "@/hooks/router/useLocationPlus";
+import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
 
 const MatchDetails: React.FC = () => {
- const navigate= useNavigate()
-
+  const {navigatePlus} = useNavigatePlus();
+ const v= useLocationPlus();
+ console.log("从父组件收到点击事件state", v);
   //tab切换：选中tab
   const [activeTab, setActiveTab] = useState<string>("");
 
@@ -88,7 +90,7 @@ const MatchDetails: React.FC = () => {
   return (
     <div className={styles.matchDetails}>
     
-      <MatchHeader data={headerData} onClick={()=>navigate(-1)}/>
+      <MatchHeader data={headerData} onClick={()=>navigatePlus(-1)}/>
       <TabsComp
         className={styles.tabs}
         activeTab={activeTab}
