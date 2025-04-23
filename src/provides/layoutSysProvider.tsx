@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-18 18:42:35
- * @LastEditTime: 2025-04-22 18:56:44
+ * @LastEditTime: 2025-04-23 19:49:26
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutSysProvider.tsx
@@ -25,7 +25,7 @@ export const LayoutSysContextProvider: React.FC<LayoutSysContextType> = ({ child
         deviceRatio,
       }}
     >
-      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+      <Suspense fallback={<div className="Loading">Loading...</div>}>{children}</Suspense>
     </LayoutSysContext.Provider>
   );
 };

@@ -187,7 +187,30 @@ const Home = () => {
   const [activeBtnFilter, setActiveBtnFilter] = useState(false);
   const [activeFilterId, setActiveFilterId] = useState("ing");
   const filterData: IFSearchResult[] = useMemo(() => {
-    const data = [
+   
+    const data = clickBtnSearch?[
+      {
+        id:'all',
+        name:'全部',
+        iconClass:'',
+        isActive:activeFilterId==='all',
+      }, {
+        id:'team',
+        name:'球隊',
+        iconClass:'icon-qiudui',
+        isActive:activeFilterId==='team',
+      },   {
+        id:'match',
+        name:'赛事',
+        iconClass:'icon-saishi',
+        isActive:activeFilterId==='match',
+      },   {
+        id:'member',
+        name:'球員',
+        iconClass:'icon-qiuyuan',
+        isActive:activeFilterId==='member',
+      },  
+    ]: [
       {
         id: "0",
         name: "全部",
@@ -210,9 +233,11 @@ const Home = () => {
         isActive: activeFilterId === "3",
       },
     ];
-
+  
     return data;
-  }, [activeFilterId]);
+  }, [clickBtnSearch, activeFilterId]);
+
+
 
   useEffect(() => {
     const tabItem: IFTab = allBallData?.filter(
@@ -232,7 +257,7 @@ const Home = () => {
       recalcHeaderHeight(); // ✅ 手动触发测量
     } else {
       setActiveTabId(item?.id);
-      navigatePlus(item?.path ?? "");
+      navigatePlus(item?.path);
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
@@ -251,8 +276,13 @@ const Home = () => {
       setClickBtnAllBall(false);
       recalcHeaderHeight(); // ✅ 手动触发测量
     } else if (path === RouterPathUtil.HOME_SERCH) {
-   
-      setClickBtnSearch(!clickBtnSearch);
+      const iStatus=!clickBtnSearch
+      setClickBtnSearch(iStatus);
+      if(iStatus){
+        setActiveFilterId('all')
+      }else{
+        setActiveFilterId('ing')
+      }
       setClickBtnOthers(false);
       setClickBtnAllBall(false);
       setClickBtnMenu(false);
@@ -343,6 +373,7 @@ const Home = () => {
                 if (id === "btnBall") {
                   setClickBtnAllBall(!clickBtnAllBall);
                 } else if (id === "btnClose") {
+                  setActiveFilterId('ing')
                   setClickBtnOthers(false);
                   setClickBtnAllBall(false);
                   setClickBtnSearch(false);
@@ -354,7 +385,7 @@ const Home = () => {
           <div
             className={cs(styles.filter_wrap, {
               [styles.is_notShow_Filters]:
-                clickBtnOthers || clickBtnSearch || clickBtnMenu,
+                clickBtnOthers || clickBtnMenu,
             })}
           >
             <PageFilter
@@ -386,7 +417,7 @@ const Home = () => {
             [styles.is_show_search_result]: clickBtnSearch,
           })}
         >
-          <SearchResult />
+          <SearchResult activeFilterId={activeFilterId} />
         </div>
 
         <div

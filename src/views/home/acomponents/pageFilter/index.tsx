@@ -13,7 +13,6 @@ interface IFFilterProps{
   onclickFilter:()=>void
 }
 const PageFilter: React.FC<IFFilterProps> = ({filterData,onclick,onclickFilter}) => {
-
       return (
         <section className={styles.page_filter}>
               <BtnGroup  dataList={filterData} onclick={onclick} />
