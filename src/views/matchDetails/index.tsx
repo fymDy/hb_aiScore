@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 
 import MatchHeader from "@/components/Common/matchHeader";
@@ -10,13 +10,11 @@ import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
 
 const MatchDetails: React.FC = () => {
-  const {navigatePlus} = useNavigatePlus();
  const {hashValue,state}= useLocationPlus();
- console.log("从父组件收到点击事件state", hashValue);
+ const {navigatePlus}=useNavigatePlus()
+ 
   //tab切换：选中tab
   const [activeTab, setActiveTab] = useState<string>(hashValue);
-
-
   const headerData = useMemo(() => {
     return {
       matchName: "以色列乙級聯賽",
@@ -83,9 +81,14 @@ const MatchDetails: React.FC = () => {
     name: "北京理工 vs 上海海港富盛经开比分動畫直播,預測(2025/04/09)",
   };
   const onClickTab = (item: any) => {
-    setActiveTab(item.id);
-    
+    const id=item.id
+    navigatePlus(`#${id}`, { state:state, replace: true })
+    setActiveTab(id);
   };
+
+  useEffect(()=>{
+    console.log("从父组件收到点击事件", hashValue,state);
+  },[activeTab])
 
   return (
     <div className={styles.matchDetails}>
