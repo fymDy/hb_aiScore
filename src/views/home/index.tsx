@@ -212,7 +212,7 @@ const Home = () => {
       },  
     ]: [
       {
-        id: "0",
+        id: "all",
         name: "全部",
         isActive: activeFilterId === "0",
       },

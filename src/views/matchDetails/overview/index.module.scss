@@ -10,6 +10,7 @@
 .chart_group{
   padding: 8px;
   background-color: var(--color-fff);
+  // margin: 8px 0;
 }
 .circle_group {
   @include grid-cols(3);

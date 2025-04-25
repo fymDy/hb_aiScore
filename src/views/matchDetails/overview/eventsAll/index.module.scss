@@ -2,7 +2,7 @@
 @use '@/assets/styles/utils' as * ;
 
 .events_all{
-  margin: 8px 14px;
+  padding: 0 14px 8px 14px;
   gap:8px ;
   @include grid-cols(3);
  }

@@ -14,7 +14,6 @@ import { useLocationPlus } from '@/hooks/router/useLocationPlus';
 
 const Menu: React.FC = () => {
   const  state:any = useLocationPlus()
-  console.log('menu',state)
   const {navigatePlus} = useNavigatePlus();
   const [currentId,setCurrentId]=useState(state.type)
   const [currentName,setCurrentName]=useState('设定')

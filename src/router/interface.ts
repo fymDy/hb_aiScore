@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-30 21:51:34
- * @LastEditTime: 2025-04-04 21:31:17
+ * @LastEditTime: 2025-04-25 11:14:13
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/router/interface.ts
@@ -16,7 +16,6 @@
  * @Description: 佛祖保佑无bug
  * @FilePath: /webmatrix-new-20250322/src/router/interface.ts
  */
-console.log('interface.ts loaded');
 export interface IFRouterConfig {
     /**
      * @zh 跟文件夹路径保持同名

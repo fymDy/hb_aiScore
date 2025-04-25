@@ -11,7 +11,6 @@ import { RouterPathUtil } from '@/router/routerPathUtil';
   onClickJumpPage:(id:string,item:any)=>void
 }
 const MatchList: React.FC<IFMathProps> = ({dataList,onclcikCollect,onclcikCollectItem,onClickJumpPage}) => {
-  console.log(1)
       return (
         <>
                 {

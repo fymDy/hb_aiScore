@@ -21,7 +21,7 @@ const Basketball: React.FC = () => {
         userNum: 4485,
         data: [
           {
-            id: "0",
+            id: "100",
             isCollect: false, //true
             startDate: "13:30",
             twinkle: "16",
@@ -36,7 +36,7 @@ const Basketball: React.FC = () => {
             liveBrand: "icon-donghuazhibo",
           },
           {
-            id: "0",
+            id: "101",
             isCollect: false, //true
             startDate: "13:30",
             twinkle: "21+",
@@ -64,7 +64,7 @@ const Basketball: React.FC = () => {
         userNum: 4485,
         data: [
           {
-            id: "0",
+            id: "102",
             isCollect: false, //true
             startDate: "13:30",
             twinkle: "21+",
@@ -92,7 +92,7 @@ const Basketball: React.FC = () => {
         data: [
         
           {
-            id: "2",
+            id: "105",
             isCollect: false, //true
             startDate: "13:30",
             twinkle: "21+",
@@ -110,7 +110,7 @@ const Basketball: React.FC = () => {
       },
     ]);
     const matchList = useMemo(() => {
-      if (activeFilterId == "0") {
+      if (activeFilterId == "all") {
         return allData;
       } else {
         return allData?.filter((item: any) => item?.id == activeFilterId);

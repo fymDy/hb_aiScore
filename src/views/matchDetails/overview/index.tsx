@@ -17,8 +17,8 @@ import PlayerRating from "./playerRating";
 import VenueReferee from "./venueReferee";
 import CrossSwords from "./crossSwords";
 import OddsBox from "./oddsBox";
+import Infomation from "./infomation";
 const OverView: React.FC = () => {
- const navigate= useNavigate()
 
   const barData: any[] = [
     ...Array.from({ length: 100 }, (_, i) => ({
@@ -160,6 +160,24 @@ const OverView: React.FC = () => {
     }
   }, []);
 
+  const infoData={
+    title:'信息',
+    info:[
+      {title:'Name',text:'貝爾格萊德白城後備隊vs 莫德柏里噴射機後備隊'},
+      {title:'Date',text:'2025/04/25'},
+      {title:'时间',text:'09:45:00'},
+      {title:'场馆',text:'-'},
+    ],
+    desc:['貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播','(線上視訊直播) 澳大利亚南后备聯賽將在2025/04/25 09:45:00 UTC開始。 在這裡，您可以在 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播中找到所有 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊 之前的結果，按照他們的H2H比賽進行排序。'],
+    details:[
+      '貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊 H2H',
+      '貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊預測',
+      '貝爾格萊德白城後備隊比賽賽程',
+      '貝爾格萊德白城後備隊比賽賽程',
+    ],
+    ps:'AiScore足球比分直播提供 iPhone 和 iPad 應用程序，Android 應用程式在 Google Play 上，以及 Windows 手機應用程式。 您可以在不同語言的所有商店中找到我們的身影，名稱為 "AiScore"。 安裝 AiScore應用程序，並在您的行動裝置上關注 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播！'
+  }
+
   const EventsAllData=[
       {icon:EnumIconFontType.icongoal,name:'進球'},
       {icon:EnumIconFontType.iconPenalty,name:'點球'},
@@ -201,9 +219,12 @@ const OverView: React.FC = () => {
         <MatchPbp/>
         <VenueReferee isReferee={true} title={'裁判'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
         <VenueReferee title={'场馆'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'} crossSwordsData={crossSwordsData}/>
-         <OddsBox data={oddsBoxData}/>       
+         <OddsBox data={oddsBoxData}>
+                <Infomation data={infoData} />
+          </OddsBox>       
+ 
+   
         <EventsAll data={EventsAllData}/>
-        <div className={styles.player}></div>
       </div>
   );
 };
