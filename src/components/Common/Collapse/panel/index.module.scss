@@ -1,0 +1,56 @@
+@use '@/assets/styles/utils' as * ;
+.collapse {
+  width: 100%;
+}
+
+.collapse_panel {
+  background-color: var(--color-0f80da);
+
+  .collapse_header {
+    height: 40px;
+    color: var(--color-fff);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 14px;
+    @include flex-between;
+    cursor: pointer;
+    user-select: none;
+    border-top: 1px solid hsla(0, 0%, 100%, .15);
+  }
+
+  .collapse_title {
+    flex: 1;
+  }
+
+  .collapse_arrow {
+    color: var(--color-fff);
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .open {
+    transform: rotate(180deg);
+  }
+
+  .collapse_content_wrapper {
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+
+  .collapse_content {
+    padding: 0 14px;
+    //  color:#969799;
+    font-size: 12px;
+  color:hsla(0, 0%, 100%, .6);
+
+  @include grid-cols(2);
+    // gap:10px;
+    span{
+      height: 27px;
+      line-height: 27px;
+    }
+  }
+}
+.keyIndex{
+  grid-template-columns: repeat(1, 1fr) !important;
+}
