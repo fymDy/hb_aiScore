@@ -18,6 +18,7 @@ import VenueReferee from "./venueReferee";
 import CrossSwords from "./crossSwords";
 import OddsBox from "./oddsBox";
 import Infomation from "./infomation";
+import BallType from "./ballType";
 const OverView: React.FC = () => {
 
   const barData: any[] = [
@@ -177,7 +178,12 @@ const OverView: React.FC = () => {
     ],
     ps:'AiScore足球比分直播提供 iPhone 和 iPad 應用程序，Android 應用程式在 Google Play 上，以及 Windows 手機應用程式。 您可以在不同語言的所有商店中找到我們的身影，名稱為 "AiScore"。 安裝 AiScore應用程序，並在您的行動裝置上關注 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播！'
   }
-
+  const ballTypeData= [
+    {id:'0',name:'中國足球超級聯賽 賽程'},
+    {id:'1',name:'雲南玉昆 賽程'},
+     {id:'2',name:'海海港 賽程'},
+     {id:'3',name:'雲南玉昆 vs 上海海港 交鋒'},
+  ]
   const EventsAllData=[
       {icon:EnumIconFontType.icongoal,name:'進球'},
       {icon:EnumIconFontType.iconPenalty,name:'點球'},
@@ -222,7 +228,7 @@ const OverView: React.FC = () => {
          <OddsBox data={oddsBoxData}>
                 <Infomation data={infoData} />
           </OddsBox>       
- 
+        <BallType data={ballTypeData}/>
    
         <EventsAll data={EventsAllData}/>
       </div>

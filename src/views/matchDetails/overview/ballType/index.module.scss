@@ -1,0 +1,20 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.BallType{
+  padding: 8px 14px;
+  gap:8px ;
+  background-color: var(--color-fff);
+ }
+ .title{
+  padding: 0;
+  font-size: 12px
+ }
+ .content{
+  @include flex-between-wrap;
+  gap: 8px;
+ }
+ .name{
+   font-size: 11px;
+   color: var(--color-0f80da);
+ }

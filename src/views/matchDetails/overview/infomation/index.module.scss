@@ -32,13 +32,18 @@
  }
 
  .desc{
+  max-height: 345px;
+  min-height: 230px;
   font-size: 12px;
   padding: 14px;
   color: var(--color-333);
-  
+  text-align: justify;
+ }
+ .span1{
+  color: var(--color-0f80da);
  }
  .desc_info{
-  margin-bottom: 14px;
+  width: 100%;
  }
 .desc_info_title{
   font-size: 13px;

@@ -115,7 +115,12 @@
 @mixin flex-nowrap {
   flex-wrap: nowrap;
 }
-
+/// 设置 flex-betwee-wrap: wrap
+@mixin flex-between-wrap {
+  @include display(flex);
+  @include flex-wrap;
+  @include justify(space-between);
+}
 // ----------------------- 通用 Grid 布局封装 -----------------------
 
 /// 设置列数（grid-template-columns: repeat）

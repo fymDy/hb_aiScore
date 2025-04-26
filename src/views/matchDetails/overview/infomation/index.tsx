@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-25 18:03:34
+ * @LastEditTime: 2025-04-26 12:17:50
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/infomation/index.tsx
@@ -11,9 +11,17 @@ import Title from "../../common/title";
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
+import { useMemo, useState } from "react";
 const Infomation:React.FC<{
   data:any
 }> = ({data}) => {
+  const [showMore,setShowMore]=useState(false)
+  const showInfo=useMemo(()=>{
+    return {
+     'text': showMore ?'隐藏':'展示更多',
+      'icon': showMore ?EnumIconFontType.icon_shangla:EnumIconFontType.icon_xiala
+    }
+  },[showMore])
   return (
     <section className={styles.Infomation}>
         <div className={cs(styles.title)}  >{data.title}</div>
@@ -29,7 +37,7 @@ const Infomation:React.FC<{
       </div>
       <div className={styles.desc}>
         <p>
-            <span>{data.desc[0]}</span>
+            <span  className={styles.span1}>{data.desc[0]}</span>
             <span>{data.desc[1]}</span>
         </p>
         <div className={cs(styles.desc_info)}>
@@ -41,14 +49,17 @@ const Infomation:React.FC<{
               ))
             }
           </div>
-          <div className={cs(styles.ps)}>
-              {data.ps}
+          { showMore &&
+               <div className={cs(styles.ps)}>
+               {data.ps}
+             </div>
+          }
+               <div className={styles.showMore} onClick={()=>setShowMore(!showMore)}>
+              <span>{showInfo.text}</span>
+              <IconFont className={showInfo.icon}/>
           </div>
         </div>
-         <div className={styles.showMore}>
-              <span>展示更多</span>
-              <IconFont className={EnumIconFontType.icon_xiala}/>
-        </div>
+  
     </div>
   </section>
   );
