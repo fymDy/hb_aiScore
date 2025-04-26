@@ -6,8 +6,12 @@
 }
 
 .tabs{
+  position: sticky;
+  top:0;
+  z-index: 10;
   height: 36px;
   box-shadow: 0 5px 10px -5px #d6d6d6;
+  background-color: var(--color-fff);
 }
 .svg{
   width: 14px;

@@ -1,11 +1,14 @@
 @use '@/assets/styles/utils' as * ;
 .collapse {
   width: 100%;
+  
 }
 
 .collapse_panel {
+  @include flex-column;
+  gap:1;
+  border-bottom: 1px solid hsla(0, 0%, 100%, .15);
   background-color: var(--color-0f80da);
-
   .collapse_header {
     height: 40px;
     color: var(--color-fff);
@@ -15,7 +18,6 @@
     @include flex-between;
     cursor: pointer;
     user-select: none;
-    border-top: 1px solid hsla(0, 0%, 100%, .15);
   }
 
   .collapse_title {
@@ -42,7 +44,7 @@
     //  color:#969799;
     font-size: 12px;
   color:hsla(0, 0%, 100%, .6);
-
+ 
   @include grid-cols(2);
     // gap:10px;
     span{

@@ -9,6 +9,7 @@ import OverView from "./overview";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
 import CollapseComp from "@/components/CollapseComp";
+import FooterComp from "@/components/FooterComp";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
@@ -130,6 +131,7 @@ const MatchDetails: React.FC = () => {
     <div className={styles.matchDetails}>
     
       <MatchHeader data={headerData} onClick={()=>navigatePlus(-1)}/>
+     
       <TabsComp
         className={styles.tabs}
         activeTab={activeTab}
@@ -143,6 +145,7 @@ const MatchDetails: React.FC = () => {
       />
       <OverView/>
         <CollapseComp data={collapseData}/>
+        <FooterComp></FooterComp>
     </div>
   );
 };

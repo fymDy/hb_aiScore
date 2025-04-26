@@ -57,9 +57,12 @@
 
 }
 .ps{
+  overflow: hidden;
+  transition: height 0.3s ease;
   margin-top: 10px;
 }
 .showMore{
   color: var(--color-0f80da);
   @include flex-end-center;
+  transition: transform 0.3s ease;
 }
