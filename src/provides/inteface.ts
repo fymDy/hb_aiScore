@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:01:04
- * @LastEditTime: 2025-04-27 16:12:02
+ * @LastEditTime: 2025-04-27 19:47:15
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/inteface.ts
@@ -28,6 +28,8 @@ export interface LayoutAppContextType  {
     appHeight:number,
     headerHeight: number;
     contentHeight: string;
+    isShowStep: boolean;
+    setShowStep: (visible: boolean) => void;
     isShowFrm: boolean;
     setShowFrm: (visible: boolean) => void;
     isDownloadVisible: boolean;

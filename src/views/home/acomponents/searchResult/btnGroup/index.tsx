@@ -7,8 +7,10 @@ export interface IFBtnGroup {
   classNameActive?: string;
   dataList?: IFSearchResult[];
   onclick: (id: string) => void;
+  className?:string
 }
 const BtnGroup: React.FC<IFBtnGroup> = ({
+  className,
   dataList,
   onclick,
 }) => {
@@ -18,6 +20,7 @@ const BtnGroup: React.FC<IFBtnGroup> = ({
         <div
           key={item.id}
           className={cs(
+            className,
             styles.item,
             { [styles.isActiveRed]: item.isActive && item.id =='ing' },
             { [styles.defaultActive]: item.isActive && item.id !=='ing'  }

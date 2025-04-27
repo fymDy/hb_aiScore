@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-04-27 16:54:45
+ * @LastEditTime: 2025-04-27 19:47:18
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
@@ -20,12 +20,14 @@ const LayoutAppContextProvider: React.FC<LayoutSysContextType> = ({
   children,
 }) => {
    const {viewportHeight}= useAppSys();
+  
    const appElementRef = useRef<HTMLDivElement | null>(null);
    const [downLoadHeight, setDownLoadHeight] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0);
   const [isDownloadVisible, setDownloadVisible] = useState(true);
   const [isShowFrm, setShowFrm] = useState(false);//是否展示弹框
+  const [isShowStep, setShowStep] = useState(true);//是否展示home/step
   const { ref: handleDownLoadReady, recalc: recalcDownLoadHeight } = useElementReady<HTMLDivElement>((el) => {
     const h = el.getBoundingClientRect().height;
     setDownLoadHeight((prev) => (Math.abs(prev - h) > 1 ? h : prev));
@@ -109,6 +111,8 @@ const stepData = {
         setDownloadVisible,
         isShowFrm, 
         setShowFrm,
+        isShowStep,
+        setShowStep,
         recalcHeaderHeight
       }}
     >
@@ -122,12 +126,16 @@ const stepData = {
             {children}
            {  !isShowFrm &&
              <div className={`app-footer `} ref={handleFooterReady} >
-             <StepComp
-               className="home_StepComp"
-               step1={stepData.step1}
-               step2={stepData.step2}
-               name={stepData.name}
-             />
+              {
+                isShowStep &&
+                <StepComp
+                className="home_StepComp"
+                step1={stepData.step1}
+                step2={stepData.step2}
+                name={stepData.name}
+              />
+              }
+            
              <CollapseComp data={collapseData}/>
              <FooterComp></FooterComp>
            </div>

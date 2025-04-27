@@ -119,6 +119,7 @@ const OverView: React.FC = () => {
   
   const oddsBoxData = useMemo(() => {
     return {
+      title:'赔率',
       data:[
         {
           img:  "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",

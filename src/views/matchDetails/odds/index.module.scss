@@ -1,0 +1,30 @@
+@use '@/assets/styles/utils' as *;
+.Odds {
+  // Chat 页面样式
+  width:100%;
+
+}
+.btnGroup{
+  color: var(--color-999);
+
+  span{
+    font-size: 12px ;
+  }
+}
+.checkBox_Wrap{
+  padding: 12px;
+  @include display(flex);
+  gap:20px;
+  font-size: 12px;
+  color: #323232;
+}
+.checkBox_item{
+  @include flex-center;
+}
+.ipt{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: solid 1px var(--color-999);
+  margin-right: 5px;
+}

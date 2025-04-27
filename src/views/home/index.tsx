@@ -20,7 +20,7 @@ const Home = () => {
 
   const { pathname } = useLocationPlus();
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
-  const {setShowFrm}=useApp()
+  const {setShowFrm,setShowStep}=useApp()
   const [iptValue, setIptValue] = useState("");
   //
   const [clickBtnMenu, setClickBtnMenu] = useState<boolean>(false);
@@ -335,14 +335,15 @@ const Home = () => {
     }
   }};
   const handleClickItem = (id:string,item: any) => {
+  
   navigatePlus(`${RouterPathUtil.MATCHDETAILS}#overview`, {
       state: {
         sportId:activeTabId,
         leagueId:id, //联赛id
         matchId: item?.id,
       },
-      
     });
+    setShowStep(false)
   };
   return (
     <LayoytHomeContextProvider
@@ -402,6 +403,7 @@ const Home = () => {
             })}
           >
             <PageFilter
+              isFilter={clickBtnSearch ?false:true}
               filterData={filterData}
               onclick={(id: string) => setActiveFilterId(id)}
               onclickFilter={() => setActiveBtnFilter(!activeBtnFilter)}

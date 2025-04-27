@@ -8,13 +8,20 @@ import StepComp from "@/components/StepComp";
 import OverView from "./overview";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
-import CollapseComp from "@/components/CollapseComp";
-import FooterComp from "@/components/FooterComp";
+
+import ChartLineTextComp from "@/components/ChartLineTextComp";
+import Chat from "./chat";
+import Data from "./data";
+import LineUp from "./lineUp";
+import Match from "./match";
+import Odds from "./odds";
+import Table from "./table";
+import { useApp } from "@/hooks/useApp";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
  const {navigatePlus}=useNavigatePlus()
- 
+ const {setShowStep}=useApp()
   //tab切换：选中tab
   const [activeTab, setActiveTab] = useState<string>(hashValue);
   const headerData = useMemo(() => {
@@ -38,7 +45,7 @@ const MatchDetails: React.FC = () => {
     };
   }, []);
   const tabData: any[] = useMemo(() => {
-    return [
+    const data= [
       {
         id: "overview",
         name: "概况",
@@ -60,21 +67,23 @@ const MatchDetails: React.FC = () => {
         isActive: activeTab == "volleyball" ? true : false,
       },
       {
-        id: "5",
+        id: "lineUp",
         name: "阵容",
         isActive: activeTab == "basketball" ? true : false,
       },
       {
-        id: "6",
+        id: "match",
         name: "交锋",
         isActive: activeTab == "tennis" ? true : false,
       },
       {
-        id: "7",
+        id: "table",
         name: "积分榜",
         isActive: activeTab == "volleyball" ? true : false,
       },
     ];
+  
+    return data;
   }, []);
 
   const stepData = {
@@ -92,13 +101,29 @@ const MatchDetails: React.FC = () => {
     console.log("从父组件收到点击事件", hashValue,state);
   },[activeTab])
 
-  
+
+  const RenderDom=()=>{
+    const ids:any=tabData?.map(item=>item.id)
+    return (
+      <>
+      { 'overview'===activeTab && <OverView/>}
+      { 'chat'===activeTab && <Chat />}
+      { 'odds'===activeTab && <Odds/>}
+      { 'data'===activeTab && <Data />}
+      { 'lineUp'===activeTab && <LineUp/>}
+      { 'match'===activeTab && <Match />}
+      { 'table'===activeTab && <Table/>}
+    </>
+    )
+  }
   
   return (
     <div className={styles.matchDetails}>
     
-      <MatchHeader data={headerData} onClick={()=>navigatePlus(-1)}/>
-     
+      <MatchHeader data={headerData} onClick={()=>{
+        setShowStep(true)
+        navigatePlus(-1)
+      }}/>
       <TabsComp
         className={styles.tabs}
         activeTab={activeTab}
@@ -111,7 +136,8 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      <OverView/>
+      
+      <RenderDom/>
      
     </div>
   );
