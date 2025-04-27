@@ -20,6 +20,7 @@ const Home = () => {
 
   const { pathname } = useLocationPlus();
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
+  const {setShowFrm}=useApp()
   const [iptValue, setIptValue] = useState("");
   //
   const [clickBtnMenu, setClickBtnMenu] = useState<boolean>(false);
@@ -214,7 +215,7 @@ const Home = () => {
       {
         id: "all",
         name: "全部",
-        isActive: activeFilterId === "0",
+        isActive: activeFilterId === "all",
       },
       {
         id: "ing",
@@ -249,6 +250,15 @@ const Home = () => {
       onSelectBall(tabItem?.id )
     };
   }, []);
+
+  useEffect(() => {
+      if(clickBtnMenu||clickBtnOthers||clickBtnSearch){
+          setShowFrm(true)
+      }else{
+        setShowFrm(false)
+      }
+  }, [clickBtnMenu,clickBtnOthers,clickBtnSearch]);
+
 
   const onClickTab = (item: IFTab) => {
     
@@ -340,7 +350,7 @@ const Home = () => {
       activeFilterId={activeFilterId}
       onClickJumpPage={handleClickItem}
     >
-      <div className={styles.Home}>
+      <div className={styles.Home} >
         <header ref={handleHeaderReady}  
         style={headerHeight > 0 ? { height: pxToRem(headerHeight) } : undefined}
           className={styles.header_wrap}>
@@ -443,7 +453,7 @@ const Home = () => {
         </div>
 
         <div
-          style={{ height: contentHeight }}
+          style={{ minHeight: contentHeight }}
           className={cs({
             [styles.is_notShow_content]:
               clickBtnOthers || clickBtnMenu || clickBtnSearch,

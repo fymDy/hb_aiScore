@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-01 20:19:38
- * @LastEditTime: 2025-04-26 19:58:57
+ * @LastEditTime: 2025-04-27 15:13:29
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/FooterComp/index.tsx
@@ -29,13 +29,13 @@ const FooterComp:React.FC<
     return(
         <section  className={cs(styles.FooterComp)} >
                 <div className={cs(styles.icon_wrap)}>
-                    {footerData.icon.map((item:any)=>{
-                        return <IconSprite  name={item} />
+                    {footerData.icon.map((item:any,i:number)=>{
+                        return <IconSprite key={i}  name={item} />
                     })}
                 </div>
                 <div className={cs(styles.text_wrap)}>
-                    {footerData.text.map((item:any)=>{
-                        return <span>{item}</span>
+                    {footerData.text.map((item:any,i:number)=>{
+                        return <span key={i}>{item}</span>
                     })}
                 </div>
                 <div className={styles.copyright}>{footerData.copyright}</div>

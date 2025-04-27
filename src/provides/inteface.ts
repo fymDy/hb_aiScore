@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:01:04
- * @LastEditTime: 2025-04-22 14:48:38
+ * @LastEditTime: 2025-04-27 16:12:02
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/inteface.ts
@@ -25,8 +25,11 @@ export interface LayoutAppContextType  {
     // appElementRef: React.RefObject<HTMLDivElement | null>;
     handleHeaderReady: React.RefCallback<HTMLDivElement>;
     handleDownLoadReady: React.RefCallback<HTMLDivElement>;
+    appHeight:number,
     headerHeight: number;
     contentHeight: string;
+    isShowFrm: boolean;
+    setShowFrm: (visible: boolean) => void;
     isDownloadVisible: boolean;
     setDownloadVisible: (visible: boolean) => void;
     recalcHeaderHeight: () => void;

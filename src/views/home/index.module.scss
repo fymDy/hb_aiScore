@@ -47,7 +47,9 @@
   z-index: 3 !important;
   overflow-y: scroll;
 }
-
+.search_result_wrap{
+  overflow-y: scroll;
+}
 .filter_wrap{
   width: 100%;
 }

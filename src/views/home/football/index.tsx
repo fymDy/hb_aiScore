@@ -225,7 +225,7 @@ const Football: React.FC = () => {
   ]);
 
   const matchList = useMemo(() => {
-    if (activeFilterId == "0") {
+    if (activeFilterId == "all") {
       return allData;
     } else {
       return allData?.filter((item: any) => item?.id == activeFilterId);

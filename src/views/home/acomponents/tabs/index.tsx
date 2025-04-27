@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-19 16:32:20
+ * @LastEditTime: 2025-04-27 15:20:57
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/home/acomponents/tabs/index.tsx
@@ -19,7 +19,7 @@ const Tabs=(props:any)=>{
                 {
                     tabData?.map((item:IFTab,i:number)=>{
                         return(
-                            <li key={item.id} 
+                            <li key={item?.id} 
                             className={cs(styles.item, 
                                 {[styles.item4]:i==4},
                                 {[styles.item5]:i==5},
@@ -27,9 +27,9 @@ const Tabs=(props:any)=>{
                             )} onClick={()=>{onClick(item)  }}>
                                 <div className={styles.top}>
                                     {
-                                        i <4 &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
+                                        i <4 && item?.matchNum &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
                                     }
-                                    <IComp classParentName={styles.IComp} className={cs(item.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})} name={item?.name} />
+                                    <IComp classParentName={styles.IComp} className={cs(item?.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})} name={item?.name} />
                                 </div>
                                 {/* <span className={styles.name}>{item?.name}</span> */}
                                

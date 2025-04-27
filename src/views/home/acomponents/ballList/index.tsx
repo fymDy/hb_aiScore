@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-01 20:19:38
- * @LastEditTime: 2025-04-14 22:39:12
+ * @LastEditTime: 2025-04-27 15:22:17
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/main/acomponents/ballList/index.tsx
+ * @FilePath: /hb_aiScore/src/views/home/acomponents/ballList/index.tsx
  */
 import { IFMenu, IFMatch, IFTab } from '@/views/home/interface'
 import IComp from '../../../../components/IComp'
@@ -23,8 +23,8 @@ const BallList=({className,isActive=false,dataList,iconClass='',onclick}:IFOptio
                             {
                                 dataList?.map((item: any)=>{
                                   return(
-                                    <li key={item.id} className={cs(styles.item,{[styles.active_ball]:isActive && item.iconClass==iconClass})}  onClick={()=>onclick(item.id)} >
-                                       <IComp className={cs(styles.icon_class,item.iconClass,className)} classParentName={styles.name} name={item.name} />
+                                    <li key={item?.id} className={cs(styles.item,{[styles.active_ball]:isActive && item.iconClass==iconClass})}  onClick={()=>onclick(item.id)} >
+                                       <IComp className={cs(styles.icon_class,item?.iconClass,className)} classParentName={styles.name} name={item?.name} />
                                       {item?.matchNum &&   <label className={styles.match_num}>{item?.matchNum}</label>}
                                     </li>
                                   )
