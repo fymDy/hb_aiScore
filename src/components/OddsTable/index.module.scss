@@ -1,0 +1,79 @@
+.table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+  }
+  
+  .header {
+    display: flex;
+    height: 24px;
+    line-height: 24px;
+    background: #f7f9fb; /* ✅ 表头背景色 */
+    font-weight: bold;
+    align-items: center;
+
+  }
+  
+  .bookmakerBlock {
+    display: flex;
+    border-top: 1px solid #e3e3e3;
+ 
+  }
+  
+  .bookmakerLeft {
+  
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+
+  }
+  
+  .oddsRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e3e3e3;
+    .row {
+        height: 24px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #e3e3e3;
+      }
+      .row:last-child{
+        border-bottom:none !important;
+      }
+  }
+  
+
+  
+  .cellFixed{
+    width: 120px;
+  }
+  .cell {
+    height:100%;
+    border-right: 1px solid #e3e3e3;
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .cellArrow {
+    min-width: 30px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  
+  }
+  
+  .logo {
+    width: 80px;
+    object-fit: contain;
+  }
+  

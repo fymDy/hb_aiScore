@@ -9,7 +9,6 @@ import OverView from "./overview";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
 
-import ChartLineTextComp from "@/components/ChartLineTextComp";
 import Chat from "./chat";
 import Data from "./data";
 import LineUp from "./lineUp";

@@ -226,9 +226,9 @@ const OverView: React.FC = () => {
         <MatchPbp/>
         <VenueReferee isReferee={true} title={'裁判'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
         <VenueReferee title={'场馆'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'} crossSwordsData={crossSwordsData}/>
-         <OddsBox data={oddsBoxData}>
+         {/* <OddsBox data={oddsBoxData}>
                 <Infomation data={infoData} />
-          </OddsBox>       
+          </OddsBox>        */}
         <BallType data={ballTypeData}/>
    
         <EventsAll data={EventsAllData}/>

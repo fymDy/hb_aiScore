@@ -434,7 +434,6 @@ const Home = () => {
         >
           <SearchResult activeFilterId={activeFilterId} />
         </div>
-
         <div
           style={{ height: contentHeight }}
           className={cs(styles.menu_option_wrap, {

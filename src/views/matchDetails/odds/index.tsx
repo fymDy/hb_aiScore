@@ -4,13 +4,33 @@ import OddsBox from "../overview/oddsBox";
 import PageFilter from "@/views/home/acomponents/pageFilter";
 import { IFSearchResult } from "@/views/home/interface";
 import CheckboxComp from "@/components/CheckboxComp";
+import OddsTable, { OddsData } from "@/components/OddsTable";
 
 const Odds: React.FC = () => {
   const [activeFilterId, setActiveFilterId] = useState("0");
   const [checkedList, setCheckedList] = useState<any[]>([]);
+
+  const sampleData: OddsData[] =[
+    {
+      bookmaker: 'bet365',
+      logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+      defaultOdds: [-400, +300, +2200],
+      initialOdds: [-400, +300, +2200],
+      preMatchOdds: [+104, +260, +200],
+    },
+    {
+      bookmaker: '1XBET',
+      logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+      defaultOdds: [-400, +300, +2200],
+      initialOdds: [-371, +312, +2300],
+      preMatchOdds: [+110, +225, +214],
+    }
+  ]
   const oddsBoxData = useMemo(() => {
     return {
-      data: [
+      data: 
+      
+      [
         {
           img: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
           one: "+309",
@@ -82,8 +102,8 @@ const Odds: React.FC = () => {
 
   const checkboxData = useMemo(() => {
     return [
-      { value: "0", label: "初始賠率" },
-      { value: "1", label: "赛前賠率" },
+      { value: "initialOdds", label: "初始賠率" },
+      { value: "preMatchOdds", label: "赛前賠率" },
     ];
   }, []);
 
@@ -101,7 +121,9 @@ const Odds: React.FC = () => {
         checkedList={checkedList}
         onChange={setCheckedList}
       />
-      <OddsBox data={oddsBoxData} />
+      {/* <OddsBox data={oddsBoxData} />
+       */}
+         <OddsTable data={sampleData} selectedTypes={checkedList} />
     </div>
   );
 };
