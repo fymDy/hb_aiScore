@@ -10,10 +10,11 @@ interface IFFilterProps{
   isFilter?:boolean,
   onclick:(id:string)=>void
   onclickFilter?:()=>void
+  className?:string
 }
-const PageFilter: React.FC<IFFilterProps> = ({isFilter=true,filterData,onclick,onclickFilter}) => {
+const PageFilter: React.FC<IFFilterProps> = ({className,isFilter=true,filterData,onclick,onclickFilter}) => {
       return (
-        <section className={styles.page_filter}>
+        <section className={cs(className,styles.page_filter)}>
               <BtnGroup dataList={filterData} onclick={onclick} />
               {
                 isFilter && 
