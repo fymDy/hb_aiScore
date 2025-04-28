@@ -5,11 +5,13 @@ import Infomation from "../overview/infomation";
 import PageFilter from "@/views/home/acomponents/pageFilter";
 import { IFSearchResult } from "@/views/home/interface";
 import Input from "@/components/Common/Input";
+import Checkbox from "@/components/Common/checkbox";
 
 
 const Odds: React.FC = () => {
  
      const [activeFilterId, setActiveFilterId] = useState("0");
+     const [checkedId, setCheckedId] = useState('');
     const oddsBoxData = useMemo(() => {
       return {
         
@@ -81,8 +83,19 @@ const Odds: React.FC = () => {
     
       return data;
     }, [activeFilterId]);
-    const onChangeIpt=(id:string)=>{
-      alert(id)
+    const checkboxData=useMemo(()=>{
+        return [
+          {id:'0',name:'初始賠率',checked:checkedId=='0'?true:false},
+          {id:'1',name:'赛前賠率',checked:checkedId=='1'?true:false}
+        ]
+    },[checkedId])
+    const onChangeChecked=(id:string)=>{
+      if(id===checkedId){
+        setCheckedId('')
+      }else{
+        setCheckedId(id)
+      }
+    
     }
   return (
     <div className={styles.Odds}>
@@ -93,16 +106,19 @@ const Odds: React.FC = () => {
               onclick={(id: string) => setActiveFilterId(id)}
             />
             </div>
-            <ul className={styles.checkBox_Wrap}>
-                <li className={styles.checkBox_item}>
-                  <Input id='0' className={styles.ipt} type='checkbox' onChange={onChangeIpt} />
-                  <span>初始賠率</span>
-                </li>
-                <li className={styles.checkBox_item}>
-                  <Input id='1' className={styles.ipt} type='checkbox' onChange={onChangeIpt} />
-                  <span>赛前賠率</span>
-                </li>
-            </ul>
+                <div className={styles.checkBox_Wrap}>
+                  {
+                    checkboxData?.map((item:any)=>(
+                      <Checkbox key={item.id} className={styles.checkBox_item}
+                      id={item.id}
+                      checked={item.checked}
+                      onChange={onChangeChecked}
+                      label={item.name}
+                    />
+                    ))
+                  }
+                 
+              </div>
      <OddsBox data={oddsBoxData}/>
     </div>
   );

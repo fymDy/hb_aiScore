@@ -4,13 +4,6 @@
   width:100%;
 
 }
-.btnGroup{
-  color: var(--color-999);
-
-  span{
-    font-size: 12px ;
-  }
-}
 
 .checkBox_Wrap{
   padding:0 10px 12px;
@@ -21,11 +14,4 @@
 }
 .checkBox_item{
   @include flex-center;
-}
-.ipt{
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: solid 1px var(--color-999);
-  margin-right: 5px;
 }
