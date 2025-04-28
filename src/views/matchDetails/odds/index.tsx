@@ -81,7 +81,9 @@ const Odds: React.FC = () => {
     
       return data;
     }, [activeFilterId]);
-    
+    const onChangeIpt=(id:string)=>{
+      alert(id)
+    }
   return (
     <div className={styles.Odds}>
             <div className={styles.filter_wrap}>
@@ -93,11 +95,11 @@ const Odds: React.FC = () => {
             </div>
             <ul className={styles.checkBox_Wrap}>
                 <li className={styles.checkBox_item}>
-                  <Input className={styles.ipt} type='checkbox'/>
+                  <Input id='0' className={styles.ipt} type='checkbox' onChange={onChangeIpt} />
                   <span>初始賠率</span>
                 </li>
                 <li className={styles.checkBox_item}>
-                  <Input className={styles.ipt} type='checkbox'/>
+                  <Input id='1' className={styles.ipt} type='checkbox' onChange={onChangeIpt} />
                   <span>赛前賠率</span>
                 </li>
             </ul>
