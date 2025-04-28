@@ -1,17 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import OddsBox from "../overview/oddsBox";
-import Infomation from "../overview/infomation";
 import PageFilter from "@/views/home/acomponents/pageFilter";
 import { IFSearchResult } from "@/views/home/interface";
-import Input from "@/components/Common/Input";
-import Checkbox from "@/components/Common/checkbox";
-
+import CheckboxComp from "@/components/CheckboxComp";
 
 const Odds: React.FC = () => {
  
      const [activeFilterId, setActiveFilterId] = useState("0");
-     const [checkedId, setCheckedId] = useState('');
+     const [checkedList, setCheckedList] = useState<any[]>([]);
     const oddsBoxData = useMemo(() => {
       return {
         
@@ -83,20 +80,14 @@ const Odds: React.FC = () => {
     
       return data;
     }, [activeFilterId]);
+
     const checkboxData=useMemo(()=>{
-        return [
-          {id:'0',name:'初始賠率',checked:checkedId=='0'?true:false},
-          {id:'1',name:'赛前賠率',checked:checkedId=='1'?true:false}
-        ]
-    },[checkedId])
-    const onChangeChecked=(id:string)=>{
-      if(id===checkedId){
-        setCheckedId('')
-      }else{
-        setCheckedId(id)
-      }
-    
-    }
+      return [
+        {value:'0',label:'初始賠率'},
+        {value:'1',label:'赛前賠率'}
+      ]
+    },[])
+   
   return (
     <div className={styles.Odds}>
             <div className={styles.filter_wrap}>
@@ -106,19 +97,12 @@ const Odds: React.FC = () => {
               onclick={(id: string) => setActiveFilterId(id)}
             />
             </div>
-                <div className={styles.checkBox_Wrap}>
-                  {
-                    checkboxData?.map((item:any)=>(
-                      <Checkbox key={item.id} className={styles.checkBox_item}
-                      id={item.id}
-                      checked={item.checked}
-                      onChange={onChangeChecked}
-                      label={item.name}
-                    />
-                    ))
-                  }
-                 
-              </div>
+                      <CheckboxComp
+                       className={styles.checkBox_Wrap}
+                              options={checkboxData}
+                              checkedList={checkedList}
+                              onChange={setCheckedList} 
+                       />
      <OddsBox data={oddsBoxData}/>
     </div>
   );
