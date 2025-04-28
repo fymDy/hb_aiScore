@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from "react";
-import styles from "./index.module.scss";
+
 import IComp from "@/components/IComp";
 import cs from "classnames";
 import { IFSearchResult } from "@/views/home/interface";
+import styles from "./index.module.scss";
+import parentStyles from '@/views/home/index.module.scss'
 export interface IFBtnGroup {
   classNameActive?: string;
   dataList?: IFSearchResult[];
@@ -19,11 +21,13 @@ const BtnGroup: React.FC<IFBtnGroup> = ({
       {dataList?.map((item: IFSearchResult) => (
         <div
           key={item.id}
+          id={item.id}
           className={cs(
             className,
             styles.item,
-            { [styles.isActiveRed]: item.isActive && item.id =='ing' },
-            { [styles.defaultActive]: item.isActive && item.id !=='ing'  }
+            parentStyles.item,
+            { [styles.defaultActive]: item.isActive && item.id  },
+            { [parentStyles.isActiveRed]: item.isActive && item.id =='ing' },
           )}
           onClick={() => onclick(item.id)}
         >

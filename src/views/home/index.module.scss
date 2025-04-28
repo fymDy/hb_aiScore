@@ -1,4 +1,4 @@
-
+@use '@/assets/styles/utils' as *;
 .Home {
   // main 页面样式
   width:100%;
@@ -52,6 +52,22 @@
 }
 .filter_wrap{
   width: 100%;
+  background-color: var(--color-fff);
+  .item{
+
+    color:var(--color-333);
+    background-color: var(--color-f1);
+    border-radius: 4px;
+  }
+  .defaultActive{
+    @include color(css-var(color-fff,true));
+    @include bg-color(css-var(color-0f80da,true));
+  
+  }
+  .isActiveRed{
+    @include color(css-var(color-fff,true));
+    @include bg-color(css-var(color-c72a1d,true));
+  }
 }
 
 .font_size{

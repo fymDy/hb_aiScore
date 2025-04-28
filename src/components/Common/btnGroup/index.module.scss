@@ -9,9 +9,9 @@
   @include flex-center;
   padding: 0 9px;
   height: 30px;
-  color:var(--color-333);
-  background-color: var(--color-f1);
   border-radius: 4px;
+  color: var(--color-999);
+  background-color: var(--color-fff);
 }
 .icon{
   font-size: 16px;
@@ -24,8 +24,4 @@
   @include color(css-var(color-fff,true));
   @include bg-color(css-var(color-0f80da,true));
 
-}
-.isActiveRed{
-  @include color(css-var(color-fff,true));
-  @include bg-color(css-var(color-c72a1d,true));
 }

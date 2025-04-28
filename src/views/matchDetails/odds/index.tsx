@@ -84,12 +84,13 @@ const Odds: React.FC = () => {
     
   return (
     <div className={styles.Odds}>
-        <PageFilter
-              className={styles.btnGroup}
+            <div className={styles.filter_wrap}>
+            <PageFilter
               isFilter={false}
               filterData={filterData}
               onclick={(id: string) => setActiveFilterId(id)}
             />
+            </div>
             <ul className={styles.checkBox_Wrap}>
                 <li className={styles.checkBox_item}>
                   <Input className={styles.ipt} type='checkbox'/>

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-04-27 19:47:18
+ * @LastEditTime: 2025-04-28 11:10:27
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
@@ -15,19 +15,21 @@ import { useAppSys } from "@/hooks/useAppSys";
 import CollapseComp from "@/components/CollapseComp";
 import FooterComp from "@/components/FooterComp";
 import StepComp from "@/components/StepComp";
+import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 
 const LayoutAppContextProvider: React.FC<LayoutSysContextType> = ({
   children,
 }) => {
    const {viewportHeight}= useAppSys();
-  
+
+
    const appElementRef = useRef<HTMLDivElement | null>(null);
    const [downLoadHeight, setDownLoadHeight] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0);
   const [isDownloadVisible, setDownloadVisible] = useState(true);
   const [isShowFrm, setShowFrm] = useState(false);//是否展示弹框
-  const [isShowStep, setShowStep] = useState(true);//是否展示home/step
+  const [isShowStep, setShowStep] = useState(!location.hash);//是否展示home/step
   const { ref: handleDownLoadReady, recalc: recalcDownLoadHeight } = useElementReady<HTMLDivElement>((el) => {
     const h = el.getBoundingClientRect().height;
     setDownLoadHeight((prev) => (Math.abs(prev - h) > 1 ? h : prev));
