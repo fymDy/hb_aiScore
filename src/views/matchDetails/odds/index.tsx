@@ -5,6 +5,7 @@ import { IFSearchResult } from "@/views/home/interface";
 import CheckboxComp from "@/components/CheckboxComp";
 import OddsType from "../common/oddsType";
 import OddsTable, { OddsData } from "../common/oddsTable";
+import SelectNum from "@/components/Common/selectNum";
 
 const Odds: React.FC = () => {
   const [activeFilterId, setActiveFilterId] = useState("0");
@@ -110,6 +111,7 @@ const Odds: React.FC = () => {
       />
       <OddsTable data={sampleData} selectedTypes={checkedList} onArrowClick={(v:string)=>alert(v)} />
       <OddsType data={oddsTypeData} />
+  
       </section>
     </div>
   );

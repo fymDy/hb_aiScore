@@ -1,16 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-29 14:41:38
+ * @LastEditTime: 2025-04-29 19:16:01
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/common/oddsType/index.tsx
  */
-import ImageComp from "@/components/imageComp";
 import styles from "./index.module.scss";
-import Title from "../title";
 import cs from 'classnames'
-import Infomation from "../../overview/infomation";
 const OddsType:React.FC<{
   data:any,
   onclick?:(id:string)=>void

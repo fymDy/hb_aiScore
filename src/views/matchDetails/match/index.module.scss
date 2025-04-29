@@ -1,6 +1,26 @@
-
+@use '@/assets/styles/utils' as *;
 .Match {
   // Chat 页面样式
   width:100%;
 
+}
+.selectNum_Wrap{
+  padding: 12px;
+  @include flex-between;
+  background-color: #fff;
+}
+.logo_box{
+  @include flex-center;
+  .logo{
+    width: 24px;
+    height: 24px;
+    img{
+      width: 100%;
+    }
+  }
+  .name{
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+  }
 }

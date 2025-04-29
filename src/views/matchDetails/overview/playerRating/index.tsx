@@ -1,12 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-13 16:54:42
+ * @LastEditTime: 2025-04-29 19:17:48
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/playerRating/index.tsx
  */
 import ImageComp from "@/components/imageComp";
+import Image from "@/components/Common/Image";
 import styles from "./index.module.scss";
 import cs from "classnames";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
@@ -32,7 +33,7 @@ const PlayerRating = ({data}:any) => {
                   <div className={styles.star_right}>
                     <IComp className={cs(styles.star_right_icon,EnumIconFontType.iconstar)}  name={'7.8'}></IComp>
                   </div>
-                  <ImageComp className={styles.logo} imgSrc={'https://img0.aiscore.com/football/player/3b36f882cb724c23a66e00ea192b2140.png!w60'}/>
+                  <Image className={styles.logo} imgSrc={'https://img0.aiscore.com/football/player/3b36f882cb724c23a66e00ea192b2140.png!w60'}/>
            </div>
   </div>
   );
