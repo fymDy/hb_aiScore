@@ -5,6 +5,8 @@ import BtnGroup from "@/components/Common/btnGroup";
 import IComp from "@/components/IComp";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import SelectNum from "@/components/Common/selectNum";
+import ImageComp from "@/components/imageComp";
+import ISpan from "@/components/Common/ISpan";
 
 
 const Match: React.FC = () => {
@@ -39,12 +41,7 @@ const Match: React.FC = () => {
  
 
        <div className={styles.selectNum_Wrap}>
-          <div className={styles.logo_box}>
-              <div className={styles.logo}>
-                <img src={'https://img0.aiscore.com/basketball/team/de8eeac1d5e6719368776db77b2aa18d.png!w250'} />
-              </div>
-              <span className={styles.name}>交鋒</span>
-          </div>
+          <ISpan className={styles.name} name='交鋒'/>
           <SelectNum isShowNum={isShowNum} data={[6,12,18,24]} activeNum={activeNum} 
             onclick={()=>setShowNum(!isShowNum)}
             onclickNum={(i:number)=>{

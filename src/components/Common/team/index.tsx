@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./index.module.scss";
 import cs from 'classnames'
+import Images from "../Images";
 const Team: React.FC<{
   teamImg: string;
   teamName:  string;

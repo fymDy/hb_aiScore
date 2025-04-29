@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-16 21:10:48
+ * @LastEditTime: 2025-04-29 20:33:20
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/crossSwords/index.tsx
@@ -15,6 +15,7 @@ import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import { ReactNode } from "react";
 import Title from "../../common/title";
+import Team from "@/components/Common/team";
 const CrossSwords:React.FC<{
   data:any,
   desDom:ReactNode
@@ -38,12 +39,14 @@ desDom=null
                     </div>
                     <div className={styles.team}>
                         <div className={styles.team_name}>
-                            <ImageComp className={styles.team_img} imgSrc={item.teamHomeImg}></ImageComp>
-                            <span>{item.teamHome}</span>
+                            <ImageComp className={styles.team_img} imgSrc={item.teamHomeImg}>
+                              <span>{item.teamHome}</span>
+                            </ImageComp>
                         </div>
                         <div className={styles.team_name}>
-                        <ImageComp className={styles.team_img} imgSrc={item.teamAwayImg}></ImageComp>
-                        <span>{item.teamAway}</span>
+                            <ImageComp className={styles.team_img} imgSrc={item.teamAwayImg}>
+                              <span>{item.teamAway}</span>
+                            </ImageComp>
                         </div>
                     </div>
                     <div className={styles.score}>

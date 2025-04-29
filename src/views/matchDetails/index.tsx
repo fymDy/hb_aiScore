@@ -135,7 +135,6 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      
       <RenderDom/>
      
     </div>

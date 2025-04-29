@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-04-29 19:18:23
+ * @LastEditTime: 2025-04-29 19:28:09
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/venueReferee/index.tsx
@@ -9,12 +9,12 @@
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import styles from "./index.module.scss";
 import SvgIcon from "@/components/Common/IconSvg";
-import Image from "@/components/Common/Image";
 import defaultPlayer from '@/assets/images/default-player.png'
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import CrossSwords from "../crossSwords";
 import Title from "../../common/title";
+import Images from "@/components/Common/Images";
 const VenueReferee:React.FC<{
   title:string,
   imgSrc:string,
@@ -39,7 +39,7 @@ const VenueReferee:React.FC<{
             <div className={styles.player}>
               {
                 isReferee  
-                ?<Image  className={styles.img_player} imgSrc={imgSrc?imgSrc:defaultPlayer}/>
+                ?<Images  className={styles.img_player} imgSrc={imgSrc?imgSrc:defaultPlayer}/>
                 :<IconFont className={cs(styles.icon_venue,EnumIconFontType.iconchangguan)} />
               }
                <span className={styles.name_player}>{name}</span>

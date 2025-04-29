@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
-import ImageComp from "@/components/imageComp";
+import Images from "../../Images";
 
 const TeamLolo: React.FC<{
   imgSrc:string,
@@ -8,7 +8,7 @@ const TeamLolo: React.FC<{
 }> = ({imgSrc,name}) => {
   return (
       <div className={styles.team_logo}>
-            <ImageComp className={styles.logo} imgSrc={imgSrc}/>
+            <Images className={styles.logo} imgSrc={imgSrc}/>
             <span className={styles.name}>{name}</span>
       </div>
   );

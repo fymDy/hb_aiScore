@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-27 15:20:57
+ * @LastEditTime: 2025-04-29 20:06:42
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/home/acomponents/tabs/index.tsx
@@ -27,7 +27,7 @@ const Tabs=(props:any)=>{
                             )} onClick={()=>{onClick(item)  }}>
                                 <div className={styles.top}>
                                     {
-                                        i <4 && item?.matchNum &&   <span data-v-736e8afd="" className={styles.matchNum}>{item.matchNum}</span>
+                                        i <4 && item?.matchNum &&   <span className={styles.matchNum}>{item.matchNum}</span>
                                     }
                                     <IComp classParentName={styles.IComp} className={cs(item?.iconClass,styles.iconSize, {[styles.iconSize4]:i==4})} name={item?.name} />
                                 </div>

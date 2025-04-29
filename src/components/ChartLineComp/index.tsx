@@ -5,14 +5,14 @@ import cs from "classnames";
 import IComp from "@/components/IComp";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import LineProcess from "../Common/lineProcess";
-import Image from '@/components/Common/Image'
+import Images from "../Common/Images";
 const ChartLineComp: React.FC<{
   title:string
   imgFlag:string
 }> = ({title,imgFlag}) => {
   return (
     <div className={styles.ChartLineComp}>
-    <Image className={styles.img_flag} imgSrc={imgFlag}></Image>
+    <Images className={styles.img_flag} imgSrc={imgFlag}></Images>
     <IComp
       className={cs(styles.card_red, EnumIconFontType.iconredcard1)}
     />
@@ -32,7 +32,7 @@ const ChartLineComp: React.FC<{
         EnumIconFontType.iconyellowcard1
       )}/>
     <IComp className={cs(styles.card_red, EnumIconFontType.iconredcard1)} />
-    <Image className={styles.img_flag} imgSrc={imgFlag}></Image>
+    <Images className={styles.img_flag} imgSrc={imgFlag}></Images>
   </div>
   );
 };
