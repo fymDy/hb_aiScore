@@ -16,9 +16,11 @@ import EventsAll from "./eventsAll";
 import PlayerRating from "./playerRating";
 import VenueReferee from "./venueReferee";
 import CrossSwords from "./crossSwords";
-import OddsBox from "./oddsBox";
 import Infomation from "./infomation";
 import BallType from "./ballType";
+import OddsTable, { OddsData } from "../common/oddsTable";
+import OddsType from "../common/oddsType";
+import OddsBox from "../common/oddsBox";
 const OverView: React.FC = () => {
 
   const barData: any[] = [
@@ -116,52 +118,56 @@ const OverView: React.FC = () => {
      
     };
   }, []);
+  const sampleData: OddsData[] =[
+      {
+        name: 'bet365',
+        logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+        defaultOdds: [-309, +300, +2200],
+        initialOdds: [-400, +500, +1200],
+        preMatchOdds: [+104, +260, +3200],
+      },
+      {
+        name: '1XBET',
+        logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+        defaultOdds: [-200, +100, +500],
+        initialOdds: [-371, +312, +2300],
+        preMatchOdds: [+110, +225, +214],
+      },
+      {
+        name: 'CrownBet',
+        logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+        defaultOdds: [-200, +100, +500],
+        initialOdds: [-371, +312, +2300],
+        preMatchOdds: [+110, +225, +214],
+      },
+      {
+        name: 'Bookmaker',
+        logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+        defaultOdds: [-200, +100, +500],
+        initialOdds: [-371, +312, +2300],
+        preMatchOdds: [+110, +225, +214],
+      }
+    ]
+    const oddsTypeData = useMemo(() => {
+      return {
+        hint: "Gamble Responsibly. Gambling Therapy. 18+",
+        odds: [
+          {
+            name: "初始賠率",
+            value: "1:3",
+          },
+          {
+            name: "賽前賠率",
+            value: "1:2",
+          },
+          {
+            name: "賽中賠率",
+            value: "3:1",
+          },
+        ],
+      };
+    }, []);
   
-  const oddsBoxData = useMemo(() => {
-    return {
-      title:'赔率',
-      data:[
-        {
-          img:  "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: '+309',
-          X: "+240",
-          two: "-125", 
-        },{
-          img:  "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: '+309',
-          X: "+240",
-          two: "-125", 
-        },{
-          img:  "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: '+309',
-          X: "+240",
-          two: "-125", 
-        },{
-          img:  "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: '+309',
-          X: "+240",
-          two: "-125", 
-        }
-      ],
-      hint:'Gamble Responsibly. Gambling Therapy. 18+',
-      odds:[
-        {
-          name:'初始賠率',
-          value:'1:3'
-        },
-        {
-          name:'賽前賠率',
-          value:'1:2'
-        },
-        {
-          name:'賽中賠率',
-          value:'3:1'
-        }
-      ],
-
-    }
-  }, []);
-
   const infoData={
     title:'信息',
     info:[
@@ -226,9 +232,13 @@ const OverView: React.FC = () => {
         <MatchPbp/>
         <VenueReferee isReferee={true} title={'裁判'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'}/>
         <VenueReferee title={'场馆'} imgSrc={''} name={'羅馬奧林匹克球場'} scoreHome={'4.58'} scoreWay={'0.48'} crossSwordsData={crossSwordsData}/>
-         {/* <OddsBox data={oddsBoxData}>
-                <Infomation data={infoData} />
-          </OddsBox>        */}
+      
+          <div >
+            <OddsTable data={sampleData} title='赔率' isShowArrow={false}/>
+            <OddsType data={oddsTypeData} />
+            <Infomation data={infoData} />
+          </div>
+         
         <BallType data={ballTypeData}/>
    
         <EventsAll data={EventsAllData}/>

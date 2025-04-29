@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
-import OddsBox from "../overview/oddsBox";
 import PageFilter from "@/views/home/acomponents/pageFilter";
 import { IFSearchResult } from "@/views/home/interface";
 import CheckboxComp from "@/components/CheckboxComp";
-import OddsTable, { OddsData } from "@/components/OddsTable";
+import OddsType from "../common/oddsType";
+import OddsTable, { OddsData } from "../common/oddsTable";
 
 const Odds: React.FC = () => {
   const [activeFilterId, setActiveFilterId] = useState("0");
@@ -12,50 +12,36 @@ const Odds: React.FC = () => {
 
   const sampleData: OddsData[] =[
     {
-      bookmaker: 'bet365',
+      name: 'bet365',
       logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-      defaultOdds: [-400, +300, +2200],
-      initialOdds: [-400, +300, +2200],
-      preMatchOdds: [+104, +260, +200],
+      defaultOdds: [-309, +300, +2200],
+      initialOdds: [-400, +500, +1200],
+      preMatchOdds: [+104, +260, +3200],
     },
     {
-      bookmaker: '1XBET',
+      name: '1XBET',
       logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-      defaultOdds: [-400, +300, +2200],
+      defaultOdds: [-200, +100, +500],
+      initialOdds: [-371, +312, +2300],
+      preMatchOdds: [+110, +225, +214],
+    },
+    {
+      name: 'CrownBet',
+      logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+      defaultOdds: [-200, +100, +500],
+      initialOdds: [-371, +312, +2300],
+      preMatchOdds: [+110, +225, +214],
+    },
+    {
+      name: 'Bookmaker',
+      logo: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
+      defaultOdds: [-200, +100, +500],
       initialOdds: [-371, +312, +2300],
       preMatchOdds: [+110, +225, +214],
     }
   ]
-  const oddsBoxData = useMemo(() => {
+  const oddsTypeData = useMemo(() => {
     return {
-      data: 
-      
-      [
-        {
-          img: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: "+309",
-          X: "+240",
-          two: "-125",
-        },
-        {
-          img: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: "+309",
-          X: "+240",
-          two: "-125",
-        },
-        {
-          img: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: "+309",
-          X: "+240",
-          two: "-125",
-        },
-        {
-          img: "https://img1.aiscore.com/other/fe8aec51afeb2de633c9.png",
-          one: "+309",
-          X: "+240",
-          two: "-125",
-        },
-      ],
       hint: "Gamble Responsibly. Gambling Therapy. 18+",
       odds: [
         {
@@ -109,6 +95,7 @@ const Odds: React.FC = () => {
 
   return (
     <div className={styles.Odds}>
+      <section className={styles.OddsBox}>
       <PageFilter
         className={styles.filter_wrap}
         isFilter={false}
@@ -121,9 +108,9 @@ const Odds: React.FC = () => {
         checkedList={checkedList}
         onChange={setCheckedList}
       />
-      {/* <OddsBox data={oddsBoxData} />
-       */}
-         <OddsTable data={sampleData} selectedTypes={checkedList} />
+      <OddsTable data={sampleData} selectedTypes={checkedList} onArrowClick={(v:string)=>alert(v)} />
+      <OddsType data={oddsTypeData} />
+      </section>
     </div>
   );
 };

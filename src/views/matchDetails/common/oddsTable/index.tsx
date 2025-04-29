@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './index.module.scss';
 import { EnumIconFontType } from '@/enum/enumIconFontType';
-import IconFont from '../Common/Iconfont';
+import IconFont from '@/components/Common/Iconfont';
+import Title from '../title';
 
 export interface OddsData {
-  bookmaker: string;
+  name: string;
   logo: string;
   defaultOdds: [number, number, number];
   initialOdds: [number, number, number];
@@ -13,31 +14,31 @@ export interface OddsData {
 
 interface OddsTableProps {
   data: OddsData[];
-  selectedTypes: ('initialOdds' | 'preMatchOdds')[];
+  selectedTypes?: ('initialOdds' | 'preMatchOdds')[];
+  title?:string;
+  isShowArrow?:boolean;
+  onArrowClick?:(type:string)=>void
 }
 
-const typeLabelMap: Record<string, string> = {
-  initialOdds: '初始赔率',
-  preMatchOdds: '赛前赔率',
-};
-
-const OddsTable: React.FC<OddsTableProps> = ({ data, selectedTypes }) => {
+const OddsTable: React.FC<OddsTableProps> = ({ data, selectedTypes=[] ,title,isShowArrow=true,onArrowClick}) => {
   return (
-    <div className={styles.table}>
+      
+       <div className={styles.table}>
+        { title && <Title title={title}></Title>}
       {/* 表头 */}
-      <div className={styles.header}>
+      <header className={styles.header}>
         <div className={styles.cellFixed}></div>
-        <div className={styles.cell}>1</div>
-        <div className={styles.cell}>X</div>
-        <div className={styles.cell}>2</div>
-        <div className={styles.cellArrow}></div>
-      </div>
+        <div className={styles.cell1}>1</div>
+        <div className={styles.cellX}>X</div>
+         <div className={styles.cell2}>2</div>
+        {isShowArrow && <div className={styles.cellArrow}></div>}
+      </header>
 
       {/* 内容 */}
       {data.map((row, index) => {
         const rows = [
           { type: 'defaultOdds', odds: row.defaultOdds },
-          ...selectedTypes.map((type) => ({
+          ...selectedTypes.map(type => ({
             type,
             odds: row[type as keyof OddsData] as [number, number, number],
           })),
@@ -46,9 +47,8 @@ const OddsTable: React.FC<OddsTableProps> = ({ data, selectedTypes }) => {
           <div key={index} className={styles.bookmakerBlock}>
             {/* 左边 bookmaker logo */}
             <div className={styles.bookmakerLeft}>
-              <img src={row.logo} alt={row.bookmaker} className={styles.logo} />
+              <img src={row.logo} alt={row.name} className={styles.logo} />
             </div>
-
             {/* 中间赔率区 */}
             <div className={styles.oddsRight}>
               {rows?.map((item, idx) => (
@@ -62,14 +62,17 @@ const OddsTable: React.FC<OddsTableProps> = ({ data, selectedTypes }) => {
                       {odd > 0 ? `+${odd}` : odd}
                     </div>
                   ))}
-               
+                
                 </div>
+                 
               ))}
             </div>
-               {/* 最后一列箭头 */}
-               <div className={styles.cellArrow}>
-                        <IconFont className={EnumIconFontType.icon_youjiantou} />
+            {
+              isShowArrow &&
+            <div className={styles.cellArrow} >
+                    <IconFont className={EnumIconFontType.icon_youjiantou} onClick={()=>onArrowClick?.(row?.name)} />
                   </div>
+                   }
           </div>
         );
       })}

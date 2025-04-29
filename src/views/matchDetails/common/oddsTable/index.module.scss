@@ -12,12 +12,12 @@
     background: #f7f9fb; /* ✅ 表头背景色 */
     font-weight: bold;
     align-items: center;
-
+    border-bottom: 1px solid #e3e3e3;
   }
   
   .bookmakerBlock {
     display: flex;
-    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
  
   }
   
@@ -49,10 +49,19 @@
       }
   }
   
-
+  .header{
+  display: flex;
+    text-align: center;
+    .cell1,
+    .cellX,
+    .cell2{
+        flex:3;
+    }
+  }
   
   .cellFixed{
-    width: 120px;
+    min-width: 120px;
+    height: 100%;
   }
   .cell {
     height:100%;
@@ -63,8 +72,7 @@
   }
   
   .cellArrow {
-    min-width: 30px;
-    padding: 8px;
+    width: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
