@@ -7,7 +7,14 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-f1);
-
+}
+.team_img{
+  width: 18px;
+  height: 12px;
+}
+.left{
+  display: flex;
+  align-items: center;
 }
 .isCollected{
   background-color: var(--color-fcf0d0) !important;

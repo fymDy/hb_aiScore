@@ -5,6 +5,7 @@ import Team from "@/components/Common/team";
 import IconBrand from "@/components/Common/IconBrand";
 import ImageComp from "@/components/imageComp";
 import ISpan from "@/components/Common/ISpan";
+import TeamGroup from "@/components/Common/TeamGroup";
 
 const Details: React.FC<{
   itemData: any;
@@ -26,16 +27,16 @@ const Details: React.FC<{
         </div>
         <div className={styles.center}>
           <div>
-            <Team
+             <TeamGroup
               classNameIcon={styles.team_img}
               teamImg={itemData?.teamAIcon}
               teamName={itemData?.teamAName}
             />
-            <Team
+              <TeamGroup
               classNameIcon={styles.team_img}
               teamImg={itemData?.teamBIcon}
               teamName={itemData?.teamBName}
-            /> 
+            />
           </div>
           <IconBrand />
         </div>

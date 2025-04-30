@@ -14,7 +14,7 @@ const UserBox: React.FC<{
   return (
     <div className={styles.user_box}>
     {iconFontType == 1 &&  <IComp  className={cs(styles.icon_user, EnumIconFontType.icon_renshu)}/> }
-     {iconFontType == 0 && <IconSprite style={{marginRight:pxToRem(5)}} name='10002'/>}
+     {iconFontType == 0 && <IconSprite style={{marginRight:pxToRem(5)}} name='hot'/>}
     <span className={cs(styles.num,{[styles.hot]:!iconFontType})}>{userNum}</span>
   </div>
   );
