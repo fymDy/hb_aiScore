@@ -92,7 +92,7 @@ const OverView: React.FC = () => {
                 teamAway: "羅馬",
                 teamAwayImg:'https://img0.aiscore.com/football/team/5a2ff46efa33abc6b2908eb6279dfbf8.png!w60',
                 teamAwayScore: 0,
-                type: '0', //0 L 、1 W 、2 D
+                type: 'L', //0 L 、1 W 、2 D
           }, {
             date:'2025/04/06',
             matchName:'意大利甲级聯賽',
@@ -102,7 +102,7 @@ const OverView: React.FC = () => {
             teamAway: "羅馬",
             teamAwayImg:'https://img0.aiscore.com/football/team/5a2ff46efa33abc6b2908eb6279dfbf8.png!w60',
             teamAwayScore: 0,
-            type: '1', //0 L 、1 W 、2 D
+            type: 'W', //0 L 、1 W 、2 D
       }, {
         date:'2025/04/06',
         matchName:'意大利甲级聯賽',
@@ -112,7 +112,7 @@ const OverView: React.FC = () => {
         teamAway: "羅馬",
         teamAwayImg:'https://img0.aiscore.com/football/team/5a2ff46efa33abc6b2908eb6279dfbf8.png!w60',
         teamAwayScore: 0,
-        type: '2', //0 L 、1 W 、2 D
+        type: 'D', //0 L 、1 W 、2 D
   }
       ]
      

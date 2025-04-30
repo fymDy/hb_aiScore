@@ -77,19 +77,3 @@
   @include flex-column-center;
   justify-items:center;
  }
- .cicle{
-  @include flex-center;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  color: var(--color-fff);
- }
- .cicle_L{
-  background-color: var(--color-c74c5b);
- }
- .cicle_W{
-  background-color: var(--color-5db400);
- }
- .cicle_D{
-  background-color: var(--color-ffba5a);
- }
