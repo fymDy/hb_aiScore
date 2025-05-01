@@ -1,4 +1,7 @@
 export enum RouterPathUtil {
+  ACCOUNT = '/account',
+  ACCOUNT_LOGIN = '/account/login',
+  ACCOUNT_REGIST = '/account/regist',
   HOME = '/home',
   HOME_AMERICALBALL = '/home/americalBall',
   HOME_BADMINTON = '/home/badminton',

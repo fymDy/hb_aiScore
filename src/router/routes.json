@@ -1,5 +1,27 @@
 [
   {
+    "path": "/account",
+    "name": "account",
+    "author": false,
+    "component": "account/index.tsx",
+    "children": [
+      {
+        "path": "/account/login",
+        "name": "login",
+        "author": false,
+        "component": "account/login/index.tsx",
+        "children": []
+      },
+      {
+        "path": "/account/regist",
+        "name": "regist",
+        "author": false,
+        "component": "account/regist/index.tsx",
+        "children": []
+      }
+    ]
+  },
+  {
     "path": "/home",
     "name": "home",
     "author": false,
