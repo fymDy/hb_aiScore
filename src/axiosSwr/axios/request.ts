@@ -50,7 +50,7 @@ export const request = async <T = any>(
 }
 
 
-export const get = <T = any>(
+export const axiosGet = <T = any>(
   url: string,
   params?: any,
   config?: Omit<CustomRequestConfig, 'url' | 'method' | 'params'>
@@ -58,7 +58,7 @@ export const get = <T = any>(
   return request<T>({ ...config, url, method: 'get', params })
 }
 
-export const post = <T = any>(
+export const axiosPost = <T = any>(
   url: string,
   data?: any,
   config?: Omit<CustomRequestConfig, 'url' | 'method' | 'data'>
