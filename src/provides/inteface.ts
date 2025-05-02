@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 20:01:04
- * @LastEditTime: 2025-04-27 19:47:15
+ * @LastEditTime: 2025-05-02 19:54:08
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/inteface.ts
@@ -43,10 +43,14 @@ export interface LayoutAppContextType  {
   
 }
 
-
+export interface LayoutSwrContextType  {
+  children?: React.ReactNode;
+}
   
   export const LayoutSysContext = createContext<IFDeviceTypeInfo | undefined>(undefined);
 
   export const LayoutAppContext = createContext<LayoutAppContextType | undefined>(undefined);
+
+  export const LayoutSwrContext=createContext<LayoutSwrContextType | null >(null)
 
   export const LayoutHomeContext=createContext<LayoutHomeContextType | null >(null)
