@@ -1,10 +1,10 @@
 
 import React from 'react';
 import styles from './index.module.scss';
-import { useGetUserDetail, useGetUserInfo, useUpdateUser } from '@/hooksApi/common';
+import { useGetUserDetail, useGetUserInfo, useUpdateUser } from '@/api/user';
 
 const Login: React.FC = () => {
-  const { data:dataDetails } = useGetUserDetail({ name: '123' ,age:20})
+  const { data:dataDetails } = useGetUserDetail({ id: '123'})
   const { data:dataUser } = useGetUserInfo()
   const { trigger, isMutating, data, error } = useUpdateUser()
   const onSubmit = () => {

@@ -15,7 +15,7 @@
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutHomeProvider.tsx
  */
-import { useGetUserInfo } from "@/hooksApi/common"
+import { useGetUserInfo } from "@/apiHooks/common"
 import { LayoutSwrContext, LayoutSwrContextType } from "./inteface"
 import { SWRConfig } from "swr"
 import { useEffect } from "react"
