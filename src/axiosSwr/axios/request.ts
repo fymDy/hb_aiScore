@@ -37,11 +37,16 @@ export const request = async <T = any>(
       }
       return { data: null, error: { code, message } }
     }
-  } catch (err) {
+  } catch (err:any) {
+    const isAxiosError = err?.isAxiosError || err?.response
+    const message = isAxiosError(err) ? err.message || '网络请求异常': '系统错误'
     if (showErrorMsg) {
       // TODO: toast('系统错误')
     }
-    return Promise.reject(err)
+    return {
+      data: null,
+      error: { code: -1, message }  // ✅ 网络错误封装为业务错误格式
+    }
   } finally {
     if (showLoading) {
       // TODO: hide global loading

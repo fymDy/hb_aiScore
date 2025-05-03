@@ -15,11 +15,10 @@ export class SWRGet<T = any> {
 
 
   use() {
-    const result = useSWR<ApiResponse<T>>(this.key, this.fetcher, this.config)
+    const { data, error }  = useSWR<ApiResponse<T>>(this.key, this.fetcher, this.config)
     return {
-      ...result,
-      data: result.data?.data ?? null,
-      error: result.data?.error?.message ?? result.error?.message ?? null
+      data: data?.data ?? null,
+      error: data?.error?.message ?? error?.message ?? null
     }
   }
 }

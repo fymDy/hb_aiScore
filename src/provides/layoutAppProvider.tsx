@@ -1,12 +1,12 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-04-28 11:10:27
+ * @LastEditTime: 2025-05-03 11:41:42
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
  */
-import React, {  useMemo, useRef, useState } from "react";
+import React, {  useEffect, useMemo, useRef, useState } from "react";
 import { useElementReady } from "@/hooks/useElementReady";
 import { LayoutAppContext,  LayoutSysContextType } from "./inteface";
 import DownloadComp from "@/components/DownloadComp";

@@ -11,8 +11,6 @@ const Login: React.FC = () => {
     trigger({ name: 'Mark', age: 25 })
   }
 
-
-
       return (
         <div className={styles.login}>
           <div onClick={onSubmit}>用户名：{dataUser?.name}</div>

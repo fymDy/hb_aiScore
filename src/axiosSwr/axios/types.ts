@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-01 14:40:17
- * @LastEditTime: 2025-05-01 15:59:32
+ * @LastEditTime: 2025-05-03 13:39:31
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/axios/types.ts
+ * @FilePath: /hb_aiScore/src/axiosSwr/axios/types.ts
  */
 
 // ✅ 原生 AxiosRequestConfig 拆解重建 + 注释，结构清晰
@@ -92,6 +92,9 @@ import type {
     /** 请求唯一 key（防抖/中断） */
     requestKey?: string
   }
+
+
+
   export interface ServerResponse<T = any> {
     code: number
     message: string
