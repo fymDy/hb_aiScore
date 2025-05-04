@@ -17,13 +17,12 @@ const BtnGroup: React.FC<IFBtnGroup> = ({
   onclick,
 }) => {
   return (
-    <div className={styles.btn_group}>
+    <div className={cs(className,styles.btn_group)}>
       {dataList?.map((item: IFSearchResult) => (
         <div
           key={item.id}
           id={item.id}
           className={cs(
-            className,
             styles.item,
             parentStyles.item,
             { [styles.defaultActive]: item.isActive && item.id  },

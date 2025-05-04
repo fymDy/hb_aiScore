@@ -35,18 +35,23 @@
   @include flex-column
  }
  .item{
+  @include display(grid);
+  grid-template-columns:  1fr  44px ;
+  border-bottom: solid 1px var(--color-f1);
+ }
+ .item_left{
   height: 44px;
   font-size: 12px;
   @include display(grid);
   justify-items: left;
-  grid-template-columns: 75px 1fr 44px 44px ;
+  direction: ltr;
+  grid-template-columns: 75px 1fr 44px  ;
   column-gap: 11px;
-  border-bottom: solid 1px var(--color-f1);
+ 
  }
  .match_info{
   color: var(--color-999);
   @include flex-column-center;
-
  }
  
  .match_name{
@@ -73,7 +78,7 @@
   justify-items:center;
  }
  .flag{
-  width: 44px ;
+  // width: 44px ;
   @include flex-column-center;
   justify-items:center;
  }

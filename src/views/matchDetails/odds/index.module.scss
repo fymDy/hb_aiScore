@@ -4,7 +4,9 @@
   width:100%;
 
 }
-
+.btnGroupr_wrap{
+  padding: 0 12px;
+}
 .checkBox_Wrap{
   padding:0 10px 12px;
   @include display(flex);

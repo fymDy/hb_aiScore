@@ -22,7 +22,7 @@ import OddsTable, { OddsData } from "../common/oddsTable";
 import OddsType from "../common/oddsType";
 import OddsBox from "../common/oddsBox";
 const OverView: React.FC = () => {
-
+  const [showMore,setShowMore]=useState(false)
   const barData: any[] = [
     ...Array.from({ length: 100 }, (_, i) => ({
       team: "home",
@@ -236,7 +236,7 @@ const OverView: React.FC = () => {
           <div >
             <OddsTable data={sampleData} title='赔率' isShowArrow={false}/>
             <OddsType data={oddsTypeData} />
-            <Infomation data={infoData} />
+            <Infomation data={infoData} showMore={showMore} onclickShow={(v:boolean)=>setShowMore(v)}/>
           </div>
          
         <BallType data={ballTypeData}/>

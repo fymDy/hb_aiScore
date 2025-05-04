@@ -48,7 +48,7 @@ const OddsBox: React.FC<OddsBoxProps> = ({
     <section className={styles.OddsBox}>
       {/* 过滤器 */}
       <BtnGroup
-        className={styles.filter_wrap}
+        className={styles.btnGroup_wrap}
         dataList={btnGroupData}
         onclick={onclick}
       />

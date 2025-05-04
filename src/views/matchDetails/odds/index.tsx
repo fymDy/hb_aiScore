@@ -6,6 +6,7 @@ import CheckboxComp from "@/components/CheckboxComp";
 import OddsType from "../common/oddsType";
 import OddsTable, { OddsData } from "../common/oddsTable";
 import SelectNum from "@/components/Common/selectNum";
+import BtnGroup from "@/components/Common/btnGroup";
 
 const Odds: React.FC = () => {
   const [activeFilterId, setActiveFilterId] = useState("0");
@@ -96,11 +97,9 @@ const Odds: React.FC = () => {
 
   return (
     <div className={styles.Odds}>
-      <section className={styles.OddsBox}>
-      <PageFilter
-        className={styles.filter_wrap}
-        isFilter={false}
-        filterData={filterData}
+      <BtnGroup
+        className={styles.btnGroupr_wrap}
+        dataList={filterData}
         onclick={(id: string) => setActiveFilterId(id)}
       />
       <CheckboxComp
@@ -111,8 +110,6 @@ const Odds: React.FC = () => {
       />
       <OddsTable data={sampleData} selectedTypes={checkedList} onArrowClick={(v:string)=>alert(v)} />
       <OddsType data={oddsTypeData} />
-  
-      </section>
     </div>
   );
 };

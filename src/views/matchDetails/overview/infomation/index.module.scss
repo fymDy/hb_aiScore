@@ -33,7 +33,7 @@
 
  .desc{
   max-height: 345px;
-  min-height: 230px;
+  // min-height: 230px;
   font-size: 12px;
   padding: 14px;
   color: var(--color-333);
@@ -43,13 +43,16 @@
   color: var(--color-0f80da);
  }
  .desc_info{
+  margin-bottom: 10px;
+ }
+ .desc_detail{
   width: 100%;
  }
-.desc_info_title{
+.desc_detail_title{
   font-size: 13px;
   font-weight: 700;
   padding:0 ;
-  margin-top: 10px;
+ 
 }
 .details{
   color: var(--color-0f80da);
