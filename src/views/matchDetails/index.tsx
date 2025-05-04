@@ -16,6 +16,7 @@ import Match from "./match";
 import Odds from "./odds";
 import Table from "./table";
 import { useApp } from "@/hooks/useApp";
+import { matchData } from "./match_data";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
@@ -108,7 +109,7 @@ const MatchDetails: React.FC = () => {
       { 'overview'===activeTab && <OverView/>}
       { 'chat'===activeTab && <Chat />}
       { 'odds'===activeTab && <Odds/>}
-      { 'data'===activeTab && <Data />}
+      { 'data'===activeTab && <Data teamsData={matchData?.teams} />}
       { 'lineUp'===activeTab && <LineUp/>}
       { 'match'===activeTab && <Match />}
       { 'table'===activeTab && <Table/>}
