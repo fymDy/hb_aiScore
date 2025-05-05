@@ -10,10 +10,14 @@ import TeamsData from "./teamsData";
 }
 
 const Data: React.FC<IFTeamsDataProps> = ({teamsData}) => {
-   const [activeFilterId, setActiveFilterId] = useState("0");
-  //  const [tabData, setTabData] = useState("");
-  
 
+   const [activeFilterId, setActiveFilterId] = useState("0");
+  useEffect(() => {
+    console.log('一级页面的子组件data挂载了');
+    return () => {
+      console.log('一级页面子组件data卸载了');
+    };
+  }, []);
      const teamStatistics = useMemo(() => {
       const formatPeriodStats = (period: any, label: string) => ({
         name: label,

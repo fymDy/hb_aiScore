@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-04 20:44:17
- * @LastEditTime: 2025-05-04 23:25:05
+ * @LastEditTime: 2025-05-05 14:57:20
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/match_data.ts
@@ -12,10 +12,10 @@ const teamData={
     "score": 2,
     "statistics": {
       "halftime": {
-        "possession": "55%",
+        "possession": "15%",
         "shots": {
           "total": 7,
-          "on_target": 3,
+          "on_target": 51,
           "off_target": 4,
           "blocked": 2,
           "inside_box": 5,
@@ -51,7 +51,7 @@ const teamData={
         }
       },
       "secondhalf": {
-        "possession": "56%",
+        "possession": "55%",
         "shots": {
           "total": 11,
           "on_target": 21,
@@ -90,7 +90,7 @@ const teamData={
         }
       },
       "fulltime": {
-        "possession": "27%",
+        "possession": "95%",
         "shots": {
           "total": 113,
           "on_target": 16,
@@ -147,7 +147,7 @@ export const matchData={
         "score": 2,
         "statistics": {
           "halftime": {
-            "possession": "15%",
+            "possession": "85%",
             "shots": {
               "total": 7,
               "on_target": 3,
@@ -186,10 +186,10 @@ export const matchData={
             }
           },
           "secondhalf": {
-            "possession": "32%",
+            "possession": "45%",
             "shots": {
               "total": 6,
-              "on_target": 3,
+              "on_target": 13,
               "off_target": 3,
               "blocked": 2,
               "inside_box": 4,
@@ -225,10 +225,10 @@ export const matchData={
             }
           },
           "fulltime": {
-            "possession": "24%",
+            "possession": "5%",
             "shots": {
               "total": 13,
-              "on_target": 6,
+              "on_target": 61,
               "off_target": 7,
               "blocked": 4,
               "inside_box": 9,

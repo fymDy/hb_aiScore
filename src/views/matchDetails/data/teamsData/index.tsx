@@ -1,25 +1,26 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-04 19:31:38
- * @LastEditTime: 2025-05-04 23:57:46
+ * @LastEditTime: 2025-05-05 15:36:49
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/data/teamsData/index.tsx
  */
 import ISpan from '@/components/Common/ISpan'
 import styles from './index.module.scss'
+import { useEffect } from 'react';
 const teamsData: React.FC<{
     data?:any
 }> =({data})=>{
-    console.log(data)
+
     return(
         <section className={styles.teamsData}>
             <div className={styles.teamsData_top}>
                 <p className={styles.ballPossession}>
                     <ISpan className={styles.ballPossession_name} name={data?.home?.possession?.name}></ISpan>
                     <span className={styles.ballPossession_box}>
-                            <ISpan style={{width:'47%'}} className={styles.home} name={data?.home?.possession?.value}></ISpan>
-                            <ISpan style={{width:'53%'}} className={styles.away} name={data?.away?.possession?.value}></ISpan>
+                            <ISpan style={{width:data?.home?.possession?.value}} className={styles.home} name={data?.home?.possession?.value}></ISpan>
+                            <ISpan style={{width:data?.away?.possession?.value}} className={styles.away} name={data?.away?.possession?.value}></ISpan>
                     </span>
                 </p>
               
@@ -29,13 +30,21 @@ const teamsData: React.FC<{
                         <ISpan name={data?.away?.shots?.total?.value}></ISpan>
                 </p>
                 <p className={styles.ballPossession2}>
-                    <span className={styles.left} >
-                        <ISpan  className={styles.num} name={data?.home?.possession?.value}></ISpan>
-                        <ISpan  className={styles.door} name={data?.away?.possession?.value}></ISpan>
+                    <span className={styles.home} >
+                        <span  className={styles.door} ></span>
                     </span>
-                    <span className={styles.right}>
-                            <ISpan  className={styles.num} name={data?.home?.possession?.value}></ISpan>
-                            <ISpan  className={styles.door} name={data?.away?.possession?.value}></ISpan>
+                    <span className={styles.away}>
+                            <span  className={styles.door} ></span>
+                    </span>
+                    <span className={styles.off_target}>
+                            <ISpan  className={styles.off_target_home} name={data?.away?.shots?.off_target?.value}></ISpan>
+                            <ISpan  className={styles.off_target_name} name={data?.home?.shots?.off_target?.name}></ISpan>
+                            <ISpan  className={styles.off_target_away} name={data?.away?.shots?.off_target?.value}></ISpan>
+                    </span>
+                    <span className={styles.on_target}>
+                            <ISpan  className={styles.on_target_home} name={data?.away?.shots?.on_target?.value}></ISpan>
+                            <ISpan  className={styles.on_target_name} name={data?.home?.shots?.on_target?.name}></ISpan>
+                            <ISpan  className={styles.on_target_away} name={data?.away?.shots?.on_target?.value}></ISpan>
                     </span>
                 </p>
             </div>

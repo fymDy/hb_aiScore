@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import MatchTimelineChart from "@/components/Common/MatchTimelineChart";
 
@@ -22,6 +22,13 @@ import OddsTable, { OddsData } from "../common/oddsTable";
 import OddsType from "../common/oddsType";
 import OddsBox from "../common/oddsBox";
 const OverView: React.FC = () => {
+    useEffect(() => {
+      console.log('一级页面的子组件overview挂载了');
+      return () => {
+        console.log('一级页面子组件overview卸载了');
+      };
+    }, []);
+    debugger
   const [showMore,setShowMore]=useState(false)
   const barData: any[] = [
     ...Array.from({ length: 100 }, (_, i) => ({

@@ -1,14 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./index.module.scss";
-
 import MatchHeader from "@/components/Common/matchHeader";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
-
 import OverView from "./overview";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
-
 import Chat from "./chat";
 import Data from "./data";
 import LineUp from "./lineUp";
@@ -18,12 +15,19 @@ import Table from "./table";
 import { useApp } from "@/hooks/useApp";
 import { matchData } from "./match_data";
 
+
+
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
  const {navigatePlus}=useNavigatePlus()
  const {setShowStep}=useApp()
-  //tab切换：选中tab
-  const [activeTab, setActiveTab] = useState<string>(hashValue);
+  useEffect(() => {
+    console.log('MatchDetails useEffect：挂载');
+    return () => console.log('MatchDetails useEffect：卸载');
+  }, []);
+  const renderCount = useRef(0);
+  renderCount.current += 1;
+  console.log('MatchDetails 组件 render第', renderCount.current, '次');
   const headerData = useMemo(() => {
     return {
       matchName: "以色列乙級聯賽",
@@ -44,47 +48,48 @@ const MatchDetails: React.FC = () => {
       iconBrandName: "動畫",
     };
   }, []);
+
   const tabData: any[] = useMemo(() => {
     const data= [
       {
         id: "overview",
         name: "概况",
-        isActive: activeTab == "football" ? true : false,
+        isActive: hashValue == "overview" ? true : false,
       },
       {
         id: "chat",
         name: "聊天",
-        isActive: activeTab == "basketball" ? true : false,
+        isActive: hashValue == "chat" ? true : false,
       },
       {
         id: "odds",
         name: "赔率",
-        isActive: activeTab == "tennis" ? true : false,
+        isActive: hashValue == "odds" ? true : false,
       },
       {
         id: "data",
         name: "数据",
-        isActive: activeTab == "volleyball" ? true : false,
+        isActive: hashValue == "data" ? true : false,
       },
       {
         id: "lineUp",
         name: "阵容",
-        isActive: activeTab == "basketball" ? true : false,
+        isActive: hashValue == "lineUp" ? true : false,
       },
       {
         id: "match",
         name: "交锋",
-        isActive: activeTab == "tennis" ? true : false,
+        isActive: hashValue == "match" ? true : false,
       },
       {
         id: "table",
         name: "积分榜",
-        isActive: activeTab == "volleyball" ? true : false,
+        isActive: hashValue == "table" ? true : false,
       },
     ];
   
     return data;
-  }, []);
+  }, [hashValue]);
 
   const stepData = {
     step1: "足球比分直播",
@@ -94,29 +99,23 @@ const MatchDetails: React.FC = () => {
   const onClickTab = (item: any) => {
     const id=item.id
     navigatePlus(`#${id}`, { state:state, replace: true })
-    setActiveTab(id);
   };
 
-  useEffect(()=>{
-    console.log("从父组件收到点击事件", hashValue,state);
-  },[activeTab])
 
 
-  const RenderDom=()=>{
-    const ids:any=tabData?.map(item=>item.id)
-    return (
+
+  const RenderComp =  (
       <>
-      { 'overview'===activeTab && <OverView/>}
-      { 'chat'===activeTab && <Chat />}
-      { 'odds'===activeTab && <Odds/>}
-      { 'data'===activeTab && <Data teamsData={matchData?.teams} />}
-      { 'lineUp'===activeTab && <LineUp/>}
-      { 'match'===activeTab && <Match />}
-      { 'table'===activeTab && <Table/>}
-    </>
-    )
-  }
-  
+        {hashValue === "overview" && <OverView />}
+        {hashValue === "chat"  && <Chat />}
+        {hashValue === "odds"   && <Odds />}
+        {hashValue === "data" && <Data teamsData={matchData.teams} />}
+        {hashValue === "lineUp"   && <LineUp />}
+        {hashValue === "match"  && <Match />}
+        {hashValue === "table"  && <Table />}
+      </>
+    );
+
   return (
     <div className={styles.matchDetails}>
     
@@ -126,7 +125,7 @@ const MatchDetails: React.FC = () => {
       }}/>
       <TabsComp
         className={styles.tabs}
-        activeTab={activeTab}
+        activeTab={hashValue}
         tabData={tabData}
         onClick={onClickTab}
       />
@@ -136,8 +135,7 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      <RenderDom/>
-     
+    {RenderComp}
     </div>
   );
 };

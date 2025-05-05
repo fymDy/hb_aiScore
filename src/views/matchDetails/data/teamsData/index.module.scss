@@ -1,40 +1,67 @@
-@use '@/assets/styles/utils' as *;
+@use "@/assets/styles/utils" as *;
 .teamsData {
-  width:100%;
+  width: 100%;
   background-color: var(--color-fff);
   padding: 0 12px;
-  span{
+  span {
     font-size: 13px;
   }
-
-  
 }
-.teamsData_top{
+.teamsData_top {
   font-size: 12px;
   background-color: #fff;
-
-.ballPossession{
+ 
+}
+.ballPossession {
   padding-top: 12px;
-  .ballPossession_name{
+  .ballPossession_name {
     @include flex-center;
   }
 }
-
-.ballPossession2{
-  display: flex ;
- position: relative;
-
- .left{
+.ballPossession_box {
+  display: block;
+  margin-top: 8px;
+  font-size: 0;
+  span {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .home {
+    background-color: #3a7ed3;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    text-align: left;
+    padding-left: 5px;
+  }
+  .away {
+    background-color: #f3b140;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    text-align: right;
+    padding-right: 5px;
+  }
+}
+//
+.ballPossession2 {
+  display: flex;
+  position: relative;
+ 
+}
+.home,
+.away {
+  flex: 1;
+  height: 92px;
+  position: relative;
+  overflow: hidden;
+}
+.home {
   background-color: #ebf2fb;
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
-  .num{
-    position: absolute;
-    top: 10px;
-    left: 16px;
-    background-color: #3a7ed3;
-  }
-  .door{
+  .door {
     display: inline-block;
     width: 100%;
     height: 60px;
@@ -45,21 +72,15 @@
     border-color: #3a7ed3;
     left: 58px;
   }
- }
- .right{
+}
+.away {
   background-color: #fef7ec;
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
-  .num{
-    position: absolute;
-    top:10px;
-    right: 16px;
-    background-color: #f3b140;
-  }
-  .door{
+  .door {
     display: inline-block;
     width: 100%;
-    height:60px;
+    height: 60px;
     border: 4px solid;
     position: absolute;
     top: 37.5px;
@@ -67,87 +88,78 @@
     border-color: #f3b140;
     right: 58px;
   }
-}
-.left,.right{
-  flex: 1;
-  height: 92px;
-  position: relative;
-  overflow: hidden;
-}
- }
-
-}
-
-.ballPossession_box{
-  display: block;
-    margin-top: 8px;
-    font-size: 0;
-    span{
-      display: inline-block;
-      height:24px;
-      line-height: 24px;
-      font-weight: 700;
-      color: #fff;
   
-    }
-    .home{
 
-      background-color: #3a7ed3;
-        border-bottom-left-radius: 2px;
-        border-top-left-radius: 2px;
-        text-align: left;
-        padding-left: 5px;
-    }
-    .away{
-      background-color: #f3b140;
-      border-bottom-right-radius: 2px;
-      border-top-right-radius: 2px;
-      text-align: right;
-      padding-right: 5px;
-    }
+}
+.off_target{
+  position: absolute;
+  top: 10px;
+  @include flex-between;
+  width: calc(100% - 32px);
+  margin: 0 16px;
+ 
+}
+.on_target{
+  width: 100%;
+    position: absolute;
+    bottom: 18.75px;
+    @include flex-center;
+    gap:10px;
+}
+.off_target_home,
+.off_target_away,
+.on_target_home,
+.on_target_away{
+  font-weight: 700;
+  padding: 0 5px;
+  border-radius: 2px;
+  color: #fff;
+}
+.on_target_home,
+.off_target_home{
+  background-color: #3a7ed3;
+}
+.on_target_away,
+.off_target_away{
+  background-color: #f3b140;
 }
 
 
-.teamsData_stats{
+
+.teamsData_stats {
   margin-top: 12px;
-  li{
-    height: .9rem;
+  li {
+    height: 0.9rem;
     border-bottom: 1px solid var(--color-f1);
     position: relative;
     height: 34px;
     @include flex-between;
-    span{
-      display: inline-block;
+    span {
       width: 30px;
     }
-    span:nth-child(2){
-     width: 60px;
-     text-align: center;
+    span:nth-child(2) {
+      width: 60px;
+      text-align: center;
     }
-    span:last-child{
+    span:last-child {
       text-align: right;
-    }
-    .num{
-      font-weight: 700;
-      padding: 0 5px;
-      border-radius: 2px;
-      color: #fff;
     }
   }
 }
-.ballShots{
+.ballShots {
   position: relative;
   height: 40px;
   @include flex-between;
-  span{
+  span {
     display: inline-block;
     width: 30px;
   }
-  span:nth-child(2){
-   width: 60px;
-   text-align: center;
+  span:nth-child(2) {
+    width: 60px;
+    text-align: center;
   }
-  span:last-child{
+  span:last-child {
     text-align: right;
   }
 }
+
