@@ -81,8 +81,8 @@
         "name": "football",
         "author": false,
         "component": "home/football/index.tsx",
-        "children": [],
-        "index": true
+        "index": true,
+        "children": []
       },
       {
         "path": "/home/handball",
@@ -97,22 +97,6 @@
         "author": false,
         "component": "home/iceHockey/index.tsx",
         "children": []
-      },
-      {
-        "path": "/home/menu",
-        "name": "menu",
-        "author": false,
-        "component": "home/menu/index.tsx",
-        "children": [],
-        "customPath": "/home/menu/:type"
-      },
-      {
-        "path": "/home/serch",
-        "name": "serch",
-        "author": false,
-        "component": "home/serch/index.tsx",
-        "children": [],
-        "customPath": "/home/serch/:type"
       },
       {
         "path": "/home/snooker",

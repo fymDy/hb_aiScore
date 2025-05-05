@@ -33,42 +33,43 @@ async function createFiles(dir, componentName, fullPath) {
 
     // 文件模板
     const componentTemplate = `
-import React from 'react';
-import styles from './index.module.scss';
+    import React from 'react';
+    import styles from './index.module.scss';
 
-const ${
-      componentName.charAt(0).toUpperCase() + componentName.slice(1)
-    }: React.FC = () => {
-      return (
-        <div className={styles.${componentName}}>
-          <h1>${componentName} 页面</h1>
-        </div>
-      );
-    };
-
-export default ${
-      componentName.charAt(0).toUpperCase() + componentName.slice(1)
-    };
-`;
+    const ${
+          componentName.charAt(0).toUpperCase() + componentName.slice(1)
+        }: React.FC = () => {
+          return (
+            <div className={styles.${componentName}}>
+              <h1>${componentName} 页面</h1>
+            </div>
+          );
+        };
+    export default ${
+          componentName.charAt(0).toUpperCase() + componentName.slice(1)
+        };
+    `;
 
     const scssTemplate = `
-.${componentName} {
-  // ${componentName} 页面样式
-  width:100%;
-}
-`;
+      .${componentName} {
+        // ${componentName} 页面样式
+        width:100%;
+      }
+      `;
 
     const routerConfigTemplate = `
- import { IFRouterConfig } from '@/router/interface'
-const routerConfig:IFRouterConfig[] = [
-  {
-    name: '${componentName}', // 使用当前文件名作为路由路径
-    path: '/${fullPath}', // 使用完整路径作为自定义路径
-    author: false, // 默认不需要登录验证
-  }
-];
-export default routerConfig;
-`;
+    import { IFRouterConfig } from '@/router/interface'
+    
+    const routerConfig:IFRouterConfig[] = [
+      {
+        name: '${componentName}', // 使用当前文件名作为路由路径
+        path: '/${fullPath}', // 使用完整路径作为自定义路径
+        author: false, // 默认不需要登录验证
+        index: false, // 是否默认跳转
+      }
+    ];
+    export default routerConfig;
+    `;
 
     // 创建文件
     await fs.writeFile(path.join(dir, "index.tsx"), componentTemplate, "utf8");

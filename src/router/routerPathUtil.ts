@@ -13,8 +13,6 @@ export enum RouterPathUtil {
   HOME_FOOTBALL = '/home/football',
   HOME_HANDBALL = '/home/handball',
   HOME_ICEHOCKEY = '/home/iceHockey',
-  HOME_MENU = '/home/menu',
-  HOME_SERCH = '/home/serch',
   HOME_SNOOKER = '/home/snooker',
   HOME_TABLETENNIS = '/home/tableTennis',
   HOME_TENNIS = '/home/tennis',

@@ -96,16 +96,16 @@ async function generateRoutes(dirPath, basePath) {
       name: currentConfig[0].name || path.basename(dirPath),
       author: currentConfig[0].author ? currentConfig[0].author : false,
       component: componentPath, // 添加 component 属性
-      children: [],
     };
-    if( currentConfig[0]?.index ){
+  
+    if(currentConfig[0]?.index ){
       route['index']=currentConfig[0].index 
     }
     if( currentConfig[0]?.customPath ){
       route['customPath']=currentConfig[0].customPath 
     }
+    route['children']=[]
     routes.push(route);
-
     // 递归遍历子目录
     for (const item of items) {
       const fullPath = path.join(dirPath, item);
@@ -122,6 +122,7 @@ async function generateRoutes(dirPath, basePath) {
       }
     }
   } else {
+    //⚠️:这里的逻辑基本用不到，请注意，但是不得不注意
     // 如果没有 routerConfig.ts，则根据目录结构生成路由
     for (const item of items) {
       const fullPath = path.join(dirPath, item);
