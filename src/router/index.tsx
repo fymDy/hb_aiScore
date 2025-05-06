@@ -11,7 +11,8 @@ import LayoutApp from '@/layout/appRouter';
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
 return  lazy(() =>
     import(/* @vite-ignore */ `../views/${comp}`).catch((error) => {
-     
+        console.log('lazy view目录文件时error',error)
+        return
     })
   )
 };
@@ -50,7 +51,7 @@ const updatedRoutesConfig = [
     children:[
       {
         index: true,
-        element: <Navigate to="home" replace />
+        element: <Navigate to={RouterPathUtil.HOME} replace />
       },
       ...routesJonFile
     ]
