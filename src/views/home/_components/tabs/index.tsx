@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-29 20:06:42
+ * @LastEditTime: 2025-05-06 13:56:02
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/home/acomponents/tabs/index.tsx
+ * @FilePath: /hb_aiScore/src/views/home/_components/tabs/index.tsx
  */
 
 import { IFTab } from '@/views/home/interface'
@@ -19,7 +19,7 @@ const Tabs=(props:any)=>{
                 {
                     tabData?.map((item:IFTab,i:number)=>{
                         return(
-                            <li key={item?.id} 
+                            <li key={i} 
                             className={cs(styles.item, 
                                 {[styles.item4]:i==4},
                                 {[styles.item5]:i==5},

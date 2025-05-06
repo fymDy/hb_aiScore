@@ -11,7 +11,7 @@ import LayoutApp from '@/layout/appRouter';
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
 return  lazy(() =>
     import(/* @vite-ignore */ `../views/${comp}`).catch((error) => {
-      return { default: () =><Navigate to="/" replace />  };
+     
     })
   )
 };
@@ -47,17 +47,22 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
 const updatedRoutesConfig = [
   {
     path: '/',
-    // element: <Navigate to={RouterPathUtil.HOME} replace />,
-    element:<LayoutApp/>
+    children:[
+      {
+        index: true,
+        element: <Navigate to="home" replace />
+      },
+      ...routesJonFile
+    ]
   },
   {
     path: '*',
     element: <Navigate to="/" replace />,
   },
-  ...routesJonFile,
 ];
 
 const routes =generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[])
+console.log('last routes--',routes)
 export const resRoutes=createBrowserRouter(routes);
 
 const AppRouter = () => {

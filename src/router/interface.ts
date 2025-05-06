@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-30 21:51:34
- * @LastEditTime: 2025-04-25 11:14:13
+ * @LastEditTime: 2025-05-06 16:09:54
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/router/interface.ts
@@ -20,7 +20,7 @@ export interface IFRouterConfig {
     /**
      * @zh 跟文件夹路径保持同名
      */
-    name: string
+    name?: string
 
     /**
      * @zh 当前路由是否需要登录鉴权

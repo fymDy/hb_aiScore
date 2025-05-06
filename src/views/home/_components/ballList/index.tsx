@@ -14,9 +14,9 @@ const BallList=({className,isActive=false,dataList,iconClass='',onclick}:IFOptio
     return(
         <ul className={styles.ball_list}>
                             {
-                                dataList?.map((item: any)=>{
+                                dataList?.map((item: any,i:number)=>{
                                   return(
-                                    <li key={item?.id} className={cs(styles.item,{[styles.active_ball]:isActive && item.iconClass==iconClass})}  onClick={()=>onclick(item.id)} >
+                                    <li key={i} className={cs(styles.item,{[styles.active_ball]:isActive && item.iconClass==iconClass})}  onClick={()=>onclick(item.id)} >
                                        <IComp className={cs(styles.icon_class,item?.iconClass,className)} classParentName={styles.name} name={item?.name} />
                                       {item?.matchNum &&   <label className={styles.match_num}>{item?.matchNum}</label>}
                                     </li>
