@@ -1,12 +1,4 @@
 
-/*
- * @Author: Mark
- * @Date: 2025-04-06 22:08:24
- * @LastEditTime: 2025-04-22 17:21:18
- * @LastEditors: MarkMark
- * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/home/acomponents/menu/index.tsx
- */
 import { useMemo, useState } from "react";
 import { IFMatch, IFMenu } from "../../interface";
 import styles from './index.module.scss';

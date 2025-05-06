@@ -1,7 +1,7 @@
 
 import React, { useMemo, useState } from 'react';
 import styles from './index.module.scss';
-import MatchList from '../acomponents/matchList';
+import MatchList from '../_components/matchList';
 import { useHomeContext } from '@/provides/layoutHomeProvider';
 
 const Basketball: React.FC = () => {

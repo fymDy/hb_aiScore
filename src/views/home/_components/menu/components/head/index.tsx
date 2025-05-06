@@ -1,11 +1,4 @@
-/*
- * @Author: Mark
- * @Date: 2025-04-05 12:27:03
- * @LastEditTime: 2025-04-14 20:47:30
- * @LastEditors: MarkMark
- * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/main/acomponents/menu/components/head/index.tsx
- */
+
 
 import styles from './index.module.scss'
 import cs from 'classnames'

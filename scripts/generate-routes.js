@@ -111,8 +111,8 @@ async function generateRoutes(dirPath, basePath) {
       const fullPath = path.join(dirPath, item);
       const stats = await fs.stat(fullPath);
       const itemName = path.basename(fullPath);
-      // 如果是子目录且不是 'components' 目录，则递归生成子路由
-      if (stats.isDirectory() && itemName !== 'components') {
+      // 如果是子目录且不是 '_components' 目录，则递归生成子路由
+      if (stats.isDirectory() && itemName !== '_components') {
         try {
           const children = await generateRoutes(fullPath, routePath);
           route.children.push(...children);
@@ -128,8 +128,8 @@ async function generateRoutes(dirPath, basePath) {
       const fullPath = path.join(dirPath, item);
       const stats = await fs.stat(fullPath);
       const itemName = path.basename(fullPath);
-      // 如果是子目录且不是 'components' 目录，则递归生成子路由
-      if (stats.isDirectory() && itemName !== 'components') {
+      // 如果是子目录且不是 '_components' 目录，则递归生成子路由
+      if (stats.isDirectory() && itemName !== '_components') {
         try {
           const children = await generateRoutes(fullPath, basePath === '/' ? `/${path.basename(dirPath)}` : path.join(basePath, path.basename(dirPath)));
           routes.push(...children);

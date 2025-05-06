@@ -1,11 +1,4 @@
-/*
- * @Author: Mark
- * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-04-22 17:09:08
- * @LastEditors: MarkMark
- * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/home/acomponents/header/index.tsx
- */
+
 import ImgLogo from '@/assets/images/img_logo.png'
 import styles from './index.module.scss'
 import cs from 'classnames'
@@ -21,8 +14,9 @@ const Header=(props:any)=>{
                     </div>
                 </li>
                 <li className={styles.right}>
-                        <IComp className={cs(styles.icon_sousuo,'icon-sousuo')} onClick={()=>onclickLogo(RouterPathUtil.HOME_SERCH)}></IComp>
-                        <IComp className={cs(styles.icon_caidan,'icon-caidan')} onClick={()=>onclickLogo(RouterPathUtil.HOME_MENU) }/>
+                        <IComp className={cs(styles.icon_sousuo,'icon-sousuo')} onClick={()=>onclickLogo('home_search')}></IComp>
+                        <IComp className={cs(styles.icon_caidan,'icon-caidan')} onClick={()=>onclickLogo('home_menu') }/>
+                                     
                 </li>
         </ul>
     )

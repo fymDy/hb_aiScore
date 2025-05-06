@@ -4,14 +4,14 @@ import { Outlet } from "react-router-dom";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import { IFSearchResult, IFTab } from "./interface";
 import cs from "classnames";
-import Menu from "./acomponents/menu";
-import SearchResult from "./acomponents/searchResult";
-import Header from "./acomponents/header";
-import Tabs from "@/views/home/acomponents/tabs";
-import SearchBox from "@/views/home/acomponents/searchBox";
-import BallList from "@/views/home/acomponents/ballList";
+import Menu from "./_components/menu";
+import SearchResult from "./_components/searchResult";
+import Header from "./_components/header";
+import Tabs from "@/views/home/_components/tabs";
+import SearchBox from "@/views/home/_components/searchBox";
+import BallList from "@/views/home/_components/ballList";
 import { LayoytHomeContextProvider } from "@/provides/layoutHomeProvider";
-import PageFilter from "./acomponents/pageFilter";
+import PageFilter from "./_components/pageFilter";
 import { useApp } from "@/hooks/useApp";
 import { pxToRem } from "@/utils/common";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
@@ -276,16 +276,17 @@ const Home = () => {
    
   
   };
-  const onclickLogo = (path: RouterPathUtil) => {
+  const onclickLogo = (path: RouterPathUtil | string) => {
     if (path === RouterPathUtil.HOME_FOOTBALL) {
       onClickTab(changeBallDatas[0]);
-    } else if (path === RouterPathUtil.HOME_MENU) {
+    } 
+    else if (path === 'home_menu') {
       setClickBtnMenu(!clickBtnMenu);
       setClickBtnOthers(false);
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
       recalcHeaderHeight(); // ✅ 手动触发测量
-    } else if (path === RouterPathUtil.HOME_SERCH) {
+    } else if (path === 'home_search') {
       const iStatus=!clickBtnSearch
       setClickBtnSearch(iStatus);
       if(iStatus){

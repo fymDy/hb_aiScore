@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
-import PageFilter from "@/views/home/acomponents/pageFilter";
+import PageFilter from "@/views/home/_components/pageFilter";
 import { IFSearchResult } from "@/views/home/interface";
 import CheckboxComp from "@/components/CheckboxComp";
 import OddsType from "../common/oddsType";

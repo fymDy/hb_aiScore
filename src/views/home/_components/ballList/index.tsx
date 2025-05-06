@@ -1,11 +1,4 @@
-/*
- * @Author: Mark
- * @Date: 2025-04-01 20:19:38
- * @LastEditTime: 2025-04-27 15:22:17
- * @LastEditors: MarkMark
- * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/home/acomponents/ballList/index.tsx
- */
+
 import { IFMenu, IFMatch, IFTab } from '@/views/home/interface'
 import IComp from '../../../../components/IComp'
 import styles from './index.module.scss'

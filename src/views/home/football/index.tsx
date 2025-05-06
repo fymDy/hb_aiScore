@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import { IFSearchResult } from "../interface";
-import PageFilter from "../acomponents/pageFilter";
-import MatchList from "../acomponents/matchList";
+import PageFilter from "../_components/pageFilter";
+import MatchList from "../_components/matchList";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import { useHomeContext } from "@/provides/layoutHomeProvider";
 
