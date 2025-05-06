@@ -5,7 +5,7 @@ import routesJonFile from './routes.json';
 import { IFRouterConfig } from './interface';
 import AuthGuard from './authGuard'; // 导入 AuthGuard 组件
 import { RouterPathUtil } from './routerPathUtil';
-
+import Layout from '@/layout/appRouter'
 
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
 return  lazy(() =>
@@ -45,15 +45,14 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
     return reactRouterRoute;
   });
 };
-
+/**
+ * 这种事不使用index的情况，<Layout/>组件去指定具体跳转路径
+ */
 const updatedRoutesConfig = [
   {
     path: '/',
+    element:<Layout/>,
     children:[
-      {
-        index: true,
-        element: <Navigate to={RouterPathUtil.HOME} replace />
-      },
       ...routesJonFile
     ]
   },
@@ -62,10 +61,30 @@ const updatedRoutesConfig = [
     element: <Navigate to="/" replace />,
   },
 ];
+/**
+ * 这种是使用index的情况，根据routerConfig.ts中指定index为默认路由的结构
+ */
+// const updatedRoutesIndexConfig = [
+//   {
+//     path: '/',
+//     element: <Navigate to={RouterPathUtil.HOME} replace />,
+//     children:[
+//       {
+//         index: true,
+//         element: <Navigate to={RouterPathUtil.HOME} replace />
+//       },
+//       ...routesJonFile
+//     ]
+//   },
+//   {
+//     path: '*',
+//     element: <Navigate to="/" replace />,
+//   },
+// ];
 
 const routes =generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[])
 console.log('last routes--',routes)
-export const resRoutes=createBrowserRouter(routes);
+ const resRoutes=createBrowserRouter(routes);
 
 const AppRouter = () => {
    return <RouterProvider router={resRoutes}   />

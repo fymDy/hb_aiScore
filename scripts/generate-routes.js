@@ -93,11 +93,12 @@ async function generateRoutes(dirPath, basePath) {
     // 计算组件相对于 VIEWS_DIR 的路径
     const componentPath = path.relative(VIEWS_DIR, path.join(dirPath, 'index.tsx')).replace(/\\/g, '/');
     const route = {
-      fullPath:routePath,
+     
       path: currentConfig[0].name || path.basename(dirPath),
       name: currentConfig[0].name || path.basename(dirPath),
       author: currentConfig[0].author ? currentConfig[0].author : false,
       component: componentPath, // 添加 component 属性
+      fullPath:routePath
     };
   
     if(currentConfig[0]?.index ){
