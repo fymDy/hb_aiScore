@@ -10,7 +10,6 @@ import TeamsData from "./teamsData";
 }
 
 const Data: React.FC<IFTeamsDataProps> = ({teamsData}) => {
-
    const [activeFilterId, setActiveFilterId] = useState("0");
   useEffect(() => {
     console.log('一级页面的子组件data挂载了');
@@ -124,4 +123,4 @@ const Data: React.FC<IFTeamsDataProps> = ({teamsData}) => {
   );
 };
 
-export default Data;
+export default Data

@@ -15,8 +15,6 @@ import Table from "./table";
 import { useApp } from "@/hooks/useApp";
 import { matchData } from "./match_data";
 
-
-
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
  const {navigatePlus}=useNavigatePlus()
@@ -25,9 +23,6 @@ const MatchDetails: React.FC = () => {
     console.log('MatchDetails useEffect：挂载');
     return () => console.log('MatchDetails useEffect：卸载');
   }, []);
-  const renderCount = useRef(0);
-  renderCount.current += 1;
-  console.log('MatchDetails 组件 render第', renderCount.current, '次');
   const headerData = useMemo(() => {
     return {
       matchName: "以色列乙級聯賽",
@@ -101,9 +96,6 @@ const MatchDetails: React.FC = () => {
     navigatePlus(`#${id}`, { state:state, replace: true })
   };
 
-
-
-
   const RenderComp =  (
       <>
         {hashValue === "overview" && <OverView />}
@@ -114,7 +106,7 @@ const MatchDetails: React.FC = () => {
         {hashValue === "match"  && <Match />}
         {hashValue === "table"  && <Table />}
       </>
-    );
+  )
 
   return (
     <div className={styles.matchDetails}>
@@ -135,7 +127,7 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-    {RenderComp}
+      {RenderComp}
     </div>
   );
 };
