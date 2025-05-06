@@ -28,7 +28,6 @@ const OverView: React.FC = () => {
         console.log('一级页面子组件overview卸载了');
       };
     }, []);
-    debugger
   const [showMore,setShowMore]=useState(false)
   const barData: any[] = [
     ...Array.from({ length: 100 }, (_, i) => ({

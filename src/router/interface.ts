@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-30 21:51:34
- * @LastEditTime: 2025-05-06 16:09:54
+ * @LastEditTime: 2025-05-06 17:46:57
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/router/interface.ts
@@ -49,6 +49,10 @@ export interface IFRouterConfig {
      * @zh 填写了自定义路径，则自定义路径展示路由
      */
     customPath?: string
+       /**
+     * @zh 全路径路由，字段用来生成路由枚举文件
+     */
+    fullPath?: string
     // /**
     //  * @zh 当有多级子路由时 该字段有用 可指定默认展示子路由
     //  * -views
@@ -58,7 +62,7 @@ export interface IFRouterConfig {
     //  * 如果defaultRoute = 'testPage2'
     //  * 那么默认展示的路由则是home下的testPage2
     //  */
-    // defaultRoute?: string
+    // fullPath?: string
 
     // /**
     //  * @zh 指定该路由是否是根路由 

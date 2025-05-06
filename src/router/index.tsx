@@ -5,40 +5,41 @@ import routesJonFile from './routes.json';
 import { IFRouterConfig } from './interface';
 import AuthGuard from './authGuard'; // 导入 AuthGuard 组件
 import { RouterPathUtil } from './routerPathUtil';
-import { divide } from 'lodash';
-import LayoutApp from '@/layout/appRouter';
+
 
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
 return  lazy(() =>
     import(/* @vite-ignore */ `../views/${comp}`).catch((error) => {
-        console.log('lazy view目录文件时error',error)
-        return
+      console.error('LazyComponentComp 懒加载失败:', error);
+      return { default: () => <div>页面加载失败</div> };
     })
   )
 };
 const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
   return config.map((route) => {
-    const { component, path, children, author = false, index,customPath, ...rest } = route;
-    const LazyComponent =LazyComponentComp(component) ;
-    const element = component ? (
+    const { component, path, children, author = false, index,customPath,fullPath,name,  ...rest } = route;
+    const LazyComponent = component  ? LazyComponentComp(component): null;
+    const element = LazyComponent ? (
       <AuthGuard author={author}>
         <LazyComponent />
       </AuthGuard>
     ) : undefined;
 
     const reactRouterRoute: any = {
-      path: index ? '' : (customPath ? customPath : path),
+      // path: index ? undefined : (customPath ? customPath : path),
+      ...(index ? { index: true } : { path: customPath || path }),
       element,
       ...rest,
     };
-    if (children) {
-      reactRouterRoute.children = generateReactRouterRoutes(children.map((childRoute:IFRouterConfig) => {
-        const { path: childPath, index: isIndex, customPath: childCustomPath } = childRoute;
-        return {
-          ...childRoute,
-          path: isIndex ? '' : (childCustomPath  ? childCustomPath : childPath),
-        };
-      }));
+    if (children?.length && !index) {
+      // reactRouterRoute.children = generateReactRouterRoutes(children.map((childRoute:IFRouterConfig) => {
+      //   const { path: childPath, index: isIndex, customPath: childCustomPath } = childRoute;
+      //   return {
+      //     ...childRoute,
+      //     path: isIndex ? undefined : (childCustomPath  ? childCustomPath : childPath),
+      //   };
+      // }));
+      reactRouterRoute.children = generateReactRouterRoutes(children);
     }
 
     return reactRouterRoute;
