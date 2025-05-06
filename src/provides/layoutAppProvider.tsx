@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-19 21:27:42
- * @LastEditTime: 2025-05-03 11:41:42
+ * @LastEditTime: 2025-05-06 20:44:52
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutAppProvider.tsx
@@ -51,7 +51,6 @@ const { ref: handleHeaderReady, recalc: recalcHeaderHeight } = useElementReady<H
   }, [ viewportHeight,isDownloadVisible,downLoadHeight]);
   
   const contentHeight = useMemo(() => {
-      // const h= viewportHeight - (isDownloadVisible ? downLoadHeight : 0)- headerHeight ;
       const h= appHeight- headerHeight ;
      if(isShowFrm){
       return pxToRem(h)  ;
@@ -59,7 +58,7 @@ const { ref: handleHeaderReady, recalc: recalcHeaderHeight } = useElementReady<H
       return pxToRem(h   - footerHeight);
      }
     
-  }, [isShowFrm,appHeight,headerHeight,footerHeight]);
+  }, [isShowFrm,appHeight,headerHeight]);
   const collapseData=[
     { id:'0',
       title:'下一场比赛',data:[
