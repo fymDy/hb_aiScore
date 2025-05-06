@@ -453,10 +453,9 @@ const Home = () => {
             }}
           />
         </div>
-
         <div
           style={{ minHeight: contentHeight }}
-          className={cs({
+          className={cs('child_page',{
             [styles.is_notShow_content]:
               clickBtnOthers || clickBtnMenu || clickBtnSearch,
           })}

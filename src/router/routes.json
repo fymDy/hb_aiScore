@@ -29,7 +29,7 @@
     "name": "home",
     "author": false,
     "component": "home/index.tsx",
-    "fullPath": "home",
+    "fullPath": "/home",
     "children": [
       {
         "path": "americalBall",
@@ -93,6 +93,7 @@
         "author": false,
         "component": "home/football/index.tsx",
         "fullPath": "/home/football",
+        "index": true,
         "children": []
       },
       {

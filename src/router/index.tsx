@@ -5,7 +5,6 @@ import routesJonFile from './routes.json';
 import { IFRouterConfig } from './interface';
 import AuthGuard from './authGuard'; // 导入 AuthGuard 组件
 import { RouterPathUtil } from './routerPathUtil';
-import Layout from '@/layout/appRouter'
 
  const LazyComponentComp=(comp:React.LazyExoticComponent<React.ComponentType<any>>)=>{
 return  lazy(() =>
@@ -26,19 +25,11 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
     ) : undefined;
 
     const reactRouterRoute: any = {
-      // path: index ? undefined : (customPath ? customPath : path),
       ...(index ? { index: true } : { path: customPath || path }),
       element,
       ...rest,
     };
     if (children?.length && !index) {
-      // reactRouterRoute.children = generateReactRouterRoutes(children.map((childRoute:IFRouterConfig) => {
-      //   const { path: childPath, index: isIndex, customPath: childCustomPath } = childRoute;
-      //   return {
-      //     ...childRoute,
-      //     path: isIndex ? undefined : (childCustomPath  ? childCustomPath : childPath),
-      //   };
-      // }));
       reactRouterRoute.children = generateReactRouterRoutes(children);
     }
 
@@ -48,31 +39,11 @@ const generateReactRouterRoutes = (config: IFRouterConfig[]) => {
 /**
  * 这种事不使用index的情况，<Layout/>组件去指定具体跳转路径
  */
-const updatedRoutesConfig = [
-  {
-    path: '/',
-    element:<Layout/>,
-    children:[
-      ...routesJonFile
-    ]
-  },
-  {
-    path: '*',
-    element: <Navigate to="/" replace />,
-  },
-];
-/**
- * 这种是使用index的情况，根据routerConfig.ts中指定index为默认路由的结构
- */
-// const updatedRoutesIndexConfig = [
+// const updatedRoutesConfig = [
 //   {
 //     path: '/',
-//     element: <Navigate to={RouterPathUtil.HOME} replace />,
+//     element:<Layout/>,
 //     children:[
-//       {
-//         index: true,
-//         element: <Navigate to={RouterPathUtil.HOME} replace />
-//       },
 //       ...routesJonFile
 //     ]
 //   },
@@ -81,8 +52,27 @@ const updatedRoutesConfig = [
 //     element: <Navigate to="/" replace />,
 //   },
 // ];
+/**
+ * 这种是使用index的情况，根据routerConfig.ts中指定index为默认路由的结构
+ */
+const updatedRoutesIndexConfig = [
+  {
+    path: '/',
+    children:[
+      {
+        index: true,
+        element: <Navigate to={RouterPathUtil.HOME} replace />
+      },
+      ...routesJonFile
+    ]
+  },
+  {
+    path: '*',
+    element: <Navigate to="/" replace />,
+  },
+];
 
-const routes =generateReactRouterRoutes(updatedRoutesConfig as IFRouterConfig[])
+const routes =generateReactRouterRoutes(updatedRoutesIndexConfig as IFRouterConfig[])
 console.log('last routes--',routes)
  const resRoutes=createBrowserRouter(routes);
 
