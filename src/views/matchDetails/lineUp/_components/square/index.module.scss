@@ -1,0 +1,16 @@
+@use '@/assets/styles/utils' as * ;
+
+.square{
+  width: 174px;
+  height: 68px;
+  margin: 0 auto;
+ @include border(border,2px solid var(--border-hsla-3));
+ border-top: none;
+.square_inner{
+  width: 88px;
+  height: 36px;
+  margin: 0 auto;
+  @include border(border,2px solid var(--border-hsla-3));
+  border-top: none;
+}
+}

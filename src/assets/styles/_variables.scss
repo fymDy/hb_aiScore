@@ -41,7 +41,8 @@ $color-f7f9fb:#f7f9fb;
 $color-rgab-0:0, 0, 0;
 $color-rgab-1:227, 227, 255;
 
-$border-color: 1px solid hsla(0, 0%, 89%, .4);
+$border-hsla-4:hsla(0, 0%, 89%, .4);
+$border-hsla-3:hsla(0, 0%, 100%, 0.3);
 
 $theme-colors: (
 
@@ -81,7 +82,8 @@ $theme-colors: (
   color-5db400:$color-5db400,
   color-f7f9fb:$color-f7f9fb,
 
-  color-border-1:$border-color,
+  border-hsla-4:$border-hsla-4,
+  border-hsla-3: $border-hsla-3,
 
   color-rgab-0:$color-rgab-0,
   color-rgab-1:$color-rgab-1,

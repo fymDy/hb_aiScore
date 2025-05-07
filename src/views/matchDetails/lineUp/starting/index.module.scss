@@ -1,0 +1,59 @@
+
+@use '@/assets/styles/utils' as * ;
+
+
+.Starting {
+  width:100%;
+  height: 795px;
+  background: #5dad6e;
+}
+
+.teamInfo_wrap{
+  padding: 10px;
+}
+.team_box{
+  @include flex-column;
+  position: relative;
+  height: 712px;
+  margin: 0 10px;
+  @include border(border,2px solid var(--border-hsla-3))
+}
+
+.half_box{
+  position: relative;
+  flex:1;
+
+}
+.circle_wrap{
+  overflow: hidden;
+  height: 35px;
+  .home_circle{
+    width: 92px;
+    height: 92px;
+    position: relative;
+    top:-50px;
+    margin: 0 auto;
+  }
+}
+
+
+.half_box_home{
+  @include border(border-bottom,2px solid var(--border-hsla-3))
+}
+.midCircle{
+  width:100px ;
+  height: 100px;
+  position: absolute;
+  @include flex-center;
+  left: 50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+ 
+  
+}
+.point{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsla(0, 0%, 100%, .3);
+}

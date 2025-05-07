@@ -1,0 +1,6 @@
+@use '@/assets/styles/utils' as * ;
+
+.PlayerPosition{
+  position: relative;
+  @include flex-center;
+}

@@ -1,0 +1,6 @@
+@use '@/assets/styles/utils' as * ;
+
+.Circle{
+  border-radius: 50%;
+  @include border(border,2px solid var(--border-hsla-3))
+}

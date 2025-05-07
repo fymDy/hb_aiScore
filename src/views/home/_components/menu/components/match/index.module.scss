@@ -13,7 +13,9 @@
     @include flex-start-center;
     font-size: 12.75px;
     gap: 12px;
-    border-bottom: var(--color-border-1);
+    // border-bottom: var(--color-border-1);
+    @include border(border-bottom,1px solid var(--border-hsla-4));
+
   }
   .icon_img{
     width: 18px;

@@ -6,9 +6,9 @@
   }
 }
 
-// @mixin text($type, $value, $unit) {
-//   #{$type}: #{$value}#{$unit};
-// }
+@mixin border($type, $v1,$v2,$v3) {
+  #{$type}: #{$v1}#{$v2}#{$v3};
+}
 // @mixin display($type, $value) {
 //   #{$type}: $value;
 // }

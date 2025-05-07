@@ -121,7 +121,7 @@
 @mixin color($v) {@include mixins.text(color, $v);}
 @mixin bg($v) { @include mixins.text(background, $v);}
 @mixin bg-color($v) {@include mixins.text(background-color, $v);}
-@mixin border-color($v) { @include mixins.text(border-color, $v);}
+@mixin border($name,$v) { @include mixins.text($name, $v);}
 @mixin text-align($v) {@include mixins.text(text-align, $v);}
 
 @mixin letter-spacing($v) {@include mixins.text(letter-spacing, $v);}

@@ -1,0 +1,14 @@
+@use '@/assets/styles/utils' as * ;
+
+
+.TeamInfo {
+  @include flex-between;
+  span{
+    color: var(--color-fff);
+  }
+}
+.team_logo{
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
