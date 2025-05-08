@@ -191,7 +191,7 @@ export const matchLineupData: MatchLineupData = {
           photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
           name: '加藤健人',
           shirt_number: 50,
-          position: 'MF',
+          position: 'DF',
           is_captain: false,
           rating: 5.9,
           events: [{ type: 'yellow_card', minute: 83 }],
@@ -243,7 +243,7 @@ export const matchLineupData: MatchLineupData = {
           photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
           name: '江坂任',
           shirt_number: 8,
-          position: 'MF',
+          position: 'FW',
           role: 'CAM', // 可选字段，细化位置
           is_captain: false,
           rating: 5.9,

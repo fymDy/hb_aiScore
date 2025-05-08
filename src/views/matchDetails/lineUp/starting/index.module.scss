@@ -33,6 +33,7 @@
     position: relative;
     top:-57px;
     margin: 0 auto;
+    @include border(border,2px solid var(--border-hsla-3))
   }
 }
 
@@ -40,6 +41,13 @@
 .half_box_home{
   @include border(border-bottom,2px solid var(--border-hsla-3))
 }
+.half_box_away{
+ transform: rotateX(180deg);
+ .PlayerLogo_away{
+  transform: rotateX(180deg);
+  }
+}
+
 .midCircle{
   width:100px ;
   height: 100px;

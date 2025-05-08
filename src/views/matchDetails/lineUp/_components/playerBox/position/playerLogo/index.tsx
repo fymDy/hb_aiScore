@@ -6,8 +6,8 @@ import Circle from "@/components/Common/Circle";
 import SvgIcon from "@/components/Common/IconSvg";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import { EnumPlayerEventType } from "@/views/matchDetails/types/enum";
-import IconFont from "@/components/Common/Iconfont";
-
+import stylesAway from "@/views/matchDetails/lineUp/starting/index.module.scss";
+import cs from 'classnames'
 const PlayerLogo: React.FC<{
   playerData: PlayerInfo;
 }> = ({ playerData }) => {
@@ -71,7 +71,7 @@ const PlayerLogo: React.FC<{
     return iconType;
   };
   return (
-    <div className={styles.PlayerLogo}>
+    <div className={cs(styles.PlayerLogo,stylesAway.PlayerLogo_away)}>
       <Images
         className={styles.logo}
         imgStyle={{ borderRadius: "50%" }}
@@ -85,7 +85,6 @@ const PlayerLogo: React.FC<{
       <span className={styles.events_card}>
         {eventsData?.[0]?.map((item: PlayerEvent, i: number) => (
           <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
-          // <IconFont key={String(i)} className={getIconFont(item.type)}/>
         ))}
       </span>
       <span className={styles.events_ball}>
