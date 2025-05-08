@@ -2,25 +2,22 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import MatchTimelineChart from "@/components/Common/MatchTimelineChart";
 
-import cs from "classnames";
 
 
 import imgFlag from "@/assets/images/flag.png";
-import { useNavigate } from "react-router-dom";
 import ChartLineComp from "@/components/ChartLineComp";
 import ChartCircleProcess from "@/components/Common/chartCircleProcess";
 import ChartLineTextComp from "@/components/ChartLineTextComp";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import MatchPbp from "./matchPbp";
-import EventsAll from "./eventsAll";
+import EventsAll from "../common/eventsAll";
 import PlayerRating from "./playerRating";
 import VenueReferee from "./venueReferee";
-import CrossSwords from "./crossSwords";
 import Infomation from "./infomation";
 import BallType from "./ballType";
 import OddsTable, { OddsData } from "../common/oddsTable";
 import OddsType from "../common/oddsType";
-import OddsBox from "../common/oddsBox";
+import { EventsAllData } from "../match_data";
 const OverView: React.FC = () => {
     useEffect(() => {
       console.log('一级页面的子组件overview挂载了');
@@ -197,17 +194,7 @@ const OverView: React.FC = () => {
      {id:'2',name:'海海港 賽程'},
      {id:'3',name:'雲南玉昆 vs 上海海港 交鋒'},
   ]
-  const EventsAllData=[
-      {icon:EnumIconFontType.icongoal,name:'進球'},
-      {icon:EnumIconFontType.iconPenalty,name:'點球'},
-      {icon:EnumIconFontType.iconPenaltySaved,name:'射失點球'},
-      {icon:EnumIconFontType.iconown_goal,name:'烏龍球'},
-      {icon:EnumIconFontType.iconCorner,name:'角球'},
-      {icon:EnumIconFontType.icontwoyellow_red,name:'兩黃變一紅'},
-      {icon:EnumIconFontType.iconsubstitution,name:'換人'},
-      {icon:EnumIconFontType.iconInjuryreplace,name:'因傷換人'}
 
-  ]
 
   return (
       <div className={styles.OverView}>
@@ -247,7 +234,7 @@ const OverView: React.FC = () => {
          
         <BallType data={ballTypeData}/>
    
-        <EventsAll data={EventsAllData}/>
+        <EventsAll className={styles.eventsAll_wrap} data={EventsAllData}/>
       </div>
   );
 };

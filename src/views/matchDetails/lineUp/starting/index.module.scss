@@ -31,7 +31,7 @@
     width: 92px;
     height: 92px;
     position: relative;
-    top:-50px;
+    top:-57px;
     margin: 0 auto;
   }
 }
@@ -48,7 +48,7 @@
   left: 50%;
   top:50%;
   transform:translate(-50%,-50%);
- 
+  @include border(border,2px solid var(--border-hsla-3))
   
 }
 .point{

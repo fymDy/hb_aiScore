@@ -1,0 +1,7 @@
+
+@use '@/assets/styles/utils' as * ;
+.Circle{
+    @include flex-center;
+    border-radius: 50%;
+   }
+ 

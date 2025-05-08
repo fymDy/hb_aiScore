@@ -1,10 +1,10 @@
 
 @use '@/assets/styles/utils' as * ;
 
-.events_all{
-  padding: 0 14px 8px 14px;
-  gap:8px ;
+.EventsAll{
+
   @include grid-cols(3);
+  gap:8px ;
  }
  .events_content{
   @include flex-start-center;

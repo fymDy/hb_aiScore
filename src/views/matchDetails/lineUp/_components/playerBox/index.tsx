@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 16:48:45
- * @LastEditTime: 2025-05-07 21:36:10
+ * @LastEditTime: 2025-05-08 13:35:14
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/_components/playerBox/index.tsx
@@ -48,8 +48,10 @@ const POSITION_ORDER:any = {
     return (
         <div className={cs(className,styles.PlayerBox)}>
                 <PlayerPosition className={cs(styles.Player_GK)} playerPositionData={playersByPositionData?.GK} />
-                <PlayerPosition playerPositionData={playersByPositionData?.DF} />
-        </div>
+                <PlayerPosition className={cs(styles.Player_DF)} playerPositionData={playersByPositionData?.DF} />
+                <PlayerPosition className={cs(styles.Player_MF)} playerPositionData={playersByPositionData?.MF} />
+                <PlayerPosition className={cs(styles.Player_FW)} playerPositionData={playersByPositionData?.FW} />
+            </div>
     )
 }
 export default PlayerBox

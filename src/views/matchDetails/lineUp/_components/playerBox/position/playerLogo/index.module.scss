@@ -1,24 +1,73 @@
 
-.PlayerLogo{
+@use '@/assets/styles/utils' as * ;
 
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content:start;
-  align-items: center;
-  
+.PlayerLogo{
+  position: relative;
 
 }
 .logo{
-  // font-size: 10px;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
  
 }
 .name{
-  display: block;
-  font-size: 10.7px;
+  width: 75px;
+  height: 15px;
+  position: absolute;
+  top: 33px;
+  left: 50%;
+  font-size: 8px;
   color: var(--color-fff);
   text-align: center;
-  margin-top: 2px;
+  transform:translate(-50%)  ;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rating{
+  position: absolute;
+  top:-4px;
+  right: -2px;
+  color: var(--color-fff);
+  background: #c2c90c;
+  width: 17px;
+  height: 11.25px;
+  @include flex-center;
+}
+.shirt_number_wrap{
+ 
+  width: 13px;
+  height: 13px;
+  line-height: 13px;
+  text-align: center;
+  background: #444644;
+  color: var(--color-fff);
+  font-size: 12px;
+  position: absolute;
+  top:9.375px;
+  left: -5px;
+ 
+}
+.shirt_number{
+  display: inline-block;
+  transform: scale(0.75);
+
+}
+.events_card{
+  position: absolute;
+  top:-4px;
+  right: 30px;
+  @include flex-between;
+}
+.events_ball{
+  height: 12px;
+  position: absolute;
+  bottom:2px;
+  left: 28px;
+  @include flex-between;
+  gap:2px;
+  svg{
+    border-radius: 50%;
+    background-color: #fff;
+  }
 }

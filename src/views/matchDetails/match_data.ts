@@ -1,11 +1,27 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-04 20:44:17
- * @LastEditTime: 2025-05-05 14:57:20
+ * @LastEditTime: 2025-05-08 16:42:12
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/match_data.ts
  */
+import { EnumIconFontType } from '@/enum/enumIconFontType';
+
+export const EventsAllData=[
+      {icon:EnumIconFontType.icongoal,name:'進球'},
+      {icon:EnumIconFontType.iconPenalty,name:'點球'},
+      {icon:EnumIconFontType.iconPenaltySaved,name:'射失點球'},
+      {icon:EnumIconFontType.iconown_goal,name:'烏龍球'},
+      {icon:EnumIconFontType.iconCorner,name:'角球'},
+      {icon:EnumIconFontType.iconyellowcard,name:'黃牌'},
+      {icon:EnumIconFontType.iconredcard,name:'紅牌'},
+      {icon:EnumIconFontType.icontwoyellow_red,name:'兩黃變一紅'},
+      {icon:EnumIconFontType.iconsubstitution,name:'換人'},
+      {icon:EnumIconFontType.iconInjuryreplace,name:'因傷換人'}
+
+  ]
+
 const teamData={
     "team_id": "TEAM_A",
     "team_name": "主队名称",

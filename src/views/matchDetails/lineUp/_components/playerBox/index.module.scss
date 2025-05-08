@@ -1,9 +1,19 @@
 @use '@/assets/styles/utils' as * ;
 
 .PlayerBox{
-  // position: relative;
+  @include flex-column;
+  gap:38px;
+ 
 }
 .Player_GK{
-  // position: absolute;
-  // top:26.8px;
+  position: absolute;
+  top:28px;
+  left: 160px;
+}
+
+.Player_DF,
+.Player_MF,
+.Player_FW{
+  width: 100%;
+
 }

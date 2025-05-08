@@ -1,5 +1,7 @@
 import { MatchLineupData } from './types';
 
+
+
 export const matchLineupData: MatchLineupData = {
   event_id: 'MATCH2025-05-07',
   lineup: {
@@ -14,21 +16,23 @@ export const matchLineupData: MatchLineupData = {
       starting_lineups: [
         {
           player_id: 'H1',
-          photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+          photo: 'https://img0.aiscore.com/football/player/8984d1bcee77a96c84c903bf4ce1fede.jpg!w100',
           name: '兰基戴尔',
           shirt_number: 35,
           position: 'GK',
           is_captain: false,
           rating: 6.8,
         },
+      
         {
           player_id: 'H2',
-          photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+          photo: 'https://img0.aiscore.com/football/player/8984d1bcee77a96c84c903bf4ce1fede.jpg!w100',
           name: '奥藤诚',
           shirt_number: 70,
           position: 'DF',
           is_captain: false,
           rating: 6.6,
+          events: [{ type: 'own_goal', minute: 26 }],
         },
         {
           player_id: 'H3',
@@ -38,7 +42,9 @@ export const matchLineupData: MatchLineupData = {
           position: 'DF',
           is_captain: false,
           rating: 6.9,
+          events: [{ type: 'yellow_card', minute: 5 },{ type: 'goal', minute: 16 },{ type: 'penalty_goal', minute: 46 }],
         },
+       
         {
           player_id: 'H4',
           photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
@@ -47,16 +53,17 @@ export const matchLineupData: MatchLineupData = {
           position: 'DF',
           is_captain: false,
           rating: 7.1,
+          events: [{ type: 'goal', minute: 6 },{ type: 'own_goal', minute: 12 },{ type: 'penalty_goal', minute: 46 },{ type: 'missed_penalty', minute: 46 }],
         },
         {
           player_id: 'H5',
           photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
           name: '内田宅哉',
           shirt_number: 17,
-          position: 'MF',
+          position: 'DF',
           is_captain: false,
           rating: 6.3,
-          events: [{ type: 'sub_out', minute: 85 }],
+          events: [{ type: 'second_yellow', minute: 10 },{ type: 'second_yellow', minute: 10 }],
         },
         {
           player_id: 'H6',
@@ -75,6 +82,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.3,
+          events: [{ type: 'yellow_card', minute: 10 },{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'H8',
@@ -88,10 +96,10 @@ export const matchLineupData: MatchLineupData = {
         },
         {
           player_id: 'H9',
-          photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+          photo: 'https://img0.aiscore.com/football/player/8984d1bcee77a96c84c903bf4ce1fede.jpg!w100',
           name: '和泉竜司',
           shirt_number: 7,
-          position: 'MF',
+          position: 'FW',
           role: 'CAM', // 可选字段，细化位置
           is_captain: false,
           rating: 6.0,
