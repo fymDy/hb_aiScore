@@ -3,8 +3,8 @@ import styles from "./index.module.scss";
 import PageFilter from "@/views/home/_components/pageFilter";
 import { IFSearchResult } from "@/views/home/interface";
 import CheckboxComp from "@/components/CheckboxComp";
-import OddsType from "../common/oddsType";
-import OddsTable, { OddsData } from "../common/oddsTable";
+import OddsType from "../_components/oddsType";
+import OddsTable, { OddsData } from "../_components/oddsTable";
 import SelectNum from "@/components/Common/selectNum";
 import BtnGroup from "@/components/Common/btnGroup";
 

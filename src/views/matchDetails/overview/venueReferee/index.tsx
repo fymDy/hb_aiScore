@@ -13,7 +13,7 @@ import defaultPlayer from '@/assets/images/default-player.png'
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import CrossSwords from "../crossSwords";
-import Title from "../../common/title";
+import Title from "../../_components/title";
 import Images from "@/components/Common/Images";
 const VenueReferee:React.FC<{
   title:string,

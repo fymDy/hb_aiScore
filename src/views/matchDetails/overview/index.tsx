@@ -10,13 +10,13 @@ import ChartCircleProcess from "@/components/Common/chartCircleProcess";
 import ChartLineTextComp from "@/components/ChartLineTextComp";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import MatchPbp from "./matchPbp";
-import EventsAll from "../common/eventsAll";
+import EventsAll from "../_components/eventsAll";
 import PlayerRating from "./playerRating";
 import VenueReferee from "./venueReferee";
 import Infomation from "./infomation";
 import BallType from "./ballType";
-import OddsTable, { OddsData } from "../common/oddsTable";
-import OddsType from "../common/oddsType";
+import OddsTable, { OddsData } from "../_components/oddsTable";
+import OddsType from "../_components/oddsType";
 import { EventsAllData } from "../match_data";
 const OverView: React.FC = () => {
     useEffect(() => {

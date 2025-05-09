@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-16 17:40:32
- * @LastEditTime: 2025-04-16 20:01:31
+ * @LastEditTime: 2025-05-09 14:17:42
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/common/title/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/_components/title/index.tsx
  */
 import IconFont from '@/components/Common/Iconfont'
 import styles from './index.module.scss'

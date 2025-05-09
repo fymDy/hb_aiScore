@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import Starting from "./starting";
 import {matchLineupData} from "./data";
 import { EventsAllData } from "../match_data";
-import EventsAll from "../common/eventsAll";
+import EventsAll from "../_components/eventsAll";
 
 
 const LineUp: React.FC = () => {

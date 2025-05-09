@@ -7,7 +7,7 @@
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/infomation/index.tsx
  */
 import styles from "./index.module.scss";
-import Title from "../../common/title";
+import Title from "../../_components/title";
 import cs from "classnames";
 import IconFont from "@/components/Common/Iconfont";
 import { EnumIconFontType } from "@/enum/enumIconFontType";

@@ -6,7 +6,7 @@
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/overview/ballType/index.tsx
  */
-import Title from "../../common/title";
+import Title from "../../_components/title";
 import styles from "./index.module.scss";
 const BallType = ({data}:any) => {
   return (

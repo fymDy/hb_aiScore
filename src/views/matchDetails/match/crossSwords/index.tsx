@@ -10,7 +10,7 @@ import styles from "./index.module.scss";
 import ImageComp from "@/components/imageComp";
 import cs from 'classnames'
 import { ReactNode } from "react";
-import Title from "../../common/title";
+import Title from "../../_components/title";
 
 import CircleL from "@/components/Common/CircleL";
 import CircleD from "@/components/Common/CircleD";
