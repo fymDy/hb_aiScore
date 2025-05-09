@@ -1,8 +1,8 @@
-
+@use '@/assets/styles/utils' as *;
 .TeamGroup{
   display: flex;
   margin:0 6px 0 10px ;
-  border-radius: 50%;
+  @include border(border-radius,50%);
 }
 
 .team_name{

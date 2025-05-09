@@ -13,7 +13,7 @@
   @include flex-center;
   @include flex(1);
   @include m(0,12);
-  border-radius: 4px;
+  @include border-radius(4);
   background-color: var(--color-fff);
 }
 .icon_ball{

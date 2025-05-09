@@ -1,0 +1,49 @@
+
+@use "sass:math";
+@use './common.scss' as vars;
+
+/**
+key,value值 无单位
+*/
+@mixin NoUnit($key,$value) {
+  #{$key}: $value; // 没有单位
+}
+/**
+key,value值 带单位
+*/
+@mixin haveUnitPx($key,$value) {
+  #{$key}: #{$value}#{vars.$unit}; // 有单位
+}
+
+
+/**
+key,value值 是否带单位
+*/
+@mixin text($type, $value, $unit: null) {
+  @if $unit != null {
+    #{$type}: #{$value}#{$unit};
+  } @else {
+    #{$type}: $value;
+  }
+}
+
+
+/**暂时没用到
+* border值设置，按照border(solid,1px,color)分值处理
+* generate-size-classes
+*/
+@mixin border($type, $v1,$v2,$v3) {
+  #{$type}: #{$v1}#{$v2}#{$v3};
+}
+/**暂时没用到
+* 动态计算dom之间间隔
+* generate-size-classes
+*/
+@mixin generate-size-classes($prefix, $property, $step: 1, $max: 100) {
+    @for $i from 0 through math.div($max,$step) {
+      $val:$i * $step ;
+      .#{$prefix}#{$val} {
+        #{$property}: #{$val}px;
+      }
+    }
+}

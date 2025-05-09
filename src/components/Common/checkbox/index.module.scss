@@ -10,6 +10,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%; // 圆形
+  
   box-sizing: border-box;
   transition: all 0.2s;
   @include flex-center;

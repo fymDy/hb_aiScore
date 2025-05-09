@@ -23,6 +23,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
 }
 .rating{
   position: absolute;
@@ -32,6 +33,7 @@
   background: #c2c90c;
   width: 17px;
   height: 11.25px;
+  font-size: 10px ;
   @include flex-center;
 }
 .shirt_number_wrap{
@@ -57,7 +59,6 @@
   position: absolute;
   top:-4px;
   right: 30px;
-  @include flex-between;
   color: var(--color-f1);
 }
 .events_ball{
@@ -65,10 +66,8 @@
   position: absolute;
   bottom:2px;
   left: 28px;
-  @include flex-between;
-  gap:2px;
   svg{
-    border-radius: 50%;
-    background-color: #fff;
+    @include border(border-radius,50%);
+    background-color: var(--color-fff);
   }
 }

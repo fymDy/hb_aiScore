@@ -9,7 +9,7 @@
   @include flex-center;
   padding: 0 9px;
   height: 30px;
-  border-radius: 4px;
+  @include border-radius(4);
   color: var(--color-999);
   background-color: var(--color-fff);
 }

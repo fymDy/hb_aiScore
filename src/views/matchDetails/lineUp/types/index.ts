@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 11:40:42
- * @LastEditTime: 2025-05-09 13:59:22
+ * @LastEditTime: 2025-05-09 19:16:08
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/types/index.ts
@@ -70,11 +70,9 @@ export interface PlayerInfo {
     name: string;              // 球员姓名
     shirt_number: number;      // 球衣号
     is_captain: boolean;       // 是否队长
- 
     position: PlayerPosition; // 位置 	
     position_detail?:PlayerPositionDetails,
-    role?:string,
-    photo?: string;            // 球员头像（可选）
+    photo: string;            // 球员头像（可选）
     // 新增字段：比赛角色身份
   
     rating?: number;              // 比赛评分（如 6.5）

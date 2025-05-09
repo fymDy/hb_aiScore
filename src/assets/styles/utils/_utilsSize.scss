@@ -17,14 +17,13 @@
 // 通用尺寸 setter
 
 @use './mixins' ;  // 
-@use './common.scss' as vars;
   // 快捷尺寸 mixins（建议保留语义化调用）
-  @mixin w($v: 0)       { @include mixins.text(width, $v,vars.$unit)}
-  @mixin h($v: 0)       { @include mixins.text(height, $v,vars.$unit); }
-  @mixin min-w($v: 0)   { @include mixins.text(min-width, $v,vars.$unit); }
-  @mixin min-h($v: 0)   { @include mixins.text(min-height, $v,vars.$unit); }
-  @mixin max-w($v: 0)   { @include mixins.text(max-width, $v,vars.$unit); }
-  @mixin max-h($v: 0)   { @include mixins.text(max-height, $v,vars.$unit); }
+  @mixin w($v: 0)       { @include mixins.haveUnitPx(width, $v)}
+  @mixin h($v: 0)       { @include mixins.haveUnitPx(height, $v); }
+  @mixin min-w($v: 0)   { @include mixins.haveUnitPx(min-width, $v); }
+  @mixin min-h($v: 0)   { @include mixins.haveUnitPx(min-height, $v); }
+  @mixin max-w($v: 0)   { @include mixins.haveUnitPx(max-width, $v); }
+  @mixin max-h($v: 0)   { @include mixins.haveUnitPx(max-height, $v); }
   @mixin w-full {
     width: 100%;
     height: 100%;

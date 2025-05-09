@@ -115,7 +115,7 @@ src/styles/utils/
 @use '@/styles/utils/index' as *;
 然后在任意 SCSS / 组件中可使用：
 .card {
-  @include w(300px);
+  @include w(300);
   @include px(16px);
   @include font-size(18px);
   @include flex-center;

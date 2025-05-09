@@ -23,7 +23,6 @@ export const matchLineupData: MatchLineupData = {
           is_captain: false,
           rating: 6.8,
         },
-      
         {
           player_id: 'H2',
           photo: 'https://img0.aiscore.com/football/player/8984d1bcee77a96c84c903bf4ce1fede.jpg!w100',
@@ -32,7 +31,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'DF',
           is_captain: false,
           rating: 6.6,
-          events: [{ type: 'own_goal', minute: 26 }],
+          events: [{ type: 'goal', minute: 6 },{ type: 'own_goal', minute: 12 }],
         },
         {
           player_id: 'H3',
@@ -53,7 +52,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'DF',
           is_captain: false,
           rating: 7.1,
-          events: [{ type: 'goal', minute: 6 },{ type: 'own_goal', minute: 12 },{ type: 'penalty_goal', minute: 46 },{ type: 'missed_penalty', minute: 46 }],
+          events: [{ type: 'penalty_goal', minute: 46 },{ type: 'missed_penalty', minute: 46 }],
         },
         {
           player_id: 'H5',
@@ -73,6 +72,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.4,
+          events:[{ type: 'second_yellow', minute: 10 },{ type: 'sub_in', minute: 46 }]
         },
         {
           player_id: 'H7',
@@ -82,7 +82,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.3,
-          events: [{ type: 'sub_in', minute: 46 },{ type: 'yellow_card', minute: 10 },{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
+          events: [{ type: 'yellow_card', minute: 10 },{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'H8',
@@ -92,7 +92,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.3,
-          events: [{ type: 'sub_in', minute: 46 }],
+          events: [{ type: 'sub_in', minute: 46 },{ type: 'own_goal', minute: 26 }],
         },
         {
           player_id: 'H9',
@@ -100,7 +100,7 @@ export const matchLineupData: MatchLineupData = {
           name: '和泉竜司',
           shirt_number: 7,
           position: 'FW',
-          role: 'CAM', // 可选字段，细化位置
+          position_detail: 'CAM', // 可选字段，细化位置
           is_captain: false,
           rating: 6.0,
           events: [{ type: 'sub_out', minute: 66 }],
@@ -130,12 +130,21 @@ export const matchLineupData: MatchLineupData = {
         {
           player_id: 'H12',
           photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
-          name: '虎考',
+          name: '长谷',
+          shirt_number: 69,
+          position: 'FW',
+          is_captain: false,
+          rating: 6.0,
+          events: [{ type: 'goal', minute: 6 },{ type: 'own_goal', minute: 12 },{ type: 'sub_out', minute: 72 }],
+        }, {
+          player_id: 'H12',
+          photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+          name: '绿雉',
           shirt_number: 99,
           position: 'FW',
           is_captain: false,
           rating: 6.0,
-          events: [{ type: 'sub_in', minute: 72 }],
+          events: [{ type: 'second_yellow', minute: 10 },{ type: 'yellow_card', minute: 10 },{ type: 'sub_in', minute: 12 }],
         },
       ],
       missing_players: [],
@@ -158,6 +167,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'GK',
           is_captain: false,
           rating: 6.6,
+          events: [{ type: 'yellow_card', minute: 10 },{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'A2',
@@ -167,6 +177,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'DF',
           is_captain: false,
           rating: 6.1,
+          events: [{ type: 'yellow_card', minute: 10 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'A3',
@@ -185,6 +196,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'DF',
           is_captain: false,
           rating: 6.3,
+          events: [{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'A5',
@@ -214,6 +226,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.4,
+          events: [{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'A8',
@@ -230,7 +243,7 @@ export const matchLineupData: MatchLineupData = {
           name: '岩渊弘人',
           shirt_number: 19,
           position: 'MF',
-          role: 'CAM', // 可选字段，细化位置
+          position_detail: 'CAM', // 可选字段，细化位置
           is_captain: false,
           rating: 6.5,
           events: [
@@ -244,7 +257,7 @@ export const matchLineupData: MatchLineupData = {
           name: '江坂任',
           shirt_number: 8,
           position: 'FW',
-          role: 'CAM', // 可选字段，细化位置
+          position_detail: 'CAM', // 可选字段，细化位置
           is_captain: false,
           rating: 5.9,
           events: [{ type: 'sub_out', minute: 72 }],
@@ -259,7 +272,43 @@ export const matchLineupData: MatchLineupData = {
           rating: 6.0,
         },
       ],
-      substitutes: [],
+      substitutes: [ {
+        player_id: 'H12',
+        photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+        name: '佐藤虎考',
+        shirt_number: 19,
+        position: 'FW',
+        is_captain: false,
+        rating: 6.0,
+        events: [{ type: 'second_yellow', minute: 10 },{ type: 'sub_in', minute: 72 }],
+      }, {
+        player_id: 'H12',
+        photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+        name: '虎考佐藤',
+        shirt_number: 29,
+        position: 'FW',
+        is_captain: false,
+        rating: 6.0,
+        events: [{ type: 'red_card', minute: 10 },{ type: 'sub_in', minute: 72 }],
+      }, {
+        player_id: 'H12',
+        photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+        name: '佐藤',
+        shirt_number: 39,
+        position: 'FW',
+        is_captain: false,
+        rating: 6.0,
+        events: [{ type: 'red_card', minute: 10 },{ type: 'sub_out', minute: 72 }],
+      }, {
+        player_id: 'H12',
+        photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+        name: '健太',
+        shirt_number: 49,
+        position: 'FW',
+        is_captain: false,
+        rating: 6.0,
+        events: [{ type: 'yellow_card', minute: 10 },{ type: 'sub_in', minute: 72 }],
+      },],
       missing_players: [
         {
             player_id: "A15",

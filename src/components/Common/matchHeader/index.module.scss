@@ -1,4 +1,4 @@
-
+@use '@/assets/styles/utils' as * ;
 .match_top{
   position: relative;
   font-size: 10px;
@@ -8,20 +8,19 @@
 }
 .match_top_box_info{
   position: relative;
-    display: flex;
-    justify-content: space-between;
+
+    @include flex-between;
     padding:  20px 25px 0;
 }
 .match_top_box_live{
 position: relative;
-  display: flex ;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   padding-bottom: 5px;
 }
 .live{
   position: absolute;
 }
+
 .icon_font{
   font-size: 13px;
   color:rgb(255, 168, 48);
@@ -35,10 +34,8 @@ position: relative;
 .bg{
   width: 108px;
   height: 24px;
-  border-radius: 12px;
-  display: flex ;
-  align-items: center;
-  justify-content: center;
+  @include border-radius(12);
+  @include flex-center;
   background-color: rgba(0, 0, 0, .2);
 }
 

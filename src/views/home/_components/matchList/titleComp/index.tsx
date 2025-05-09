@@ -5,12 +5,12 @@ import Team from "@/components/Common/team";
 import UserBox from "@/components/Common/userBox";
 import cs from 'classnames'
 import TeamGroup from "@/components/Common/TeamGroup";
-const Title: React.FC<{
+const titleComp: React.FC<{
   itemData: any;
   onclcik: () => void;
 }> = ({ itemData, onclcik }) => {
   return (
-    <div className={cs(styles.title,{[styles.isCollected]:itemData?.isCollect})}>
+    <div className={cs(styles.titleComp,{[styles.isCollected]:itemData?.isCollect})}>
       <div className={styles.left}>
         <IconCollect isCollect={itemData?.isCollect} onclcik={onclcik} />
         <TeamGroup
@@ -24,4 +24,4 @@ const Title: React.FC<{
     </div>
   );
 };
-export default Title;
+export default titleComp;

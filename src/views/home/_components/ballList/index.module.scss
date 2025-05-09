@@ -4,32 +4,32 @@
     height: 100%;
   }
   .item{
-    position: relative;
-    height: 40px;
-    border-bottom: var(--color-border);
+    @include position(relative);
+    @include h(40);
+    @include border(border-bottom,solid 1px  var(--border-hsla-4));
     @include flex-start-center;
-    gap:11px;
-    padding: 0 15px;
+    @include p(0 ,15);
+    @include gap(11);
    
   }
   .icon_class{
-    margin-right: 10px;
+    @include mr(10);
    
   }
   .active_ball{
-    background-color: var(--color-f1);
+    @include bg-color(var(--color-f1));
   }
   .name{
-    font-size: 12.75px;
+    @include font-size(12.75);
   }
   .match_num{
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    background-color: var( --color-f1);
+    @include display(inline-block);
+    @include w(20);
+    @include h(20);
+    @include font-size(12);
+    @include font-weight(700);
+    @include text-align(center);
+    @include bg-color(var(--color-f1));
     @include absolute-right(12);
   }
 

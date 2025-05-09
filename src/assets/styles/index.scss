@@ -1,4 +1,6 @@
-
+@use  './theme.scss';
+@use './font.scss';
+@use './animation.scss';
 html {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */

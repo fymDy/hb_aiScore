@@ -22,5 +22,5 @@
   background-color: var(--color-0f80da);
   color: var(--color-fff);
   font-size: 12px;
-  border-radius: 4px;
+  @include border-radius(4);
 }

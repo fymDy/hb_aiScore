@@ -1,6 +1,6 @@
 
 
-@use '../variables' as *;
+@use './variables' as *;
 :root {
   @each $key, $value in $theme-colors {
     --#{$key}: #{$value};

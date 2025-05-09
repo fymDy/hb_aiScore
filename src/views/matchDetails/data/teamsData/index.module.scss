@@ -68,7 +68,7 @@
     border: 4px solid;
     position: absolute;
     top: 37.5px;
-    border-radius: 3px;
+    @include border-radius(3);
     border-color: #3a7ed3;
     left: 58px;
   }
@@ -84,7 +84,7 @@
     border: 4px solid;
     position: absolute;
     top: 37.5px;
-    border-radius: 3px;
+    @include border-radius(3);
     border-color: #f3b140;
     right: 58px;
   }
@@ -112,7 +112,7 @@
 .on_target_away{
   font-weight: 700;
   padding: 0 5px;
-  border-radius: 2px;
+  @include border-radius(2);
   color: #fff;
 }
 .on_target_home,

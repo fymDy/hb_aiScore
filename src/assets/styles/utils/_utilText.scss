@@ -114,18 +114,21 @@
 
 @use './mixins' ; // 
 @use './common.scss' as vars;
-@mixin font-size($v) {@include mixins.text(font-size, $v,vars.$unit);}
-@mixin line-height($v) {@include mixins.text(line-height, $v,vars.$unit);}
-@mixin border-radius($v) {@include mixins.text(border-radius, $v,vars.$unit);}
-@mixin font-weight($v) {@include mixins.text(font-weight, $v);}
-@mixin color($v) {@include mixins.text(color, $v);}
-@mixin bg($v) { @include mixins.text(background, $v);}
-@mixin bg-color($v) {@include mixins.text(background-color, $v);}
-@mixin border($name,$v) { @include mixins.text($name, $v);}
-@mixin text-align($v) {@include mixins.text(text-align, $v);}
 
-@mixin letter-spacing($v) {@include mixins.text(letter-spacing, $v);}
-@mixin white-space($v) {@include mixins.text(white-space, $v);}
+
+@mixin font-size($v) {@include mixins.haveUnitPx(font-size, $v);}
+@mixin line-height($v) {@include mixins.haveUnitPx(line-height, $v);}
+@mixin border-radius($v) {@include mixins.haveUnitPx(border-radius,$v);}
+
+@mixin font-weight($v) {@include mixins.NoUnit(font-weight, $v);}
+@mixin text-align($v) {@include mixins.NoUnit(text-align, $v);}
+@mixin letter-spacing($v) {@include mixins.NoUnit(letter-spacing, $v);}
+@mixin white-space($v) {@include mixins.NoUnit(white-space, $v);}
+@mixin color($v) {@include mixins.NoUnit(color, $v);}
+@mixin bg($v) { @include mixins.NoUnit(background, $v);}
+@mixin bg-color($v) {@include mixins.NoUnit(background-color, $v);}
+@mixin border($key,$v) { @include mixins.NoUnit($key, $v);}
+
 
 @mixin text-ellipsis {
   white-space: nowrap;

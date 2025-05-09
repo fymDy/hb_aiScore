@@ -4,6 +4,7 @@ import Starting from "./starting";
 import {matchLineupData} from "./data";
 import { EventsAllData } from "../match_data";
 import EventsAll from "../_components/eventsAll";
+import Substitute from "./substitute";
 
 
 const LineUp: React.FC = () => {
@@ -13,6 +14,7 @@ const LineUp: React.FC = () => {
   return (
     <div className={styles.LineUp}>
         <Starting data={matchLineupData}/>
+        <Substitute data={matchLineupData}/>
         <EventsAll className={styles.eventsAll_wrap} data={EventsAllData}/>
     </div>
   );

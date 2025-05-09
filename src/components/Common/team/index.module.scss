@@ -1,3 +1,4 @@
+@use '@/assets/styles/utils' as *;
 .team_box{
   display: flex;
   align-items: center;
@@ -6,7 +7,7 @@
 .team_img{
   margin:0 6px 0 10px ;
   height: 12px;
-  border-radius: 50%;
+  @include border(border-radius,50%);
 }
 .img{
   display: block;

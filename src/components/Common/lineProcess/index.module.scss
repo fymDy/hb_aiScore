@@ -1,3 +1,5 @@
+@use '@/assets/styles/utils' as * ;
+
 .LineProcess {
   position: relative;
   width: 200px;
@@ -30,7 +32,7 @@
 
 .bar {
   flex: 1;
-  border-radius: 3px;
+  @include border-radius(3);
   background-color: var(--color-eee);
   overflow: hidden;
   display: flex;

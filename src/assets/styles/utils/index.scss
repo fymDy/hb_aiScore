@@ -1,10 +1,10 @@
+@forward './utilDisplay';
 @forward './utilFunctions'; // ✅ 把函数也暴露给业务组件
 @forward './utilText';
 @forward './utilsSize';
 @forward './utilSpacing';
 @forward './utilPosition';
-@forward './theme.scss';
-@forward './utilDisplay'
+
 ///utilGrid和utilFlex 直接合并utilDisplay
 // @forward './utilGrid';
 //@forward './utilFlex';

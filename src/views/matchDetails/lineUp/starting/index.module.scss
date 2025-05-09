@@ -62,6 +62,6 @@
 .point{
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  @include border(border-radius,50%);
   background: hsla(0, 0%, 100%, .3);
 }

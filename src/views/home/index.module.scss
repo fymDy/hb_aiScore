@@ -57,7 +57,7 @@
 
     color:var(--color-333);
     background-color: var(--color-f1);
-    border-radius: 4px;
+    @include border-radius(4);
   }
   .defaultActive{
     @include color(css-var(color-fff,true));

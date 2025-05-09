@@ -1,15 +1,14 @@
 import React, { useMemo } from "react";
 import styles from "./index.module.scss";
-import Images from "@/components/Common/Images";
-import { PlayerEvent, PlayerEventType, PlayerInfo } from "../../../../types";
+import { PlayerEvent,  PlayerInfo } from "../../../../types";
 import Circle from "@/components/Common/Circle";
-import SvgIcon from "@/components/Common/IconSvg";
-import { EnumIconFontType } from "@/enum/enumIconFontType";
+
 import { EnumPlayerEventType } from "@/views/matchDetails/types/enum";
 import stylesAway from "@/views/matchDetails/lineUp/starting/index.module.scss";
 import cs from 'classnames'
-import IconFont from "@/components/Common/Iconfont";
 import ImageComp from "@/components/imageComp";
+import EventsType from "@/views/matchDetails/lineUp/_components/eventsType";
+import ISpan from "@/components/Common/ISpan";
 const PlayerLogo: React.FC<{
   playerData: PlayerInfo;
 }> = ({ playerData }) => {
@@ -33,45 +32,7 @@ const PlayerLogo: React.FC<{
     return [card, ball];
   }, [playerData]);
 
-  const getIconFont = (type: PlayerEventType) => {
-    let iconType ;
-    switch (type) {
-      case EnumPlayerEventType.Goal:
-        iconType = EnumIconFontType.icongoal;
-        break;
-      case EnumPlayerEventType.OwnGoal:
-        iconType = EnumIconFontType.iconown_goal;
-        break;
-      case EnumPlayerEventType.PenaltyGoal:
-        iconType = EnumIconFontType.iconPenalty;
-        break;
-      case EnumPlayerEventType.MissedPenalty:
-        iconType = EnumIconFontType.iconPenaltySaved;
-        break;
-      //
-      case EnumPlayerEventType.YellowCard:
-        iconType = EnumIconFontType.iconyellowcard;
-        break;
-      case EnumPlayerEventType.RedCard:
-        iconType = EnumIconFontType.iconredcard;
-        break;
-      case EnumPlayerEventType.SecondYellow:
-        iconType = EnumIconFontType.icontwoyellow_red;
-        break;
-      //换场  
-      case EnumPlayerEventType.SubIn:
-        iconType = EnumIconFontType.iconin1;
-        break;
-      case EnumPlayerEventType.SubOut:
-        iconType = EnumIconFontType.iconout1;
-        break;  
-      //    
-      default:
-        iconType = "";
-        break;
-    }
-    return iconType;
-  };
+  
   return (
     <div className={cs(styles.PlayerLogo,stylesAway.PlayerLogo_away)}>
       <ImageComp
@@ -80,24 +41,13 @@ const PlayerLogo: React.FC<{
         imgSrc={playerData?.photo}
       >
          <>
-         <span className={styles.name}>{playerData?.name}</span>
-          <span className={styles.rating}>{playerData?.rating}</span>
+          <ISpan className={styles.name} name={playerData?.name} />
+          <ISpan className={styles.rating} name={playerData?.rating} />
           <Circle className={styles.shirt_number_wrap}>
             <span className={styles.shirt_number}>{playerData?.shirt_number}</span>
           </Circle>
-          <span className={styles.events_card}>
-            {eventsData?.[0]?.map((item: PlayerEvent, i: number) => (
-            <>
-              <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
-              {(item.type==EnumPlayerEventType.SubIn || item.type==EnumPlayerEventType.SubOut) && `${item?.minute}‘`}
-            </>
-            ))}
-          </span>
-          <span className={styles.events_ball}>
-            {eventsData?.[1]?.map((item: PlayerEvent, i: number) => (
-              <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
-            ))}
-          </span>
+           <EventsType className={styles.events_card} data={eventsData?.[0] } />
+            <EventsType className={styles.events_ball} data={eventsData?.[1] } />
          </>
       </ImageComp>
     </div>

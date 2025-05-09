@@ -1,0 +1,7 @@
+@use '@/assets/styles/utils' as * ;
+
+
+.EventsType {
+  @include flex-between;
+  gap:2px;
+}
