@@ -1,5 +1,40 @@
 
+@use '@/assets/styles/utils' as * ;
+
+
+
 .Missing {
-  width:100%;
+  width: 100%;
+}
+.missing_box{
+ @include bg-color(var(--color-fff));
 
 }
+.header{
+  @include grid-cols(2);
+  @include h(48);
+  @include px(12);
+  @include border(border-bottom,1px solid var(--color-eee));
+  .PlayerComp:last-child{
+    @include border(border-left,1px solid var(--color-eee));
+    @include pl(12);
+  }
+}
+.PlayerComp{
+ @include flex-start-center;
+ @include gap(5);
+} 
+
+.content{
+  @include display(flex);
+
+}
+.content_home{
+  @include border(border-right,1px solid var(--color-eee));
+}
+.content_away,
+.content_home{
+  flex:1;
+ 
+}
+

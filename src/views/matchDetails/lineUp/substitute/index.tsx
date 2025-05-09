@@ -3,7 +3,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 15:21:39
- * @LastEditTime: 2025-05-09 20:25:09
+ * @LastEditTime: 2025-05-09 21:20:12
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/substitute/index.tsx
@@ -21,9 +21,7 @@ const Substitute:React.FC<{
 }>=({
     data
 })=>{
-    const tbData=useMemo(()=>{
-   
-    },[])
+
 
     return (
         <section className={styles.Substitute}>

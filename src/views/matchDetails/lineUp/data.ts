@@ -144,10 +144,31 @@ export const matchLineupData: MatchLineupData = {
           position: 'FW',
           is_captain: false,
           rating: 6.0,
-          events: [{ type: 'second_yellow', minute: 10 },{ type: 'yellow_card', minute: 10 },{ type: 'sub_in', minute: 12 }],
+          events: [],
         },
       ],
-      missing_players: [],
+      missing_players: [
+        {
+          player_id: 'H10',
+          photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+          name: '永井谦佑',
+          shirt_number: 18,
+          position: 'FW',
+          is_captain: false,
+          rating: 7.0,
+          events: [{ type: 'sub_in', minute: 46 }],
+        },
+        {
+          player_id: 'H11',
+          photo: 'https://img0.aiscore.com/football/player/438b0c913b82aa237ab68bb1daf4520d.png!w100',
+          name: '马修斯',
+          shirt_number: 10,
+          position: 'FW',
+          is_captain: false,
+          rating: 6.1,
+          events: [{ type: 'sub_out', minute: 66 }],
+        },
+      ],
     },
 
     away: {
@@ -307,7 +328,7 @@ export const matchLineupData: MatchLineupData = {
         position: 'FW',
         is_captain: false,
         rating: 6.0,
-        events: [{ type: 'yellow_card', minute: 10 },{ type: 'sub_in', minute: 72 }],
+        events: [],
       },],
       missing_players: [
         {
