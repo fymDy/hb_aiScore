@@ -8,6 +8,7 @@ import { EnumIconFontType } from "@/enum/enumIconFontType";
 import { EnumPlayerEventType } from "@/views/matchDetails/types/enum";
 import stylesAway from "@/views/matchDetails/lineUp/starting/index.module.scss";
 import cs from 'classnames'
+import IconFont from "@/components/Common/Iconfont";
 const PlayerLogo: React.FC<{
   playerData: PlayerInfo;
 }> = ({ playerData }) => {
@@ -58,10 +59,10 @@ const PlayerLogo: React.FC<{
         break;
       //换场  
       case EnumPlayerEventType.SubIn:
-        iconType = EnumIconFontType.iconin;
+        iconType = EnumIconFontType.iconin1;
         break;
       case EnumPlayerEventType.SubOut:
-        iconType = EnumIconFontType.iconout;
+        iconType = EnumIconFontType.iconout1;
         break;  
       //    
       default:
@@ -84,7 +85,10 @@ const PlayerLogo: React.FC<{
       </Circle>
       <span className={styles.events_card}>
         {eventsData?.[0]?.map((item: PlayerEvent, i: number) => (
+         <>
           <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
+          {(item.type==EnumPlayerEventType.SubIn || item.type==EnumPlayerEventType.SubOut) && `${item?.minute}‘`}
+         </>
         ))}
       </span>
       <span className={styles.events_ball}>

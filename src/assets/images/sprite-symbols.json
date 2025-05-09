@@ -4,8 +4,13 @@
   "iconPenalty",
   "iconPenaltySaved",
   "icongoal",
+  "iconin1",
+  "iconout1",
   "iconown-goal",
   "iconredandyellow1",
+  "iconredcard",
+  "iconsecondyellow",
   "iconsubstitution",
-  "icontwoyellow-red"
+  "icontwoyellow-red",
+  "iconyellowcard"
 ]

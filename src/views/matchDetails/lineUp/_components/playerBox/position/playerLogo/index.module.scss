@@ -59,6 +59,7 @@
   top:-4px;
   right: 30px;
   @include flex-between;
+  color: var(--color-f1);
 }
 .events_ball{
   height: 12px;

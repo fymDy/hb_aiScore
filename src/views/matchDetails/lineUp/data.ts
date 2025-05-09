@@ -82,7 +82,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.3,
-          events: [{ type: 'yellow_card', minute: 10 },{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
+          events: [{ type: 'sub_in', minute: 46 },{ type: 'yellow_card', minute: 10 },{ type: 'second_yellow', minute: 15 },{ type: 'sub_out', minute: 85 }],
         },
         {
           player_id: 'H8',
@@ -92,7 +92,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'MF',
           is_captain: false,
           rating: 6.3,
-          events: [{ type: 'sub_out', minute: 46 }],
+          events: [{ type: 'sub_in', minute: 46 }],
         },
         {
           player_id: 'H9',
@@ -113,7 +113,7 @@ export const matchLineupData: MatchLineupData = {
           position: 'FW',
           is_captain: false,
           rating: 7.0,
-          events: [{ type: 'sub_out', minute: 46 }],
+          events: [{ type: 'sub_in', minute: 46 }],
         },
         {
           player_id: 'H11',
