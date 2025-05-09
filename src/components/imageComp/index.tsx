@@ -6,11 +6,12 @@ import Images from "../Common/Images";
 const ImageComp: React.FC<{
   imgSrc:any
   className:string
+  imgStyle?:any,
   children?:ReactNode
-}> = ({imgSrc,className,children}) => {
+}> = ({imgSrc,className,imgStyle,children}) => {
   return (
     <div className={styles.ImageComp}>
-       <Images className={cs(className)} imgSrc={imgSrc} />
+       <Images className={cs(className)} imgSrc={imgSrc} imgStyle={imgStyle}/>
        {children}
     </div>
   );

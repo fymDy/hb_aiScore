@@ -3,7 +3,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 15:21:39
- * @LastEditTime: 2025-05-08 17:02:36
+ * @LastEditTime: 2025-05-09 14:14:18
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/starting/index.tsx
@@ -13,9 +13,9 @@ import styles from './index.module.scss'
 import TeamInfo from "../_components/teamInfo";
 import { MatchLineupData } from "../types";
 import cs from 'classnames'
-import Square from "../_components/square";
+import Square from "./square";
 // import Circle from "../_components/circle";
-import PlayerBox from "../_components/playerBox";
+import PlayerBox from "./playerBox";
 import Circle from "@/components/Common/Circle";
 const Starting:React.FC<{
     data:MatchLineupData

@@ -9,6 +9,7 @@ import { EnumPlayerEventType } from "@/views/matchDetails/types/enum";
 import stylesAway from "@/views/matchDetails/lineUp/starting/index.module.scss";
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
+import ImageComp from "@/components/imageComp";
 const PlayerLogo: React.FC<{
   playerData: PlayerInfo;
 }> = ({ playerData }) => {
@@ -73,29 +74,32 @@ const PlayerLogo: React.FC<{
   };
   return (
     <div className={cs(styles.PlayerLogo,stylesAway.PlayerLogo_away)}>
-      <Images
+      <ImageComp
         className={styles.logo}
-        imgStyle={{ borderRadius: "50%" }}
+        imgStyle={{borderRadius:'50%'}}
         imgSrc={playerData?.photo}
-      />
-      <span className={styles.name}>{playerData?.name}</span>
-      <span className={styles.rating}>{playerData?.rating}</span>
-      <Circle className={styles.shirt_number_wrap}>
-        <span className={styles.shirt_number}>{playerData?.shirt_number}</span>
-      </Circle>
-      <span className={styles.events_card}>
-        {eventsData?.[0]?.map((item: PlayerEvent, i: number) => (
+      >
          <>
-          <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
-          {(item.type==EnumPlayerEventType.SubIn || item.type==EnumPlayerEventType.SubOut) && `${item?.minute}‘`}
+         <span className={styles.name}>{playerData?.name}</span>
+          <span className={styles.rating}>{playerData?.rating}</span>
+          <Circle className={styles.shirt_number_wrap}>
+            <span className={styles.shirt_number}>{playerData?.shirt_number}</span>
+          </Circle>
+          <span className={styles.events_card}>
+            {eventsData?.[0]?.map((item: PlayerEvent, i: number) => (
+            <>
+              <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
+              {(item.type==EnumPlayerEventType.SubIn || item.type==EnumPlayerEventType.SubOut) && `${item?.minute}‘`}
+            </>
+            ))}
+          </span>
+          <span className={styles.events_ball}>
+            {eventsData?.[1]?.map((item: PlayerEvent, i: number) => (
+              <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
+            ))}
+          </span>
          </>
-        ))}
-      </span>
-      <span className={styles.events_ball}>
-        {eventsData?.[1]?.map((item: PlayerEvent, i: number) => (
-          <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
-        ))}
-      </span>
+      </ImageComp>
     </div>
   );
 };
