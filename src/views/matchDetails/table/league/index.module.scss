@@ -1,0 +1,57 @@
+
+@use '@/assets/styles/utils' as * ;
+
+
+.League {
+  width:100%;
+
+}
+
+
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+ .tableHeader{
+    @include h(30);
+    @include font-size(12.75);
+    @include color(var(--color-999));
+    @include display(flex);
+   
+  }
+  .PlayerComp{
+    @include flex-start-center;
+    @include gap(5);
+   } 
+}
+span{
+  @include flex-center;
+}
+span:first-child{
+  @include w(42);
+}
+span:nth-child(2){
+  @include w(120);
+}
+span:not(:first-child):not(:nth-child(2)){
+  @include flex(1);
+}
+
+/* 状态颜色标识 */
+.champion {
+  background-color: #e6f7ff;
+}
+
+.promoted {
+  background-color: #f6ffed;
+}
+
+.relegated {
+  background-color: #fff1f0;
+}
+
+.normal {
+  background-color: #fff;
+}
