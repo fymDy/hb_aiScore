@@ -137,6 +137,14 @@
   grid-template-rows: repeat($count, 1fr);
 }
 
+/// 设置列数（grid-template-columns: 1fr 28px
+/// @param {String} $v 1fr 28px
+@mixin grid-template-cols($v) {
+  @include display(grid);
+  @include items(center);
+  @include mixins.NoUnit(grid-template-columns, $v);
+}
+
 /// 设置 row-gap 间距
 /// @param {Number|String} $v - 行间距数值
 @mixin row-gap($v) {

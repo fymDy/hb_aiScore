@@ -1,0 +1,40 @@
+@use '@/assets/styles/utils' as * ;
+
+
+
+.UserLevel{
+  @include position(relative);
+  @include flex-start-center;
+  @include w(40);
+  @include h(12);
+  @include border-radius(25);
+
+}
+.UserLevel10{
+    background-color: #9fabde;
+}
+.UserLevel20{
+    background-color: #fcbf4a;
+}
+.UserLevel30{
+    background-color: #fb8c97;
+}
+.UserLevel40{
+    background-color: #fdceaa;
+}
+.UserLevel50{
+    background-color:  #9167e7;
+}
+.UserLevel60{
+    background-color:  red;
+}
+.icon{
+    @include absolute-top-left(50%,-2px);
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+.level{
+    @include absolute-right;
+    transform: scale(.7);
+   
+}

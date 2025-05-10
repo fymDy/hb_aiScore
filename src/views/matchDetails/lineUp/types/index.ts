@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 11:40:42
- * @LastEditTime: 2025-05-09 19:16:08
+ * @LastEditTime: 2025-05-10 11:36:43
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/types/index.ts
@@ -58,7 +58,10 @@ export type PlayerEventType =
   | 'red_card'          // 红牌
   | 'second_yellow'     // 两黄变一红
   | 'sub_in'    // 换上
-  | 'sub_out';  // 换下
+  | 'sub_out'  // 换下
+  | 'injured'  // 受伤
+  | 'suspended'  // 暂停
+  
 
   export interface PlayerEvent {
     type: PlayerEventType;

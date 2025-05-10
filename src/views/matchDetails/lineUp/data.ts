@@ -338,8 +338,10 @@ export const matchLineupData: MatchLineupData = {
             position: "DF",
             is_captain: false,
             photo: "https://img.aiscore.com/player/xxx3.png",
+            events: [{ type: 'injured', minute: 10 }],
             status: 'missing',
             unavailable_reason:'injured'
+            
           },
           {
             player_id: "A16",
@@ -348,6 +350,7 @@ export const matchLineupData: MatchLineupData = {
             position: "MF",
             is_captain: false,
             photo: "https://img.aiscore.com/player/xxx4.png",
+            events: [{ type: 'suspended', minute: 10 }],
             status: 'missing',
             unavailable_reason:'suspended'
           }

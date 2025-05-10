@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 16:48:45
- * @LastEditTime: 2025-05-09 20:58:20
+ * @LastEditTime: 2025-05-10 11:37:43
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/_components/eventsType/index.tsx
@@ -49,7 +49,10 @@ const EventsType:React.FC<{
                break;
              case EnumPlayerEventType.SubOut:
                iconType = EnumIconFontType.iconout1;
-               break;  
+               break;
+              case EnumPlayerEventType.Injured:
+              iconType = EnumIconFontType.iconInjured;
+            break;     
              //    
              default:
                iconType = "";
@@ -59,11 +62,12 @@ const EventsType:React.FC<{
          };
     return (
         <div className={cs(styles.EventsType,className)}>
-                {data?.map((item: PlayerEvent, i: number) => (
-                    <>
-                    <SvgIcon key={i} name={getIconFont(item.type)} size={12} />
-                    {(item.type==EnumPlayerEventType.SubIn || item.type==EnumPlayerEventType.SubOut) && `${item?.minute}‘`}
-                    </>
+                {
+                    data?.map((item: PlayerEvent, i: number) => (
+                    <span key={i} className={cs(styles.item)} >
+                      <SvgIcon  name={getIconFont(item.type)} size={12} />
+                      {(item.type==EnumPlayerEventType.SubIn || item.type==EnumPlayerEventType.SubOut) && `${item?.minute}‘`}
+                    </span>
                 ))}
         </div>
     )

@@ -1,0 +1,19 @@
+@use '@/assets/styles/utils' as * ;
+
+
+
+.HistoryBox{
+    @include flex-column;
+    @include gap(4);
+    @include p(4,10);
+    @include bg-color(var(--color-fff));
+}
+.item{
+    @include position(relative);
+    @include display(flex);
+    @include gap(5);
+}
+.username{
+    @include color(css-var(--color-0f80da,true));
+    @include white-space(nowrap) ;
+}

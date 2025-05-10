@@ -110,15 +110,24 @@
 /// 居中定位（需配合 transform: translate）
 @mixin absolute-center {
   @include position(absolute);
-  @include top(50%);
-  @include left(50%);
+  top:50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/// 居左且定位（需配合 transform: translate）
+@mixin absolute-left-center {
+  @include position(absolute);
+  left: 0;
+  top:50%;
+  transform: translateY(-50%);
+}
+
 /// absolute左上固定角
 @mixin absolute-top-left( $t: 0, $l: 0) {
   @include position(absolute);
-  @include top($t);
-  @include left($l);
+  top:$t;
+  left: $l;
 }
 /// absolute右上固定角
 @mixin absolute-top-right( $t: 0, $r: 0) {
@@ -144,3 +153,10 @@
   @include bottom($b);
   @include right($r);
 }
+/// 底部固定
+@mixin fixed-bottom($b: 0,) {
+  @include position(fixed);
+  @include bottom($b);
+
+}
+

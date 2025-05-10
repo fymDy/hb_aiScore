@@ -1,0 +1,33 @@
+@use '@/assets/styles/utils' as * ;
+
+
+
+.WriteBox{
+  width:100%;
+  @include fixed-bottom(0);
+  @include grid-template-cols(1fr 28px);
+  @include p(6,12);
+  @include gap(12);
+  background-color: #f4f5f8;
+}
+.write{
+  @include h(28);
+  @include flex-between;
+  @include border-radius(28);
+  @include bg-color(var(--color-fff));
+  color: rgba(141, 147, 152, .37);
+  @include font-size(13);
+  @include pl(15);
+}
+.sendBox{
+  @include grid-center;
+  @include w(28);
+  @include h(28);
+  @include border(border-radius,50%);
+  @include bg-color(var(--color-fff));
+
+  .iconSend{
+    color: #a3abb4;
+    @include font-size(13);
+  }
+}

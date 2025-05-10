@@ -68,7 +68,7 @@ interface SpriteDataItem {
       ...style,
     };
 
-    return <div style={componentStyle} />;
+    return <span style={componentStyle} />;
   };
 
   export default SpriteIcon;

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-08 16:25:43
- * @LastEditTime: 2025-05-08 16:26:49
+ * @LastEditTime: 2025-05-10 11:29:21
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/types/enum.ts
@@ -16,4 +16,5 @@ export enum EnumPlayerEventType {
     SecondYellow = 'second_yellow', // 两黄变一红
     SubIn = 'sub_in',             // 换上
     SubOut = 'sub_out',           // 换下
+    Injured = 'injured'           // 受伤
   }
