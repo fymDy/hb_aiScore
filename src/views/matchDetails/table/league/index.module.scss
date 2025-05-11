@@ -4,16 +4,19 @@
 
 .League {
   width:100%;
-
+  @include bg-color(var(--color-fff));
+  // .Title{
+  //   @include bg-color(var(--color-f1));
+  // }
+  
 }
-
 
 
 
 .table {
   width: 100%;
   border-collapse: collapse;
-
+  .tableRow,
  .tableHeader{
     @include h(30);
     @include font-size(12.75);
@@ -22,36 +25,60 @@
    
   }
   .PlayerComp{
+    @include w(120);
     @include flex-start-center;
     @include gap(5);
    } 
+
+  label.goals,
+  label.order{
+    @include flex-center;
+    @include w(42);
+  }
+  span{
+    @include flex-center;
+  }
+  span{
+    @include flex(1);
+  }
+  .W{
+    @include color(var(--color-52af2f));
+  }
+  .D{
+    @include color(var(--color-ffba5a));
+  }
+  .L{
+    @include color(var(--color-e74c5b));
+  }
+ 
 }
-span{
-  @include flex-center;
+.tableRow{
+  .P,.W,.D,.L{
+    @include bg-color(rgba(var(--color-rgba-2)));
+  }
+  .pts{
+    @include bg-color(var(--color-fff5e2));
+  }
+  .goals,
+  .goal_diff{
+    @include bg-color(var(--color-f6f6f8));
+  }
 }
-span:first-child{
-  @include w(42);
-}
-span:nth-child(2){
-  @include w(120);
-}
-span:not(:first-child):not(:nth-child(2)){
-  @include flex(1);
-}
+// #{css-var-alpha()}
 
 /* 状态颜色标识 */
-.champion {
-  background-color: #e6f7ff;
-}
+// .champion {
+//   background-color: #e6f7ff;
+// }
 
-.promoted {
-  background-color: #f6ffed;
-}
+// .promoted {
+//   background-color: #f6ffed;
+// }
 
-.relegated {
-  background-color: #fff1f0;
-}
+// .relegated {
+//   background-color: #fff1f0;
+// }
 
-.normal {
-  background-color: #fff;
-}
+// .normal {
+//   background-color: #fff;
+// }

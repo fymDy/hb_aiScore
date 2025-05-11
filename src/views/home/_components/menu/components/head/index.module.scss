@@ -5,7 +5,7 @@
   height: spacing(48);
 @include p(0,15);
   @include flex-between;
-  border-bottom: 1px solid #{css-var-alpha(color-rgab-1,.4)};
+  border-bottom: 1px solid #{css-var-alpha(color-rgba-1,.4)};
 }
 .left{
   font-size: spacing(16);
