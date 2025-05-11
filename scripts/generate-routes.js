@@ -88,17 +88,17 @@ async function generateRoutes(dirPath, basePath) {
   // 如果存在 routerConfig.ts 并且成功提取到配置
   if (currentConfig && currentConfig.length > 0) {
     // 从 routerConfig.ts 中获取自定义路径，否则根据目录结构生成路径
-    const routePath = currentConfig[0].path || (basePath === '/' ? `${path.basename(dirPath)}` : path.join(basePath, path.basename(dirPath)));
-    console.log('routePath--',routePath)
+    const routePath = currentConfig[0].path 
+    || (basePath === '/' ? `${path.basename(dirPath)}` : path.join(basePath, path.basename(dirPath)));
+
     // 计算组件相对于 VIEWS_DIR 的路径
     const componentPath = path.relative(VIEWS_DIR, path.join(dirPath, 'index.tsx')).replace(/\\/g, '/');
     const route = {
-     
-      path: currentConfig[0].name || path.basename(dirPath),
       name: currentConfig[0].name || path.basename(dirPath),
+      path: currentConfig[0].path || currentConfig[0].name || path.basename(dirPath),
+      fullPath:currentConfig[0]?.fullPath || currentConfig[0].path ,
       author: currentConfig[0].author ? currentConfig[0].author : false,
-      component: componentPath, // 添加 component 属性
-      fullPath:routePath
+      component: componentPath // 添加 component 属性
     };
   
     if(currentConfig[0]?.index ){
@@ -187,7 +187,7 @@ async function generateRoutePathEnum(routes, outputFile) {
           // 将路径转换为合法的枚举 key，例如：/user/profile -> USER_PROFILE
           const enumKey = route.fullPath
             .replace(/^\//, '') // 移除开头的斜杠
-            .replace(/[:.]/g, '') // 移除冒号和点
+            .replace(/[:.]/g, '') // 移除冒号和点'/article/:slug'→ article_slug
             .replace(/\//g, '_') // 将斜杠替换为下划线
             .replace(/-/g, '_') // 将横杠连字符替换为下划线
             .toUpperCase();

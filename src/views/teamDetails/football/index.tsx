@@ -1,12 +1,21 @@
+/*
+ * @Author: Mark
+ * @Date: 2025-05-11 21:51:47
+ * @LastEditTime: 2025-05-11 21:51:48
+ * @LastEditors: MarkMark
+ * @Description: 佛祖保佑无bug
+ * @FilePath: /hb_aiScore/src/views/teamDetails/football/index.tsx
+ */
 
     import React from 'react';
-    import styles from './index.module.scss';
 
     const Football: React.FC = () => {
-      debugger
+   
+    
           return (
-            <div className={styles.football}>
-              <h1>football 页面</h1>
+            <div >
+              <h1>Football 页面</h1>
+            
             </div>
           );
         };

@@ -3,7 +3,8 @@
 const routerConfig:IFRouterConfig[] = [
   {
     name: 'login', // 使用当前文件名作为路由路径
-    path: '/account/login', // 使用完整路径作为自定义路径
+    path: 'login',
+    fullPath: '/account/login', // 使用完整路径作为自定义路径
     author: false, // 默认不需要登录验证
   }
 ];
