@@ -119,7 +119,7 @@ const MatchDetails: React.FC = () => {
       }}
       onClickTeam={()=>{
         setShowStep(true)
-        navigatePlus(`${RouterPathUtil.TEAMDETAILS_FOOTBALL}`, { state:state, replace: false })
+        navigatePlus(`/teamDetails/football`, { state:state, replace: false })
       }}/>
       <TabsComp
         className={styles.tabs}

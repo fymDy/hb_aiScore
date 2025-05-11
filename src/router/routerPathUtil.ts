@@ -19,7 +19,7 @@ export enum RouterPathUtil {
   HOME_VOLLEYBALL = '/home/volleyball',
   HOME_WATERPOLO = '/home/waterpolo',
   MATCHDETAILS = '/matchDetails',
-  TEAMDETAILS = '/teamDetails',
+  TEAMDETAILS = 'teamDetails',
   TEAMDETAILS_BASKETBALL = '/teamDetails/basketball',
   TEAMDETAILS_FOOTBALL = '/teamDetails/football',
 }

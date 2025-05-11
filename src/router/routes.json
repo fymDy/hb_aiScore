@@ -167,8 +167,8 @@
     "name": "teamDetails",
     "author": false,
     "component": "teamDetails/index.tsx",
-    "fullPath": "/teamDetails",
-    "customPath": "/teamDetails/:type",
+    "fullPath": "teamDetails",
+    "customPath": "teamDetails/:type",
     "children": [
       {
         "path": "basketball",
