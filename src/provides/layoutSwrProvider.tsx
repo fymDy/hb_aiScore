@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-02 19:47:34
- * @LastEditTime: 2025-05-03 11:53:22
+ * @LastEditTime: 2025-05-11 22:48:14
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutSwrProvider.tsx
@@ -15,10 +15,8 @@
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/provides/layoutHomeProvider.tsx
  */
-import { useGetUserInfo } from "@/apiHooks/common"
 import { LayoutSwrContext, LayoutSwrContextType } from "./inteface"
 import { SWRConfig } from "swr"
-import { useEffect } from "react"
 
 
 export const LayoytSwrProvider:React.FC<LayoutSwrContextType>=({

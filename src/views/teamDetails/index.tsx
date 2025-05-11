@@ -2,15 +2,14 @@
     import React from 'react';
     import styles from './index.module.scss';
 import { useLocationPlus } from '@/hooks/router/useLocationPlus';
-import Football from './Football';
+import LayoutOutlet from '@/layout/outlet';
 
     const TeamDetails: React.FC = () => {
     const {params}=  useLocationPlus()
-debugger
     const renderContent = () => {
       switch (params?.type) {
         case 'football':
-          return <Football />;
+          return <div />;
         case 'baseball':
           return <div />;
         default:
@@ -21,7 +20,8 @@ debugger
           return (
             <div className={styles.teamDetails}>
               <h1>teamDetails 页面</h1>
-              {renderContent()}
+              {/* {renderContent()} */}
+              <LayoutOutlet />
             </div>
           );
         };

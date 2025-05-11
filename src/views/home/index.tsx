@@ -1,6 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
-import { Outlet } from "react-router-dom";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import { IFSearchResult, IFTab } from "./interface";
 import cs from "classnames";
@@ -16,6 +15,7 @@ import { useApp } from "@/hooks/useApp";
 import { pxToRem } from "@/utils/common";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
+import LayoutOutlet from "@/layout/outlet";
 const Home = () => {
 
   const { pathname } = useLocationPlus();
@@ -460,7 +460,7 @@ const Home = () => {
               clickBtnOthers || clickBtnMenu || clickBtnSearch,
           })}
         >
-          <Outlet />
+          <LayoutOutlet />
         </div>
       </div>
     </LayoytHomeContextProvider>

@@ -168,7 +168,23 @@
     "fullPath": "/teamDetails",
     "author": false,
     "component": "teamDetails/index.tsx",
-    "customPath": "/teamDetails/:type",
-    "children": []
+    "children": [
+      {
+        "name": "basketball",
+        "path": "basketball",
+        "fullPath": "/teamDetails/basketball",
+        "author": false,
+        "component": "teamDetails/basketball/index.tsx",
+        "children": []
+      },
+      {
+        "name": "football",
+        "path": "football",
+        "fullPath": "/teamDetails/football",
+        "author": false,
+        "component": "teamDetails/football/index.tsx",
+        "children": []
+      }
+    ]
   }
 ]
