@@ -19,6 +19,7 @@ position: relative;
 }
 .live{
   position: absolute;
+  @include flex-center;
 }
 
 .icon_font{

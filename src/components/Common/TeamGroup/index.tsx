@@ -14,7 +14,7 @@ const TeamGroup: React.FC<{
             <ImageComp className={cs(classNameIcon,styles.TeamGroup)} imgSrc={teamImg}>
               <ISpan className={styles.team_name} name={teamName}></ISpan>
               {teamNameDesc &&<ISpan className={styles.team_name} name={teamNameDesc}></ISpan>}
-          </ImageComp>
+            </ImageComp>
     // </div>
   );
 };

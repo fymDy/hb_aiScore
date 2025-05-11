@@ -2,7 +2,7 @@
 @use '@/assets/styles/utils' as * ;
 
 
-.team_logo{
+.TeamLogoComp{
   @include w(93);
   @include h(93);
   @include flex-column-start-center;

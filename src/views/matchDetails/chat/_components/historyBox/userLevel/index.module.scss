@@ -29,7 +29,7 @@
     background-color:  red;
 }
 .icon{
-    @include absolute-top-left(50%,-2px);
+    @include absolute-top-left-percent(50%,-2px);
     transform: translateY(-50%);
     border-radius: 50%;
 }

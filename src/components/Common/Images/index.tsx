@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-27 20:19:26
- * @LastEditTime: 2025-05-11 15:08:57
+ * @LastEditTime: 2025-05-11 20:18:46
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/Common/Images/index.tsx
@@ -11,7 +11,7 @@ import cs from 'classnames'
 import defaultPlayer from '@/assets/images/default-player.png'
 import { useState } from 'react';
 const Image:React.FC<{
-    imgSrc:any,
+    imgSrc:string | undefined ,
     imgStyle?:React.CSSProperties,
     className?:string,
 }>=({
@@ -19,6 +19,7 @@ const Image:React.FC<{
     imgStyle,
     className,
 })=>{
+    const [currentSrc, setCurrentSrc] = useState(imgSrc || defaultPlayer);
     const [imgFailed, setImgFailed] = useState(false);
     const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
         e.currentTarget.onerror = null; // 防止 fallback 图也报错死循环
@@ -28,7 +29,7 @@ const Image:React.FC<{
     return(
        <div className={cs(styles.Image,className)}>
             <img className={cs(styles.img, imgFailed && styles.defaultPlayer)} style={imgStyle}
-             src={imgSrc?imgSrc:defaultPlayer} onError={handleImgError} />
+             src={currentSrc} onError={handleImgError} />
       </div>
     )
 }

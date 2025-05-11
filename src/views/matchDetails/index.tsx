@@ -14,6 +14,7 @@ import Odds from "./odds";
 import Table from "./table";
 import { useApp } from "@/hooks/useApp";
 import { matchData } from "./match_data";
+import { RouterPathUtil } from "@/router/routerPathUtil";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
@@ -111,9 +112,14 @@ const MatchDetails: React.FC = () => {
   return (
     <div className={styles.matchDetails}>
     
-      <MatchHeader data={headerData} onClick={()=>{
+      <MatchHeader data={headerData} 
+      onClickBack={()=>{
         setShowStep(true)
         navigatePlus(-1)
+      }}
+      onClickTeam={()=>{
+        setShowStep(true)
+        navigatePlus(`${RouterPathUtil.TEAMDETAILS_FOOTBALL}`, { state:state, replace: false })
       }}/>
       <TabsComp
         className={styles.tabs}

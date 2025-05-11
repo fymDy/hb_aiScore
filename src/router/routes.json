@@ -161,5 +161,31 @@
     "component": "matchDetails/index.tsx",
     "fullPath": "/matchDetails",
     "children": []
+  },
+  {
+    "path": "teamDetails",
+    "name": "teamDetails",
+    "author": false,
+    "component": "teamDetails/index.tsx",
+    "fullPath": "/teamDetails",
+    "customPath": "/teamDetails/:type",
+    "children": [
+      {
+        "path": "basketball",
+        "name": "basketball",
+        "author": false,
+        "component": "teamDetails/basketball/index.tsx",
+        "fullPath": "/teamDetails/basketball",
+        "children": []
+      },
+      {
+        "path": "football",
+        "name": "football",
+        "author": false,
+        "component": "teamDetails/football/index.tsx",
+        "fullPath": "/teamDetails/football",
+        "children": []
+      }
+    ]
   }
 ]

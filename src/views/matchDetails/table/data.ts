@@ -3,7 +3,7 @@ import { ScorerItem, StandingGroup, StandingTeam} from "./enum";
 /*
  * @Author: Mark
  * @Date: 2025-05-10 19:35:53
- * @LastEditTime: 2025-05-11 16:06:15
+ * @LastEditTime: 2025-05-11 20:12:54
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/table/data.ts
@@ -19,7 +19,7 @@ export const standingsGrouped: StandingGroup[] = [
           rank: 1,
           team_id: "team001",
           team_name: "穆罕默德德SC",
-          team_logo: "https://example.com/logo1.png",
+          team_logo: "",
           match_played: 7,
           wins: 5,
           draws: 2,
@@ -80,7 +80,7 @@ export const standingsGrouped: StandingGroup[] = [
           rank: 1,
           team_id: "team001",
           team_name: "穆罕默德德SC",
-          team_logo: "https://example.com/logo1.png",
+          team_logo: "http://example.com/logo1.png",
           match_played: 4,
           wins: 3,
           draws: 1,
@@ -126,7 +126,7 @@ export const standingsGrouped: StandingGroup[] = [
           rank: 1,
           team_id: "team001",
           team_name: "穆罕默德德SC",
-          team_logo: "https://example.com/logo1.png",
+          team_logo: "http://example.com/logo1.png",
           match_played: 3,
           wins: 2,
           draws: 1,

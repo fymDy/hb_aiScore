@@ -126,6 +126,11 @@
 /// absolute左上固定角
 @mixin absolute-top-left( $t: 0, $l: 0) {
   @include position(absolute);
+  @include top($t);
+  @include right($l);
+}
+@mixin absolute-top-left-percent( $t: 0, $l: 0) {
+  @include position(absolute);
   top:$t;
   left: $l;
 }
@@ -135,6 +140,12 @@
   @include top($t);
   @include right($r);
 }
+@mixin absolute-top-right-percent( $t: 0, $r: 0) {
+  @include position(absolute);
+  top:$t;
+  right: $r;
+}
+
 @mixin absolute-right($r: 0) {
   @include position(absolute);
   @include right($r);
