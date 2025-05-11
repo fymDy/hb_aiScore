@@ -1,5 +1,71 @@
 
+@use '@/assets/styles/utils' as * ;
+
+
 .Scorer {
   width:100%;
+  .Title{
+    @include font-weight(700);
+    @include my(12);
+  }
+}
 
+.table {
+  width: 100%;
+
+ .tableHeader{
+    @include h(30);
+    @include font-size(12.75);
+    @include color(var(--color-999));
+    @include display(flex);
+    @include bg-color(var(--color-f1));
+  }
+  .tableContent{
+    width: 100%;
+  }
+}
+.tableRow{
+  @include h(45);
+  @include font-size(12.75);
+
+  @include display(flex);
+  @include border(border-bottom, solid 1px var(--color-eee));
+
+}
+.order{
+  @include flex-center;
+  @include w(36);
+  @include color(var(--color-999));
+}
+.PlayerComp{
+  @include flex-start-center;
+  @include flex(1);
+  @include gap(10);
+  .left{
+    @include w(26);
+    @include h(26);
+  }
+  .right{
+    @include flex-column;
+    @include gap(2);
+    .player_name{
+     
+    }
+    .playerLogo{
+      @include w(12);
+      @include h(12);
+      @include mr(2);
+    }
+    .playerName{
+      @include color(var(--color-999));
+    }
+    .teamWrap{
+      @include flex-start-center;
+    }
+  }
+ } 
+.goals{
+  @include flex-center;
+  @include w(63.75);
+  @include color(var(--color-999));
 }

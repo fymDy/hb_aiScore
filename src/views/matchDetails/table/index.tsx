@@ -4,13 +4,15 @@ import { IFSearchResult } from "@/views/home/interface";
 import BtnGroup from "@/components/Common/btnGroup";
 import Title from "../_components/title";
 import League from "./league";
-import { standingsGrouped } from "./data";
+import { scorerList, standingsGrouped } from "./data";
 import { StandingGroup, StandingTeam } from "./enum";
+import Scorer from "./scorer";
 
 
 const Table: React.FC = () => {
-   const [activeFilterId, setActiveFilterId] = useState("all");
-const filterData: IFSearchResult[] = useMemo(() => {
+
+  const [activeFilterId, setActiveFilterId] = useState("all");
+  const filterData: IFSearchResult[] = useMemo(() => {
     const data = [
       {
         id: "all",
@@ -19,32 +21,27 @@ const filterData: IFSearchResult[] = useMemo(() => {
       },
       {
         id: "home",
-        name: "主场",
+        name: "主場",
         isActive: activeFilterId === "home",
       },
       {
         id: "away",
-        name: "客场",
+        name: "客場",
         isActive: activeFilterId === "away",
       }
     ];
 
     return data;
   }, [activeFilterId]);
-
   const resLeagueData=useMemo<StandingTeam[]>(()=>{
    return standingsGrouped?.filter((item)=>item.type===activeFilterId)?.[0]?.list ?? []
   },[activeFilterId])
 
   return (
-    <div className={styles.Table}>
-     <BtnGroup
-        className={styles.btnGroupr_wrap}
-        dataList={filterData}
-        onclick={(id: string) => setActiveFilterId(id)}
-      />
-      <League data={resLeagueData}/>
-    </div>
+    <article className={styles.Table}>
+      <League data={resLeagueData} filterData={filterData} onclickFilter={(id: string) => setActiveFilterId(id)} matchName={'亞冠精英資格賽'}/>
+      <Scorer data={scorerList}/>
+    </article>
   );
 };
 

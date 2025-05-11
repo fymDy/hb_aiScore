@@ -1,9 +1,15 @@
+@use '@/assets/styles/utils' as * ;
+
 .Image{
     width: 18.75px;
     height: 18.75px;
-    img{
+    .img{
         width: 100%;
         height: 100%;
         object-fit: contain;
+    }
+    .defaultPlayer{
+        border-radius: 50%;
+        @include border(border,solid 1px var(--color-eee));
     }
 }

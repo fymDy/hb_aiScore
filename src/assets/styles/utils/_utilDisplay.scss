@@ -92,6 +92,13 @@
   @include display(flex);
   @include flex-direction;
 }
+///
+ @mixin flex-column-start-center {
+  @include display(flex);
+  @include flex-direction;
+  @include justify(start);
+  @include items(center);
+}
 /// 设置纵向 flex 列布局局中
 @mixin flex-column-center {
   @include display(flex);
