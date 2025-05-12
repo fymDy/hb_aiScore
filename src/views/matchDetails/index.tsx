@@ -3,18 +3,19 @@ import styles from "./index.module.scss";
 import MatchHeader from "@/components/Common/matchHeader";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
-import OverView from "./overview";
+import OverView from "./football/overview";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
-import Chat from "./chat";
-import Data from "./data";
-import LineUp from "./lineUp";
-import Match from "./match";
-import Odds from "./odds";
-import Table from "./table";
+import Chat from "./football/chat";
+import Data from "./football/data";
+import LineUp from "./football/lineUp";
+import Match from "./football/match";
+import Odds from "./football/odds";
+import Table from "./football/table";
 import { useApp } from "@/hooks/useApp";
 import { matchData } from "./match_data";
 import { RouterPathUtil } from "@/router/routerPathUtil";
+import LayoutOutlet from "@/layout/outlet";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
@@ -97,17 +98,6 @@ const MatchDetails: React.FC = () => {
     navigatePlus(`#${id}`, { state:state, replace: true })
   };
 
-  const RenderComp =  (
-      <>
-        {hashValue === "overview" && <OverView />}
-        {hashValue === "chat"  && <Chat />}
-        {hashValue === "odds"   && <Odds />}
-        {hashValue === "data" && <Data teamsData={matchData.teams} />}
-        {hashValue === "lineUp"   && <LineUp />}
-        {hashValue === "match"  && <Match />}
-        {hashValue === "table"  && <Table />}
-      </>
-  )
 
   return (
     <div className={styles.matchDetails}>
@@ -133,7 +123,8 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      {RenderComp}
+     
+      <LayoutOutlet/>
     </div>
   );
 };

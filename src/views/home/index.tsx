@@ -16,9 +16,10 @@ import { pxToRem } from "@/utils/common";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import LayoutOutlet from "@/layout/outlet";
+import Football from "./football";
 const Home = () => {
 
-  const { pathname } = useLocationPlus();
+  const { pathname,lastPath } = useLocationPlus();
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
   const {setShowFrm,setShowStep}=useApp()
   const [iptValue, setIptValue] = useState("");
@@ -336,8 +337,8 @@ const Home = () => {
     }
   }};
   const handleClickItem = (id:string,item: any) => {
-  
-  navigatePlus(`${RouterPathUtil.MATCHDETAILS}#overview`, {
+    // pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname
+  navigatePlus(`${RouterPathUtil.MATCHDETAILS}/${pathname==RouterPathUtil.HOME  ?'football':lastPath}#overview`, {
       state: {
         sportId:activeTabId,
         leagueId:id, //联赛id
@@ -460,6 +461,7 @@ const Home = () => {
               clickBtnOthers || clickBtnMenu || clickBtnSearch,
           })}
         >
+          {/* <Football/> */}
           <LayoutOutlet />
         </div>
       </div>

@@ -160,7 +160,24 @@
     "fullPath": "/matchDetails",
     "author": false,
     "component": "matchDetails/index.tsx",
-    "children": []
+    "children": [
+      {
+        "name": "basketball",
+        "path": "basketball",
+        "fullPath": "/matchDetails/basketball",
+        "author": false,
+        "component": "matchDetails/basketball/index.tsx",
+        "children": []
+      },
+      {
+        "name": "football",
+        "path": "football",
+        "fullPath": "/matchDetails/football",
+        "author": false,
+        "component": "matchDetails/football/index.tsx",
+        "children": []
+      }
+    ]
   },
   {
     "name": "teamDetails",
