@@ -61,7 +61,7 @@ const updatedRoutesIndexConfig = [
     children:[
       {
         index: true,
-        element: <Navigate to={RouterPathUtil.HOME} replace />
+        element: <Navigate to={RouterPathUtil.HOME_FOOTBALL} replace />
       },
       ...routesJonFile
     ]

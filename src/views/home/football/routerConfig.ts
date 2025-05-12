@@ -6,7 +6,7 @@ const routerConfig:IFRouterConfig[] = [
     path: 'football',
     fullPath: '/home/football', // 使用完整路径作为自定义路径
     author: false, // 默认不需要登录验证
-    index: true, // 是否默认跳转
+    // index: true, // 是否默认跳转
   }
 ];
 export default routerConfig;

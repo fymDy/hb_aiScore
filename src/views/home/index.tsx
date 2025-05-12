@@ -19,7 +19,7 @@ import LayoutOutlet from "@/layout/outlet";
 import Football from "./football";
 const Home = () => {
 
-  const { pathname,lastPath } = useLocationPlus();
+  const { pathname,params,lastPath } = useLocationPlus();
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
   const {setShowFrm,setShowStep}=useApp()
   const [iptValue, setIptValue] = useState("");
@@ -243,7 +243,9 @@ const Home = () => {
 
   useEffect(() => {
     const tabItem: IFTab = allBallData?.filter(
-      (item) => item?.path === (pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname) 
+      (item) => {
+        return item?.path === (pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname)
+      } 
     )?.[0];
     setActiveTabId(tabItem?.id);
    const filterChangeDataId= changeBallDatas.map((item:any)=>item.id)
@@ -336,17 +338,26 @@ const Home = () => {
        navigatePlus(objSelectedBall.path);
     }
   }};
+  // const handleClickItem = (id:string,item: any) => {
+  // navigatePlus(`${RouterPathUtil.MATCHDETAILS}/${pathname==RouterPathUtil.HOME  ?'football':lastPath}#overview`, {
+  //     state: {
+  //       sportId:activeTabId,
+  //       leagueId:id, //联赛id
+  //       matchId: item?.id,
+  //     },
+  //   });
+  //   setShowStep(false)
+  // };
   const handleClickItem = (id:string,item: any) => {
-    // pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname
-  navigatePlus(`${RouterPathUtil.MATCHDETAILS}/${pathname==RouterPathUtil.HOME  ?'football':lastPath}#overview`, {
-      state: {
-        sportId:activeTabId,
-        leagueId:id, //联赛id
-        matchId: item?.id,
-      },
-    });
-    setShowStep(false)
-  };
+    navigatePlus(`${RouterPathUtil.MATCHDETAILS}/${params?.type}#overview`, {
+        state: {
+          sportId:activeTabId,
+          leagueId:id, //联赛id
+          matchId: item?.id,
+        },
+      });
+      setShowStep(false)
+    };
   return (
     <LayoytHomeContextProvider
       activeTabId={activeTabId}
@@ -461,8 +472,8 @@ const Home = () => {
               clickBtnOthers || clickBtnMenu || clickBtnSearch,
           })}
         >
-          {/* <Football/> */}
-          <LayoutOutlet />
+          <Football/>
+          {/* <LayoutOutlet /> */}
         </div>
       </div>
     </LayoytHomeContextProvider>
