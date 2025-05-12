@@ -117,6 +117,7 @@ const MatchDetails: React.FC = () => {
         tabData={tabData}
         onClick={onClickTab}
       />
+      
       <StepComp
         className={styles.details_StepComp}
         step1={stepData.step1}
