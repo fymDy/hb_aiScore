@@ -3,7 +3,7 @@ import { RouterPathUtil } from "@/router/routerPathUtil";
 /*
  * @Author: Mark
  * @Date: 2025-04-04 19:37:29
- * @LastEditTime: 2025-05-04 21:43:57
+ * @LastEditTime: 2025-05-12 18:58:18
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/home/interface.ts
@@ -16,10 +16,10 @@ export interface IFTab{
     matchNum?:number,
     isActive?:boolean,
   }
-  export interface IFTabs{
-    menuData:IFTab[]
+  // export interface IFTabs{
+  //   menuData:IFTab[]
   
-  }
+  // }
 
 
   export interface IFMenu{

@@ -3,19 +3,13 @@ import styles from "./index.module.scss";
 import MatchHeader from "@/components/Common/matchHeader";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
-import OverView from "./football/overview";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
-import Chat from "./football/chat";
-import Data from "./football/data";
-import LineUp from "./football/lineUp";
-import Match from "./football/match";
-import Odds from "./football/odds";
-import Table from "./football/table";
+
 import { useApp } from "@/hooks/useApp";
-import { matchData } from "./match_data";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import LayoutOutlet from "@/layout/outlet";
+import { FootballMatchDetail } from "@/components/Common/matchHeader/type";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
@@ -25,26 +19,42 @@ const MatchDetails: React.FC = () => {
     console.log('MatchDetails useEffect：挂载');
     return () => console.log('MatchDetails useEffect：卸载');
   }, []);
-  const headerData = useMemo(() => {
+
+
+  const matchHeaderData=useMemo<FootballMatchDetail>(()=>{
     return {
-      matchName: "以色列乙級聯賽",
-      startTime: "14:30 2025年4月9日星期三",
-      matchMin: 58,
-      teamHome: "卡迪斯亞",
-      teamHomeImg:
-        "https://img0.aiscore.com/football/team/3f0164c40c878bc710d0e7f83c6f5d71.png!w100",
-      result: "1", //0待定  1完场  2 展示matchMin
-      htScore: "0 - 0",
-      ftScore: "0 - 1",
-      homeResultScore: 0,
-      teamAway: "上海海港富盛经开",
-      teamAwayImg:
-        "https://img0.aiscore.com/football/team/fef70eb7dee84d19446f52cb3490fd71.png!w100",
-      awayResultScore: 1,
-      iconBrand: "icondonghuazhibo",
-      iconBrandName: "動畫",
-    };
-  }, []);
+      "matchId": 100198,
+      "leagueId": 998,
+      "leagueName": "以色列乙级联赛",
+      "matchDate": "2025-04-09",
+      "weekDay": "星期三",
+      "startTime": "14:30",
+      "status": "live",
+      currentTime:'70',
+      "isFavorite": false,
+      "homeTeam": {
+        "id": 101,
+        "name": "卡迪斯亚",
+        "logo": "https://img0.aiscore.com/football/team/3f0164c40c878bc710d0e7f83c6f5d71.png!w100",
+        "score": 0
+      },
+      "awayTeam": {
+        "id": 102,
+        "name": "上海海港普盛经开",
+        "logo": "https://img0.aiscore.com/football/team/fef70eb7dee84d19446f52cb3490fd71.png!w100",
+        "score": 1
+      },
+      "halfTimeScore": "0-0",
+      "fullTimeScore": "0-1",
+      liveInfo: {
+        type: 'animation',
+        provider: '动画',
+        logo: 'https://example.com/iqiyi.png',
+        url: 'https://sports.iqiyi.com/live/123456'
+      }
+    }
+    
+  },[])
 
   const tabData: any[] = useMemo(() => {
     const data= [
@@ -102,15 +112,16 @@ const MatchDetails: React.FC = () => {
   return (
     <div className={styles.matchDetails}>
     
-      <MatchHeader data={headerData} 
-      onClickBack={()=>{
-        setShowStep(true)
-        navigatePlus(-1)
-      }}
-      onClickTeam={()=>{
-        setShowStep(true)
-        navigatePlus(`${RouterPathUtil.TEAMDETAILS}/${state?.ballType}`, { state:state, replace: false })
-      }}/>
+      <MatchHeader data={matchHeaderData} 
+        onClickBack={()=>{
+          setShowStep(true)
+          navigatePlus(-1)
+        }}
+        onClickTeam={()=>{
+          setShowStep(true)
+          navigatePlus(`${RouterPathUtil.TEAMDETAILS}/${state?.ballType}`, { state:state, replace: false })
+        }}/>
+
       <TabsComp
         className={styles.tabs}
         activeTab={hashValue}
@@ -124,7 +135,6 @@ const MatchDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-     
       <LayoutOutlet/>
     </div>
   );

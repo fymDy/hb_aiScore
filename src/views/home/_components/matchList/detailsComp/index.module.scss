@@ -31,11 +31,7 @@
 .seconds{
   color: var(--color-c72a1d);
 }
-.twinkle{
-  :global{
-    animation: animation_Twinkle 2.5s infinite
-  }
-}
+
 
 .center{
   display: flex;

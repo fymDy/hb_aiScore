@@ -6,6 +6,7 @@ import IconBrand from "@/components/Common/IconBrand";
 import ImageComp from "@/components/imageComp";
 import ISpan from "@/components/Common/ISpan";
 import TeamGroup from "@/components/Common/TeamGroup";
+import Twinkle from "@/components/Common/Twinkle";
 
 const Details: React.FC<{
   itemData: any;
@@ -21,7 +22,7 @@ const Details: React.FC<{
             <span className={styles.startDate}>{itemData?.startDate}</span>
             <span className={styles.seconds}>
               {itemData?.twinkle}
-              <span className={styles.twinkle}>'</span>
+              <Twinkle />
             </span>
           </div>
         </div>

@@ -16,6 +16,7 @@ import { pxToRem } from "@/utils/common";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import LayoutOutlet from "@/layout/outlet";
+import { EnumSportType } from "./enum";
 const Home = () => {
 
   const { pathname} = useLocationPlus();
@@ -43,7 +44,7 @@ const Home = () => {
       name: "足球",
       iconClass: EnumIconFontType.icon_zuqiu_weixuanzhong,
       matchNum: 23,
-      isActive: activeTabId == "football" ? true : false,
+      isActive: activeTabId == EnumSportType.Football ? true : false,
     },
     {
       id: "basketball",
@@ -51,7 +52,7 @@ const Home = () => {
       name: "篮球",
       iconClass: "icon-lanqiu-weixuanzhong ",
       matchNum: 15,
-      isActive: activeTabId == "basketball" ? true : false,
+      isActive: activeTabId == EnumSportType.Basketball ? true : false,
     },
     {
       id: "tennis",
@@ -59,7 +60,7 @@ const Home = () => {
       name: "网球",
       iconClass: "icon-wangqiu-weixuanzhong",
       matchNum: 15,
-      isActive: activeTabId == "tennis" ? true : false,
+      isActive: activeTabId == EnumSportType.Tennis? true : false,
     },
     {
       id: "volleyball",
@@ -67,7 +68,7 @@ const Home = () => {
       name: "排球",
       iconClass: "icon-paiqiu-weixuanzhong",
       matchNum: 15,
-      isActive: activeTabId == "volleyball" ? true : false,
+      isActive: activeTabId ==  EnumSportType.Volleyball ? true : false,
     },
   ]);
   //默认ballList
@@ -79,7 +80,7 @@ const Home = () => {
       name: "电竞",
       iconClass: "icon-dianjing-weixuanzhong",
       matchNum: 13,
-      isActive: activeTabId == "esports" ? true : false,
+      isActive: activeTabId == EnumSportType.Esports  ? true : false,
     },
     {
       id: "iceHockey",
@@ -87,7 +88,7 @@ const Home = () => {
       name: "冰球",
       iconClass: "icon-bingqiu-weixuanzhong",
       matchNum: 11,
-      isActive: activeTabId == "iceHockey" ? true : false,
+      isActive: activeTabId == EnumSportType.IceHockey ? true : false,
     },
     {
       id: "baseball",
@@ -95,7 +96,7 @@ const Home = () => {
       name: "棒球",
       iconClass: "icon-bangqiu-weixuanzhong",
       matchNum: 8,
-      isActive: activeTabId == "baseball" ? true : false,
+      isActive: activeTabId == EnumSportType.Baseball ? true : false,
     },
     {
       id: "cricket",
@@ -103,7 +104,7 @@ const Home = () => {
       name: "板球",
       iconClass: "icon-banqiu-weixuanzhong",
       matchNum: 9,
-      isActive: activeTabId == "cricket" ? true : false,
+      isActive: activeTabId == EnumSportType.Cricket ? true : false,
     },
     {
       id: "americalBall",
@@ -111,7 +112,7 @@ const Home = () => {
       name: "美式橄欖球",
       iconClass: "icon-ganlanqiu-weixuanzhong",
       matchNum: 6,
-      isActive: activeTabId == "americalBall" ? true : false,
+      isActive: activeTabId == EnumSportType.AmericalBall ? true : false,
     },
     {
       id: "tableTennis",
@@ -119,7 +120,7 @@ const Home = () => {
       name: "乒乓球",
       iconClass: "icon-pingpangqiu-weixuanzhong",
       matchNum: 13,
-      isActive: activeTabId == "tableTennis" ? true : false,
+      isActive: activeTabId == EnumSportType.TableTennis ? true : false,
     },
     {
       id: "badminton",
@@ -127,7 +128,7 @@ const Home = () => {
       name: "羽毛球",
       iconClass: "icon-yumaoqiu-weixuanzhong",
       matchNum: 32,
-      isActive: activeTabId == "badminton" ? true : false,
+      isActive: activeTabId == EnumSportType.Badminton ? true : false,
     },
     {
       id: "handball",
@@ -135,7 +136,7 @@ const Home = () => {
       name: "手球",
       iconClass: "icon-shouqiu-weixuanzhong",
       matchNum: 53,
-      isActive: activeTabId == "handball" ? true : false,
+      isActive: activeTabId == EnumSportType.Handball ? true : false,
     },
     {
       id: "waterpolo",
@@ -143,7 +144,7 @@ const Home = () => {
       name: "水球",
       iconClass: "icon-shuiqiu-weixuanzhong",
       matchNum: 73,
-      isActive: activeTabId == "waterpolo" ? true : false,
+      isActive: activeTabId == EnumSportType.Waterpolo ? true : false,
     },
     {
       id: "snooker",
@@ -151,7 +152,7 @@ const Home = () => {
       name: "斯诺克",
       iconClass: "icon-sinuoke-weixuanzhong",
       matchNum: 10,
-      isActive: activeTabId == "snooker" ? true : false,
+      isActive: activeTabId == EnumSportType.Snooker ? true : false,
     },
   ]);
 
