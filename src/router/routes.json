@@ -93,7 +93,6 @@
         "fullPath": "/home/football",
         "author": false,
         "component": "home/football/index.tsx",
-        "index": true,
         "children": []
       },
       {

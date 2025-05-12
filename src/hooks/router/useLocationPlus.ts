@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-22 14:54:43
- * @LastEditTime: 2025-05-12 13:32:21
+ * @LastEditTime: 2025-05-12 15:07:49
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/hooks/router/useLocationPlus.ts
@@ -20,14 +20,13 @@ export const useLocationPlus = (): IFLocationPlus => {
       searchParams.forEach((value, key) => {
           query[key] = value;
         });
-        const segments = location.pathname.split('/').filter(Boolean);
-        const lastPath=segments[segments.length - 1] || ''
+        // const segments = location.pathname.split('/').filter(Boolean);
+        // const lastPath=segments[segments.length - 1] || ''
       return {
         ...location,
         query, // key-value 形式的 search 对象
         params: params as Record<string, string>, // 强转以方便使用
         hashValue: location.hash.startsWith('#') ? location.hash.slice(1) : location.hash,
-        lastPath:lastPath,
         fullPath: location.pathname + location.search + location.hash,
         raw:location
       };

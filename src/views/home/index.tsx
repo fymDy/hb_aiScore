@@ -16,10 +16,9 @@ import { pxToRem } from "@/utils/common";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import LayoutOutlet from "@/layout/outlet";
-import Football from "./football";
 const Home = () => {
 
-  const { pathname,lastPath } = useLocationPlus();
+  const { pathname} = useLocationPlus();
   const { headerHeight, contentHeight, handleHeaderReady,recalcHeaderHeight } = useApp();
   const {setShowFrm,setShowStep}=useApp()
   const [iptValue, setIptValue] = useState("");
@@ -245,10 +244,14 @@ const Home = () => {
     const tabItem: IFTab = allBallData?.filter(
       (item) => item?.path === (pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname) 
     )?.[0];
+    
     setActiveTabId(tabItem?.id);
    const filterChangeDataId= changeBallDatas.map((item:any)=>item.id)
     if(!filterChangeDataId.includes(tabItem?.id)) {
+      //
       onSelectBall(tabItem?.id )
+    }else{
+      navigatePlus(tabItem?.path);
     };
   }, []);
 
@@ -333,14 +336,14 @@ const Home = () => {
         //跳转
         setActiveTabId(id);
         recalcHeaderHeight(); // ✅ 手动触发测量
-       navigatePlus(objSelectedBall.path);
+        navigatePlus(objSelectedBall.path);
     }
+   
   }};
   const handleClickItem = (id:string,item: any) => {
-    // pathname==RouterPathUtil.HOME ? RouterPathUtil.HOME_FOOTBALL : pathname
-  navigatePlus(`${RouterPathUtil.MATCHDETAILS}/${pathname==RouterPathUtil.HOME  ?'football':lastPath}#overview`, {
+      navigatePlus(`${pathname==RouterPathUtil.HOME  ?RouterPathUtil.MATCHDETAILS_FOOTBALL: RouterPathUtil.MATCHDETAILS+'/'+activeTabId}#overview`, {
       state: {
-        sportId:activeTabId,
+        ballType:activeTabId,
         leagueId:id, //联赛id
         matchId: item?.id,
       },
@@ -461,7 +464,6 @@ const Home = () => {
               clickBtnOthers || clickBtnMenu || clickBtnSearch,
           })}
         >
-          {/* <Football/> */}
           <LayoutOutlet />
         </div>
       </div>
