@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 
 import cs from "classnames";
-import Twinkle from "../../Twinkle";
+import Twinkle from "@/components/Common/Twinkle";
 
 const TeamScore: React.FC<{
   status:string | number

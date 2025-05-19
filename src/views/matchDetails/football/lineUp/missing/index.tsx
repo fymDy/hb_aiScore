@@ -11,7 +11,7 @@
 import React from "react";
 import styles from './index.module.scss'
 import PlayerComp from "@/components/PlayerComp";
-import Title from "../../../_components/title";
+import TitleMore from "../../../_components/titleMore";
 
 import { MatchLineupData } from "../types";
 import PlayerBox from "../substitute/PlayerBox";
@@ -22,7 +22,7 @@ const Missing:React.FC<{
 })=>{
     return (
         <section className={styles.Missing}>
-              <Title title={'傷停信息'} isMore={false}></Title>
+              <TitleMore title={'傷停信息'} isMore={false}></TitleMore>
             <dl className={styles.missing_box}>
                     <dt className={styles.header}>
                   

@@ -1,10 +1,10 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-05-09 21:30:21
+ * @LastEditTime: 2025-05-19 14:28:47
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/overview/venueReferee/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/football/overview/venueReferee/index.tsx
  */
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import styles from "./index.module.scss";
@@ -13,7 +13,7 @@ import SvgIcon from "@/components/Common/IconSvg";
 import cs from 'classnames'
 import IconFont from "@/components/Common/Iconfont";
 import CrossSwords from "../crossSwords";
-import Title from "../../../_components/title";
+import TitleMore from "../../../_components/titleMore";
 import Images from "@/components/Common/Images";
 const VenueReferee:React.FC<{
   title:string,
@@ -34,7 +34,7 @@ const VenueReferee:React.FC<{
 }) => {
   return (
     <section className={styles.VenueReferee}>
-      <Title className={styles.title} title={title}></Title>
+      <TitleMore className={styles.title} title={title}></TitleMore>
       <div className={styles.content}>
             <div className={styles.player}>
               {

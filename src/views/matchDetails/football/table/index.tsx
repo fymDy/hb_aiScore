@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import { IFSearchResult } from "@/views/home/interface";
 import BtnGroup from "@/components/Common/btnGroup";
-import Title from "../../_components/title";
+import Title from "../../_components/titleMore";
 import League from "./league";
 import { scorerList, standingsGrouped } from "./data";
 import { StandingGroup, StandingTeam } from "./enum";

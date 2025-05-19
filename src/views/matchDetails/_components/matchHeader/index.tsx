@@ -3,11 +3,11 @@ import styles from "./index.module.scss";
 import cs from "classnames";
 
 import TeamScore from "./teamScore";
-import TeamTitle from "./teamTitle";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
 import IComp from "@/components/IComp";
 import TeamLogoComp from "@/components/TeamLogoComp";
 import { FootballMatchDetail } from "./type";
+import TeamTitleComp from "@/components/TeamTitleComp";
 
 const MatchHeader: React.FC<{
   data:FootballMatchDetail
@@ -20,7 +20,7 @@ const MatchHeader: React.FC<{
   },[data])
   return (
     <div className={styles.match_top} id={String(data?.matchId)}>
-          <TeamTitle title={resTitle} onClick={onClickBack}/>
+          <TeamTitleComp title={resTitle} onClick={onClickBack}/>
     
               <div className={styles.match_top_box_info}>
                       <TeamLogoComp imgSrc={data?.homeTeam.logo} name={data?.homeTeam.name} onClick={()=>onClickTeam(data?.homeTeam.id)} />
@@ -30,7 +30,7 @@ const MatchHeader: React.FC<{
                        homeResultScore={data?.homeTeam?.score}
                        awayResultScore={data?.awayTeam?.score}
                        />
-                    <TeamLogoComp imgSrc={data?.awayTeam.logo} name={data?.awayTeam.name}/>
+                    <TeamLogoComp imgSrc={data?.awayTeam.logo} name={data?.awayTeam.name} onClick={()=>onClickTeam(data?.awayTeam.id)}/>
                     <IComp className={ cs(styles.icon_left,EnumIconFontType.icon_weishoucang)}/>
                     <IComp className={ cs(styles.icon_right,EnumIconFontType.icon_weishoucang)}/>
                </div>

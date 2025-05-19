@@ -1,14 +1,14 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-10 19:27:45
- * @LastEditTime: 2025-05-11 16:19:50
+ * @LastEditTime: 2025-05-19 14:28:56
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/table/league/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/football/table/league/index.tsx
  */
 
 import PlayerComp from "@/components/PlayerComp";
-import Title from "../../../_components/title";
+import TitleMore from "../../../_components/titleMore";
 import { StandingTeam } from "../enum";
 import styles from "./index.module.scss";
 import cs from "classnames";
@@ -28,7 +28,7 @@ const League: React.FC<{
         dataList={filterData}
         onclick={onclickFilter}
       />
-      <Title className={styles.Title} title={"聯賽 "} isMore={false} />
+      <TitleMore className={styles.Title} title={"聯賽 "} isMore={false} />
       <dl className={styles.table}>
         <dt className={styles.tableHeader}>
           <label className={styles.order}>#</label>

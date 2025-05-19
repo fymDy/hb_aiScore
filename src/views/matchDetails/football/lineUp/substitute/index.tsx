@@ -3,14 +3,14 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-07 15:21:39
- * @LastEditTime: 2025-05-09 21:20:12
+ * @LastEditTime: 2025-05-19 14:28:15
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/lineUp/substitute/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/football/lineUp/substitute/index.tsx
  */
 import React, { useMemo } from "react";
 import styles from './index.module.scss'
-import Title from "../../../_components/title";
+import TitleMore from "../../../_components/titleMore";
 import { MatchLineupData, PlayerInfo } from "../types";
 
 import PlayerComp from "@/components/PlayerComp";
@@ -25,7 +25,7 @@ const Substitute:React.FC<{
 
     return (
         <section className={styles.Substitute}>
-            <Title title={'替補陣容'} isMore={false}></Title>
+            <TitleMore title={'替補陣容'} isMore={false}></TitleMore>
             <dl className={styles.substitute_box}>
                     <dt className={styles.header}>
                   

@@ -1,0 +1,18 @@
+@use '@/assets/styles/utils' as * ;
+
+
+.LineProcess {
+
+  @include border-radius(3);
+  background-color: var(--color-eee);
+  overflow: hidden;
+  display: flex;
+}
+
+.leftBar {
+  height: 100%;
+}
+
+.rightBar {
+  height: 100%;
+}

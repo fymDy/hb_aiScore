@@ -1,16 +1,11 @@
-
-
 .tabs_list {
-
   display: flex;
- padding-bottom: 15px;
+  padding-bottom: 15px;
   user-select: none;
 }
 
-.item_active{
-  color: var(--color-0f80da) !important;
-}
-.item{
+
+.item {
   height: 36px;
   position: relative;
   display: flex;
@@ -20,27 +15,28 @@
   align-items: center;
   color: var(--color-59616b);
 }
-.top{
+.top {
   font-size: 12px;
 }
 
-.name{
+.name {
   font-size: 13.875px;
   margin-top: 2px;
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: center;
-    font-weight: 700;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-weight: 700;
+
 }
-.line{
+.line {
   display: inline-block;
-    width: 50%;
-    transform: translate(50%);
-    height: 2px;
-    background-color: var(--color-0f80da);
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  width: 50%;
+  transform: translate(50%);
+  height: 2px;
+ 
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.module.scss';
 import { EnumIconFontType } from '@/enum/enumIconFontType';
 import IconFont from '@/components/Common/Iconfont';
-import Title from '../title';
+import TitleMore from '../titleMore';
 
 export interface OddsData {
   name: string;
@@ -24,7 +24,7 @@ const OddsTable: React.FC<OddsTableProps> = ({ data, selectedTypes=[] ,title,isS
   return (
       
        <div className={styles.table}>
-        { title && <Title title={title}></Title>}
+        { title && <TitleMore title={title}></TitleMore>}
       {/* 表头 */}
       <header className={styles.header}>
         <div className={styles.cellFixed}></div>

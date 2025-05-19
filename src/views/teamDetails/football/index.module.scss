@@ -1,6 +1,23 @@
+@use "@/assets/styles/utils" as *;
 
-      .football {
-        // football 页面样式
-        width:100%;
-      }
-      
+.Football {
+  width: 100%;
+  .Football_TeamHeader {
+    background-color: #285898;
+  }
+}
+.details_StepComp {
+  @include bg(var(--color-f1));
+}
+.LineProcess_wrap {
+  padding: 14px;
+  @include bg(var(--color-fff));
+  .LineProcess_title {
+    margin-bottom: 6px;
+    @include flex-between;
+  }
+}
+
+.matchResult_wrap {
+  height: 300px;
+}

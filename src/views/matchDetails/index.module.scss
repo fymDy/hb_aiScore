@@ -12,6 +12,13 @@
   height: 36px;
   box-shadow: 0 5px 10px -5px #d6d6d6;
   background-color: var(--color-fff);
+  .item_active {
+    color: var(--color-0f80da) !important;
+  }
+  .item_activeLine{
+   background-color: var(--color-0f80da);
+  }
+
 }
 .svg{
   width: 14px;

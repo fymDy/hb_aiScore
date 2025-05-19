@@ -1,13 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-05-04 16:01:48
+ * @LastEditTime: 2025-05-19 14:28:39
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/overview/infomation/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/football/overview/infomation/index.tsx
  */
 import styles from "./index.module.scss";
-import Title from "../../../_components/title";
+import TitleMore from "../../../_components/titleMore";
 import cs from "classnames";
 import IconFont from "@/components/Common/Iconfont";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
@@ -45,11 +45,11 @@ const Infomation: React.FC<{
           </p>
         )}
         <div className={cs(styles.desc_detail)}>
-          <Title
+          <TitleMore
             className={styles.desc_detail_title}
             title={"更多详情"}
             isMore={false}
-          ></Title>
+          ></TitleMore>
           <div className={cs(styles.details)}>
             {data?.details?.map((item: any, i: number) => (
               <span key={i} className={styles.name}>

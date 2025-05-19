@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./index.module.scss";
-import MatchHeader from "@/components/Common/matchHeader";
 import TabsComp from "@/components/TabsComp";
 import StepComp from "@/components/StepComp";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
@@ -9,7 +8,8 @@ import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
 import { useApp } from "@/hooks/useApp";
 import { RouterPathUtil } from "@/router/routerPathUtil";
 import LayoutOutlet from "@/layout/outlet";
-import { FootballMatchDetail } from "@/components/Common/matchHeader/type";
+import MatchHeader from "./_components/matchHeader";
+import { FootballMatchDetail } from "./_components/matchHeader/type";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
@@ -119,11 +119,13 @@ const MatchDetails: React.FC = () => {
         }}
         onClickTeam={()=>{
           setShowStep(true)
-          navigatePlus(`${RouterPathUtil.TEAMDETAILS}/${state?.ballType}`, { state:state, replace: false })
+          navigatePlus(`${RouterPathUtil.TEAMDETAILS}/${state?.ballType}#overview`, { state:state, replace: false })
         }}/>
 
       <TabsComp
         className={styles.tabs}
+        classNameActiveText={styles.item_active}
+        classNameActiveLine={styles.item_activeLine}
         activeTab={hashValue}
         tabData={tabData}
         onClick={onClickTab}

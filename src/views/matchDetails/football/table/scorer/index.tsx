@@ -1,14 +1,14 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-10 19:27:45
- * @LastEditTime: 2025-05-11 14:35:43
+ * @LastEditTime: 2025-05-19 14:29:04
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/table/scorer/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/football/table/scorer/index.tsx
  */
 
 import PlayerComp from '@/components/PlayerComp';
-import Title from '../../../_components/title';
+import TitleMore from '../../../_components/titleMore';
 import { ScorerItem } from '../enum';
 import styles from './index.module.scss'
 import cs from 'classnames'
@@ -22,7 +22,7 @@ const Scorer: React.FC<{
 }) => {
 return (
     <div className={styles.Scorer}>
-      <Title className={styles.Title} title={'射手榜 '} isMore={false}/>
+      <TitleMore className={styles.Title} title={'射手榜 '} isMore={false}/>
       <div className={styles.table}>
             <div className={styles.tableHeader}>
               <label className={styles.order}>#</label>

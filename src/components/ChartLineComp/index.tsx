@@ -4,8 +4,8 @@ import styles from "./index.module.scss";
 import cs from "classnames";
 import IComp from "@/components/IComp";
 import { EnumIconFontType } from "@/enum/enumIconFontType";
-import LineProcess from "../Common/lineProcess";
 import Images from "../Common/Images";
+import LineProcessComp from "../LineProcessComp";
 const ChartLineComp: React.FC<{
   title:string
   imgFlag:string
@@ -22,7 +22,7 @@ const ChartLineComp: React.FC<{
         EnumIconFontType.iconyellowcard1
       )}
     />
-    <LineProcess
+    <LineProcessComp
       title={title}
       leftValue={0}
       rightValue={5}

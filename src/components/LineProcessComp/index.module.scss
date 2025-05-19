@@ -1,6 +1,6 @@
 @use '@/assets/styles/utils' as * ;
 
-.LineProcess {
+.LineProcessComp {
   position: relative;
   width: 200px;
   text-align: center;
@@ -30,18 +30,6 @@
   text-align: center;
 }
 
-.bar {
+.LineProcess_wrap{
   flex: 1;
-  @include border-radius(3);
-  background-color: var(--color-eee);
-  overflow: hidden;
-  display: flex;
-}
-
-.leftBar {
-  height: 100%;
-}
-
-.rightBar {
-  height: 100%;
 }

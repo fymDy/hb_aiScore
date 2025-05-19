@@ -1,0 +1,43 @@
+@use "@/assets/styles/utils" as *;
+
+.TeamHeader {
+  width: 100%;
+  .content {
+    @include flex-column-center;
+    .country_info {
+      @include flex-center;
+      .PlayerComp {
+        @include flex-start-center;
+        @include gap(5);
+
+        .PlayerLogo {
+          width: 14px;
+          height: 14px;
+        }
+      }
+      .marketValue,
+      .PlayerName {
+        @include color(var(--color-fff));
+      }
+    }
+  }
+  .TabsComp {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 41px;
+   
+    // box-shadow: 0 5px 10px -5px #d6d6d6;
+    background-color: #285898;
+   
+  }
+   .classNameText{
+        color: #ffffff99;
+    }
+    .item_active{
+      color: var(--color-fff) !important;
+    }
+    .item_activeLine{
+       background-color: var(--color-fff);
+    }
+}

@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./index.module.scss";
 
 import cs from "classnames";
+import LineProcessComp from "../LineProcessComp";
 
-import LineProcess from "../Common/lineProcess";
 
 const ChartLineTextComp: React.FC<{
   title:string
@@ -14,7 +14,7 @@ const ChartLineTextComp: React.FC<{
     <span >1</span>
     <span >2</span>
     <span >3</span>
-    <LineProcess
+    <LineProcessComp
       title={title}
       leftValue={2}
       rightValue={5}

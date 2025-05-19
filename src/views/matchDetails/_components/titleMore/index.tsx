@@ -1,16 +1,16 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-16 17:40:32
- * @LastEditTime: 2025-05-09 14:17:42
+ * @LastEditTime: 2025-05-19 14:27:18
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/_components/title/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/_components/titleMore/index.tsx
  */
 import IconFont from '@/components/Common/Iconfont'
 import styles from './index.module.scss'
 import cs from 'classnames'
 import { EnumIconFontType } from '@/enum/enumIconFontType'
-const Title:React.FC<{
+const titleMore:React.FC<{
     title:string,
     className?:string,
     isMore?:boolean,
@@ -20,10 +20,10 @@ const Title:React.FC<{
     isMore=true
 })=>{
     return (
-        <div className={cs(className,styles.Title)}>
+        <div className={cs(className,styles.titleMore)}>
         <span>{title}</span>
         {isMore &&  <span className={styles.more}>More<IconFont className={cs(styles.more_icon,EnumIconFontType.iconjiantou)} /></span>}
       </div>
     )
 }
-export default Title
+export default titleMore

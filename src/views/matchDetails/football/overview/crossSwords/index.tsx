@@ -1,16 +1,16 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-12 20:33:41
- * @LastEditTime: 2025-05-04 16:07:51
+ * @LastEditTime: 2025-05-19 14:28:31
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/overview/crossSwords/index.tsx
+ * @FilePath: /hb_aiScore/src/views/matchDetails/football/overview/crossSwords/index.tsx
  */
 import styles from "./index.module.scss";
 import ImageComp from "@/components/imageComp";
 import cs from 'classnames'
 import { ReactNode } from "react";
-import Title from "../../../_components/title";
+import TitleMore from "../../../_components/titleMore";
 
 import CircleL from "@/components/Common/CircleL";
 import CircleD from "@/components/Common/CircleD";
@@ -26,7 +26,7 @@ classNameItem
 }) => {
   return (
     <div className={styles.CrossSwords}>
-      <Title  title={data?.title} isMore={false}/>
+      <TitleMore  title={data?.title} isMore={false}/>
       <div className={styles.content}>
             { desDom &&  <div  className={styles.desc}>{desDom}</div>}
             <div className={styles.list}>

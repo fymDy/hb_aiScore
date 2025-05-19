@@ -1,34 +1,30 @@
 import React from 'react';
 import styles from './index.module.scss';
 import { pxToRem } from '@/utils/common';
+import cs from 'classnames'
 
 interface LineProcessProps {
-  title: string;
-  leftValue: number;
-  rightValue: number;
-  height?:number;
+
+  leftRatio: number;
+  rightRatio: number;
   leftColor?: string;
   rightColor?: string;
+  height?:number;
+  className?:string
 }
 
 const LineProcess: React.FC<LineProcessProps> = ({
-  title,
+  leftRatio,
+  rightRatio,
   height=4,
-  leftValue,
-  rightValue,
   leftColor = '#2196F3', // 蓝色
   rightColor = '#FFBA5A', // 橙色
+className
 }) => {
-  const total = leftValue + rightValue;
-  const leftRatio = total === 0 ? 0 : (leftValue / total) * 100;
-  const rightRatio = 100 - leftRatio;
+
 
   return (
-    <div className={styles.LineProcess}>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.content}>
-        <span className={styles.leftValue}>{leftValue}</span>
-        <div className={styles.bar} style={{height:pxToRem(height)}}>
+  <div className={cs(styles.LineProcess ,className)} style={{height:pxToRem(height)}}>
           <div
             className={styles.leftBar}
             style={{ width: `${leftRatio}%`, backgroundColor: leftColor }}
@@ -38,9 +34,6 @@ const LineProcess: React.FC<LineProcessProps> = ({
             style={{ width: `${rightRatio}%`, backgroundColor: rightColor }}
           />
         </div>
-        <span className={styles.rightValue}>{rightValue}</span>
-      </div>
-    </div>
   );
 };
 
