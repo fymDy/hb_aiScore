@@ -12,12 +12,6 @@
 .LineProcess_wrap {
   padding: 14px;
   @include bg(var(--color-fff));
-  .LineProcess_title {
-    margin-bottom: 6px;
-    @include flex-between;
-  }
+
 }
 
-.matchResult_wrap {
-  height: 300px;
-}

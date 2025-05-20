@@ -3,7 +3,7 @@ import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-19 15:41:48
+ * @LastEditTime: 2025-05-20 12:09:04
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -12,13 +12,16 @@ export const mockTeamBasicInfo: TeamBasicInfo = {
   teamId: "nirooye-zamini",
   name_zh: "尼洛耶紮米尼",
   name_en: "Nirooye Zamini",
+  squadType: 'first',
   country: "伊朗",
   countryLogo: "https://img1.aiscore.com/country/270eccdff2befbb1b227bb734fd01422.png!w60",
   league: "伊朗甲级联赛",
   marketValue: "1.6M€",
   coach: "法爾沙德·皮奧斯",
   averageAge: 24.5,
-  logoUrl: "https://img0.aiscore.com/football/team/32efa824b9631897ca2468e8cea205e4.png!w100"
+  logoUrl: "https://img0.aiscore.com/football/team/32efa824b9631897ca2468e8cea205e4.png!w100",
+  foreignPlayerCount: 2,
+  localPlayerCount: 3
 };
 /** */
 export const mockRecentMatches: TeamRecentMatches = {

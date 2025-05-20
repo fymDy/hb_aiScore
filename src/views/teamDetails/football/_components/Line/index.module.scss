@@ -1,0 +1,10 @@
+@use "@/assets/styles/utils" as *;
+
+  .LineProcess_title {
+    margin-bottom: 6px;
+    @include flex-between;
+    @include font-size(11);
+    label{
+      @include color(var(--color-999));
+    }
+  }

@@ -6,6 +6,10 @@ import { mockTeamBasicInfo } from "../_types/data";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import StepComp from "@/components/StepComp";
 import LineProcess from "@/components/LineProcessComp/LineProcess";
+import Line from "./_components/Line";
+import MatchResultChart from "./_components/matchResultChart";
+import { MatchCanvasPoint } from "../_types";
+import TitleMore from "@/views/matchDetails/_components/titleMore";
 
 
 const Football: React.FC<{}> = ({}) => {
@@ -54,6 +58,13 @@ const Football: React.FC<{}> = ({}) => {
     step2: "中國足球乙級聯賽",
     name: "北京理工 vs 上海海港富盛经开比分動畫直播,預測(2025/04/09)",
   };
+  const resultData:MatchCanvasPoint[]=[
+    { date: '03/16', result: 'W', score: '1-0', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
+        { date: '04/22', result: 'D', score: '1-1', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
+        { date: '05/06', result: 'W', score: '1-0', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
+        { date: '05/12', result: 'L', score: '2-0', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
+        { date: '05/18', result: 'D', score: '4-1', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' }
+      ]
   const onClickTab = (item: any) => {
     const id = item.id;
     navigatePlus(`#${id}`, { state: state, replace: true });
@@ -78,16 +89,10 @@ const Football: React.FC<{}> = ({}) => {
         name={stepData.name}
       />
      <div className={styles.LineProcess_wrap}>
-        <div className={styles.LineProcess_title}>
-           <span>{'1 外援'}</span>
-          <span>{'一線隊'}</span>
-          <span>{'2 本土球员'}</span>
-        </div>
+       <Line data={mockTeamBasicInfo} />
        <LineProcess  leftRatio={50} rightRatio={50} />
      </div>
-     <div  className={styles.matchResult_wrap}>
-
-     </div>
+     <MatchResultChart     data={resultData}/>
     </div>
   );
 };
