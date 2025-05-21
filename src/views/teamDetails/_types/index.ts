@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:11:08
- * @LastEditTime: 2025-05-20 16:14:07
+ * @LastEditTime: 2025-05-21 20:18:06
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/index.ts
@@ -39,19 +39,30 @@ export interface TeamRecentMatches {
   matches: MatchCanvasPoint[];      // 近期比赛列表
 }
 
-/** 球队赛程及 MVP 信息 */
+/** 球队赛程及 MVP/最佳射手 信息 */
 export interface MatchSchedule {
   matchId: string;             // 比赛唯一标识 ID
   dateTime: string;            // 开赛时间，UTC 格式
-  opponentName: string;       // 对手名称
+
   isHome: boolean;            // 是否主场
   score: string;              // 最终比分
-  mvp: {
+   opponent: {
+    teamId: string;
+    name: string;
+    logo: string;
+  };
+  mvp?: {
     name: string;             // MVP 球员姓名
     nationality: string;      // MVP 国籍，例如 "伊朗"
     avatarUrl: string;        // MVP 头像 URL
     marketValue: string;      // 市值，例如 "50.0k€"
   };
+  topScorers?: {
+    name: string;
+    goal: number;
+    isPenalty?: boolean;
+    avatarUrl?: string;
+  }[];
 }
 /**未来赛程及 MVP 球员信息； */
 export interface TeamSchedule {

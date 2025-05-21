@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import styles from "./index.module.scss";
 import TeamHeader from "../_components/teamHeader";
 import { useNavigatePlus } from "@/hooks/router/useNavigatePlus";
-import { mockTeamBasicInfo } from "../_types/data";
+import { mockTeamBasicInfo, mockTeamSchedule } from "../_types/data";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import StepComp from "@/components/StepComp";
 import LineProcess from "@/components/LineProcessComp/LineProcess";
@@ -10,6 +10,7 @@ import Line from "./_components/Line";
 import MatchResultChart from "./_components/matchResultChart";
 import { MatchCanvasPoint } from "../_types";
 import TitleMore from "@/views/matchDetails/_components/titleMore";
+import MatchSchedule from "./_components/matchSchedule";
 
 
 const Football: React.FC<{}> = ({}) => {
@@ -93,6 +94,7 @@ const Football: React.FC<{}> = ({}) => {
        <LineProcess  leftRatio={50} rightRatio={50} />
      </div>
      <MatchResultChart     data={resultData}/>
+     <MatchSchedule data={mockTeamSchedule}/>
     </div>
   );
 };

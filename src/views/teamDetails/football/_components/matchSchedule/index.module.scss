@@ -1,0 +1,43 @@
+@use "@/assets/styles/utils" as *;
+@mixin schedule {
+  @include flex-column-center;
+  @include gap(5);
+}
+
+.MatchSchedule {
+  .content {
+    @include p(5);
+    @include flex-around;
+    @include bg(var(--color-fff));
+    .left {
+      @include schedule;
+    }
+    .center {
+      @include schedule;
+    }
+    .right {
+      @include schedule;
+    }
+    .first {
+      @include h(14.5);
+      @include font-size(10);
+      @include color(var(--color-999));
+    }
+    .vs {
+      @include flex-center;
+      @include h(24);
+      @include p(2, 8);
+      @include font-size(16);
+      @include color(var(--color-fff));
+      @include bg(var(--color-0f80da));
+    }
+    .PlayerComp {
+      @include schedule;
+      @include h(50);
+    }
+    .classPlayerLogo {
+      @include w(27.5);
+      @include h(27.5);
+    }
+  }
+}

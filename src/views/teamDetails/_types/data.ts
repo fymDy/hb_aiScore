@@ -3,7 +3,7 @@ import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-20 12:09:04
+ * @LastEditTime: 2025-05-21 20:11:42
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -69,25 +69,44 @@ export const mockRecentMatches: TeamRecentMatches = {
     }
   ]
 };
-
+/** 球队赛程及 MVP 信息 */
 export const mockTeamSchedule: TeamSchedule = {
-  teamId: "nirooye-zamini",
+  teamId: 'nirooye-zamini',
   schedules: [
     {
-      matchId: "match-20250518",
-      dateTime: "2025-05-18T14:30:00Z",
-      opponentName: "沙赫爾巴克",
+      matchId: 'match-20250518',
+      dateTime: '2025-05-18T14:30:00Z',
       isHome: false,
-      score: "1-4",
+      score: '1-4',
+      opponent: {
+        teamId: 'shahr-bakht',
+        name: '沙赫爾巴克',
+        logo: '/logos/shahrbakht.png',
+      },
       mvp: {
-        name: "尤內斯·德爾菲",
-        nationality: "伊朗",
-        avatarUrl: "/players/delfi.png",
-        marketValue: "50.0k€"
-      }
-    }
+        name: '尤內斯·德爾菲',
+        nationality: '伊朗',
+        avatarUrl: '/players/delfi.png',
+        marketValue: '50.0k€',
+      },
+      topScorers: [
+        { name: '张三', goal: 1 },
+        { name: '李四', goal: 1, isPenalty: true },
+      ],
+    },
+    {
+      matchId: 'match-20250512',
+      dateTime: '2025-05-12T14:30:00Z',
+      isHome: true,
+      score: '2-0',
+      opponent: {
+        teamId: 'nasaji',
+        name: '拿瑟馬塞泰利曼',
+        logo: '/logos/nasaji.png',
+      },
+    },
   ]
-};
+}
 
 
 export const mockTransfers: TeamTransfers = {
