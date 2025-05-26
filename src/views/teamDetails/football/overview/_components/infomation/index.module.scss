@@ -1,0 +1,71 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.Infomation{
+  background-color: var(--color-fff);
+ 
+ }
+ .title{
+  height: 28px;
+  line-height: 28px;
+  padding: 0 14px;
+  font-size: 13px;
+  color: var(--color-333);
+  @include bg-color(css-var(color-f1,true))
+ }
+
+ .info{
+  @include flex-column;
+  padding: 0 14px;
+
+ }
+ .item{
+  height: 28px;
+  font-size: 12px;
+  @include flex-between
+ }
+ .itemTitle{
+   color: var(--color-999)
+ }
+ .itemInfo{
+  color: var(--color-333)
+ }
+
+ .desc{
+ 
+  font-size: 12px;
+  padding: 14px;
+  color: var(--color-333);
+  text-align: justify;
+ }
+ .span1{
+  color: var(--color-0f80da);
+ }
+ .desc_info{
+  margin-bottom: 10px;
+ }
+ .desc_detail{
+  width: 100%;
+ }
+.desc_detail_title{
+  font-size: 13px;
+  font-weight: 700;
+  padding:0 ;
+ 
+}
+.details{
+  // color: var(--color-0f80da);
+  @include py(10);
+  @include flex-column;
+
+}
+.ps{
+  overflow: hidden;
+  transition: height 0.3s ease;
+  margin-top: 10px;
+}
+.showMore{
+  color: var(--color-0f80da);
+  @include flex-end-center;
+  transition: transform 0.3s ease;
+}

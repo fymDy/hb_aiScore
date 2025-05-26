@@ -1,6 +1,7 @@
-
+@use '@/assets/styles/utils' as *;
 .PlayerComp {
   width:100%;
+   @include flex-start-center;
 }
 .logo{
   width: 20px;

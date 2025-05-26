@@ -1,0 +1,28 @@
+@use "@/assets/styles/utils" as *;
+
+.RecentTransfers {
+  width: 100%;
+ 
+  .content{
+    @include px(14);
+    @include flex-between;
+    @include bg(var(--color-fff));
+    @include pb(6);
+  }
+  .PlayerComp{
+    @include mt(10);
+  }
+  .left{
+    @include flex(1);
+  }
+ .right{
+   @include flex(1);
+   @include pl(13);
+   @include border(border-left ,solid 1px #f1f1f1)
+  }
+  .top{
+        @include pt(6);
+      @include font-size(12);
+      @include color(var(--color-0f80da));
+  }
+}

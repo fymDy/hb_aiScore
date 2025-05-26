@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import LineProcess from "@/components/LineProcessComp/LineProcess";
 import Line from "./_components/Line";
@@ -6,11 +6,13 @@ import MatchResultChart from "./_components/matchResultChart";
 import MatchSchedule from "./_components/matchSchedule";
 import MostPlayer from "./_components/mostPlayer";
 import { MatchCanvasPoint } from "../../_types";
-import { mockTeamBasicInfo, mockTeamSchedule } from "../../_types/data";
+import { infoData, mockTeamBasicInfo, mockTeamSchedule, mockTransfers } from "../../_types/data";
+import RecentTransfers from "./_components/recentTransfers";
+import Infomation from "./_components/infomation";
 
 
 const OverView: React.FC<{}> = ({}) => {
-
+const [showMore,setShowMore]=useState(false)
   const resultData:MatchCanvasPoint[]=[
     { date: '03/16', result: 'W', score: '1-0', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
         { date: '04/22', result: 'D', score: '1-1', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
@@ -28,6 +30,8 @@ const OverView: React.FC<{}> = ({}) => {
      <MatchResultChart     data={resultData}/>
      <MatchSchedule data={mockTeamSchedule}/>
      <MostPlayer data={mockTeamSchedule}/>
+     <RecentTransfers data={mockTransfers}/>
+      <Infomation data={infoData} showMore={showMore} onclickShow={(v:boolean)=>setShowMore(v)}/>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:11:08
- * @LastEditTime: 2025-05-26 14:52:15
+ * @LastEditTime: 2025-05-26 18:09:01
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/index.ts
@@ -73,6 +73,7 @@ export interface TeamSchedule {
 
 /** 球队转会信息 */
 export interface TransferRecord {
+  logo:string,
   playerName: string;          // 球员姓名
   fromTeam?: string;           // 来源俱乐部（转入时有）
   toTeam?: string;             // 去向俱乐部（转出时有）
