@@ -38,8 +38,7 @@ const TeamDetails: React.FC = () => {
     step2: "中國足球乙級聯賽",
     name: "北京理工 vs 上海海港富盛经开比分動畫直播,預測(2025/04/09)",
   };
-  const onClickTab = (item: any) => {
-    const id = item.id;
+  const onClickTab = (id: string) => {
     navigatePlus(`#${id}`, { state: state, replace: true });
   };
   return (
@@ -49,7 +48,7 @@ const TeamDetails: React.FC = () => {
         data={mockTeamBasicInfo}
         tabData={tabData}
         hashValue={hashValue}
-        onClickTab={onClickTab}
+        onClickTab={(item: IFTab)=>{onClickTab(item.id)}}
         onClickBack={() => {
           navigatePlus(-1);
         }}

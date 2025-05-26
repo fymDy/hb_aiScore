@@ -85,12 +85,9 @@ const MatchDetails: React.FC = () => {
     step2: "中國足球乙級聯賽",
     name: "北京理工 vs 上海海港富盛经开比分動畫直播,預測(2025/04/09)",
   };
-  const onClickTab = (item: any) => {
-    const id=item.id
-    navigatePlus(`#${id}`, { state:state, replace: true })
+  const onClickTab = (item: IFTab) => {
+    navigatePlus(`#${item?.id}`, { state:state, replace: true })
   };
-
-
   return (
     <div className={styles.matchDetails}>
       <MatchHeader 

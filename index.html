@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -10,35 +10,35 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-
-function checkIsPC() {
-      const isPC = window.innerWidth > 1024 // 假设宽度大于1024px的为PC端
-      return isPC
-    }
-    function updateHtmlWidth() {
-      if (window.isInThirdPageGame) {
-        return
+      function checkIsPC() {
+        const isPC = window.innerWidth > 1024; // 假设宽度大于1024px的为PC端
+        return isPC;
       }
-      if (checkIsPC()) {
-        document.documentElement.style.margin = 'auto'
-        document.documentElement.style.setProperty(
-          '--safe-html-max-width','1024px'
-        )
-      } else {
-        //TODO 移动端则还原之前的属性设置
-        document.documentElement.style.width = '' // 清除宽度设置
-        document.documentElement.style.margin = '' // 清除margin设置
-        document.documentElement.style.setProperty(
-          '--safe-html-min-width',
-          '320px'
-        )
+      function updateHtmlWidth() {
+        if (window.isInThirdPageGame) {
+          return;
+        }
+        if (checkIsPC()) {
+          document.documentElement.style.margin = "auto";
+          document.documentElement.style.setProperty(
+            "--safe-html-max-width",
+            "1024px"
+          );
+        } else {
+          //TODO 移动端则还原之前的属性设置
+          document.documentElement.style.width = ""; // 清除宽度设置
+          document.documentElement.style.margin = ""; // 清除margin设置
+          document.documentElement.style.setProperty(
+            "--safe-html-min-width",
+            "320px"
+          );
+        }
       }
-    }
-    updateHtmlWidth()
-    window.addEventListener('resize', updateHtmlWidth)
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault()
-    })
+      updateHtmlWidth();
+      window.addEventListener("resize", updateHtmlWidth);
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+      });
     </script>
   </body>
 </html>
