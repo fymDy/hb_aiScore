@@ -1,6 +1,15 @@
+@use "@/assets/styles/utils" as *;
 
-      .teamDetails {
-        // teamDetails 页面样式
-        width:100%;
-      }
-      
+.teamDetails {
+  width: 100%;
+ .football {
+  background-color: #285898;
+  }
+  .basketball {
+    background-color: #F26729;
+  }
+}
+
+.details_StepComp {
+  @include bg(var(--color-f1));
+}

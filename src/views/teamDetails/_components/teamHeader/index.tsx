@@ -7,12 +7,13 @@ import { TeamBasicInfo } from "../../_types";
 import PlayerComp from "@/components/PlayerComp";
 import ISpan from "@/components/Common/ISpan";
 import TabsComp from "@/components/TabsComp";
+import { IFTab } from "@/views/home/interface";
 
 const TeamHeader: React.FC<{
-  tabData:any[],
+  tabData:IFTab[],
   data:TeamBasicInfo,
   onClickBack: () => void,
-  onClickTab:(item:any)=>void,
+  onClickTab:(item:IFTab)=>void,
   className?:string,
   hashValue?:string,
 }> = ({tabData,data,hashValue,className,onClickTab,onClickBack }) => {

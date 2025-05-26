@@ -1,0 +1,114 @@
+
+@use '@/assets/styles/utils' as * ;
+
+
+.League {
+  width:100%;
+  @include py(12);
+  .btnGroupr_wrap{
+    @include px(12);
+    height: initial;
+    div{
+      @include color(var(--color-333));
+      @include bg-color(var(--color-f1));
+    }
+  }
+  .Title{
+    @include font-weight(700);
+    @include my(12);
+  }
+  .promotions{
+    @include flex-start-center;
+    @include mt(12);
+    @include px(12);
+    @include gap(5);
+    .dot{
+      @include w(8);
+      @include h(8);
+      @include border(border-radius,50%);
+      @include bg-color(var(--color-52af2f));
+    }
+    .matchName{
+      @include color(var(--color-999));
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  .tableRow,
+  .tableHeader{
+    @include h(30);
+    @include font-size(12.75);
+    @include display(flex);
+  }
+  .tableHeader{
+    @include color(var(--color-999));
+    @include bg-color(var(--color-f1));
+  }
+  .PlayerComp{
+    @include w(120);
+    @include flex-start-center;
+    @include gap(5);
+   } 
+
+  label.goals,
+  label.order{
+    @include flex-center;
+    @include w(42);
+    @include font-size(12);
+    @include color(var(--color-333));
+  }
+  span{
+    @include font-size(12);
+    @include color(var(--color-333));
+    @include flex-center;
+    @include flex(1);
+  }
+
+  .W{
+    @include color(var(--color-52af2f));
+  }
+  .D{
+    @include color(var(--color-ffba5a));
+  }
+  .L{
+    @include color(var(--color-e74c5b));
+  }
+ 
+}
+.tableContent{
+  width: 100%;
+}
+.tableRow{
+  @include border(border-bottom, solid 1px var(--color-eee));
+  .P,.W,.D,.L{
+    @include bg-color(rgba(var(--color-rgba-2)));
+  }
+  .pts{
+    @include bg-color(var(--color-fff5e2));
+  }
+  .goals,
+  .goal_diff{
+    @include bg-color(var(--color-f6f6f8));
+  }
+}
+// #{css-var-alpha()}
+
+/* 状态颜色标识 */
+// .champion {
+//   background-color: #e6f7ff;
+// }
+
+// .promoted {
+//   background-color: #f6ffed;
+// }
+
+// .relegated {
+//   background-color: #fff1f0;
+// }
+
+// .normal {
+//   background-color: #fff;
+// }

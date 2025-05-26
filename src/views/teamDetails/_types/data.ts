@@ -1,9 +1,10 @@
+import { IFTab } from "@/views/home/interface";
 import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers } from ".";
 
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-26 14:55:25
+ * @LastEditTime: 2025-05-26 16:50:38
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -143,3 +144,53 @@ export const mockTeamNews: TeamNews = {
     }
   ]
 };
+export const footballTabs:IFTab[]=[
+          {
+            id: "overview",
+            name: "概况",
+          },
+          {
+            id: "table",
+            name: "积分榜",
+          },
+          {
+            id: "match",
+            name: "比赛",
+          },
+          {
+            id: "lineUp",
+            name: "阵容",
+          },
+          {
+            id: "champion",
+            name: "冠军",
+          },
+
+          {
+            id: "transfer",
+            name: "转会",
+          },
+        ]
+
+export  const basketballTabs:IFTab[]=[
+          {
+            id: "overview",
+            name: "概况",
+          },
+          {
+            id: "table",
+            name: "积分榜",
+          },
+          {
+            id: "match",
+            name: "比赛",
+          },
+          {
+            id: "lineUp",
+            name: "阵容",
+          },
+          {
+            id: "data",
+            name: "球员数据",
+          },
+        ]

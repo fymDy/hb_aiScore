@@ -17,7 +17,7 @@ import Infomation from "./infomation";
 import BallType from "./ballType";
 import OddsTable, { OddsData } from "../../_components/oddsTable";
 import OddsType from "../../_components/oddsType";
-import { EventsAllData } from "../../match_data";
+import { EventsAllData } from "../../types/match_data";
 const OverView: React.FC = () => {
     useEffect(() => {
       console.log('一级页面的子组件overview挂载了');

@@ -1,7 +1,7 @@
 
     import React from 'react';
     import styles from './index.module.scss';
-import { matchData } from '../match_data';
+import { matchData } from '../types/match_data';
 import { useLocationPlus } from '@/hooks/router/useLocationPlus';
 import Chat from './chat';
 import Data from './data';

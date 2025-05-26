@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-31 20:34:58
- * @LastEditTime: 2025-05-19 19:50:54
+ * @LastEditTime: 2025-05-26 16:59:58
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/TabsComp/index.tsx
@@ -12,7 +12,7 @@ import styles from './index.module.scss'
 import cs from 'classnames'
 
 const TabsComp:React.FC<{
-    tabData:IFTab[],
+    tabData:IFTab[] ,
     activeTab:string | undefined,
     onClick:(item:IFTab)=>void,
     className:string

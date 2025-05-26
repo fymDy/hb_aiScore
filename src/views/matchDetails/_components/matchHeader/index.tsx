@@ -13,13 +13,14 @@ const MatchHeader: React.FC<{
   data:FootballMatchDetail
   onClickBack:()=>void
   onClickTeam:(id:string | number)=>void
-}> = ({data,onClickBack,onClickTeam}) => {
+  className:string
+}> = ({data,onClickBack,onClickTeam,className}) => {
 
   const resTitle=useMemo<string>(()=>{
     return `${data?.leagueName} ${data?.startTime} ${data?.matchDate} ${data?.weekDay}`
   },[data])
   return (
-    <div className={styles.match_top} id={String(data?.matchId)}>
+    <div className={cs(styles.match_top,className)} id={String(data?.matchId)}>
           <TeamTitleComp title={resTitle} onClick={onClickBack}/>
     
               <div className={styles.match_top_box_info}>

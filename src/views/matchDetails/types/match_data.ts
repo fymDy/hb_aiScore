@@ -1,12 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-04 20:44:17
- * @LastEditTime: 2025-05-08 16:42:12
+ * @LastEditTime: 2025-05-26 17:08:18
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
- * @FilePath: /hb_aiScore/src/views/matchDetails/match_data.ts
+ * @FilePath: /hb_aiScore/src/views/matchDetails/types/match_data.ts
  */
 import { EnumIconFontType } from '@/enum/enumIconFontType';
+import { IFTab } from '@/views/home/interface';
 
 export const EventsAllData=[
       {icon:EnumIconFontType.icongoal,name:'進球'},
@@ -295,3 +296,49 @@ export const matchData={
     }
   }
   
+
+  export const footballTabs:IFTab[]=[
+      {
+        id: "overview",
+        name: "概况",
+      },
+      {
+        id: "chat",
+        name: "聊天",
+      },
+      {
+        id: "odds",
+        name: "赔率",
+      },
+      {
+        id: "data",
+        name: "数据",
+      },
+      {
+        id: "lineUp",
+        name: "阵容",
+      },
+      {
+        id: "match",
+        name: "交锋",
+      },
+      {
+        id: "table",
+        name: "积分榜",
+      },
+    ];
+  
+  export  const basketballTabs:IFTab[]=[
+           {
+        id: "overview",
+        name: "概况",
+      },
+      {
+        id: "chat",
+        name: "聊天",
+      },
+    {
+        id: "match",
+        name: "交锋",
+      },
+          ]

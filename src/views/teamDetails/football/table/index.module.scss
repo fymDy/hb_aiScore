@@ -1,0 +1,10 @@
+
+@use '@/assets/styles/utils' as * ;
+
+
+.Table {
+  // Chat 页面样式
+  width:100%;
+  @include mt(12);
+  @include bg-color(var(--color-fff));
+}

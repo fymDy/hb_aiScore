@@ -10,9 +10,13 @@ import { RouterPathUtil } from "@/router/routerPathUtil";
 import LayoutOutlet from "@/layout/outlet";
 import MatchHeader from "./_components/matchHeader";
 import { FootballMatchDetail } from "./_components/matchHeader/type";
+import { EnumSportType } from "../home/enum";
+import { IFTab } from "../home/interface";
+import { footballTabs, basketballTabs } from "./types/match_data";
 
 const MatchDetails: React.FC = () => {
  const {hashValue,state}= useLocationPlus();
+   const { ballType } = state;
  const {navigatePlus}=useNavigatePlus()
  const {setShowStep}=useApp()
   useEffect(() => {
@@ -55,48 +59,26 @@ const MatchDetails: React.FC = () => {
     }
     
   },[])
-
-  const tabData: any[] = useMemo(() => {
-    const data= [
-      {
-        id: "overview",
-        name: "概况",
-        isActive: hashValue == "overview" ? true : false,
-      },
-      {
-        id: "chat",
-        name: "聊天",
-        isActive: hashValue == "chat" ? true : false,
-      },
-      {
-        id: "odds",
-        name: "赔率",
-        isActive: hashValue == "odds" ? true : false,
-      },
-      {
-        id: "data",
-        name: "数据",
-        isActive: hashValue == "data" ? true : false,
-      },
-      {
-        id: "lineUp",
-        name: "阵容",
-        isActive: hashValue == "lineUp" ? true : false,
-      },
-      {
-        id: "match",
-        name: "交锋",
-        isActive: hashValue == "match" ? true : false,
-      },
-      {
-        id: "table",
-        name: "积分榜",
-        isActive: hashValue == "table" ? true : false,
-      },
-    ];
-  
-    return data;
-  }, [hashValue]);
+  const tabData: IFTab[] | [] = useMemo(() => {
+    let data: IFTab[];
+    switch (ballType) {
+      case EnumSportType.Football:
+         data = footballTabs?.map((item: IFTab) => {
+            return { ...item, isActive: item.id === hashValue ? true : false };
+        });
+        break;
+     case EnumSportType.Basketball:
+       data = basketballTabs?.map((item: IFTab) => {
+        return { ...item, isActive: item.id === hashValue ? true : false };
+      });
+        break;
+      default:
+        data=[]
+        break;
+    }
+    return data;  
+  }, [hashValue, ballType, footballTabs, basketballTabs]);
+ 
 
   const stepData = {
     step1: "足球比分直播",
@@ -111,8 +93,9 @@ const MatchDetails: React.FC = () => {
 
   return (
     <div className={styles.matchDetails}>
-    
-      <MatchHeader data={matchHeaderData} 
+      <MatchHeader 
+        className={styles[ballType]}
+        data={matchHeaderData} 
         onClickBack={()=>{
           setShowStep(true)
           navigatePlus(-1)

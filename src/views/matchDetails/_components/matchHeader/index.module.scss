@@ -1,58 +1,53 @@
-@use '@/assets/styles/utils' as * ;
-.match_top{
+@use "@/assets/styles/utils" as *;
+.match_top {
   position: relative;
   font-size: 10px;
-  color: var(--color-fff) ;
+  color: var(--color-fff);
   justify-content: space-between;
-  background-color: #299442;
 }
-.match_top_box_info{
+.match_top_box_info {
   position: relative;
 
-    @include flex-between;
-    padding:  20px 25px 0;
+  @include flex-between;
+  padding: 20px 25px 0;
 }
-.match_top_box_live{
-position: relative;
+.match_top_box_live {
+  position: relative;
   @include flex-center;
   padding-bottom: 5px;
 }
-.live{
+.live {
   position: absolute;
   @include flex-center;
 }
 
-.icon_font{
+.icon_font {
   font-size: 13px;
-  color:rgb(255, 168, 48);
-  
+  color: rgb(255, 168, 48);
 }
-.iconBrandName{
+.iconBrandName {
   color: #fff;
   margin-left: 5px;
-
 }
-.bg{
+.bg {
   width: 108px;
   height: 24px;
   @include border-radius(12);
   @include flex-center;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.icon_left{
+.icon_left {
   position: absolute;
-  top:33px;
+  top: 33px;
   left: 18px;
   font-size: 18px;
   color: var(--color-e2e2e2);
 }
-.icon_right{
-
+.icon_right {
   position: absolute;
-  top:33px;
+  top: 33px;
   right: 20px;
   font-size: 18px;
   color: var(--color-e2e2e2);
- 
 }

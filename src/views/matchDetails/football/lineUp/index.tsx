@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.scss";
 import Starting from "./starting";
 import {matchLineupData} from "./data";
-import { EventsAllData } from "../../match_data";
+import { EventsAllData } from "../../types/match_data";
 import EventsAll from "../../_components/eventsAll";
 import Substitute from "./substitute";
 import Missing from "./missing";
