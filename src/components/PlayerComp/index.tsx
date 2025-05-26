@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-09 14:27:36
- * @LastEditTime: 2025-05-11 20:28:06
+ * @LastEditTime: 2025-05-26 11:57:15
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/PlayerComp/index.tsx
@@ -12,8 +12,8 @@ import styles from './index.module.scss'
 import cs from 'classnames'
 const PlayerComp:React.FC<{
     className:string
-    logo:string,
-    name:string,
+    logo?:string,
+    name?:string,
     classPlayerLogo?:string,
     classPlayerName?:string,
     imgStyle?:any,

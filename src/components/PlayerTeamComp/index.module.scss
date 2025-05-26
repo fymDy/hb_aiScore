@@ -1,0 +1,41 @@
+
+@use '@/assets/styles/utils' as *;
+.PlayerTeamComp{
+  @include flex-start-center;
+  @include flex(1);
+  @include gap(10);
+ .is_player_photo_bg {
+    @include w(42);
+    @include h(30);
+    @include flex-center;
+    @include position(relative);
+    background: url('../../assets/images/bg_swing.png') no-repeat  center  bottom;
+    background-size: 100%;
+  }
+  .left_bg{
+    position: relative;
+    top:-.6rem;
+  }
+  .left{
+    @include w(26);
+    @include h(26);
+  }
+  .right {
+    @include flex-column;
+    @include gap(2);
+    .player_name {
+     
+    }
+    .playerLogo {
+      @include w(12);
+      @include h(12);
+      @include mr(2);
+    }
+    .playerName {
+      @include color(var(--color-999));
+    }
+    .teamWrap {
+      @include flex-start-center;
+    }
+  }
+ } 

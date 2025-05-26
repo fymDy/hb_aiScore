@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-10 19:27:45
- * @LastEditTime: 2025-05-19 14:29:04
+ * @LastEditTime: 2025-05-26 14:48:28
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/football/table/scorer/index.tsx
@@ -15,6 +15,7 @@ import cs from 'classnames'
 import Images from '@/components/Common/Images';
 import ISpan from '@/components/Common/ISpan';
 import { pxToRem } from '@/utils/common';
+import PlayerTeamComp from '@/components/PlayerTeamComp';
 const Scorer: React.FC<{
   data:ScorerItem[];
 }> = ({
@@ -33,13 +34,11 @@ return (
             {data.map((item:ScorerItem, index:number) => (
               <div key={index} className={cs(styles.tableRow)}>
                 <label  className={styles.order}>{item.rank}</label>
-                <div className={styles.PlayerComp}>
-                    <Images className={styles.left}  imgSrc={item.player_photo}  />
-                    <div className={styles.right} >
-                          <ISpan name={item?.player_name}/>
-                          <PlayerComp className={styles.teamWrap} classPlayerLogo={styles.playerLogo} classPlayerName={styles.playerName}   logo={item.team_logo} name= {item.team_name}/>
-                    </div>
-                </div>
+                <PlayerTeamComp className={styles.PlayerTeamComp_Wrap}
+                player_photo={item?.player_photo}
+                player_name={item?.player_name} 
+                team_logo={item?.team_logo} 
+                team_name={item?.team_name}  />
                 <ISpan className={styles.goals} name={item?.goals}/>
               </div>
             ))}

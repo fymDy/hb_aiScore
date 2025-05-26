@@ -3,7 +3,7 @@ import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-21 20:11:42
+ * @LastEditTime: 2025-05-26 14:55:25
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -84,9 +84,10 @@ export const mockTeamSchedule: TeamSchedule = {
         logo: '/logos/shahrbakht.png',
       },
       mvp: {
+        logo: 'https://img0.aiscore.com/football/player/85e7dae2fe8eb2f7abf3575f45fff1f3.png!w60',
         name: '尤內斯·德爾菲',
         nationality: '伊朗',
-        avatarUrl: '/players/delfi.png',
+        nationality_logo: 'https://img1.aiscore.com/country/270eccdff2befbb1b227bb734fd01422.png!w30',
         marketValue: '50.0k€',
       },
       topScorers: [

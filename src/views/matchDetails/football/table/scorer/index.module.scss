@@ -37,33 +37,9 @@
   @include w(36);
   @include color(var(--color-999));
 }
-.PlayerComp{
-  @include flex-start-center;
-  @include flex(1);
-  @include gap(10);
-  .left{
-    @include w(26);
-    @include h(26);
-  }
-  .right{
-    @include flex-column;
-    @include gap(2);
-    .player_name{
-     
-    }
-    .playerLogo{
-      @include w(12);
-      @include h(12);
-      @include mr(2);
-    }
-    .playerName{
-      @include color(var(--color-999));
-    }
-    .teamWrap{
-      @include flex-start-center;
-    }
-  }
- } 
+.PlayerTeamComp_Wrap{
+  width: 100%;
+}
 .goals{
   @include flex-center;
   @include w(63.75);

@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:11:08
- * @LastEditTime: 2025-05-21 20:18:06
+ * @LastEditTime: 2025-05-26 14:52:15
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/index.ts
@@ -52,9 +52,10 @@ export interface MatchSchedule {
     logo: string;
   };
   mvp?: {
+    logo: string;        // MVP 头像 URL
     name: string;             // MVP 球员姓名
     nationality: string;      // MVP 国籍，例如 "伊朗"
-    avatarUrl: string;        // MVP 头像 URL
+    nationality_logo: string;      // MVP 国籍
     marketValue: string;      // 市值，例如 "50.0k€"
   };
   topScorers?: {

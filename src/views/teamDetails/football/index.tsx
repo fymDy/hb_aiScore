@@ -11,6 +11,7 @@ import MatchResultChart from "./_components/matchResultChart";
 import { MatchCanvasPoint } from "../_types";
 import TitleMore from "@/views/matchDetails/_components/titleMore";
 import MatchSchedule from "./_components/matchSchedule";
+import MostPlayer from "./_components/mostPlayer";
 
 
 const Football: React.FC<{}> = ({}) => {
@@ -95,6 +96,7 @@ const Football: React.FC<{}> = ({}) => {
      </div>
      <MatchResultChart     data={resultData}/>
      <MatchSchedule data={mockTeamSchedule}/>
+     <MostPlayer data={mockTeamSchedule}/>
     </div>
   );
 };

@@ -1,0 +1,15 @@
+@use "@/assets/styles/utils" as *;
+
+.MostPlayer {
+  width: 100%;
+  .content {
+    @include p(14);
+    @include  flex-between;
+    @include bg(var(--color-fff));
+  }
+  .marketValue{
+     @include font-size(12);
+     @include color(var(--color-0f80da));
+  }
+
+}
