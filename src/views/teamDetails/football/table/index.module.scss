@@ -8,3 +8,13 @@
   @include mt(12);
   @include bg-color(var(--color-fff));
 }
+.btnGroupr_wrap{
+    @include px(12);
+    @include py(4);
+    height: initial;
+    @include bg-color(var(--color-f1));
+    div{
+      @include color(var(--color-333));
+      @include bg-color(var(--color-f1));
+    }
+  }

@@ -1,0 +1,10 @@
+@use '@/assets/styles/utils' as * ;
+.SeasonFilter {
+@include flex-between;
+@include px(14);
+@include h(36);
+  .font{
+    @include font-size(8);
+    @include color(var(--color-999))
+  }
+}

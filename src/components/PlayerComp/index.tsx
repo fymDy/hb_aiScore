@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-09 14:27:36
- * @LastEditTime: 2025-05-26 11:57:15
+ * @LastEditTime: 2025-05-27 19:12:38
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/PlayerComp/index.tsx
@@ -17,7 +17,6 @@ const PlayerComp:React.FC<{
     classPlayerLogo?:string,
     classPlayerName?:string,
     imgStyle?:any,
- 
 }>=({className,classPlayerLogo,classPlayerName,logo,name,imgStyle})=>{
     return (
         <div className={cs(styles.PlayerComp,className)}>

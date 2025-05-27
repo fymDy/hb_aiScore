@@ -1,75 +1,87 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-10 19:27:45
- * @LastEditTime: 2025-05-26 15:59:12
+ * @LastEditTime: 2025-05-27 20:21:13
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/football/table/league/index.tsx
  */
 
 import PlayerComp from "@/components/PlayerComp";
-import { StandingTeam } from "../enum";
+import { LeagueGroup,  StandingTableColumn, TeamStanding } from "../_types";
 import styles from "./index.module.scss";
 import cs from "classnames";
 import ISpan from "@/components/Common/ISpan";
-import BtnGroup from "@/components/Common/btnGroup";
-import { IFSearchResult } from "@/views/home/interface";
-import TitleMore from "@/views/matchDetails/_components/titleMore";
+import { pxToRem } from "@/utils/common";
+
 const League: React.FC<{
-  matchName:string,
-  data: StandingTeam[];
-  filterData: IFSearchResult[];
-  onclickFilter: (id: string) => void;
-}> = ({matchName, data, filterData, onclickFilter }) => {
+  activeFilterId:string,
+  headerColumn: StandingTableColumn[];
+  groupsData: LeagueGroup[];
+}> = ({activeFilterId, headerColumn, groupsData }) => {
+  const getGridTemplate = (headers: StandingTableColumn[]) => {
+    const fixed = headers
+      .filter((h) => h.fixedWidth)
+      .map((h) => pxToRem(h.fixedWidth));
+    const flexibleCount = headers.length - fixed.length;
+    const flexCols = new Array(flexibleCount).fill("1fr");
+    return [...fixed, ...flexCols].join(" ");
+  };
   return (
     <section className={styles.League}>
-      <BtnGroup
-        className={styles.btnGroupr_wrap}
-        dataList={filterData}
-        onclick={onclickFilter}
-      />
-      <TitleMore className={styles.Title} title={"聯賽 "} isMore={false} />
-      <dl className={styles.table}>
-        <dt className={styles.tableHeader}>
-          <label className={styles.order}>#</label>
-          <div className={styles.PlayerComp}>队伍</div>
-          <span className={styles.P}>P</span>
-          <span className={styles.W}>W</span>
-          <span className={styles.D}>D</span>
-          <span className={styles.L}>L</span>
-          <label className={styles.goals}>進球</label>
-          <span>±</span>
-          <span>Pts</span>
-        </dt>
-        <dd className={styles.tableContent}>
-          {data.map((team: StandingTeam, index: number) => (
-            <div
-              key={index}
-              className={cs(styles.tableRow, styles[team.status || "normal"])}
+      {groupsData.map((groupIteam: LeagueGroup, index: number) => {
+        return (
+          <dl key={index} className={styles.table}>
+            <dt
+              className={styles.tableHeader}
+              style={{
+                display: "grid",
+                alignItems: "center",
+                gridTemplateColumns: getGridTemplate(headerColumn),
+              }}
             >
-              <label className={styles.order}>{team.rank}</label>
-              <PlayerComp
-                className={styles.PlayerComp}
-                logo={team.team_logo}
-                name={team.team_name}
-              />
-              <ISpan className={styles.P} name={team.match_played} />
-              <ISpan className={styles.W} name={team.wins} />
-              <ISpan className={styles.D} name={team.draws} />
-              <ISpan className={styles.L} name={team.losses} />
-              <label className={styles.goals}>
-                {team.goals_for}-{team.goals_against}
-              </label>
-              <ISpan className={styles.goal_diff} name={team.goal_diff} />
-              <ISpan className={styles.pts} name={team.points} />
-            </div>
-          ))}
-        </dd>
-      </dl>
-      <div className={styles.promotions}>
-        <ISpan className={styles.dot} name={''} />
-        <ISpan className={styles.matchName} name={matchName} />
-      </div>
+              {headerColumn.map((col: StandingTableColumn) => (
+                <div key={col.key} style={{ textAlign: col.align }}>
+                  {col.label}
+                </div>
+              ))}
+            </dt>
+            <dd className={styles.tableContent}>
+              {groupIteam?.teams?.[activeFilterId as 'all' | 'home' | 'away'].map((team: TeamStanding, i: number) => {
+                return (
+                  <div
+                    key={i}
+                    className={cs(
+                      styles.tableRow,
+                    )}
+                    style={{
+                      display: "grid",
+                      alignItems: "center",
+                      gridTemplateColumns: getGridTemplate(headerColumn),
+                    }}
+                  >
+                    <ISpan className={styles.order} name={team.rank} />
+                    <PlayerComp
+                      className={styles.PlayerComp}
+                      logo={team.logoUrl}
+                      name={team.teamName}
+                    />
+                    <ISpan className={styles.P} name={team.played} />
+                    <ISpan className={styles.W} name={team.win} />
+                    <ISpan className={styles.D} name={team.draw} />
+                    <ISpan className={styles.L} name={team.lose} />
+                    <ISpan
+                      className={styles.goals}
+                      name={`${team.goalsFor}:${team.goalsAgainst}`}
+                    />
+                    <ISpan className={styles.pts} name={team.points} />
+                  </div>
+                );
+              })}
+            </dd>
+          </dl>
+        );
+      })}
     </section>
   );
 };

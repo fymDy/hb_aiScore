@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-03-24 14:28:45
- * @LastEditTime: 2025-04-20 16:42:53
+ * @LastEditTime: 2025-05-27 17:29:05
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/utils/common.ts
@@ -109,7 +109,7 @@ export function getRootSize(){
 export function removeEventListenerResize(flag ='resize',callback:any){
     window.removeEventListener(flag, callback);
   }
-  export const pxToRem = (v: number): string => {
+  export const pxToRem = (v=0): string => {
     return `${v / getRootSize()}rem`;
   };
   export const pxToCalc = (px: number): string => {

@@ -1,0 +1,91 @@
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.mask {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.popup {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+    margin: 0 10px 10px;
+  &.active {
+    animation-name: slideUp;
+  }
+
+  &.hidden {
+    animation-name: slideDown;
+  }
+
+  &.bottom {
+    align-self: flex-end;
+  }
+
+  &.top {
+    align-self: flex-start;
+    border-radius: 0 0 12px 12px;
+  }
+
+  &.center {
+    align-self: center;
+    width: 80%;
+    border-radius: 8px;
+  }
+}
+
+.content {
+  padding: 16px;
+}
+
+.footer {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+.button {
+  flex: 1;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cancel {
+  color: #666;
+  background: #f8f8f8;
+  border-right: 1px solid #eee;
+}
+
+.confirm {
+  color: #1677ff;
+  background: #fff;
+}
