@@ -1,0 +1,29 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.InfomationBaseComp{
+  background-color: var(--color-fff);
+ 
+ }
+ .title{
+  height: 28px;
+  line-height: 28px;
+  padding: 0 14px;
+  font-size: 13px;
+  color: var(--color-333);
+  @include bg-color(css-var(color-f1,true))
+ }
+
+ .info{
+  @include flex-column;
+  padding: 0 14px;
+
+ }
+ .item{
+  height: 28px;
+  font-size: 12px;
+  @include flex-between
+ }
+ .itemTitle{
+   color: var(--color-999)
+ }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import parse, {
   domToReact,
   HTMLReactParserOptions,
@@ -7,7 +7,6 @@ import parse, {
 } from 'html-react-parser';
 
 interface HtmlDomProps {
-  
   html: string;
   replaceCustomTags?: boolean;
    className?:string
@@ -24,12 +23,12 @@ const HtmlDom: React.FC<HtmlDomProps> = ({
       // 替换 <m> 为 <div>
       if (domNode.type === 'tag' && (domNode as Element).name === 'm') {
         const element = domNode as Element;
-        return <div>{domToReact(element.children as DOMNode[], options)}</div>;
+        return <span>{domToReact(element.children as DOMNode[], options)}</span>;
       }
     },
   };
 
-  return <div className={className} >{parse(html, options)}</div>;
+  return <span className={className} >{parse(html, options)}</span>;
 };
 
 export default HtmlDom;

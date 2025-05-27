@@ -12,7 +12,7 @@ import CircleL from "@/components/Common/CircleL";
 import CircleW from "@/components/Common/CircleW";
 import CrossSwords from "./crossSwords";
 import CircleD from "@/components/Common/CircleD";
-import Infomation from "@/views/matchDetails/football/overview/infomation";
+import Infomation from "../overview/_components/infomation";
 
 
 const Match: React.FC = () => {
@@ -147,8 +147,8 @@ const Match: React.FC = () => {
           ))
         }
       </div>
-      {activeFilterId=='0' && <Infomation data={infoData} isBtnShowMore={false} />}
-      {activeFilterId=='1' &&   <CrossSwords classNameItem={styles.crossSwords_item} data={crossSwordsData}/>}
+      {/* {activeFilterId=='0' && <Infomation data={infoData} isBtnShowMore={false} />}
+      {activeFilterId=='1' &&   <CrossSwords classNameItem={styles.crossSwords_item} data={crossSwordsData}/>} */}
     </div>
   );
 };

@@ -13,6 +13,7 @@ import CircleW from "@/components/Common/CircleW";
 import Infomation from "../overview/infomation";
 import CrossSwords from "./crossSwords";
 import CircleD from "@/components/Common/CircleD";
+import { infoData } from "../../types/match_data";
 
 
 const Match: React.FC = () => {
@@ -54,23 +55,7 @@ const Match: React.FC = () => {
         }
       ]
     }, []);
-    const infoData={
-      title:'比赛信息',
-      info:[
-        {title:'Name',text:'貝爾格萊德白城後備隊vs 莫德柏里噴射機後備隊'},
-        {title:'Date',text:'2025/04/25'},
-        {title:'时间',text:'09:45:00'},
-        {title:'场馆',text:'-'},
-      ],
-      // desc:['貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播','(線上視訊直播) 澳大利亚南后备聯賽將在2025/04/25 09:45:00 UTC開始。 在這裡，您可以在 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播中找到所有 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊 之前的結果，按照他們的H2H比賽進行排序。'],
-      details:[
-        '貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊 H2H',
-        '貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊預測',
-        '貝爾格萊德白城後備隊比賽賽程',
-        '貝爾格萊德白城後備隊比賽賽程',
-      ],
-      ps:'AiScore足球比分直播提供 iPhone 和 iPad 應用程序，Android 應用程式在 Google Play 上，以及 Windows 手機應用程式。 您可以在不同語言的所有商店中找到我們的身影，名稱為 "AiScore"。 安裝 AiScore應用程序，並在您的行動裝置上關注 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播！'
-    }
+  
  const crossSwordsData = useMemo(() => {
     return {
       countryIcon: "https://img1.aiscore.com/country/907eba32d950bfab68227fd7ea22999b.png!w60",

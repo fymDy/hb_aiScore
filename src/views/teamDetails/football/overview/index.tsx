@@ -12,7 +12,6 @@ import Infomation from "./_components/infomation";
 
 
 const OverView: React.FC<{}> = ({}) => {
-const [showMore,setShowMore]=useState(false)
   const resultData:MatchCanvasPoint[]=[
     { date: '03/16', result: 'W', score: '1-0', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
         { date: '04/22', result: 'D', score: '1-1', opponentLogo: 'https://img0.aiscore.com/football/team/48de225f5504af12dcfbedbe7829dbf7.png!w60' },
@@ -31,7 +30,7 @@ const [showMore,setShowMore]=useState(false)
      <MatchSchedule data={mockTeamSchedule}/>
      <MostPlayer data={mockTeamSchedule}/>
      <RecentTransfers data={mockTransfers}/>
-      <Infomation data={infoData} showMore={showMore} onclickShow={(v:boolean)=>setShowMore(v)}/>
+      <Infomation data={infoData} />
     </div>
   );
 };

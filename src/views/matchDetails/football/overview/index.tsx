@@ -14,10 +14,10 @@ import EventsAll from "../../_components/eventsAll";
 import PlayerRating from "./playerRating";
 import VenueReferee from "./venueReferee";
 import Infomation from "./infomation";
-import BallType from "./ballType";
+import MatchSchedule from "./MatchSchedule";
 import OddsTable, { OddsData } from "../../_components/oddsTable";
 import OddsType from "../../_components/oddsType";
-import { EventsAllData } from "../../types/match_data";
+import { EventsAllData, infoData, matchScheduleData } from "../../types/match_data";
 const OverView: React.FC = () => {
     useEffect(() => {
       console.log('一级页面的子组件overview挂载了');
@@ -25,7 +25,6 @@ const OverView: React.FC = () => {
         console.log('一级页面子组件overview卸载了');
       };
     }, []);
-  const [showMore,setShowMore]=useState(false)
   const barData: any[] = [
     ...Array.from({ length: 100 }, (_, i) => ({
       team: "home",
@@ -171,29 +170,8 @@ const OverView: React.FC = () => {
       };
     }, []);
   
-  const infoData={
-    title:'信息',
-    info:[
-      {title:'Name',text:'貝爾格萊德白城後備隊vs 莫德柏里噴射機後備隊'},
-      {title:'Date',text:'2025/04/25'},
-      {title:'时间',text:'09:45:00'},
-      {title:'场馆',text:'-'},
-    ],
-    desc:['貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播','(線上視訊直播) 澳大利亚南后备聯賽將在2025/04/25 09:45:00 UTC開始。 在這裡，您可以在 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播中找到所有 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊 之前的結果，按照他們的H2H比賽進行排序。'],
-    details:[
-      '貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊 H2H',
-      '貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊預測',
-      '貝爾格萊德白城後備隊比賽賽程',
-      '貝爾格萊德白城後備隊比賽賽程',
-    ],
-    ps:'AiScore足球比分直播提供 iPhone 和 iPad 應用程序，Android 應用程式在 Google Play 上，以及 Windows 手機應用程式。 您可以在不同語言的所有商店中找到我們的身影，名稱為 "AiScore"。 安裝 AiScore應用程序，並在您的行動裝置上關注 貝爾格萊德白城後備隊 vs 莫德柏里噴射機後備隊比分直播！'
-  }
-  const ballTypeData= [
-    {id:'0',name:'中國足球超級聯賽 賽程'},
-    {id:'1',name:'雲南玉昆 賽程'},
-     {id:'2',name:'海海港 賽程'},
-     {id:'3',name:'雲南玉昆 vs 上海海港 交鋒'},
-  ]
+
+
 
 
   return (
@@ -229,10 +207,9 @@ const OverView: React.FC = () => {
           <div >
             <OddsTable data={sampleData} title='赔率' isShowArrow={false}/>
             <OddsType data={oddsTypeData} />
-            <Infomation data={infoData} showMore={showMore} onclickShow={(v:boolean)=>setShowMore(v)}/>
+            <Infomation data={infoData} />
           </div>
-         
-        <BallType data={ballTypeData}/>
+        <MatchSchedule title={matchScheduleData.title} data={matchScheduleData.data}/>
    
         <EventsAll className={styles.eventsAll_wrap} data={EventsAllData}/>
       </div>
