@@ -5,12 +5,11 @@
 .Table {
   // Chat 页面样式
   width:100%;
-  @include mt(12);
   @include bg-color(var(--color-fff));
 }
 .btnGroupr_wrap{
     @include px(12);
-    @include py(4);
+    @include py(10);
     height: initial;
     @include bg-color(var(--color-f1));
     div{
