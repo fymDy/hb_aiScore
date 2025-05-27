@@ -23,11 +23,13 @@
       @include font-size(10);
       @include color(var(--color-999));
     }
-    .vs {
+    .score {
+   
       @include flex-center;
       @include h(24);
       @include p(2, 8);
       @include font-size(16);
+      @include border-radius(4);
       @include color(var(--color-fff));
       @include bg(var(--color-0f80da));
     }

@@ -9,6 +9,7 @@ import { MatchCanvasPoint } from "../../_types";
 import { infoData, mockTeamBasicInfo, mockTeamSchedule, mockTransfers } from "../../_types/data";
 import RecentTransfers from "./_components/recentTransfers";
 import Infomation from "./_components/infomation";
+import TopScorers from "./_components/topScorers";
 
 
 const OverView: React.FC<{}> = ({}) => {
@@ -29,8 +30,9 @@ const OverView: React.FC<{}> = ({}) => {
      <MatchResultChart     data={resultData}/>
      <MatchSchedule data={mockTeamSchedule}/>
      <MostPlayer data={mockTeamSchedule}/>
+      <TopScorers data={mockTeamSchedule}/>
      <RecentTransfers data={mockTransfers}/>
-      <Infomation data={infoData} />
+     <Infomation data={infoData} />
     </div>
   );
 };

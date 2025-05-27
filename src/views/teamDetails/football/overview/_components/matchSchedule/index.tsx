@@ -25,11 +25,10 @@ data
                      className={styles.PlayerComp} classPlayerLogo={styles.classPlayerLogo} />
               </div>
               <div className={styles.center}>
-             
                   <span className={styles.first}>{schedulesData.matchId}</span>
-                  <div className={styles.PlayerComp} >
-                     <span className={styles.vs}>{schedulesData.score}</span>
-                  </div>
+                  <p className={styles.PlayerComp} >
+                     <span className={styles.score}>{schedulesData.score}</span>
+                  </p>
               </div>
               <div className={styles.right}>
                  <span className={styles.first}> </span>

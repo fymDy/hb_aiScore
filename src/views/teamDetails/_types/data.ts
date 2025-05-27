@@ -4,7 +4,7 @@ import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-27 11:36:12
+ * @LastEditTime: 2025-05-27 13:51:47
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -92,8 +92,9 @@ export const mockTeamSchedule: TeamSchedule = {
         marketValue: '50.0k€',
       },
       topScorers: [
-        { name: '张三', goal: 1 },
-        { name: '李四', goal: 1, isPenalty: true },
+        {rank: 1,logo:'', name: '张三', goal: 3 },
+        {rank: 2, logo:'', name: '李四', goal: 2, isPenalty: true },
+         {rank: 3,logo:'', name: 'evgeny pshennikov', goal: 3 },
       ],
     },
     {
