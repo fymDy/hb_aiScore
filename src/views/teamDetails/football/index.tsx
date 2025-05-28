@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import styles from "./index.module.scss";
 import { useLocationPlus } from "@/hooks/router/useLocationPlus";
 import OverView from "./overview";
-import Table from "./table";
+import Standings from "./standings";
 import Match from "./match";
 import Champion from "./champion";
 import Transfer from "./transfer";
@@ -14,7 +14,7 @@ const Football: React.FC<{}> = ({}) => {
   const RenderComp = (
     <>
       {hashValue === "overview" && <OverView />}
-      {hashValue === "table" && <Table />}
+      {hashValue === "standings" && <Standings />}
       {hashValue === "match" && <Match />}
       {hashValue === "lineUp" && <LineUp />}
       {hashValue === "champion" && <Champion />}

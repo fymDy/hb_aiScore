@@ -1,9 +1,10 @@
+@use '@/assets/styles/utils' as *;
 .StepComp{
     box-sizing: border-box;
     padding: 6px 12px;
     background-color: var(--color-fff);
     word-break: break-all;
-    
+      @include border(border-bottom, solid 1px var(--color-e3));
 }
 .name{
     font-weight: 400;

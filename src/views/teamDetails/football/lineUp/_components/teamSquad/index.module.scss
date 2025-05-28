@@ -2,47 +2,43 @@
 @use '@/assets/styles/utils' as * ;
 
 
-.Scorer {
+.TeamSquad {
   width:100%;
   .Title{
     @include font-weight(700);
-    @include my(12);
   }
 }
 
-.table {
-  width: 100%;
-
- .tableHeader{
-    @include h(30);
-    @include font-size(12.75);
-    @include color(var(--color-999));
-    @include display(flex);
-    @include bg-color(var(--color-f1));
-   
-  }
-  .tableContent{
+ .tableContent{
     width: 100%;
   }
-}
 .tableRow{
-  @include h(45);
+  @include h(42);
   @include font-size(12.75);
   @include display(flex);
   @include border(border-bottom, solid 1px var(--color-eee));
+  @include bg-color(var(--color-fff));
 
 }
-.order{
+.order{ 
    @include flex-center;
   @include w(36);
   @include color(var(--color-999));
 }
 .PlayerTeamComp{
-     @include flex-center;
+  @include display(flex);
+
 }
 
 .goals{
    @include flex-center;
   @include w(63.75);
-  @include color(var(--color-999));
+  @include color(var(--color-0f80da));
+}
+  .classPlayerLogo{
+
+}
+.classPlayerName{
+    @include font-size(14);
+    @include color(var(--color-000));
 }

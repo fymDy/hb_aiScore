@@ -4,7 +4,7 @@ import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-27 13:51:47
+ * @LastEditTime: 2025-05-28 19:49:36
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -151,7 +151,7 @@ export const footballTabs:IFTab[]=[
             name: "概况",
           },
           {
-            id: "table",
+            id: "standings",
             name: "积分榜",
           },
           {

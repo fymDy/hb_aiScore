@@ -31,7 +31,6 @@ const switchData:any= useMemo(()=>{
 
   return (
     <div className={styles.Match}>
-      {/* <CrossSwords classNameItem={styles.crossSwords_item} data={crossSwordsData}/> */}
       <MatchSwitch data={switchData} onClick={()=>setShowUpcoming(!showUpcoming)}/>
       <MatchList data={mockGroupedTeamMatches} homeData={homeData} showUpcoming={showUpcoming}  />
     </div>

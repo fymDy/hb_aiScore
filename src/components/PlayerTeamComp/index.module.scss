@@ -24,16 +24,17 @@
     @include flex-column;
     @include gap(2);
     .player_name {
-     
+        position: relative;
     }
-    .playerLogo {
+    .teamLogo {
       @include w(12);
       @include h(12);
       @include mr(2);
     }
-    .playerName {
+    .teamName {
       @include color(var(--color-999));
     }
+
     .teamWrap {
       @include flex-start-center;
     }

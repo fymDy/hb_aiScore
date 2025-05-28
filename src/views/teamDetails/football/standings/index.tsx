@@ -20,7 +20,7 @@ import SeasonSelector from "./_components/SeasonSelector";
 import SeasonFilter from "./_components/SeasonFilter";
 import BtnGroup from "@/components/Common/btnGroup";
 
-const Table: React.FC = () => {
+const Standings: React.FC = () => {
   const [activeFilterId, setActiveFilterId] = useState<string>("all");
 
   const [visible, setVisible] = useState(false);
@@ -63,7 +63,7 @@ const Table: React.FC = () => {
   };
 
   return (
-    <article className={styles.Table}>
+    <article className={styles.Standings}>
       <SeasonFilter
         logo={seasonData.logo}
         name={seasonData.name}
@@ -96,4 +96,4 @@ const Table: React.FC = () => {
   );
 };
 
-export default Table;
+export default Standings;

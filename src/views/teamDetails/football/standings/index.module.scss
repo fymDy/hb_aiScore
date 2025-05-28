@@ -2,8 +2,7 @@
 @use '@/assets/styles/utils' as * ;
 
 
-.Table {
-  // Chat 页面样式
+.Standings {
   width:100%;
   @include bg-color(var(--color-fff));
 }

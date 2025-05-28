@@ -4,5 +4,4 @@
 .ISpan{
     @include font-size(12);
     @include color(var(--color-333));
-    @include text-align(center);
 }

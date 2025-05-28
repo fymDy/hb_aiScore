@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-28 13:18:45
- * @LastEditTime: 2025-05-28 13:39:10
+ * @LastEditTime: 2025-05-28 19:09:53
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/football/match/_components/MatchSwitch/index.tsx
@@ -20,12 +20,12 @@ const MatchSwitch:React.FC<{
 })=>{
     
         return(
-        <div className={styles.MatchSwitch}>
-          <div className={styles.left} onClick={onClick}>
+        <div className={styles.MatchSwitch} onClick={onClick}>
+          <div className={styles.left} >
             <SpriteIcon name={data?.icon} />
             <span >{data?.text}</span>
           </div>
-             <div className={styles.right} >{19}</div>
+            <div className={styles.right} >{19}</div>
         </div>
         )
 }

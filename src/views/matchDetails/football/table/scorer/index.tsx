@@ -1,20 +1,17 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-10 19:27:45
- * @LastEditTime: 2025-05-26 14:48:28
+ * @LastEditTime: 2025-05-28 20:05:05
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/matchDetails/football/table/scorer/index.tsx
  */
 
-import PlayerComp from '@/components/PlayerComp';
 import TitleMore from '../../../_components/titleMore';
 import { ScorerItem } from '../enum';
 import styles from './index.module.scss'
 import cs from 'classnames'
-import Images from '@/components/Common/Images';
 import ISpan from '@/components/Common/ISpan';
-import { pxToRem } from '@/utils/common';
 import PlayerTeamComp from '@/components/PlayerTeamComp';
 const Scorer: React.FC<{
   data:ScorerItem[];
@@ -27,14 +24,14 @@ return (
       <div className={styles.table}>
             <div className={styles.tableHeader}>
               <label className={styles.order}>#</label>
-              <label className={styles.PlayerComp}  >球員</label>
+              <label className={styles.PlayerTeamComp}>球員</label>
               <label className={styles.goals}>進球</label>
             </div>
             <div className={styles.tableContent}>
             {data.map((item:ScorerItem, index:number) => (
               <div key={index} className={cs(styles.tableRow)}>
                 <label  className={styles.order}>{item.rank}</label>
-                <PlayerTeamComp className={styles.PlayerTeamComp_Wrap}
+                <PlayerTeamComp className={styles.PlayerTeamComp}
                 player_photo={item?.player_photo}
                 player_name={item?.player_name} 
                 team_logo={item?.team_logo} 
