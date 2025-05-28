@@ -1,0 +1,19 @@
+@use '@/assets/styles/utils' as *;
+
+.MatchSwitch{
+ @include h(38);   
+ @include flex-between;
+ @include bg(var(--color-fff));
+ @include px(10);
+ .left{
+    @include flex-between;
+    @include gap(9);
+    @include color(var(--color-0f80da));
+    @include font-size(15);
+    @include font-weight(500);
+ }
+ .right{
+     @include font-size(13);
+    @include color(var(--color-999));
+ }
+}

@@ -10,7 +10,7 @@ interface PopupProps {
   cancelText?: string;
   confirmText?: string;
   children: React.ReactNode;
-  position?: 'bottom' | 'top' | 'center';
+  position?: 'bottom' | 'top' | 'center';// ⬅️ 支持 top / center
 }
 
 const Popup: React.FC<PopupProps> = ({

@@ -1,0 +1,63 @@
+
+@use '@/assets/styles/utils' as * ;
+
+.MatchList{
+  width: 100%;
+  position: relative;
+ }
+ 
+
+ .item{
+
+  @include flex-center;
+  gap:10px;
+  padding: 0 12px;
+  background-color: var(--color-fff);
+  border-bottom: solid 1px var(--color-f1);
+ } 
+ .flag{
+  width: 20px;
+  @include flex-column-center;
+  justify-items:center;
+ }
+
+ .item_left{
+  @include flex-center;
+  flex: 1;
+  font-size: 12px;
+
+ }
+ .date{
+  display: block;
+  width: 70px;
+  margin-right: 10px;
+  color: var(--color-999);
+ }
+ .team{
+  height: 63px;
+  flex: 1;
+  color: var(--color-333);
+  @include flex-column;
+ }
+.item:hover{
+  background-color: #ecf5fc;
+}
+ .team_img{
+  // height: 31px;
+
+ }
+ .teamHome{
+margin-left: 5px;
+ }
+ .score{
+  width:32px ;
+ 
+  color: var(--color-333);
+  @include flex-column-center;
+ 
+  span{
+    height: 31px;
+    line-height: 31px;
+  }
+ }
+
