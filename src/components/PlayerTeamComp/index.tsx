@@ -1,7 +1,7 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-09 14:27:36
- * @LastEditTime: 2025-05-28 20:43:57
+ * @LastEditTime: 2025-05-28 20:51:05
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/components/PlayerTeamComp/index.tsx
@@ -35,7 +35,7 @@ const PlayerTeamComp: React.FC<{
     <div className={cs(styles.PlayerTeamComp, className)}>
       <div className={cs({ [styles.is_player_photo_bg]: is_player_photo_bg })}>
         <Images
-          className={cs(styles.left, { [styles.left_bg]: is_player_photo_bg })}
+          className={cs(styles.left,classPlayerLogo, { [styles.left_bg]: is_player_photo_bg })}
           imgSrc={player_photo}
         />
       </div>
@@ -44,7 +44,7 @@ const PlayerTeamComp: React.FC<{
         {team_name ? (
           <PlayerComp
             className={styles.teamWrap}
-            classPlayerLogo={cs(styles.teamLogo,classPlayerLogo)}
+            classPlayerLogo={cs(styles.teamLogo)}
             classPlayerName={cs(styles.teamName)}
             logo={team_logo}
             name={team_name}
