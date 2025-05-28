@@ -59,7 +59,7 @@ const TeamDetails: React.FC = () => {
         step2={stepData.step2}
         name={stepData.name}
       />
-      <LayoutOutlet />
+      <LayoutOutlet contentData={mockTeamBasicInfo} />
     </div>
   );
 };

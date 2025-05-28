@@ -3,7 +3,7 @@ import { TeamMatchRecordGrouped } from ".";
 /*
  * @Author: Mark
  * @Date: 2025-05-28 11:36:22
- * @LastEditTime: 2025-05-28 13:50:11
+ * @LastEditTime: 2025-05-28 16:30:46
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/football/match/_types/data.ts
@@ -28,7 +28,7 @@ export const mockGroupedTeamMatches: TeamMatchRecordGrouped = {
           isHome: true,
           teamName: '莫斯科斯巴達B隊',
           teamLogo: '/logos/opponent-03.png',
-          score: '0-2',
+          score: '2',
           result: 'L',
           status: 'finished'
         },
@@ -38,7 +38,7 @@ export const mockGroupedTeamMatches: TeamMatchRecordGrouped = {
           isHome: false,
           teamName: '染維捷',
           teamLogo: '/logos/opponent-04.png',
-          score: '4-1',
+          score: '4',
           result: 'W',
           status: 'finished'
         },
@@ -48,7 +48,7 @@ export const mockGroupedTeamMatches: TeamMatchRecordGrouped = {
           isHome: true,
           teamName: '恩巴巴爾B隊',
           teamLogo: '/logos/opponent-05.png',
-          score: '1-1',
+          score: '1',
           result: 'D',
           status: 'finished'
         }
@@ -63,7 +63,7 @@ export const mockGroupedTeamMatches: TeamMatchRecordGrouped = {
           isHome: false,
           teamName: '孔波齊諾',
           teamLogo: '/logos/opponent-20.png',
-          score: '1-0',
+          score: '1',
           result: 'W',
           status: 'finished'
         }
@@ -78,7 +78,7 @@ export const mockGroupedTeamMatches: TeamMatchRecordGrouped = {
           isHome: false,
           teamName: '拉斯斯科利帕士星',
           teamLogo: '/logos/opponent-30.png',
-          score: '3-3',
+          score: '3',
           result: 'D',
           status: 'finished'
         }

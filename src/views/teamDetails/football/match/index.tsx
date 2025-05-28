@@ -4,9 +4,12 @@ import { mockGroupedTeamMatches } from "./_types/data";
 import MatchList from "./_components/MatchList";
 
 import MatchSwitch from "./_components/MatchSwitch";
+import { useOutletContext } from "react-router-dom";
+import { TeamBasicInfo } from "../../_types";
 
 
 const Match: React.FC = () => {
+  const homeData:TeamBasicInfo = useOutletContext(); 
   const [showUpcoming, setShowUpcoming] = useState(false);
     
 const switchData:any= useMemo(()=>{
@@ -30,7 +33,7 @@ const switchData:any= useMemo(()=>{
     <div className={styles.Match}>
       {/* <CrossSwords classNameItem={styles.crossSwords_item} data={crossSwordsData}/> */}
       <MatchSwitch data={switchData} onClick={()=>setShowUpcoming(!showUpcoming)}/>
-      <MatchList data={mockGroupedTeamMatches} showUpcoming={showUpcoming}  />
+      <MatchList data={mockGroupedTeamMatches} homeData={homeData} showUpcoming={showUpcoming}  />
     </div>
   );
 };
