@@ -4,7 +4,7 @@ import { TeamBasicInfo, TeamNews, TeamRecentMatches, TeamSchedule, TeamTransfers
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:33:01
- * @LastEditTime: 2025-05-28 19:49:36
+ * @LastEditTime: 2025-05-30 19:40:02
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/data.ts
@@ -92,9 +92,9 @@ export const mockTeamSchedule: TeamSchedule = {
         marketValue: '50.0k€',
       },
       topScorers: [
-        {rank: 1,logo:'', name: '张三', goal: 3 },
-        {rank: 2, logo:'', name: '李四', goal: 2, isPenalty: true },
-         {rank: 3,logo:'', name: 'evgeny pshennikov', goal: 3 },
+        {playerId: 'arseniy-filev',rank: 1,logo:'', name: '张三', goals: 3 },
+        {playerId: 'arseniy-filev2',rank: 2, logo:'', name: '李四', goals: 2, penaltyGoals: 1 },
+         {playerId: 'arseniy-filev3',rank: 3,logo:'', name: 'evgeny pshennikov', goals: 3 },
       ],
     },
     {
@@ -161,6 +161,10 @@ export const footballTabs:IFTab[]=[
           {
             id: "lineUp",
             name: "阵容",
+          },
+          {
+            id: "playerStats",
+            name: "球员数据",
           },
           {
             id: "champion",

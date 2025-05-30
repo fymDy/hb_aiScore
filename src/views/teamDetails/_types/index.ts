@@ -1,13 +1,13 @@
 /*
  * @Author: Mark
  * @Date: 2025-05-19 15:11:08
- * @LastEditTime: 2025-05-27 13:57:41
+ * @LastEditTime: 2025-05-30 19:42:10
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/views/teamDetails/_types/index.ts
  */
 
-import TopScorers from "../football/overview/_components/topScorers";
+import TopScorers from "../football/_components/topScorers";
 
 /** 球队基础信息 */
 export interface TeamBasicInfo {
@@ -41,15 +41,24 @@ export interface TeamRecentMatches {
   teamId: string;
   matches: MatchCanvasPoint[];      // 近期比赛列表
 }
-export interface IFTopScorers{
-    logo: string;
-    name: string;
-    rank: number; // ✅ 射手榜名次
-    goal: number;
-    isPenalty?: boolean;	//true 表示这个进球是通过点球（penalty）获得的
+// export interface IFTopScorers{
+//     logo: string;
+//     name: string;
+//     rank: number; // ✅ 射手榜名次
+//     goal: number;
+//     isPenalty?: boolean;	//true 表示这个进球是通过点球（penalty）获得的
+//   };
 
-   
-  };
+  export interface PlayerStatItem {
+  playerId: string;      // 球员 ID
+  name: string;          // 球员名字
+  logo: string;     // 头像 URL
+  goals: number;         // 进球数
+  penaltyGoals?: number; // 点球数（可选）
+  rank: number;          // 排名，用于展示钥匙图标
+}
+
+
 /** 球队赛程及 MVP/最佳射手 信息 */
 export interface MatchSchedule {
   matchId: string;             // 比赛唯一标识 ID
@@ -69,7 +78,7 @@ export interface MatchSchedule {
     nationality_logo: string;      // MVP 国籍
     marketValue: string;      // 市值，例如 "50.0k€"
   };
-  topScorers?: IFTopScorers[]
+  topScorers?: PlayerStatItem[]
 }
 /**未来赛程及 MVP 球员信息； */
 export interface TeamSchedule {

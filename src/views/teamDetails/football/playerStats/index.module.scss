@@ -1,0 +1,52 @@
+@use "@/assets/styles/utils" as *;
+
+.PlayerStats {
+  width: 100%;
+ 
+.top{
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   @include bg(var(--color-fff));
+   .SelectorFilterComp{
+    height: initial;
+    @include my(10);
+   }
+  .SelectorFilterComp:first-child{
+    border-right: solid 1px #eee;
+  }
+}
+}
+.content{
+  .classNameItem{
+  @include h(33);
+  }
+}
+.classPlayerLogo{
+  @include w(30);
+   @include h(30);
+}
+.classPlayerName{
+  @include font-size(14);
+}
+.bgWhite{
+  @include h(43);
+  @include color(var(--color-999));
+  @include bg(var(--color-fff));
+}
+
+.IComp_yellow{
+  // @include color(var(--color-ffb53e));
+  color: #ffb53e;
+  @include font-size(18);
+}
+.IComp_red{
+   @include font-size(18);
+  color: #e72d34;
+}
+.classParentName{
+  @include display(flex);
+  @include flex-direction(row-reverse);
+}
+.classNameName{
+  @include color(var(--color-0f80da));
+}

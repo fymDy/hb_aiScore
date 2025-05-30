@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import {
   TeamSchedule,
   MatchSchedule,
-  IFTopScorers,
+  PlayerStatItem,
 } from "@/views/teamDetails/_types";
 
 import PlayerComp from "@/components/PlayerComp";
@@ -13,31 +13,37 @@ import { EnumIconFontType } from "@/enum/enumIconFontType";
 import cs from "classnames";
 
 const TopScorers: React.FC<{
-  data: TeamSchedule;
-}> = ({ data }) => {
-  const schedulesData: MatchSchedule = useMemo(() => {
-    return data?.schedules?.[0] ?? [];
-  }, [data]);
+  title:string,
+  data: PlayerStatItem[];
+  isMore?:boolean
+  classNameItem?:string
+     classPlayerLogo?: string;
+    classPlayerName?: string;
+}> = ({ title,data ,classNameItem,isMore,classPlayerLogo,classPlayerName}) => {
+
 
   return (
     <div className={styles.TopScorers}>
-      <TitleMore title={"最佳射手"} isMore={true} />
+      <TitleMore title={title} isMore={isMore} />
       <div className={styles.content}>
-        {schedulesData.topScorers?.map((item: IFTopScorers, i: number) => (
-          <div key={i} className={styles.item}>
+        {data?.map((item: PlayerStatItem, i: number) => (
+          <div key={i} className={cs(classNameItem,styles.item)}>
+    
             <IconFont
               className={cs(
                 styles.rank,
                 styles[`f${item.rank}`],
-                EnumIconFontType.icongoals1
+                i<3 ?  EnumIconFontType.icongoals1:''
               )}
             />
             <PlayerComp
               className={styles.PlayerTeamComp_Wrap}
               logo={item?.logo}
               name={item?.name}
+              classPlayerLogo={classPlayerLogo}
+              classPlayerName={classPlayerName}
             />
-            <span className={styles.goal}>{item?.goal}</span>
+            <span className={styles.goal}>{item?.goals}</span>
           </div>
         ))}
       </div>

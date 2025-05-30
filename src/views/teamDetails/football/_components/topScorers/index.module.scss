@@ -13,6 +13,7 @@
     @include flex-between;
   }
   .rank {
+    @include w(20);
     @include font-size(20);
     @include mr(5);
   }

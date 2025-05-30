@@ -18,8 +18,8 @@
   @include display(inline-flex);
 }
 /// 设置 flex 方向为列方向（column）
-@mixin flex-direction {
-  flex-direction: column;
+@mixin flex-direction($dir:column) {
+  flex-direction:$dir;
 }
 /// 设置交叉轴对齐方式（align-items）
 /// @param {String} $v - 对齐方式，如 center, stretch

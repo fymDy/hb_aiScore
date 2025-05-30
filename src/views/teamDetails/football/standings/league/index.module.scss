@@ -28,6 +28,7 @@
    span{
     @include h(30);
     @include line-height(30);
+    @include text-align(center);
    }
   .P,.W,.D,.L{
     @include bg-color(rgba(var(--color-rgba-2)));

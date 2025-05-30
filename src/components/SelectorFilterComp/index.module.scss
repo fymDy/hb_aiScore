@@ -1,5 +1,5 @@
 @use '@/assets/styles/utils' as * ;
-.SeasonFilter {
+.SelectorFilterComp {
 @include flex-between;
 @include px(14);
 @include h(36);

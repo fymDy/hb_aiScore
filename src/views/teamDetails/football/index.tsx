@@ -7,6 +7,7 @@ import Match from "./match";
 import Champion from "./champion";
 import Transfer from "./transfer";
 import LineUp from "./lineUp";
+import PlayerStats from "./playerStats";
 
 const Football: React.FC<{}> = ({}) => {
   const { hashValue, state } = useLocationPlus();
@@ -17,6 +18,7 @@ const Football: React.FC<{}> = ({}) => {
       {hashValue === "standings" && <Standings />}
       {hashValue === "match" && <Match />}
       {hashValue === "lineUp" && <LineUp />}
+      {hashValue === "playerStats" && <PlayerStats />}
       {hashValue === "champion" && <Champion />}
       {hashValue === "transfer" && <Transfer />}
     </>

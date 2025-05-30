@@ -16,9 +16,9 @@ import {
   TeamStanding,
 } from "./_types";
 import Popup from "@/components/Common/Popup";
-import SeasonSelector from "./_components/SeasonSelector";
-import SeasonFilter from "./_components/SeasonFilter";
 import BtnGroup from "@/components/Common/btnGroup";
+import SelectorTypeComp from "@/components/SelectorTypeComp";
+import SelectorFilterComp from "@/components/SelectorFilterComp";
 
 const Standings: React.FC = () => {
   const [activeFilterId, setActiveFilterId] = useState<string>("all");
@@ -64,7 +64,7 @@ const Standings: React.FC = () => {
 
   return (
     <article className={styles.Standings}>
-      <SeasonFilter
+      <SelectorFilterComp
         logo={seasonData.logo}
         name={seasonData.name}
         onClick={() => setVisible(!visible)}
@@ -90,7 +90,7 @@ const Standings: React.FC = () => {
         // confirmText=""
         position="bottom" // ⬅️ 支持 top / center
       >
-        <SeasonSelector seasons={seasons} onSelect={handleSelect} />
+        <SelectorTypeComp data={seasons} onSelect={handleSelect} />
       </Popup>
     </article>
   );
