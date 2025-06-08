@@ -9,6 +9,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'), // 默认 @ 指向 src 目录
     },
   },
+  
   // build: {
   //   sourcemap: 'inline',
   // },

@@ -92,7 +92,8 @@ async function generateRoutes(dirPath, basePath) {
     || (basePath === '/' ? `${path.basename(dirPath)}` : path.join(basePath, path.basename(dirPath)));
 
     // 计算组件相对于 VIEWS_DIR 的路径
-    const componentPath = path.relative(VIEWS_DIR, path.join(dirPath, 'index.tsx')).replace(/\\/g, '/');
+    const componentPath = path.relative(VIEWS_DIR, path.join(dirPath, 'index')).replace(/\\/g, '/');
+ 
     const route = {
       name: currentConfig[0].name || path.basename(dirPath),
       path: currentConfig[0].path || currentConfig[0].name || path.basename(dirPath),

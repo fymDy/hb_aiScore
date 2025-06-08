@@ -2,7 +2,6 @@ import React from 'react';
 import CheckboxComp from '@/components/CheckboxComp';
 import styles from './index.module.scss';
 import OddsTable, { OddsData } from '../oddsTable';
-import PageFilter from '@/views/home/_components/pageFilter';
 import OddsType from '../oddsType';
 import BtnGroup from '@/components/Common/btnGroup';
 import { IFSearchResult } from '@/views/home/interface';
