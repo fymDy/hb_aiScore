@@ -7,11 +7,12 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "serve -s dist -l 8000",
-    "start": "concurrently \"npm run watch-routes\" \"npm run dev\"",
+    "start": "concurrently \"npm run watch-routes\" \"npm run generateLazyMap\" \"npm run sprite\" \"npm run dev\"",
     "watch-routes": "node ./scripts/watch-routes-config.js",
     "createRouter": "node scripts/create-router.js ",
     "delRouter": "node scripts/delete-router.js  ",
     "generateRoutes": "node scripts/generate-routes.js",
+    "generateLazyMap": "node scripts/generate-LazyMap.js",
     "sprite": "node scripts/generate-sprite.js  "
   },
   "dependencies": {
@@ -49,6 +50,7 @@
     "inquirer": "^12.5.0",
     "jsdom": "^26.0.0",
     "postcss-pxtorem": "^6.1.0",
+    "rollup-plugin-visualizer": "^6.0.3",
     "sass": "^1.86.0",
     "sharp": "^0.33.5",
     "spritesmith": "^3.5.1",
