@@ -252,7 +252,7 @@ const Home = () => {
       //
       onSelectBall(tabItem?.id )
     }else{
-      navigatePlus(tabItem?.path);
+      navigatePlus(tabItem?.path ?? -1);
     };
   }, []);
 
@@ -276,7 +276,7 @@ const Home = () => {
       setClickBtnSearch(false);
       setClickBtnAllBall(false);
       recalcHeaderHeight(); // ✅ 手动触发测量
-      navigatePlus(item?.path);
+      navigatePlus(item?.path ?? -1);
     }
    
   
@@ -312,7 +312,7 @@ const Home = () => {
         (item) => item.id == id
       )?.[0];
       recalcHeaderHeight(); // ✅ 手动触发测量
-      setActiveIconClass(objSelectedBall.iconClass);
+      setActiveIconClass(objSelectedBall.iconClass ?? '');
       setClickBtnAllBall(false);
     }else{
       const selectedThird: IFTab = changeBallDatas[3];

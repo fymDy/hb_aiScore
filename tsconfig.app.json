@@ -22,10 +22,11 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false, // <-- 仅关闭这个，允许未使用的局部变量
+    "noUnusedParameters": false,// <-- 如果需要，也关闭未使用的参数
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+// ,"./src/**/*.ts", "src/assets/images/sprite.js"
   "include": ["src"]
 }

@@ -1,12 +1,14 @@
 /*
  * @Author: Mark
  * @Date: 2025-04-22 17:41:35
- * @LastEditTime: 2025-04-23 11:56:51
+ * @LastEditTime: 2025-06-08 13:39:17
  * @LastEditors: MarkMark
  * @Description: 佛祖保佑无bug
  * @FilePath: /hb_aiScore/src/types/navigation.d.ts
  */
 import { To } from 'react-router-dom';
+import { RouterPathUtil } from "@/router/routerPathUtil";
+
  type QueryValue = string | number | boolean | undefined | null;
 /**
  * NavigateOptions 原始参数6个如下：
@@ -27,7 +29,8 @@ export interface IFNavigateOptionsPlus extends Omit<NavigateOptions, 'relative'>
   }
 
   export type NavigatePlusFn = (
-    to: To | number,
+    // to: To | number,
+    to:RouterPathUtil | number | string,
     options?: IFNavigateOptionsPlus & { state?: any }
   ) => void;
 

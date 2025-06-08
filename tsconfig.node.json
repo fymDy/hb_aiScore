@@ -8,25 +8,21 @@
     "target": "ES2022",
     "lib": ["ES2023"],
     "module": "ESNext",
-    // "module": "CommonJS", // 更改为 CommonJS
     "skipLibCheck": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
-    // "moduleResolution": "Node", // 更改为 Node
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    // "noEmit": false, // 更改为 false
-
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": true,//未使用的局部变量
+    "noUnusedParameters": true,//未使用的参数
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.mts","./src/**/*.ts", "src/assets/images/sprite.js" ], 
-  "exclude": ["node_modules"]
+  "include": ["vite.config.mts",
+  "scripts/**/*.js" // 包含与 src 同级的 scripts 目录下的所有 .js 文件
+], 
+  "exclude": ["node_modules","src"]
 }
