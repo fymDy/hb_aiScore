@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
    build: {
-    sourcemap: isDev
+   sourcemap: isDev
       ? 'inline'      // 开发环境：直接内联到 JS 里，方便调试
       : isProd
         ? false       // 生产环境：关闭 sourcemap，避免泄露源码
@@ -45,6 +45,5 @@ export default defineConfig({
           if (id.includes('node_modules')) return 'vendor';
         }
       }
-    }
-  }
+    }}
 })
